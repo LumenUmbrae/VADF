@@ -25,7 +25,77 @@
 	\noindent \textbf{3.} Bestimmen Sie aus der Differenzenvorschrift (1.10) die Matrix $\tilde{\textbf{C}}\textbf{C}$ für einen 1D-Resonator mit $5$~Stützstellen für den Fall elektrischer bzw. magnetischer Randbedingungen an beiden Rändern (siehe Abb.~1.3,~Gl.~(1.15)~und~Gl.~(1.16)).\label{exer:matrixCC}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Nach (1.10) aus dem Skript ist der Differenzenquotient vierter Ordnung gegeben durch
+\begin{equation}
+	\label{eq:DQ40}
+	f^{(2)}(x_i)=\frac{16(f(x_{i+1})+f(x_{i-1}))-(f(x_{i+2})+f(x_{i-2}))-30f(x_i)}{12\Delta x^2}+\mathcal{O}(\Delta x^2).
+\end{equation}
+Betrachtet man weiterhin die eindimensionale Wellengleichung
+\begin{equation*}
+	\frac{d^2\underline{E}_y}{dx^2}=-k^2_x\underline{E}_y
+\end{equation*}
+kann man nun den Differenzenquotienten aus (\ref{eq:DQ40}) in diese Gleichung einsetzten. Dazu werden die Funktionswerte in einen Vektor $\mathbf{e}$ geschrieben. Die Koeffizienten der Funktionswerte aus (\ref{eq:DQ40}) werden in der Matrix $\mathbf{\widetilde{C}C}$ gesammelt, sodass sich folgende Diskretisierung des Problems ergibt:
+\begin{equation}
+	\label{eq:cc}
+	\frac{1}{12}\mathbf{\widetilde{C}Ce}=-\Delta x^2k^2_x\mathbf{e}
+\end{equation}
+mit
+\begin{eqnarray*}
+\mathbf{e}&=&\left(\begin{array}{c} \vdots\\ f(x_{i-1})\\ f(x_i) \\ f(x_{i+1})\\
+ \vdots\\\end{array}\right)\\
+ \noindent
+\mathbf{\widetilde{C}C}&=&\begin{pmatrix} -30 & 16 & -1 & 0 & 0 & 0 & \dots \\ 
+16 & -30 & 16 & -1 & 0 & 0 & \dots\\ 
+-1 & 16 & -30 & 16 & -1 & 0 & \dots\\ 
+0 & -1 & 16 & -30 & 16 & -1 & \ddots\\ 
+\vdots & \ddots & \ddots & \ddots & \ddots & \ddots & \ddots\\
+\vdots & \vdots & \ddots & -1 & 16 & -30 & 16\\
+\vdots & \vdots & \vdots & 0 & -1 & 16 & -30\\
+\end{pmatrix}
+\end{eqnarray*}
+Die Matrix $\mathbf{\widetilde{C}C}$ beinhaltet aber noch keine Randbedingungen. Wir können zwei unterschiedliche Arten von Randbedingungen ansetzen. Einmal elektrische Randbedingungen und einmal magnetische Randbedingungen. Bei elektrischen Randbedingungen gilt eine ungerade Symmetrie, das heißt, dass wenn sich $f(x_0)$ am Rand befindet $(f(x_{-1})=-f(x_{1}))$ gilt. Bei magnetischen Randbedingungen gilt im Gegensatz dazu eine gerade Symmetrie mit $(f(x_{-1})=f(x_{1}))$. Will man nun die Randbedingungen einpflegen, so muss man jeweils die ersten und letzten beiden Zeilen anpassen.\\
+Für elektrische Randbedingungen in den ersten beiden Zeilen gilt folgendes:
+\begin{eqnarray*}
+-\frac{1}{12}f(x_{-2})+\frac{16}{12}f(x_{-1})-\frac{30}{12}f(x_0)+\frac{16}{12}f(x_{1})-\frac{1}{12}f(x_{2})&=&-\Delta x^2k^2_xf(x_0)\\
+-\frac{30}{12}f(x_0)&\stackrel{ung. Symm.}{=}&-\Delta x^2k^2_xf(x_0)\\
+\\
+\\
+-\frac{1}{12}f(x_{-1})+\frac{16}{12}f(x_{0})-\frac{30}{12}f(x_1)+\frac{16}{12}f(x_{2})-\frac{1}{12}f(x_{3})&=&-\Delta x^2k^2_xf(x_1)\\
+\frac{16}{12}f(x_{0})-\frac{29}{12}f(x_1)+\frac{16}{12}f(x_{2})-\frac{1}{12}f(x_{3})&\stackrel{ung. Symm.}{=}&-\Delta x^2k^2_xf(x_1)\\
+\end{eqnarray*}
+Bei magnetischen Randbedingungen gilt dagegen:
+\begin{eqnarray*}
+	-\frac{1}{12}f(x_{-2})+\frac{16}{12}f(x_{-1})-\frac{30}{12}f(x_0)+\frac{16}{12}f(x_{1})-\frac{1}{12}f(x_{2})&=&-\Delta x^2k^2_xf(x_0)\\
+	-\frac{30}{12}f(x_0+\frac{32}{12}f(x_{1})-\frac{2}{12}f(x_{2}))&\stackrel{g. Symm.}{=}&-\Delta x^2k^2_xf(x_0)\\
+	\\
+	\\
+	-\frac{1}{12}f(x_{-1})+\frac{16}{12}f(x_{0})-\frac{30}{12}f(x_1)+\frac{16}{12}f(x_{2})-\frac{1}{12}f(x_{3})&=&-\Delta x^2k^2_xf(x_1)\\
+	\frac{16}{12}f(x_{0})-\frac{31}{12}f(x_1)+\frac{16}{12}f(x_{2})-\frac{1}{12}f(x_{3})&\stackrel{g. Symm.}{=}&-\Delta x^2k^2_xf(x_1)\\
+\end{eqnarray*}
+Das Ganze gilt analog für die letzten Beiden Zeilen der $\mathbf{\widetilde{C}C}$-Matrix, jedoch gespiegelt für den rechten Rand.
+Damit lassen sich die Matrizen für elektrische bzw. magnetische Randbedingungen aufstellen:
+\begin{eqnarray*}
+\mathbf{\widetilde{C}C}_{elek}&=&\begin{pmatrix} -30 & 0 & 0 & 0 & 0 & 0 & \dots \\ 
+16 & -29 & 16 & -1 & 0 & 0 & \dots\\ 
+-1 & 16 & -30 & 16 & -1 & 0 & \dots\\ 
+0 & -1 & 16 & -30 & 16 & -1 & \ddots\\ 
+\vdots & \ddots & \ddots & \ddots & \ddots & \ddots & \ddots\\
+\vdots & \vdots & \ddots & -1 & 16 & -29 & 16\\
+\vdots & \vdots & \vdots & 0 & 0 & 0 & -30\\
+\end{pmatrix}
+\\
+\\
+\\
+\\
+\mathbf{\widetilde{C}C}_{magn}&=&\begin{pmatrix} -30 & 32 & -2 & 0 & 0 & 0 & \dots \\ 
+	16 & -31 & 16 & -1 & 0 & 0 & \dots\\ 
+	-1 & 16 & -30 & 16 & -1 & 0 & \dots\\ 
+	0 & -1 & 16 & -30 & 16 & -1 & \ddots\\ 
+	\vdots & \ddots & \ddots & \ddots & \ddots & \ddots & \ddots\\
+	\vdots & \vdots & \ddots & -1 & 16 & -31 & 16\\
+	\vdots & \vdots & \vdots & 0 & -2 & 32 & -30\\
+\end{pmatrix}
+\end{eqnarray*}
 
 % --> Aufgabe
     \begin{framed}
@@ -34,8 +104,17 @@
     wenn der Differenzenquotient nach Gl.~(1.9) bzw. Gl.~(1.10) verwendet wird.
     Wie müssen Sie ein entsprechendes Diagramm (Abbruchfehler vs. Anzahl der Stützstellen) skalieren, um einen geradlinigen Verlauf zu erhalten?\label{exer:failureTerm}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+Ergänzt man (\ref{eq:cc}) mit dem Fehler $\mathcal{O}(\Delta x^2)$ so erhält man
+	\begin{equation}
+	\frac{1}{12\Delta x^2}\mathbf{\widetilde{C}Ce}+k^2_x\mathbf{e}+\mathcal{O}(\Delta x^4)=0
+	\end{equation}
+Der Fehler dieser Gleichung liegt also in der Ordnung $\mathcal{O}(\Delta x^4)$. Mit $\Delta x=\frac{L}{n-1}$, wobei L die Länge des Rechengebietes und n die Anzahl der Stützstellen ist. Damit kann man die Ordnung ganz einfach in Abhängigkeit der Stückstellenanzahl schreiben. $\mathcal{O}(\frac{1}{(n-1)^4})$ ist hierbei nicht von L anhängig, da dies nur eine Konstante darstellt.\\
+Diese Rechnung beschreibt das Vorgehen mit dem in (\ref{eq:DQ40}) gezeigt Differenzenquotient vierter Ordnung. Das Ganze funktioniert analog mit dem Differenzenquotieten zweiter Ordnung
+\begin{equation*}
+f^{(2)}(x_i)=\frac{f(x_{i+1})+f(x_{i-1})-2f(x_i)}{\Delta x^2}+\mathcal{O}(\Delta x^2)
+\end{equation*}
+wobei sich hier dann die Ordnung $\mathcal{O}(\frac{1}{(n-1)^2})$ ergibt.\\
+Will man einen gradlinigen Verlauf des Fehlers erhalten, so sollte man ihn doppel-logarithmisch plotten, weil dadurch der Exponent des Terms $(n-1)$ nur als einfacher Faktor berücksichtigt wird.
 
 % --> Aufgabe
     \begin{framed}
@@ -45,7 +124,35 @@
     Geben Sie bei einer numerischen Berechnung eine Formel für den relativen Wellenzahlfehler $\Delta k_{x}$ an.\label{exer:kxAnalytic}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Zur Bestimmung der Wellenzahlen $k_{x,\,\text{ana}}$ betrachten wir wieder 
+	\begin{equation*}
+	\frac{\text{d}\underline{E}_y}{\text{d}x^2}+k^2_x\underline{E}_y=0.
+	\end{equation*}
+	Zur Lösung dieser gewöhnlichen Differentialgleichung 2. Ordnung wählt man den Ansatz
+	\begin{equation}
+	\label{eq:ansatz}
+	\underline{E}_y=c_1 \text{cos}(k_xx)+c_2 \text{sin}(k_xx)
+	\end{equation}
+	Im Fall beidseitiger elektrischer Randbedingungen ergeben sich folgende Randbedingungen für $\underline{E}_y$:
+	\begin{eqnarray*}
+	(\text{I}) \ \ \ \underline{E}_y(0)&=&0\\
+	(\text{II}) \ \ \ \underline{E}_y(L)&=&0\\
+	\end{eqnarray*}
+	Mit (I) und (\ref{eq:ansatz}) folgt direkt $c_1=0$. Mit (II) und (\ref{eq:ansatz}) folgt $c_2$sin$(k_xL)=0$. Damit dies erfüllt wird muss $k_x=\frac{n\pi}{L}$ mit $n \in\mathbb{Z}$ gelten. Mit $c_2=0$ wäre die triviale Nulllösung erreicht. Die kleinste Wellenzahl ist damit $k_x=0$.\\
+	\\
+	Im Fall, das eine Seite eine elektrische und eine Seite eine magnetische Randbedingung besitzt, sehen die Randbedingungen folgendermaßen aus:
+	\begin{eqnarray*}
+		(\text{I}) \ \ \ \underline{E}_y(0)&=&0\\
+		(\text{II}) \ \ \ \underline{H}_x(L)&=&0\\
+	\end{eqnarray*}
+	Für (II) kann man die 1. Maxwell'sche Gleichung im Frequenzbereich $\text{rot}\underline{E}_y=-j\omega\mu \underline{H}_x$ verwenden. Da die Rotation im eindimensionalen nur eine einfach Ableitung beschreibt, kann man $\frac{\text{d}\underline{E}_y}{\text{d}x}\propto\underline{H}_x$ schreiben. Damit folgt aus (II)
+	\begin{equation*}
+	(\text{III}) \ \ \ \frac{\text{d}\underline{E}_y(L)}{\text{d}x}=0\\.
+	\end{equation*}
+	Verwendet man nun wieder (\ref{eq:ansatz}) und (I) ergibt sich $c_1=0$. Mit (III) und (\ref{eq:ansatz}) ergibt sich $c_2k_x\text{cos}(k_xL)=0$ mit $n \in\mathbb{Z}$. Damit dies erfüllt wird muss $k_x=\frac{\pi}{L}(\frac{n}{2}+1)$ gelten. $c_2=0$ wäre die triviale Lösung. Die kleinste Wellenzahl ist damit $k_X=0$.
+
+
+
 
 % --> Aufgabe
     \begin{framed}
