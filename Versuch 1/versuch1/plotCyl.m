@@ -14,13 +14,13 @@ h=1;
 r=1;
 
 % Berechnung von delta phi
-dphi=2*pi/nd
+dphi=2*pi/nd;
 
 % Bestimmung der Arrays für die X, Y, Z Koordinate, 
 % jeweils 3 Zeilen (Punkt 1, 2, 3 des Dreiecks) 
 % und nd Spalten (Anzahl der Dreiecke)
 % und das für die vier Dreiecke Deckel, Boden, Mantel 1, Mantel 2
-XDeckel = zeros(3, nd)
+XDeckel = zeros(3, nd);
 YDeckel = zeros(3, nd);
 ZDeckel = zeros(3, nd);
 XBoden = zeros(3, nd);
@@ -56,10 +56,10 @@ end
 % Plotten und Speichern der Dreiecke mithilfe von Patch
 figure(1)
 
-patch(XBoden,YBoden,ZBoden,zeros(3,nd))
-patch(XDeckel,YDeckel,ZDeckel,zeros(3,nd))
-patch(XMantel1,YMantel1,ZMantel1,zeros(3,nd))
-patch(XMantel2,YMantel2,ZMantel2,zeros(3,nd))
+patch(XBoden,YBoden,ZBoden,zeros(3,nd));
+patch(XDeckel,YDeckel,ZDeckel,zeros(3,nd));
+patch(XMantel1,YMantel1,ZMantel1,zeros(3,nd));
+patch(XMantel2,YMantel2,ZMantel2,zeros(3,nd));
 
 view([1,-1,0.5])    
 xlabel('x')

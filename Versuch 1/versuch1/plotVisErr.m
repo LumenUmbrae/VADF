@@ -8,7 +8,7 @@
 %               in plotVisErrloglog.pdf)
 
 % Parameter setzen
-nmax=100000;
+nmax=100000;   %100000
 r=1;
 h=5;
 
@@ -42,11 +42,18 @@ figure(1)
     
     
 % nd für Fehler kleiner als 10^(-5) finden
+%Marc 
+%for i=1:columns(nd)
+%  if (volumenFehler(i)<10^-5)
+%    Dreiecke=i+2
+%    break;
+%  endif
+%endfor
 for i=1:columns(nd)
-  if (volumenFehler(i)<10^-5)
-    Dreiecke=i+2
+  if oberflaechenFehler(i)<10^(-5) && volumenFehler(i)<10^(-5)
+    Dreiecke = i+2
     break;
-  endif
+    endif
 endfor
 
 

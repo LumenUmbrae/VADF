@@ -11,7 +11,7 @@
 
 function [xdata, ydata, zdata, normal, stlname] = read_stl(file)
 
-    fid = fopen(zylinder.stl);
+    fid = fopen(file);
     if fid == -1
         error('open file failed')
     end
