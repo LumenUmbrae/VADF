@@ -30,12 +30,25 @@
 %\usepackage[framed, numbered]{mcode}            % to properly format matlab code when using a listing (there is a problem with the \chapter command)
 %\let\ifnumbered\zz{}                            % END fixes a problem of compatibility of mcode with \chapter command from koma script
 %\usepackage[pdftex,bookmarks=true]{hyperref}    % enables hyperlinks inside the document (e.g. for the table of contents to jump to chapters directly)
+\usepackage{listings} 
+\lstset {numbers = left, numberstyle = \tiny, 
+	emph = {abs, addpath, angle, ceil, clc, clear, conj, cos, diff, 
+		end, else, elseif, erfc, error, exp, fclose, fft, fftshift, 
+		fopen, flipdim, fliplr, floor, for, fprintf, function, hold, 
+		if, ifft, imag, interp1, length, linspace, log10, log2, max, 
+		mean, min, num2str, ones, pause, plot, pi, prod, pwelch, rand, 
+		randn, real, rem, reshape, roots, round, save, sin, size, sqrt, 
+		sum, tic, toc, unwrap, var, while, zeros}, 
+	emphstyle = \bfseries, 
+	morecomment = [l] [\itshape] {\%}, 
+	morecomment = [l] [\slshape] {disp}, 
+} 
 
 \begin{document}
 
     \title{Ausarbeitung zum Softwarepraktikum Verfahren und Anwendung der
     Feldsimulation}
-    \subtitle{Author 1 \\ Author 2 \\ Author 3}
+    \subtitle{Denis Andric \\ Marc Bodem \\ Theodor Sperling}
     \maketitle
 
     \tableofcontents

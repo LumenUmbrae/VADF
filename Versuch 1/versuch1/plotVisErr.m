@@ -1,9 +1,9 @@
 %Skript zur Darstellung der Diskretisierungsfehler eines Zylinders.
 %
 %   Eingabe
-%   nmax        Maximale Stützstellenanzahl
+%   nmax        Maximale Stuetzstellenanzahl
 %
-%   Rückgabe
+%   Rueckgabe
 %   figure(1)   Plot Fehler doppelt-logarithmisch (wird abgespeichert 
 %               in plotVisErrloglog.pdf)
 
@@ -15,25 +15,25 @@ h=5;
 % Vektor mit verschiedener Anzahl von Dreicken
 nd=3:nmax;
 
-% Berechnung von diskreter Oberfläche und Volumen 
+% Berechnung von diskreter Oberflaeche und Volumen 
  oberflaecheDiskrete = 2.*nd.*r.*(1/2.*r.*sin(2.*pi./nd).+sin(pi./nd).*h);
  volumenDiskrete = 1/2.*r.^2.*sin(2.*pi./nd).*nd.*h;
 
-% Berechnung von analytischer Oberfläche und Volumen 
+% Berechnung von analytischer Oberflaeche und Volumen 
  oberflaecheAnalytisch = 2.*pi.*r.*(r.+h);
  volumenAnalytisch = pi.*r.^2.*h;
 
-% Berechnung von Oberflächen- und Volumenfehler
+% Berechnung von Oberflaechen- und Volumenfehler
  oberflaechenFehler = abs(oberflaecheDiskrete-oberflaecheAnalytisch);
  volumenFehler = abs(volumenDiskrete-volumenAnalytisch);
 
 
-% Plotten der beiden Fehler über nd
+% Plotten der beiden Fehler ueber nd
 figure(1)
     loglog(nd,oberflaechenFehler,nd,volumenFehler)
-    xlabel('Anzahl Dreiecke Deckelfläche')
+    xlabel('Anzahl Dreiecke Deckelflaeche')
     ylabel('relativer Fehler')
-    legend({'Oberflächenfehler',...
+    legend({'Oberflaechenfehler',...
             'Volumenfehler'},...
             'Location','Northeast')
     set(1,'papersize',[12,9])
@@ -41,7 +41,7 @@ figure(1)
     print -dpdf plotVisErrloglog.pdf
     
     
-% nd für Fehler kleiner als 10^(-5) finden
+% nd fuer Fehler kleiner als 10^(-5) finden
 %Marc 
 %for i=1:columns(nd)
 %  if (volumenFehler(i)<10^-5)

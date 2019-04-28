@@ -1,11 +1,11 @@
-%Skript für die Visualisierung eines diskretisierten Zylinders.
+% Skript fuer die Visualisierung eines diskretisierten Zylinders.
 %
 %   Eingabe
-%   nd          Anzahl Dreiecksflächen je Deckel
-%   h           Höhe des Zylinders
+%   nd          Anzahl Dreiecksflaechen je Deckel
+%   h           Hoehe des Zylinders
 %   r           Radius des Zylinders
 %
-%   Rückgabe
+%   Rueckgabe
 %   figure(1)   Plot Zylinder (wird abgespeichert in cyl.pdf)
 
 % Parameter setzen
@@ -16,10 +16,10 @@ r=1;
 % Berechnung von delta phi
 dphi=2*pi/nd;
 
-% Bestimmung der Arrays für die X, Y, Z Koordinate, 
+% Bestimmung der Arrays fuer die X, Y, Z Koordinate, 
 % jeweils 3 Zeilen (Punkt 1, 2, 3 des Dreiecks) 
 % und nd Spalten (Anzahl der Dreiecke)
-% und das für die vier Dreiecke Deckel, Boden, Mantel 1, Mantel 2
+% und das fuer die vier Dreiecke Deckel, Boden, Mantel 1, Mantel 2
 XDeckel = zeros(3, nd);
 YDeckel = zeros(3, nd);
 ZDeckel = zeros(3, nd);
