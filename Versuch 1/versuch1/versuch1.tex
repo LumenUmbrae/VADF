@@ -257,7 +257,12 @@ Orthogonalität der Eigenvektoren bedeutet ...
         Berechnen Sie den Speicherplatz, der zur Speicherung des oben abgebildeten, diskretisierten Zylinders im STL-Format notwendig ist, als Funktion der Anzahl der Dreiecke $n_\mathrm{D}$ (Normalenvektoren müssen auch berücksichtigt werden). Beachten Sie hierbei lediglich die notwendige Anzahl der \lstinline{double}-Zahlen, wobei eine \lstinline{double}-Zahl \SI{8}{Byte} benötigt.\label{exer:requiredStorage}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+In einer STL Format ist jeder Dreieck mit 3 Punkte und Normalenvektor beschrieben. Jeder Punkt und Normalenvektor hat 3 Koordinaten. Dazu hat Zylinder 4 $n_\text{D}$ Dreiecke.\\
+Damit kann man benötigte Speicherplatz bestimmen:
+ 	\begin{eqnarray*}
+ 		\text{Speicher}(n_\mathrm{D})&=&4n_\mathrm{D}(3\text{ Punkte + Normalenvektor})\cdot 8\text{ Bytes}\\
+ 		&=&384n_\mathrm{D} \text{ Bytes}
+ 	\end{eqnarray*}
 
 % --> Aufgabe
     \begin{framed}
@@ -281,9 +286,16 @@ Orthogonalität der Eigenvektoren bedeutet ...
           Berechnen Sie die minimale Anzahl an Dreiecken zur Erfüllung dieser Forderung.\label{exer:smoothArea}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+	Dieser Forderung rechnet man mit schon bekannten Formel aus \ref{exer:pseudocodeCylinder}:
+		$$\Delta \varphi = \frac{360^\circ}{n_\text{D}}$$
+	Realisierung der Forderung:
+	\begin{eqnarray*}
+		5^{\circ} &\geq& \frac{360^\circ}{n_\text{D}}\\
+		\\
+		n_\text{D} &\geq& 72
+	\end{eqnarray*}
 
-
+	Es ist minimal 72 Dreiecke benötigt.
 
 \section{Aufgaben während der Praktikumssitzung}
 {\subsection{Differenzenverfahren}}
