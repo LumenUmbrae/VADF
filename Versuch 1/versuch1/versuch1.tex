@@ -260,7 +260,7 @@ Orthogonalität der Eigenvektoren bedeutet ...
 In einer STL Format ist jeder Dreieck mit 3 Punkte und Normalenvektor beschrieben. Jeder Punkt und Normalenvektor hat 3 Koordinaten. Dazu hat Zylinder 4 $n_\text{D}$ Dreiecke.\\
 Damit kann man benötigte Speicherplatz bestimmen:
  	\begin{eqnarray*}
- 		\text{Speicher}(n_\mathrm{D})&=&4n_\mathrm{D}(3\text{ Punkte + Normalenvektor})\cdot 8\text{ Bytes}\\
+ 		\text{Speicher}(n_\mathrm{D})&=&4n_\mathrm{D}(3\text{ Punkte + Normalenvektor})\cdot 3 \text{ Koordinaten.}\cdot 8\text{ Bytes}\\
  		&=&384n_\mathrm{D} \text{ Bytes}
  	\end{eqnarray*}
 
@@ -275,8 +275,32 @@ Damit kann man benötigte Speicherplatz bestimmen:
         Bei welchen Körpern wäre eine solche Oberflächendiskretisierung mit Dreiecken exakt?\label{exer:deltaAdeltaV}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+Ein Dreieck der Deckfläche ist ein gleichschenkliges Dreieck. Um die Fläche des gleichschenkliges Dreieck zu bestimmen, soll man es mithilfe der Höhe  $h_\text{D}$ auf zwei rechtwinklige Dreiecke teilen. Fläche der rechtwinkliger Dreieck rechnet man als Multiplikation zweier Katheten geteilt durch 2. Damit bekommt man die Formel: 
+$$ A_\text{D} = 2 \left[\frac12 a_\text{D} h_\text{D}\right]$$
+Mit der Pythagoras Formel rechnet man  $h_\text{D}$ und $a_\text{D}$ aus:
+\begin{eqnarray*}
+	a_\text{D}&=&r \sin\left(\frac{\Delta \varphi}{2}\right)\\
+	\\
+	h_\text{D}&=&r \cos\left(\frac{\Delta \varphi}{2}\right)
+\end{eqnarray*}
+Jetzt setzt man alles zusammen:
+ $$A_\text{D} = 2 \left[ \frac12 \cdot r \cos\left(\frac{\Delta \varphi}{2}\right)\cdot r \sin\left(\frac{\Delta \varphi}{2}\right)  \right]$$
+ Mithilfe der Sinusdoppelwinkelformel
+ $$  \sin(\Delta\varphi)=2 \cos\left(\frac{\Delta \varphi}{2}\right) \sin\left(\frac{\Delta \varphi}{2}\right)  $$
+ kann man der Formel noch vereinfachen auf:
+  $$A_\text{D} =  \frac12 r^2 \sin(\Delta\varphi)$$
+  
+  Wenn man relativen Oberflächen- und Volumenfehler bestimmen wollte, soll man Oberfläche und Volumen des wahres und diskretisiertes Zylinder ausrechnen.
+  \begin{eqnarray*}
+  	A_\text{disc}&=&2n_\text{D}r\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]\\
+  	\\
+  	V_\text{disc}&=&\frac12 n_\text{D} r^2 \sin\left(\frac{ 2\pi}{n_\text{D}}\right)h\\
+  	\\
+  	A&=&2 r \pi (r+h)\\
+  	\\
+  	V&=&r^2\pi h
+  \end{eqnarray*}
+  
 % --> Aufgabe
     \begin{framed}
 	\noindent \textbf{10.} Bei einigen Anwendungen ist es wichtig, dass die diskretisierte Fläche möglichst glatt bleibt. Ein
