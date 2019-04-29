@@ -3,11 +3,11 @@
 %Systemmatrix) und solveCC (Loesen des Eigenwertproblems).
 %
 %   Eingabe
-%   L           Abmessung/Länge des eindimensionalen Gebietes
+%   L           Abmessung/Laenge des eindimensionalen Gebietes
 %   nmax        Maximale Stuetzstelleanzahl
 %   kxind       Betrachtete Mode (Grundmode=1)
 %
-%   Rückgabe
+%   Rueckgabe
 %   figure(1)   Plot Konvergenzverhalten kx, linear (wird abgespeichert in
 %               plotConv.pdf)
 %   figure(2)   Plot Konvergenzverhalten fehler, doppelt-logarithmisch (wird
@@ -87,7 +87,7 @@ print -dpdf plotConv.pdf
 figure(2)
 
 %%%
-%%% Ich wei� nicht
+%%% Ich weiss nicht
 
 legend({'zweite Ordnung ohne Randbed.','vierte Ordnung ohne Randbed.',...
         'zweite Ordnung mit Randbed.','vierte Ordnung mit Randbed.'

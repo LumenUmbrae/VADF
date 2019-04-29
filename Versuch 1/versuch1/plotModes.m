@@ -1,5 +1,5 @@
 %Skript zur Darstellung der ersten beiden Eigenmoden. Verwendet createCC 
-%(Erstellung der Systemmatrix) und solveCC (Lösen des Eigenwertproblems).
+%(Erstellung der Systemmatrix) und solveCC (Loesen des Eigenwertproblems).
 
 % setzen der parameter n, ord, bc, L
 n=100;
@@ -12,16 +12,16 @@ L=5;
 
 % Gitterschrittweite bestimmen
   dx=L/(n-1);
-% Lösen der Eigenwertgleichung mit solveCC
+% Loesen der Eigenwertgleichung mit solveCC
   [kx, modes] = solveCC(cc, dx);
 
-% Sonderbetrachtung für magnetische Randbedingungen
+% Sonderbetrachtung fuer magnetische Randbedingungen
 if bc==2
-    % Lösche ersten Mode, denn er ist nur die statische Lösung (konstant)
+    % Loesche ersten Mode, denn er ist nur die statische Loesung (konstant)
     modes=modes(:,2);
 end
 
-% x-Koordinaten für jede Stützstelle in einen Vektor schreiben
+% x-Koordinaten fuer jede Stuetzstelle in einen Vektor schreiben
   for a=1:1:n
     xKoord(a) = -dx+a*dx;
   endfor

@@ -300,7 +300,22 @@ Jetzt setzt man alles zusammen:
   	\\
   	V&=&r^2\pi h
   \end{eqnarray*}
-  
+  Formel für absolute Fehler lautet:\\
+  $$\Delta X = X- X_\text{disc}$$
+  Damit bekommt man:
+  \begin{eqnarray*}
+  	\Delta A&=&2 r \pi (r+h) -2n_\text{D}r\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]\\
+  	\\
+  	\Delta V&=&r^2\pi h -\frac12 n_\text{D} r^2 \sin\left(\frac{ 2\pi}{n_\text{D}}\right)h\\
+  \end{eqnarray*}
+	relative Fehler bekommt man mit der Formel:
+  	$$\varepsilon_{x}=\frac{\Delta X}{X}$$
+  	Damit bekommt man:
+  	\begin{eqnarray*}
+  	\varepsilon_{A}&=&\frac{ \pi (r+h) -n_\text{D}\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]}{\pi (r+h)}\\
+  	\\
+  	\varepsilon_{V}&=&\frac{\pi  -\frac12 n_\text{D}  \sin\left(\frac{ 2\pi}{n_\text{D}}\right)}{\pi}
+  \end{eqnarray*}
 % --> Aufgabe
     \begin{framed}
 	\noindent \textbf{10.} Bei einigen Anwendungen ist es wichtig, dass die diskretisierte Fläche möglichst glatt bleibt. Ein
@@ -335,7 +350,7 @@ Jetzt setzt man alles zusammen:
                     Rückgabewert ist die $\tilde{\textbf{C}}\textbf{C}$-Matrix \lstinline{cc}. Nutzen Sie hierfür das vorgefertigte Template \lstinline{createCC.m}.\label{exer:createCC}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\lstinputlisting {createCC.m}
 
 % --> Aufgabe
         \begin{framed}
@@ -349,7 +364,7 @@ Jetzt setzt man alles zusammen:
                     Das Eigenwertproblem lässt sich durch die \matlab-Funktion \lstinline{eig} lösen, das Sortieren kann mit \lstinline{sort} erfolgen.\label{exer:solveCC}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\lstinputlisting {solveCC.m}
 
 % --> Aufgabe
         \begin{framed}
@@ -359,7 +374,7 @@ Jetzt setzt man alles zusammen:
                     {\textbf{Hinweis:}} Wenn Sie die Eigenvektoren geschickt miteinander multiplizieren, erhalten Sie eine Matrix, in der jeder Eintrag einem Produkt zweier Eigenvektoren entspricht. Diese sich ergebene Matrix lässt sich dann bequem mit dem Befehl \verb\imagesc\ (siehe Abschnitt~1.1.3) darstellen.\label{exer:check_orth}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\lstinputlisting {check_orth.m}
 
 % --> Aufgabe
         \begin{framed}
@@ -367,7 +382,7 @@ Jetzt setzt man alles zusammen:
         Verwenden Sie \lstinline{n=100}, \lstinline{bc=1} und \lstinline{ord=4} sowie die Länge des eindimensionalen Gebietes L=\SI{5}{m}.\label{exer:plotModes}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\lstinputlisting {plotModes.m}
 
 % --> Aufgabe
         \begin{framed}
@@ -381,7 +396,7 @@ Jetzt setzt man alles zusammen:
 mit Aufgabe~\ref{exer:failureTerm} aus der Vorbereitung.  Wie verändert sich das Konvergenzverhalten, wenn keine Randbedingungen implementiert sind?\label{exer:plotConv}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\lstinputlisting {plotConv.m}
 
 
 
@@ -406,7 +421,7 @@ Bauen Sie hierzu auf der \matlab-Funktion \lstinline{patch} auf. Verwenden Sie d
 \end{framed}
 
 \lstinputlisting {plotVisErr.m}
-Um ein Fehler kleiner von $10^{-5}$ zu garantieren, braucht man 3215 Dreiecke.
+Um ein Fehler kleiner von $10^{-5}$ zu garantieren, braucht man 812 Dreiecke.
 
 % --> Aufgabe
       \begin{framed}

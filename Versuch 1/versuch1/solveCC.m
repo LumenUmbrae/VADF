@@ -1,4 +1,4 @@
-%Löst das Eigenwertproblem einer Matrix und gibt Wellenzahlen,
+%Loest das Eigenwertproblem einer Matrix und gibt Wellenzahlen,
 %berechnet aus Eigenwerten und Gitterschrittweite, und 
 %Eigenvektoren geordnet aus. Bereinigt _nicht_ von unphysikalischen Moden.
 %
@@ -6,7 +6,7 @@
 %   cc          Curl-Curl-Matrix
 %   dx          Gitterschrittwete
 %
-%   Rückgabe
+%   Rueckgabe
 %   kx          Wellenzahlen (aufsteigend)
 %   modes       Eigenmoden (geordnet entsprechend kx)
 
@@ -21,7 +21,7 @@ function [kx ,modes]=solveCC(cc, dx)
       k(i)=(sqrt(-eigenvalues(i,i)/dx));
     endfor
     
-    % Sortieren der Wellenzahlen. Sortierindex mit zurückgeben lassen !
+    % Sortieren der Wellenzahlen. Sortierindex mit zurueckgeben lassen !
     [kx,m]=sort(k);
     % Sortieren der Eigenvektoren mithilfe des Sortierindexes und damit
     eigenvectors_sort=sort(eigenvectors',m);

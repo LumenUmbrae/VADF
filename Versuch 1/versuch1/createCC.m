@@ -2,11 +2,11 @@
 %Eigenwertproblems einer eindimensionalen Wellengleichung (TE-Mode).
 %
 %   Eingabe
-%   n       Stützstellenanzahl (n>=3 für ord=2, n>=5 für ord=4)
+%   n       Stuetzstellenanzahl (n>=3 fuer ord=2, n>=5 fuer ord=4)
 %   ord     Ordnung des Verfahrens (ord=2 zweite oder ord=4 vierte Ordnung)
 %   bc      Randbedingungen (bc=0 keine, bc=1 elektrisch, bc=2 magnetisch)
 %
-%   Rückgabe
+%   Rueckgabe
 %   cc      1D Curl-Curl-Matrix
 
 function [cc]=createCC(n, ord, bc)
@@ -14,9 +14,9 @@ function [cc]=createCC(n, ord, bc)
     % Aufstellen der Matrix
     cc = sparse(n,n);
     
-    % Einträge eintragen
+    % Eintraege eintragen
     if ord==2
-        % Bestimmen der Einträge für Ordnung 2 ohne Randbedingungen
+        % Bestimmen der Eintraege fuer Ordnung 2 ohne Randbedingungen
         for k=1:1:n
           if (k==1)
             cc(k,k)=-2;
@@ -31,18 +31,19 @@ function [cc]=createCC(n, ord, bc)
            endif
         endfor
         if bc==1
-            % Änderung der Matrix bei elektrischem Rand
+            % Aenderung der Matrix bei elektrischem Rand
             cc(1,2)=0;
             cc(n,n-1)=0;
         elseif bc == 2
             cc(1,2)=2;
             cc(n,n-1)=2;
-            % Änderung der Matrix bei magnetischem Rand
+            % Aenderung der Matrix bei magnetischem Rand
         elseif bc ~= 0
-            error('bc kann nur die Werte 0 (elektrisch) oder 1 (magnetisch) annehmen.')
+            error('bc kann nur die Werte 0 (elektrisch) oder 1 (magnetisch) 
+            annehmen.')
         end
 	elseif ord==4
-        % Bestimmen der cc Matrix für Ordnung 4 ohne Randbedingungen
+        % Bestimmen der cc Matrix fuer Ordnung 4 ohne Randbedingungen
         for k=1:1:n
           if (k==1)
             cc(k,k)=-30;
@@ -72,7 +73,7 @@ function [cc]=createCC(n, ord, bc)
         endfor
         
         if bc==1
-            % Änderung der Matrix bei elektrischem Rand
+            % Aenderung der Matrix bei elektrischem Rand
             cc(1,2)=0;
             cc(1,3)=0;
             cc(2,2)=-29;
@@ -80,7 +81,7 @@ function [cc]=createCC(n, ord, bc)
             cc(n,n-2)=0;
             cc(n-1,n-1)=-29;
         elseif bc==2
-            % Änderung der Matrix bei magnetischem Rand
+            % Aenderung der Matrix bei magnetischem Rand
             cc(1,2)=32;
             cc(1,3)=-2;
             cc(2,2)=-31;

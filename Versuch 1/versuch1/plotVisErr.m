@@ -24,8 +24,9 @@ nd=3:nmax;
  volumenAnalytisch = pi.*r.^2.*h;
 
 % Berechnung von Oberflaechen- und Volumenfehler
- oberflaechenFehler = abs(oberflaecheDiskrete-oberflaecheAnalytisch);
- volumenFehler = abs(volumenDiskrete-volumenAnalytisch);
+ oberflaechenFehler = abs(oberflaecheDiskrete-oberflaecheAnalytisch)...
+ ./oberflaecheAnalytisch;
+ volumenFehler = abs(volumenDiskrete-volumenAnalytisch)./volumenAnalytisch;
 
 
 % Plotten der beiden Fehler ueber nd

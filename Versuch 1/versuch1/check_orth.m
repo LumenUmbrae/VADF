@@ -1,4 +1,4 @@
-%Skript zur Überprüfung der Orthogonalität
+%Skript zur Ueberpruefung der Orthogonalitaet
 
 % Setzen der parameter n, ord, bc, L
 n=5;
@@ -12,9 +12,9 @@ L=1;
 % Gitterschrittweite bestimmen
   dx=L/(n-1);
 
-% Lösen der Eigenwertgleichung mit solveCC
+% Loesen der Eigenwertgleichung mit solveCC
   [kx,modes] = solveCC(cc,dx);
 
-% Überprüfung der Orthogonalität der Eigenvektoren
+% Ueberpruefung der Orthogonalitaet der Eigenvektoren
   orthogonal=modes*modes';
   imagesc(orthogonal);

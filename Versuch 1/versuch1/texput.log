@@ -1,18 +1,18 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.18)  28 APR 2019 21:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.18)  29 APR 2019 23:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**plotVisErr.tex
+**plotConv.tex
 
 ! Emergency stop.
-<*> plotVisErr.tex
-                  
+<*> plotConv.tex
+                
 *** (job aborted, file error in nonstop mode)
 
  
 Here is how much of TeX's memory you used:
  3 strings out of 492985
- 112 string characters out of 6136283
+ 110 string characters out of 6136283
  54187 words of memory out of 5000000
  3668 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000

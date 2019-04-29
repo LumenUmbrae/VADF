@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.18)  29 APR 2019 21:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.18)  30 APR 2019 00:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2100,54 +2100,85 @@ LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
 (Font)              scaled to size 6.298pt on input line 256.
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
 (Font)              scaled to size 5.45201pt on input line 256.
- [6 <./v1_zylinder1.pdf> <./v1_zylinder2.pdf>] [7]
+ [6 <./v1_zylinder1.pdf> <./v1_zylinder2.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 302--304
+
+ []
+
+[7] [8] (./createCC.m [9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+Overfull \hbox (76.2826pt too wide) in paragraph at lines 92--93
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
 
 LaTeX Font Warning: Font shape `TS1/5ch/m/sc' undefined
 (Font)              using `TS1/5ch/m/n' instead
-(Font)              for symbol `textregistered' on input line 349.
+(Font)              for symbol `textregistered' on input line 364.
 
-[8]
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 359.
+(./solveCC.m [11])
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 374.
 
  (d:/texlive/2017/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
-) (./plotCyl.m
-[9]
+)
+(./check_orth.m) (./plotModes.m [12]) (./plotConv.m [13]
+Overfull \hbox (3.68185pt too wide) in paragraph at lines 13--14
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10])
-(./plotVisErr.m [11]) (./plotStl.m [12]) [13] (./versuch1.aux)
+ [14]
+Overfull \hbox (3.68185pt too wide) in paragraph at lines 86--87
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15]
+(./plotCyl.m [16]) (./plotVisErr.m [17])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
+(./plotStl.m) [19] (./versuch1.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 33232 strings out of 492985
- 644519 string characters out of 6136283
- 762814 words of memory out of 5000000
- 36201 multiletter control sequences out of 15000+600000
- 669375 words of font info for 144 fonts, out of 8000000 for 9000
+ 33322 strings out of 492985
+ 645619 string characters out of 6136283
+ 760818 words of memory out of 5000000
+ 36273 multiletter control sequences out of 15000+600000
+ 673815 words of font info for 147 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,14n,108p,10478b,1687s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}{d:/texlive/2017/texm
 f-dist/fonts/enc/dvips/ly1/texnansi.enc}<d:/texlive/texmf-local/fonts/type1/sof
 tmake/charter/5chb8a.pfb><d:/texlive/texmf-local/fonts/type1/softmake/charter/5
-chr8a.pfb><d:/texlive/texmf-local/fonts/type1/softmake/charter/5chri8a.pfb><d:/
-texlive/texmf-local/fonts/type1/softmake/frontpage/5fpm8a.pfb><d:/texlive/texmf
--local/fonts/type1/softmake/frontpage/5fpr8a.pfb><d:/texlive/2017/texmf-dist/fo
-nts/type1/bitstrea/charter/bchb8a.pfb><d:/texlive/2017/texmf-dist/fonts/type1/b
-itstrea/charter/bchr8a.pfb><d:/texlive/2017/texmf-dist/fonts/type1/bitstrea/cha
-rter/bchri8a.pfb><d:/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbc
-h/md-chr7m.pfb><d:/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/
-md-chr7t.pfb><d:/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md
--chr7v.pfb><d:/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-c
-hr7y.pfb><d:/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr
-i7m.pfb><d:/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chrm
-a.pfb><d:/texlive/2017/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb>
-Output written on versuch1.pdf (13 pages, 164203 bytes).
+chr8a.pfb><d:/texlive/texmf-local/fonts/type1/softmake/charter/5chr8a.pfb><d:/t
+exlive/texmf-local/fonts/type1/softmake/charter/5chri8a.pfb><d:/texlive/texmf-l
+ocal/fonts/type1/softmake/frontpage/5fpm8a.pfb><d:/texlive/texmf-local/fonts/ty
+pe1/softmake/frontpage/5fpr8a.pfb><d:/texlive/2017/texmf-dist/fonts/type1/bitst
+rea/charter/bchb8a.pfb><d:/texlive/2017/texmf-dist/fonts/type1/bitstrea/charter
+/bchr8a.pfb><d:/texlive/2017/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pf
+b><d:/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7m.pfb>
+<d:/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7t.pfb><d
+:/texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb><d:/
+texlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7y.pfb><d:/te
+xlive/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chri7m.pfb><d:/tex
+live/2017/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chrma.pfb><d:/texli
+ve/2017/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb>
+Output written on versuch1.pdf (19 pages, 192276 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
+ 141 PDF objects out of 1000 (max. 8388607)
+ 100 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
