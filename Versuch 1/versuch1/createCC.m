@@ -90,7 +90,7 @@ function [cc]=createCC(n, ord, bc)
         elseif bc~=0
             error('bc kann nur die Werte 0 (elektrisch) oder 1 (magnetisch) annehmen.')
         end
-        cc=1/12.*cc
+        cc=1/12.*cc;
 	else
 		error('Ordnung %d ist noch nicht implementiert.', n)
     end

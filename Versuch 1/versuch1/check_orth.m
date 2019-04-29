@@ -13,7 +13,7 @@ L=1;
   dx=L/(n-1);
 
 % Lösen der Eigenwertgleichung mit solveCC
-  [kx,modes] = solveCC(cc,dx)
+  [kx,modes] = solveCC(cc,dx);
 
 % Überprüfung der Orthogonalität der Eigenvektoren
   orthogonal=modes*modes';
