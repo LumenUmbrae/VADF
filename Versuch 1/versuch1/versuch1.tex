@@ -249,27 +249,27 @@
 	\end{framed}
 	\noindent
 	Um die Koordinaten aller Dreiecke in Abhängigkeit von $n_\text{D}$ zu bestimmen, wird zunächst der Deckel betrachtet. Ein Punkt am Rand des Deckels hat immer die Koordinaten 
-	\begin{pmatrix}
-		r\text{cos}(i$\Delta\varphi$)\\
-		r\text{sin}(i$\Delta\varphi$)\\
+$	\begin{pmatrix}
+		r\text{cos}(i\Delta\varphi)\\
+		r\text{sin}(i\Delta\varphi)\\
 		h
-	\end{pmatrix}.
+	\end{pmatrix}$.
 	Dabei beschreibt $\Delta\varphi$ den Winkel wischen 2 Dreiecksseiten. Dieser ergibt sich aus $\Delta\varphi=\frac{2\pi}{n_D}$. Das $i$ beschreibt den Laufindex für die for-Schleife. Hat das Dreieck als Koordinaten von 2 Punkten 
-	\begin{pmatrix}
+	$\begin{pmatrix}
 		0\\
 		0\\
 		h
-	\end{pmatrix},
-	\begin{pmatrix}
-		r\text{cos}(i$\Delta\varphi$)\\
-		r\text{sin}(i$\Delta\varphi$)\\
+	\end{pmatrix}$,
+	$\begin{pmatrix}
+		r\text{cos}(i\Delta\varphi)\\
+		r\text{sin}(i\Delta\varphi)\\
 		h
-	\end{pmatrix} gegeben, so ist der dritte Punkt gegeben durch
-	\begin{pmatrix}
-		r\text{cos}(i$\Delta\varphi+\Delta\varphi$)\\
-		r\text{sin}(i$\Delta\varphi+\Delta\varphi$)\\
+	\end{pmatrix}$ gegeben, so ist der dritte Punkt gegeben durch
+$	\begin{pmatrix}
+		r\text{cos}(i\Delta\varphi+\Delta\varphi)\\
+		r\text{sin}(i\Delta\varphi+\Delta\varphi)\\
 		h
-	\end{pmatrix}.
+	\end{pmatrix}$.
 	Diese Punkte werden nun mit einer for-Schleife abgetastet und gespeichert. Das gleiche geschieht auch mit den Dreiecken am Boden des Zylinders, nur, dass die z-Koordinate hier immer 0 ist.\\
 	Für den Mantel gilt es jetzt nur die Schon berechneten Punkte wiederzuverwerten. Dreiecke bei denen 2 Punkte am Boden und einer am Deckel ist, müssen einen Punkt von Boden, den darauf folgenden Punkt sowie den Punkt, der in der Höhe $h$ im Vergleich zum ersten Punkt liegt abspeichern. Für die Dreiecke, die andersherum orientiert sind gilt das gleiche, nur sind hier Deckel und Boden vertauscht. 
 	
