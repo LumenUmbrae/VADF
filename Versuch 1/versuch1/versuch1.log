@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2018.7.4)  30 APR 2019 19:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2018.7.4)  30 APR 2019 21:21
 entering extended mode
 **./versuch1.tex
 (versuch1.tex
@@ -2293,14 +2293,11 @@ File: t1txtt.fd 2000/12/15 v3.1
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  33171 strings out of 493328
  644203 string characters out of 3139128
- 744993 words of memory out of 3000000
+ 744990 words of memory out of 3000000
  36123 multiletter control sequences out of 15000+200000
  663597 words of font info for 140 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2319,7 +2316,7 @@ thdesign/mdbch/md-chr7v.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/mathdesign
 /mdbch/md-chr7y.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/mathdesign/mdbch/m
 d-chri7m.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/mathdesign/mdbch/md-chrma
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/t1xtt.pfb>
-Output written on versuch1.pdf (10 pages, 157797 bytes).
+Output written on versuch1.pdf (10 pages, 157837 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

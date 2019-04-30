@@ -18,7 +18,7 @@ function [kx ,modes]=solveCC(cc, dx)
     
     % Bestimmen der Wellenzahlen aus den Eigenwerten
     for i=1:1:rows(cc)
-      k(i)=(sqrt(-eigenvalues(i,i)/dx));
+      k(i)=(sqrt(-eigenvalues(i,i)/dx.^2));
     endfor
     
     % Sortieren der Wellenzahlen. Sortierindex mit zurueckgeben lassen !

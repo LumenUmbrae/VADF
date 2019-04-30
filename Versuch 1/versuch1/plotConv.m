@@ -31,6 +31,7 @@ for i=1:length(nOrd2)
 end;
 
 
+
 % Konvergenzstudie fuer Ordnung 4 und keine Randbedingung
 disp('Konvergenzstudie fuer Ordnung 4 und keine Randbedingung')
 kxOrd4bc0 = zeros(length(nOrd4),1);
@@ -61,6 +62,7 @@ end;
 
 % Formel fuer analytische Luesung
  kxAna=@(n)(ones(length(n),1)*(pi/L));
+ 
 
 
 % Plot fuer die Wellenzahl ueber Stuetzstellenanzahl

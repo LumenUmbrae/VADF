@@ -4,7 +4,7 @@
 % setzen der parameter n, ord, bc, L
 n=100;
 ord=4;
-bc=0;
+bc=2;
 L=5;
 
 % Erstellen der CC matrix
