@@ -257,13 +257,13 @@ Orthogonalität der Eigenvektoren bedeutet das alle Moden  voneinander unabhäng
         Berechnen Sie den Speicherplatz, der zur Speicherung des oben abgebildeten, diskretisierten Zylinders im STL-Format notwendig ist, als Funktion der Anzahl der Dreiecke $n_\mathrm{D}$ (Normalenvektoren müssen auch berücksichtigt werden). Beachten Sie hierbei lediglich die notwendige Anzahl der \lstinline{double}-Zahlen, wobei eine \lstinline{double}-Zahl \SI{8}{Byte} benötigt.\label{exer:requiredStorage}
 \end{framed}
 
-In einer STL Format ist jeder Dreieck mit 3 Punkte und Normalenvektor beschrieben. Jeder Punkt und Normalenvektor hat 3 Koordinaten. Dazu hat Zylinder 4 $n_\text{D}$ Dreiecke.\\
-Damit kann man benötigte Speicherplatz bestimmen:
+Im STL Format ist jedes Dreieck durch 3 Punkte und einen Normalenvektor beschrieben. Jeder Punkt und jeder Normalenvektor hat 3 Koordinaten. Dazu besteht jeder Zylinder aus $4 \cdot n_\text{D}$ Dreiecken.\\
+Damit kann man den benötigte Speicherplatz zu 
  	\begin{eqnarray*}
  		\text{Speicher}(n_\mathrm{D})&=&4n_\mathrm{D}(3\text{ Punkte + Normalenvektor})\cdot 3 \text{ Koordinaten.}\cdot 8\text{ Bytes}\\
  		&=&384n_\mathrm{D} \text{ Bytes}
  	\end{eqnarray*}
-
+bestimmen. 
 % --> Aufgabe
     \begin{framed}
 	\noindent \textbf{9.} Gegeben ist folgender Zusammenhang für die Fläche eines Deckflächendreieckes:
@@ -275,9 +275,9 @@ Damit kann man benötigte Speicherplatz bestimmen:
         Bei welchen Körpern wäre eine solche Oberflächendiskretisierung mit Dreiecken exakt?\label{exer:deltaAdeltaV}
 \end{framed}
 
-Ein Dreieck der Deckfläche ist ein gleichschenkliges Dreieck. Um die Fläche des gleichschenkliges Dreieck zu bestimmen, soll man es mithilfe der Höhe  $h_\text{D}$ auf zwei rechtwinklige Dreiecke teilen. Fläche der rechtwinkliger Dreieck rechnet man als Multiplikation zweier Katheten geteilt durch 2. Damit bekommt man die Formel: 
+Ein Dreieck der Deckfläche ist ein gleichschenkliges Dreieck. Um die Fläche des gleichschenkliges Dreieckes zu bestimmen, soll man es mithilfe der Höhe  $h_\text{D}$ in zwei rechtwinklige Dreiecke teilen. Die Fläche der rechtwinkliger Dreieck errechnet sich als Multiplikation zweier Katheten geteilt durch $2$. Damit bekommt man die Formel: 
 $$ A_\text{D} = 2 \left[\frac12 a_\text{D} h_\text{D}\right]$$
-Mit der Pythagoras Formel rechnet man  $h_\text{D}$ und $a_\text{D}$ aus:
+Mit der Pythagoras Formel rechnet ergibt sich aus $h_\text{D}$ und $a_\text{D}$ :
 \begin{eqnarray*}
 	a_\text{D}&=&r \sin\left(\frac{\Delta \varphi}{2}\right)\\
 	\\
@@ -290,7 +290,7 @@ Jetzt setzt man alles zusammen:
  kann man der Formel noch vereinfachen auf:
   $$A_\text{D} =  \frac12 r^2 \sin(\Delta\varphi)$$
   
-  Wenn man relativen Oberflächen- und Volumenfehler bestimmen wollte, soll man Oberfläche und Volumen des wahres und diskretisiertes Zylinder ausrechnen.
+  Wenn man den relativen Oberflächen- und Volumenfehler bestimmen wollte, soll man die Oberfläche und das Volumen des wahres und des diskretisiertes Zylinders ausrechnen.
   \begin{eqnarray*}
   	A_\text{disc}&=&2n_\text{D}r\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]\\
   	\\
@@ -300,17 +300,17 @@ Jetzt setzt man alles zusammen:
   	\\
   	V&=&r^2\pi h
   \end{eqnarray*}
-  Formel für absolute Fehler lautet:\\
-  $$\Delta X = X- X_\text{disc}$$
-  Damit bekommt man:
+  Die Formel für den absolute Fehler lautet\\
+  $$\Delta X = X- X_\text{disc}$$.
+  Damit bekommt man
   \begin{eqnarray*}
   	\Delta A&=&2 r \pi (r+h) -2n_\text{D}r\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]\\
   	\\
   	\Delta V&=&r^2\pi h -\frac12 n_\text{D} r^2 \sin\left(\frac{ 2\pi}{n_\text{D}}\right)h\\
-  \end{eqnarray*}
-	relative Fehler bekommt man mit der Formel:
+  \end{eqnarray*}.
+	Den relative Fehler bekommt man mit der Formel:
   	$$\varepsilon_{x}=\frac{\Delta X}{X}$$
-  	Damit bekommt man:
+  	Damit bekommt man
   	\begin{eqnarray*}
   	\varepsilon_{A}&=&\frac{ \pi (r+h) -n_\text{D}\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]}{\pi (r+h)}\\
   	\\
@@ -325,8 +325,9 @@ Jetzt setzt man alles zusammen:
           Berechnen Sie die minimale Anzahl an Dreiecken zur Erfüllung dieser Forderung.\label{exer:smoothArea}
 \end{framed}
 
-	Dieser Forderung rechnet man mit schon bekannten Formel aus \ref{exer:pseudocodeCylinder}:
-		$$\Delta \varphi = \frac{360^\circ}{n_\text{D}}$$
+	Dieser Forderung rechnet man mit der schon bekannten Formel
+	 \ref{exer:pseudocodeCylinder}:
+		$$\Delta \varphi = \frac{360^\circ}{n_\text{D}}$$ aus. 
 	Realisierung der Forderung:
 	\begin{eqnarray*}
 		5^{\circ} &\geq& \frac{360^\circ}{n_\text{D}}\\
@@ -334,7 +335,7 @@ Jetzt setzt man alles zusammen:
 		n_\text{D} &\geq& 72
 	\end{eqnarray*}
 
-	Es ist minimal 72 Dreiecke benötigt.
+	Es werden minimal 72 Dreiecke benötigt.
 
 \section{Aufgaben während der Praktikumssitzung}
 {\subsection{Differenzenverfahren}}
