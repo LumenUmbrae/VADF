@@ -39,8 +39,7 @@ function [cc]=createCC(n, ord, bc)
             cc(n,n-1)=2;
             % Aenderung der Matrix bei magnetischem Rand
         elseif bc ~= 0
-            error('bc kann nur die Werte 0 (elektrisch) oder 1 (magnetisch) 
-            annehmen.')
+            error('bc kann nur die Werte 0 (elektrisch) oder 1 (magnetisch) annehmen.')
         end
 	elseif ord==4
         % Bestimmen der cc Matrix fuer Ordnung 4 ohne Randbedingungen

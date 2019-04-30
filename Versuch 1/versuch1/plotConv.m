@@ -60,7 +60,7 @@ end;
 
 
 % Formel fuer analytische Luesung
- kxAna=@(n)(n.*pi./L) ;
+ kxAna=@(n)(ones(length(n),1)*(pi/L));
 
 
 % Plot fuer die Wellenzahl ueber Stuetzstellenanzahl
@@ -85,7 +85,13 @@ print -dpdf plotConv.pdf
 
 % Plot fuer den relativen Wellenzahlfehler ueber Gitterschrittweite (loglog)
 figure(2)
-
+clf
+hold on
+plot(dx(nOrd2),abs(kxOrd2bc0-kxAna(nOrd2)));
+plot(dx(nOrd4),abs(kxOrd4bc0-kxAna(nOrd4)));
+plot(dx(nOrd2),abs(kxOrd2bc1-kxAna(nOrd2)));
+plot(dx(nOrd4),abs(kxOrd4bc1-kxAna(nOrd4)));
+hold off
 %%%
 %%% Ich weiss nicht
 
