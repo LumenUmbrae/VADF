@@ -249,7 +249,19 @@ Orthogonalität der Eigenvektoren bedeutet das alle Moden  voneinander unabhäng
 	\noindent \textbf{7.} Überlegen Sie sich einen Pseudocode mit For-Schleifen, mit welchem Sie die Koordinaten aller Dreiecke der Oberflächendiskretisierung (siehe Abb.~\ref{fig:zylGitter}) bestimmen können. Die Anzahl der Dreiecke~$n_\text{D}$ soll dabei beliebig sein. Beachten Sie, dass zur Oberfläche Deck-, Mantel- und Bodenfläche gehören. Außerdem besitzen die Dreiecke auf der Mantelfläche \glqq unterschiedliche Orientierungen\grqq.\label{exer:pseudocodeCylinder}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+	Bevor man ein Pseudocode schreibt, soll man Grundidee haben. Um ein Körper zu diskretizieren, muss man die Punkte, die durch Diskretisierung entstehen, bestimmen. \\
+	Zylinder hat zwei Kreisscheiben als Grundflächen. Mit der Diskretisierung dieser Kreisscheiben bekommt man Vieleck und jedes Eckpenkt kann man verwenden, um die Diskretisierten Zylinder darzustellen. Um  die Eckpunkte zu bestimmen hat man diese Formeln verwendet:
+	
+	$$\text{Bodenfläche : }P_i = r
+	\begin{bmatrix}\cos(\Delta \varphi \cdot i) \\ \sin(\Delta \varphi\cdot i) \\ 0 \end{bmatrix}
+	 $$
+	 	$$\text{Deckfläche : }P_i = r
+	 \begin{bmatrix}\cos(\Delta \varphi \cdot i) \\ \sin(\Delta \varphi\cdot i) \\ h \end{bmatrix}
+	 $$
+	 $$\text{für i :  } i \epsilon \{0,1..nd \}$$
+	 
+	 Jeder Dreieckfläche auf dem Zylinder entsteht mit der drei Punkte, aber man soll achten dass die Punkte in einen Reihenfolge Gegenuhrzeigersinn geordnet sind. Wie das genau in Pseudocode aussieht,steht mehr in \ref{exer:plotCyl}  
+	
 
 % --> Aufgabe
     \begin{framed}
