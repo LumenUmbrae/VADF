@@ -1,0 +1,66 @@
+\documentclass[scrreprt,colorback,accentcolor=tud9b, 11pt]{tudreport}
+
+\usepackage[utf8]{inputenc}                     % sets the input encryption to UTF8 which is always preferable
+\usepackage[T1]{fontenc}                        % standard package for selecting font encodings
+\usepackage{subfiles}                           % allows to handle multi-file projects more comfortably
+\usepackage{ngerman}                            % support for new German orthography (neue deutsche Rechtschreibung)
+\usepackage{framed}                             % supports framed or shaded regions that can break across pages
+\usepackage{amsmath}                            % highly recommended for serious mathematical typesetting in LaTeX
+\usepackage{graphicx}                           % enhanced support for graphics
+    \DeclareGraphicsExtensions{.pdf,.jpg,.png}  % defines the standard extensions of graphics
+    \graphicspath{{versuch1/}{versuch2/}{versuch3/}{versuch4/}{versuch5/}{versuch6/}{versuch7/}{versuch8/}}
+\usepackage{siunitx}                            % properly typeset numbers and units
+\usepackage{algorithmic}                        % to include e.g. pseudocodes
+\usepackage{listings}                           % to insert code fragments
+\usepackage{subcaption}                         % allows usage of subfigures
+\usepackage{tikz}                               % to make drawings directly with LaTeX
+\usepackage{enumitem}                           % allows more flexible enumerate environments
+\usepackage{gensymb}							% for generic symbols like \degree
+
+% use temf macros
+\let\Laplace\zz % workaround since clash with trfsigns
+\usepackage{temf-names}
+\let\zz\Laplace
+\usepackage{temf-finite}
+\usepackage{temf-fields}
+\usepackage{temf-matrixvector}
+\usepackage{notInTemfMacros}
+
+\let\zz\ifnumbered{}                            % BEGIN fixes a problem of compatibility of mcode with \chapter command from koma script
+%\usepackage[framed, numbered]{mcode}            % to properly format matlab code when using a listing (there is a problem with the \chapter command)
+%\let\ifnumbered\zz{}                            % END fixes a problem of compatibility of mcode with \chapter command from koma script
+%\usepackage[pdftex,bookmarks=true]{hyperref}    % enables hyperlinks inside the document (e.g. for the table of contents to jump to chapters directly)
+\usepackage{listings} 
+\lstset {numbers = left, numberstyle = \tiny, 
+	emph = {abs, addpath, angle, ceil, clc, clear, conj, cos, diff, 
+		end, else, elseif, erfc, error, exp, fclose, fft, fftshift, 
+		fopen, flipdim, fliplr, floor, for, fprintf, function, hold, 
+		if, ifft, imag, interp1, length, linspace, log10, log2, max, 
+		mean, min, num2str, ones, pause, plot, pi, prod, pwelch, rand, 
+		randn, real, rem, reshape, roots, round, save, sin, size, sqrt, 
+		sum, tic, toc, unwrap, var, while, zeros}, 
+	emphstyle = \bfseries, 
+	morecomment = [l] [\itshape] {\%}, 
+	morecomment = [l] [\slshape] {disp}, 
+} 
+
+\begin{document}
+
+    \title{Ausarbeitung zum Softwarepraktikum Verfahren und Anwendung der
+    Feldsimulation}
+    \subtitle{Denis Andric \\ Marc Bodem \\ Theodor Sperling}
+    \maketitle
+
+    \tableofcontents
+
+%    \subfile{./versuch1/versuch1}
+    \subfile{./versuch2/versuch2}
+%    \subfile{./versuch3/versuch3}
+%    \subfile{./versuch4/versuch4}
+%    \subfile{./versuch5/versuch5}
+%    \subfile{./versuch6/versuch6}
+%    \subfile{./versuch7/versuch7}
+%    \subfile{./versuch8/versuch8}
+
+\listoffigures
+\end{document}

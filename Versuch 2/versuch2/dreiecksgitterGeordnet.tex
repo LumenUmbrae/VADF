@@ -1,0 +1,44 @@
+\begin{tikzpicture}[scale=2]
+	% Punkte
+	\coordinate (axes) at (-1.2,-1.2);
+	\coordinate  (c1) at (0,0);
+	\coordinate  (c2) at (72:1);
+	\coordinate (c3) at (0:1);
+	\coordinate (c4) at (-72:1);
+	\coordinate (c5) at (-144:1);
+	\coordinate (c6) at (144:1);
+	\node [left] (n1) at (c1) {};
+	\node [above] (n2) at (c2) {};
+	\node [right] (n3) at (c3) {};
+	\node [below] (n4) at (c4) {};
+	\node [left] (n5) at (c5) {};
+	\node [left] (n6) at (c6) {};
+
+	% Axen
+	\draw [->](axes) -- +(2.4,0) node [below] {$x$};	
+	\draw (axes |- c2) -- +(-0.03,0) node [left] {\(\sin 72\degree\)};
+	\draw (axes |- c6) -- +(-0.03,0) node [left] {\(\sin 36\degree\)};
+	\draw (axes |- c1) -- +(-0.03,0) node [left] {\(0\)};
+	\draw (axes |- c5) -- +(-0.03,0) node [left] {\(- \sin 36\degree\)};
+	\draw (axes |- c4) -- +(-0.03,0) node [left] {\(-\sin 72\degree\)};
+	\draw [->](axes) -- +(0,2.4) node [left] {$y$};
+	\draw (axes -| c5) -- +(0,-0.03) node [below] {\(-\cos 36\degree\)};
+	\draw (axes -| c1) -- +(0,-0.03) node [below] {\(0\)};
+	\draw (axes -| c4) -- +(0,-0.03) node [below right,xshift=-2ex] {\(\cos 72\degree\)};
+	\draw (axes -| c3) -- +(0,-0.03) node [below] {\(1\)};
+
+	\begin{scope}[thick]
+		% Kanten
+		\draw (c1) -- node [auto] {} +(c3);
+		\draw (c1) -- node [auto] {} +(c4);
+		\draw (c1) -- node [auto] {} +(c5);
+		\draw (c1) -- node [auto] {} +(c6);
+		\draw (c1) -- node [auto] {} +(c2);
+		
+		\draw (c2) -- node [auto] {} (c3);
+		\draw (c3) -- node [auto] {} (c4);
+		\draw (c4) -- node [auto] {} (c5);
+		\draw (c5) -- node [auto] {} (c6);
+		\draw (c6) -- node [auto] {} (c2);
+	\end{scope}
+\end{tikzpicture}
