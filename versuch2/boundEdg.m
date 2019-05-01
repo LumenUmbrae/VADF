@@ -27,9 +27,22 @@ Mz = nx*ny;
 edg = true(3*np,1);
 
 % Geisterkanten an der rechten YZ-Flaeche auf False setzen
+nx
+for i=1:1:nz
+  for k=nx:nx:Mz
+    edg(i*k)=false;
+  endfor
+endfor
 
 % Geisterkanten an der rechten XZ-Flaeche auf False setzen
+for i=1:1:nz
+  for k=(2*Mz-nx+1):1:2*Mz
+    edg(i*k)=false;
+  endfor
+endfor
 
 % Geisterkanten an der rechten XY-Flaeche auf False setzen
-
+  for m=(3*np-Mz+1):1:3*np
+    edg(m)=false;
+  endfor
 end

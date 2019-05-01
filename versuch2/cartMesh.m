@@ -31,7 +31,40 @@
 function [ mesh ] = cartMesh( xmesh, ymesh, zmesh )
 
 % Bestimmen von nx, ny, nz und np sowie Mx, My und Mz
+if  columns (xmesh)==1
+  nx=1;
+  ny=1;
+  nz=1;
+  np=1;
+  Mx=1;
+  My=0;
+  Mz=0;
+else
+for i=1:(columns(xmesh)-1) 
+  nx=i;
+  if ymesh(1) ~= ymesh(i+1)
+    break;
+  endif
+endfor
+
+for i=1:(columns(xmesh)-1)
+  nyd=i+1;
+  if zmesh(1) ~= zmesh(i+1)
+    break;
+  endif
+endfor
+ny=nyd/nx;
+
+
+np=columns(xmesh);
+nz=np/(nx*ny);
+Mx=1;
+My=nx;
+Mz=nx*ny;
+endif
+
 
 % Zuweisen der Bestandteile zum struct msh
+mesh = struct('nx',nx,'ny',ny,'nz',nz,'np',np,'Mx',Mx,'My',My,'Mz',Mz,'xmesh',xmesh,'ymesh',ymesh,'zmesh',zmesh);
 
 end
