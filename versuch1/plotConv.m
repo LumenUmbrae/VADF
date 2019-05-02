@@ -89,10 +89,10 @@ print -dpdf plotConv.pdf
 figure(2)
 clf
 hold on
-plot(dx(nOrd2),abs(kxOrd2bc0-kxAna(nOrd2)));
-plot(dx(nOrd4),abs(kxOrd4bc0-kxAna(nOrd4)));
-plot(dx(nOrd2),abs(kxOrd2bc1-kxAna(nOrd2)));
-plot(dx(nOrd4),abs(kxOrd4bc1-kxAna(nOrd4)));
+loglog(dx(nOrd2),abs(kxOrd2bc0-kxAna(nOrd2)));
+loglog(dx(nOrd4),abs(kxOrd4bc0-kxAna(nOrd4)));
+loglog(dx(nOrd2),abs(kxOrd2bc1-kxAna(nOrd2)));
+loglog(dx(nOrd4),abs(kxOrd4bc1-kxAna(nOrd4)));
 hold off
 %%%
 %%% Ich weiss nicht

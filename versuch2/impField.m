@@ -24,6 +24,8 @@ xmesh = msh.xmesh; ymesh = msh.ymesh; zmesh = msh.zmesh;
 
 % Bogenspannungsvektor initieren
 fieldBow = zeros(3*np,1);
+edg = boundEdg(msh)
+
 
 % Schleife über alle Punkte
 for i=1:nx
@@ -37,24 +39,41 @@ for i=1:nx
             y = ymesh(j);
             z = zmesh(k);
             
-            x2 = xmesh(i+1);
+            edg = boundEdg(msh);
+            if edg(n)~=0    
+            
+            x2= xmesh(i+1);
             y2 = ymesh(j+1);
-            if (k)>=rows(zmesh)+1
-              z2=z;
-            else
             z2 = zmesh(k+1);
-            endif
+            
             vectors=field(x+(x2-x)/2,y+(y2-y)/2,z+(z2-z)/2);
             xvec=vectors(1);
             yvec=vectors(2);
             zvec=vectors(3);
             % Bogenwert für x-Kante mit Index n
-            fieldbow(i) = xvec.*(x2-x);
-            
+            fieldBow(i) = xvec.*(x2-x);
             % Bogenwert für y-Kante mit Index n
-            fieldbow(j) = yvec.*(y2-y);
+            fieldBow(j) = yvec.*(y2-y);
             % Bogenwert für z-Kante mit Index n
-            fieldbow(k) = zvec.*(z2-z);
+            fieldBow(k) = zvec.*(z2-z);
+            
+   
+          endif
+          
+          
+            
+            
+            
+            
         end
     end
 end
+
+for l=1:1:rows(fieldBow)
+  fieldBow(i)
+            
+            if(fieldBow(i)==0)
+              fieldBow=[fieldBow(1:(i-1));fieldBow((i+1):rows(fieldBow))];
+            endif
+          
+ endfor
