@@ -6,9 +6,15 @@
 % msh           Struktur, wie sie mit cartMesh erzeugt werden kann.
 
 function [  ] = plotMesh( msh )
+  
 
 % Zuweisen von nx, nz, nz, xmesh, ymesh und zmesh
-
+nx=mesh.nx;
+ny=mesh.ny;
+nz=mesh.nz;
+xmesh=mesh.xmesh;
+ymesh=mesh.ymesh;
+zmesh=mesh.zmesh;
 
 % Zeichnen aller Kanten mithilfe einer Dreifachschleife
 figure;
