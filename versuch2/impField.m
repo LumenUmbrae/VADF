@@ -24,7 +24,7 @@ xmesh = msh.xmesh; ymesh = msh.ymesh; zmesh = msh.zmesh;
 
 % Bogenspannungsvektor initieren
 fieldBow = zeros(3*np,1);
-edg = boundEdg(msh)
+
 
 
 % Schleife über alle Punkte
@@ -32,24 +32,26 @@ for i=1:nx
     for j=1:ny
         for k=1:nz
             % kanonischen Index n bestimmen
-            n = k*j*i;
+            n = 1+(i-1)*Mx+(j-1)*My+(k-1)*Mz;
             
             % x-, y- und z-Koordinate des Gitterpunktes bestimmen
-            x = xmesh(i);
-            y = ymesh(j);
-            z = zmesh(k);
+            x = xmesh(i)
+            y = ymesh(j)
+            z = zmesh(k)
             
-            edg = boundEdg(msh);
+            edg = boundEdg(msh)
             if edg(n)~=0    
             
-            x2= xmesh(i+1);
-            y2 = ymesh(j+1);
-            z2 = zmesh(k+1);
+            x2= xmesh(i+1)
+            y2 = ymesh(j+1)
+            z2 = zmesh(k+1)
+        
             
             vectors=field(x+(x2-x)/2,y+(y2-y)/2,z+(z2-z)/2);
-            xvec=vectors(1);
-            yvec=vectors(2);
-            zvec=vectors(3);
+            vectors
+            xvec=vectors(1)
+            yvec=vectors(2)
+            zvec=vectors(3)
             % Bogenwert für x-Kante mit Index n
             fieldBow(i) = xvec.*(x2-x);
             % Bogenwert für y-Kante mit Index n
@@ -68,10 +70,8 @@ for i=1:nx
         end
     end
 end
-
+fieldBow
 for l=1:1:rows(fieldBow)
-  fieldBow(i)
-            
             if(fieldBow(i)==0)
               fieldBow=[fieldBow(1:(i-1));fieldBow((i+1):rows(fieldBow))];
             endif

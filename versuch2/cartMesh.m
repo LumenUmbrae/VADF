@@ -34,7 +34,7 @@ function [ mesh ] = cartMesh( xmesh, ymesh, zmesh )
 nx=length(xmesh);
 ny=length(ymesh);
 nz=length(zmesh);
-np=1;
+np=nx*ny*nz;
 
 
 Mx=1;
