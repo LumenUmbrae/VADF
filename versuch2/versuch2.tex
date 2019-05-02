@@ -12,8 +12,12 @@
         und $y$-Kanten nach dem kanonischen Indizierungsschema aus Gl.~(2.5) ein. Machen Sie sich klar, welche Indizes zu
         nicht existierenden Kanten gehören und markieren Sie diese.\label{exer:edgeIndices}
 \end{framed}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 10mm 170mm 65mm 20mm, clip, width=0.7\textwidth]{Zeichnung.pdf}
+		\caption{3$\times$4 Gitter mit kanonischer Kantenindizierung.}
+	\end{figure}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
         \begin{framed}
@@ -49,7 +53,11 @@
                     Sie den Kanten eine Orientierung zu.\label{exer:triangleOrderedNumbering}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Raster_2.png}
+	\caption{Gegebenes Gitter mit beliebig gewählter Indizierung für Punkte, Kanten und Flächen.}
+\end{figure}
 
 % --> Aufgabe
         \begin{framed}
@@ -111,7 +119,17 @@
         erfüllen.\label{exer:drawDualGrid}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Duales_Gitter_1.png}
+	\caption{Duales Gitter für das erste gegebene Gitter.}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Duales_Gitter_2.png}
+	\caption{Duales Gitter für zweites gegebenes Gitter. Kanten, die die Orthogonalität nicht erfüllen, sind grün markiert.}
+\end{figure}
 
 % --> Aufgabe
         \begin{framed}
@@ -240,8 +258,17 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     der Formel aus der 2. Vorbereitungsaufgabe, indem Sie die relative Anzahl der
                     unbelegten Kanten (inkl. Geisterkanten in $z$-Richtung) über die Anzahl aller Kanten für ein zweidimensionales Gitter \lstinline{msh} mit $N_{xy}=N_x=N_y$ darstellen. \lstinline{plotBoundEdg} soll diese Aufgaben dann in einem Skript zusammenfassen.\label{exer:plotBoundEdg}
 \end{framed}
+\noindent
+	Der Funktionsverlauf aus Abbildung \ref{Abb:boundEdg} ist proportional zu $\frac{\sqrt{x}+x}{x}$. Aus Vorbereitungsaufgabe 2 wurde klar, dass bei einem Quadratischen Gitter die Anzahl aller Geisterkanten gleich $2\sqrt{N_p}$ ist, wobei hier noch keine Geisterkanten in z-Richtung betrachtet wurden. Betrachtet man auch die Geisterkanten in z-Richtung, wobei die Höhe in z-Richtung 1 beträgt, so kommt man auf eine Gesamtanzahl von $2\sqrt{N_p}+N_p$. Dies kann man nun auf die Gesamtanzahl der Kanten beziehen und kommt auf $\frac{2\sqrt{N_p}+N_p}{3N_p}$. Die Werte aus Vorbereitungsaufgabe 2 bestätigen also das Diagramm.
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+	\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 60mm, clip, width=0.7\textwidth]{plotBoundEdg.pdf}
+	\caption{Anteil der Geisterkanten relativ zur Gesamtanzahl der Kanten.}
+	\label{Abb:boundEdg}
+	\end{figure}
+
+
 
 {\subsection{Einprägen gegebener Feldverteilungen}}
 

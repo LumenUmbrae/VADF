@@ -2,9 +2,9 @@
 
 % Skript zur Darstellung der relativen Anzahl der Fehlerkanten als
 % doppel-logarithmischer Graph
-nxyMax = 25;
+nxyMax = 100;
 relOccurence = zeros(1,nxyMax);
-for nxy=2:nxyMax
+for nxy=1:nxyMax
     % Gittererzeugung: kartesisches Gitter mit nxy Punkten in x- und y-
     % Richtung. Es handelt sich um ein ebenes Gitter (x-y-Ebene) mit z = 1
     xmesh=linspace(1,nxy,nxy);
@@ -34,3 +34,4 @@ ylabel('Rel. Anteil');
 title(['Relative Anzahl der Geisterkanten bei N_x bzw. N_y von 1 bis ',...
        num2str(nxyMax)]);
 ylim([min(relOccurence),max(relOccurence)])
+print -dpdf plotBoundEdg.pdf
