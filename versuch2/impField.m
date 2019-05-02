@@ -38,42 +38,33 @@ for i=1:nx
             x = xmesh(i)
             y = ymesh(j)
             z = zmesh(k)
+           
+            if (i~=nx)
             
-            edg = boundEdg(msh)
-            if edg(n)~=0    
-            
-            x2= xmesh(i+1)
-            y2 = ymesh(j+1)
-            z2 = zmesh(k+1)
-        
-            
-            vectors=field(x+(x2-x)/2,y+(y2-y)/2,z+(z2-z)/2);
-            vectors
-            xvec=vectors(1)
-            yvec=vectors(2)
-            zvec=vectors(3)
+            x2= xmesh(i+1);
+            vectors=field(x+(x2-x)/2,1,1);
+            xvec=vectors(1);
             % Bogenwert für x-Kante mit Index n
-            fieldBow(i) = xvec.*(x2-x);
-            % Bogenwert für y-Kante mit Index n
-            fieldBow(j) = yvec.*(y2-y);
-            % Bogenwert für z-Kante mit Index n
-            fieldBow(k) = zvec.*(z2-z);
-            
-   
+            fieldBow(n) = xvec.*(x2-x)
           endif
           
-          
+             if (j~=ny)
+               y2 = ymesh(j+1)
+               vectors=field(1,y+(y2-y)/2,1);
+               yvec=vectors(2)
+               % Bogenwert für y-Kante mit Index n
+               fieldBow(n) = yvec.*(y2-y)
+             endif
             
-            
-            
-            
+             if (k~=nz)
+              z2 = zmesh(k+1)
+              vectors=field(1,1,z+(z2-z)/2);
+              zvec=vectors(3)
+              % Bogenwert für z-Kante mit Index n
+              fieldBow(n) = zvec.*(z2-z)
+             endif
+
         end
     end
 end
-fieldBow
-for l=1:1:rows(fieldBow)
-            if(fieldBow(i)==0)
-              fieldBow=[fieldBow(1:(i-1));fieldBow((i+1):rows(fieldBow))];
-            endif
-          
- endfor
+

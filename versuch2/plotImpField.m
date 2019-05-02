@@ -6,7 +6,7 @@
 
 %% Aufgabe 9
 % Beispielgitter erzeugen (3D)
-nxy=2
+nxy=3
     xmesh=linspace(1,nxy,nxy);
     ymesh=linspace(1,nxy,nxy);
     zmesh=linspace(1,nxy,nxy);
@@ -14,7 +14,7 @@ nxy=2
 msh = cartMesh(xmesh, ymesh, zmesh);
 
 %% anonymous function der beiden gegebenen Felder bestimmen
- f1 = @(x,y,z)([1./x.^2, 0.01*x, y+z]);
+ f1 = @(x,y,z)([5/2, -1.3, 2]);
 % f2 = 
 
 %% Bogengröße der beiden Felder mithilfe von impField bestimmen
@@ -24,5 +24,5 @@ fbow1 = impField( msh, f1 );
 %% diskretes Feld fbow mithilfe von plotArrowfield plotten
 figure;
 plotEdgeVoltage(msh, fbow1);
-figure;
-plotEdgeVoltage(msh, fbow2);
+%figure;
+%plotEdgeVoltage(msh, fbow2);
