@@ -35,36 +35,36 @@ for i=1:nx
             n = 1+(i-1)*Mx+(j-1)*My+(k-1)*Mz;
             
             % x-, y- und z-Koordinate des Gitterpunktes bestimmen
-            x = xmesh(i)
-            y = ymesh(j)
-            z = zmesh(k)
+            x = xmesh(i);
+            y = ymesh(j);
+            z = zmesh(k);
            
             if (i~=nx)
-            
             x2= xmesh(i+1);
             vectors=field(x+(x2-x)/2,1,1);
             xvec=vectors(1);
             % Bogenwert für x-Kante mit Index n
-            fieldBow(n) = xvec.*(x2-x)
+            fieldBow(n) = xvec.*(x2-x);
           endif
           
              if (j~=ny)
-               y2 = ymesh(j+1)
-               vectors=field(1,y+(y2-y)/2,1);
-               yvec=vectors(2)
+               y2 = ymesh(j+1);
+               vectors=field(x,y+(y2-y)/2,1);
+               yvec=vectors(2);
                % Bogenwert für y-Kante mit Index n
-               fieldBow(n) = yvec.*(y2-y)
+               fieldBow(n) = yvec.*(y2-y);
              endif
             
              if (k~=nz)
-              z2 = zmesh(k+1)
+              z2 = zmesh(k+1);
               vectors=field(1,1,z+(z2-z)/2);
-              zvec=vectors(3)
+              zvec=vectors(3);
               % Bogenwert für z-Kante mit Index n
-              fieldBow(n) = zvec.*(z2-z)
+              fieldBow(n) = zvec.*(z2-z);
              endif
 
         end
     end
 end
+
 
