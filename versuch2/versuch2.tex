@@ -118,17 +118,19 @@
         Gitterkanten, die die Eigenschaft der Orthogonalität nicht mehr
         erfüllen.\label{exer:drawDualGrid}
 \end{framed}
-
+	Die dualen Gitter der gegebenen primären Gitter sind in den Abbildungen \ref{Abb:dual_1} und \ref{Abb:dual_2} gegeben.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Duales_Gitter_1.png}
 	\caption{Duales Gitter für das erste gegebene Gitter.}
+	\label{Abb:dual_1}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Duales_Gitter_2.png}
 	\caption{Duales Gitter für zweites gegebenes Gitter. Kanten, die die Orthogonalität nicht erfüllen, sind grün markiert.}
+	\label{Abb:dual_2}
 \end{figure}
 
 % --> Aufgabe
@@ -250,7 +252,6 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     {\textbf{Hinweis:}} Benötigt wird in diesem Versuch nur der zweidimensionale Fall \lstinline{nz=1}, jedoch ist es für spätere Versuche hilfreich auch den dreidimensionalen Fall zu implementieren. Zusätzlich ist es sinnvoll, Erfahrungen mit Vektoroperationen zu sammeln, da diese in \matlab in der Regel schneller sind als Schleifen. Das \lstinline{logical}-Format (in anderen Programmiersprachen auch als \lstinline{boolean} bekannt) hat den Vorteil, dass nur $1$ Byte (im Vergleich zu $8$ Bytes für \lstinline{double}) pro Eintrag benötigt wird.\label{exer:boundEdg}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
         \begin{framed}
@@ -291,7 +292,6 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
         der Kantenlänge anstatt das Feld tatsächlich zu integrieren.\label{exer:impField}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
 \newpage
@@ -303,8 +303,22 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
         \end{enumerate}
         wobei die Einheiten hier vernachlässigt werden. Mit Hilfe der vorgegebenen Routine \lstinline{plotEdgeVoltage} sollen Sie Ihre Implementation optisch verifizieren. Fassen Sie diese Aufgabe in einem Skript \lstinline{plotImpField} zusammen.\label{exer:plotImpField}
 \end{framed}
+	
+	Die vorgegebenen Feldverteilungen sind in den Abbildungen \ref{Abb:10_1} und \ref{Abb:10_2} dargestellt.
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 15mm 65mm 15mm 60mm, clip, width=0.7\textwidth]{10_1.pdf}
+		\caption{Feldverteilung aus 10.1}
+		\label{Abb:10_1}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 15mm 65mm 15mm 60mm, clip, width=0.7\textwidth]{10_2.pdf}
+		\caption{Feldverteilung aus 10.2}
+		\label{Abb:10_2}
+	\end{figure}
 
 \section{Fragen zur Ausarbeitung}
 
@@ -325,6 +339,6 @@ des dualen Gitters am Rand immer notwendig?\label{exer:autoHomNeumann}
 
 
 \section{Fazit}
-\emph{Fügen Sie hier Ihre Lösung ein}
+Wie aus den Aufgaben ersichtlich wird, ist die Generierung von Mesh Matrizen relativ einfach. Weiterhin können mit einfachen Operationen die Matrizen $\curlfit$, $\curldfit$, $\divfit$, $\divdfit$ und $\mathbf{G}$ erstellt und verwendet werden, um in Zukunft Feldprobleme effizient lösen zu können. 
 
 \end{document}

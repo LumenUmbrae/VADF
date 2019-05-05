@@ -52,15 +52,15 @@ for i=1:nx
                vectors=field(x,y+(y2-y)/2,1);
                yvec=vectors(2);
                % Bogenwert für y-Kante mit Index n
-               fieldBow(n) = yvec.*(y2-y);
+               fieldBow(n+np) = yvec.*(y2-y);
              endif
-            
+        
              if (k~=nz)
               z2 = zmesh(k+1);
               vectors=field(1,1,z+(z2-z)/2);
               zvec=vectors(3);
               % Bogenwert für z-Kante mit Index n
-              fieldBow(n) = zvec.*(z2-z);
+              fieldBow(n+2*np) = zvec.*(z2-z);
              endif
 
         end
