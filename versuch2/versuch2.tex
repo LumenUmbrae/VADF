@@ -53,10 +53,12 @@
                     Sie den Kanten eine Orientierung zu.\label{exer:triangleOrderedNumbering}
 \end{framed}
 
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Raster_2.png}
 	\caption{Gegebenes Gitter mit beliebig gewählter Indizierung für Punkte, Kanten und Flächen.}
+	\label{abb::5-eck}
 \end{figure}
 
 % --> Aufgabe
@@ -79,7 +81,21 @@
                     $\gradfit \varphi$}$ gerade den Vektor $\efit$ ergibt, was der
                     kontinuierlichen Formel $\vec{E}=-\grad\varphi$ entspricht.\label{exer:gradfit}
 \end{framed}
+Aus  der Kanten-zu-Knoten Tabelle\ref{} bekommt man Gradientenmatrix $\gradfit$:
 
+$$ \gradfit = \begin{bmatrix}
+-1 & 0 & 0 & 0 & 0 & 1\\
+-1 & 1 & 0 & 0 & 0 & 0\\
+-1 & 0 & 1 & 0 & 0 & 0\\
+-1 & 0 & 0 & 1 & 0 & 0\\
+-1 & 0 & 0 & 0 & 1 & 0\\
+0 & -1 & 1 & 0 & 0 & 0\\
+0 & 0 & -1 & 1 & 0 & 0\\
+0 & 0 & 0 & -1 & 1 & 0\\
+0 & 0 & 0 & 0 & -1 & 1\\
+0 & 1 & 0 & 0 & 0 & -1\\
+
+\end{bmatrix} $$
 \emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
@@ -89,13 +105,48 @@
 \end{framed}
 
 \emph{Fügen Sie hier Ihre Lösung ein}
-
+Aus der Flächen-zu-Kanten Tabelle \ref{} bekommt man:
+$$ \curlfit = \begin{bmatrix}
+1 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0\\
+-1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 
+\end{bmatrix} $$
 % --> Aufgabe
         \begin{framed}
 	\noindent \textbf{7.} Überprüfen Sie, ob genau wie im kontinuierlichen Fall die Beziehung $\rot\grad=0$ auch für die aufgestellten diskreten Matrizen $\curlfit\gradfit={\textbf{0}}$ gilt.\label{exer:rotgradZero}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+
+$$ \curlfit\gradfit = \begin{bmatrix}
+1 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0\\
+-1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 
+\end{bmatrix}
+ \begin{bmatrix}
+ -1 & 0 & 0 & 0 & 0 & 1\\
+ -1 & 1 & 0 & 0 & 0 & 0\\
+ -1 & 0 & 1 & 0 & 0 & 0\\
+ -1 & 0 & 0 & 1 & 0 & 0\\
+ -1 & 0 & 0 & 0 & 1 & 0\\
+ 0 & -1 & 1 & 0 & 0 & 0\\
+ 0 & 0 & -1 & 1 & 0 & 0\\
+ 0 & 0 & 0 & -1 & 1 & 0\\
+ 0 & 0 & 0 & 0 & -1 & 1\\
+ 0 & 1 & 0 & 0 & 0 & -1\\
+ 
+ \end{bmatrix}$$\\
+$$ =\begin{bmatrix}
+ -1+1 & 1-1 & 1-1 & 0 & 0 & 1-1 \\
+ -1+1 & 1-1 &-1+1 & 0 & 0 & 0\\
+ -1+1 & 0 & 1-1 & -1+1 & 0 & 0\\
+ -1+1 & 0 & 0 & 1-1 & -1+1 & 0\\
+  1-1 & 0 & 0 & 0 & 1-1 &-1+1\\
+ \end{bmatrix} = \textbf{0}$$
+ 
 
 %
     {\subsection{Duale Gitter}}
