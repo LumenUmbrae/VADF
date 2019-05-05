@@ -143,8 +143,7 @@
         Wie verhalten sich die Größen im Fall von 2D-Gittern?\label{exer:primaryDualCorrespondence}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+Beim dualen Gitter im dreidimensionalen entspricht die Anzahl der dualen Punkte $\tilde{N_P}$, aufgrund der Definition der dualen Gitterpunkte in den primären Volumen, der Anzahl der primären Volumen ${N_V}$. Durch die Definition der dualen Kante, die durch die primären Flächen verlaufen, ergibt sich $\tilde{N_L} = N_A$. Die dualen Volumen befinden sich jeweils um einen primären Punkt herum weshalb die Anzahl $\tilde{N_V}$ der dualen Volumen mit der Anzahl $N_P$ der primären Punkte übereinstimmt.  
 \section{Aufgaben während der Praktikumssitzung}
 
     {\subsection{Datenstruktur, Visualisierung des Gitters}}
@@ -209,7 +208,7 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     sind. Mehr zu diesem Thema ist in der \matlab-Dokumentation zu finden.\label{exer:geoMats}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Die Rückgabe der dualen Rotationsmatrix $\tilde{C}$ ist nicht sinnvoll, da diese durch $\tilde{C} = C^T$ und die Rückgabe von $C$ bereits einfach erzeugt werden kann. Selbiges gilt für die primäre Gradientenmatrix $G$ die aus $S^T$ durch $G = -\tilde{S^T}$ erzeugt werden kann. 
 
 % --> Aufgabe
         \begin{framed}
@@ -221,7 +220,32 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     (\lstinline{sparse} und \lstinline{full}-Format). Legen Sie für die Ausarbeitung eine Tabelle mit dem jeweils benötigten Speicherplatz an. Nutzen Sie für diese Tests die bereits gegebene Datei \lstinline{exampleSparse.m}.\label{exer:spyStorage}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\emph{Fügen Sie hier Ihre Lösung ein}\\
+
+ Wie in Abb. \ref{fig:visucmatrixprimgitt} zu sehen entsteht durch die kanonische Indizierung eine Matrix, die sich aus einer Mehrzahl Elementen auf den Nebendiagonalen zusammen setzt. Dies ermöglicht eine sehr günstige Speicherung. \\
+ Wie in Tabelle \ref{tbl:speicherCMatrix} zu erkennen ist, werden für die Speicherung einer mittleren C-Matrix mit 4913 Elementen im Vollformat 1,7 GB an Speicherplatz benötigt. Die selbe Matrix kann im Sparse-Format jedoch mit nur 0,4 MB gespeichert werden. 
+ \begin{table}
+	
+ \begin{tabular}{|c|c|c|}
+ 
+ 	\hline 
+ 	Anzahl der Elemente& Speicherbedarf im full-Format &  Speicherbedarf im Sparse-Format\\ 
+ 	\hline 
+ 	40& 115.200 Byte & 3.632 Byte \\ 
+ 	\hline 
+ 	4913& 1.737.904.968 Byte& 466.736 Byte \\ 
+ 	\hline 	
+ \end{tabular} 	
+\label{tbl:speicherCMatrix}
+\caption{Speicherverbrauch einer C-Matrix in unterschiedlichen Speicherformaten}
+  \end{table}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{versuch2/VisuCMatrixPrimGitt}
+	\caption{Speicherverbrauch einer C-Matrix in unterschiedlichen Speicherformaten}
+	\label{fig:visucmatrixprimgitt}
+\end{figure}
+
 
 % --> Aufgabe
         \begin{framed}
@@ -234,8 +258,12 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     auf die jeweiligen analytischen Operatoren? Erinnern Sie sich, welche analytischen Operatoren den jeweiligen Matrizen entsprechen.\label{exer:CG_SC}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+Bei der Berechnung von $C(-\tilde{S^T})$ als auch $SC$ ist das Ergebnis eine Nullmatrix. Dies zeigt die Konsistenz der Diskreten Operationen mit den analytischen, da diese mit
+\begin{align*}
+	S C = 0  &\sim  \nabla \cdot \nabla \times = 0\\
+	C(-\tilde{S^T})=C(G) = 0 &\sim  \nabla \times \nabla	= 0
+\end{align*}
+einander entsprechen. 
 {\subsection{Unbelegte Kantenelemente}}
 
 % --> Aufgabe
