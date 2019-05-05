@@ -69,7 +69,67 @@
                     Umlaufrichtung der Fläche zeigen, mit einem negativen Vorzeichen vor dem Index gekennzeichnet.\label{exer:incidences}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\begin{table}[h!]
+	\begin{center}
+	
+	\label{tab:table1}
+	\begin{tabular}{c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+		$P_i$ & X & Y\\
+		\hline
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & $\cos 72^\circ$ &$\sin 72^\circ$ \\
+		4 & $-\cos 36^\circ$ &$\sin 36^\circ$ \\
+		5 & $-\cos 36^\circ$ &$-\sin 36^\circ$ \\
+		6 & $\cos 72^\circ$ &$-\sin 72^\circ$ \\
+	\end{tabular}
+	\end{center}
+\caption{Punktliste}
+
+\end{table}
+\begin{table}[h!]
+	\begin{center}
+	
+		\label{tab:table2}
+		\begin{tabular}{c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+			$L_i$ & $P_{in}$ & $P_{out}$\\
+			\hline
+			1 & 1 & 6\\
+			2 & 1 & 2\\
+			3 & 1 & 3\\
+			4 & 1 & 5\\
+			5 & 1 & 6\\
+			6 & 2 & 3\\
+			7 & 3 & 4\\
+			8 & 4 & 5\\
+			9 & 5 & 6\\
+			10 & 6 & 2\\  
+		\end{tabular}
+			\end{center}
+		\caption{Kanten-zu-Knoten Indextabelle}
+	
+\end{table}
+
+\begin{table}[h!]
+\begin{center}
+	
+	\label{tab:table3}
+	\begin{tabular}{c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+		$A_i$ & $L_{1}$ & $L_{2}$ & $L_{3}$\\
+		\hline
+		1 & 1 & -2 & 10\\
+		2 & 2 & -3 & 6\\
+		3 & 3 & -4 & 7\\
+		4 & 4 & -5 & 8\\
+		5 & -1 & 5 & 9\\
+	 
+	\end{tabular}
+\end{center}
+\caption{Flächen-zu-Kanten Indextabelle}
+
+\end{table}
+
+
 
 % --> Aufgabe
         \begin{framed}
@@ -81,7 +141,7 @@
                     $\gradfit \varphi$}$ gerade den Vektor $\efit$ ergibt, was der
                     kontinuierlichen Formel $\vec{E}=-\grad\varphi$ entspricht.\label{exer:gradfit}
 \end{framed}
-Aus  der Kanten-zu-Knoten Tabelle\ref{} bekommt man Gradientenmatrix $\gradfit$:
+Aus  der Kanten-zu-Knoten Tabelle \ref{tab:table2} bekommt man Gradientenmatrix $\gradfit$:
 
 $$ \gradfit = \begin{bmatrix}
 -1 & 0 & 0 & 0 & 0 & 1\\
@@ -105,7 +165,7 @@ $$ \gradfit = \begin{bmatrix}
 \end{framed}
 
 \emph{Fügen Sie hier Ihre Lösung ein}
-Aus der Flächen-zu-Kanten Tabelle \ref{} bekommt man:
+Aus der Flächen-zu-Kanten Tabelle \ref{tab:table3} bekommt man:
 $$ \curlfit = \begin{bmatrix}
 1 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
