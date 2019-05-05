@@ -1,0 +1,238 @@
+\documentclass[Protokollheft.tex]{subfiles}
+\begin{document}
+\chapter{Elektrostatik und Magnetostatik 1}
+%--------------- Start Vorbereitungsaufgaben ---------------
+\section{Vorbereitungsaufgaben}
+
+{\subsection{Elektrostatik}}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{1.} An welchen Stellen im Gitter sind jeweils die elektrischen
+Spannungen $\efit$, die Potentiale $\varphi$, die Ladungen $q$ und die
+dielektrischen Flüsse $\dfit$ in der Elektrostatik allokiert?\label{exer:allocateElectrical}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{2.} Machen Sie sich anhand einer lokalen \emph{zweidimensionalen}
+Betrachtung die Beziehung zwischen der Ladung $q_n$ einer dualen Zelle $n$ und
+den assoziierten Potentialen klar. Skizzieren
+Sie dazu zunächst das lokale Gauß'sche Gesetz für eine duale
+Zelle. Nutzen Sie dabei anstatt der auftretenden Feldkomponenten 
+die diskreten Potentialwerte, die Sie durch Gradientenbildung aus den 
+Feldkomponenten erhalten (siehe Gleichung (4.11)).\\
+Betrachten Sie dazu zunächst ein äquidistantes Gitter mit
+Schrittweite $\Delta s$ und eine homogene Materialverteilung mit der
+Permittivität $\eps_0$. Tragen Sie den entstehenden
+"`Differenzenstern"' (Differenzen der beteiligten Potentialwerte,
+die mit den Kopplungskoeffizienten gewichtet werden) in Ihre
+Skizze ein.\label{exer:diffStar}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{3.} Betrachten Sie nun den Fall nichtäquidistanter Gitter
+und inhomogener Materialverteilung, also die Werte der Materialmatrix im
+Differenzenstern. Veranschaulichen Sie sich die Struktur der Systemmatrix $\mathbf{A}$ mit Hilfe einer Skizze der Bandstruktur.\label{exer:bandsOfSystemMat}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{4.} Gegeben sei ein zweidimensionales Rechengebiet mit den
+Abmessungen\footnote{Alle Größen hier und im Folgenden in SI-Einheiten.} $0.6\times 1.2$ mit        
+dem Koordinatenursprung bei $(0,0)$. Es seien drei Punktladungen im
+Rechengebiet mit $q_1=q_0$ am Punkt $(0.3,0.2)$,  $q_2=q_0/2$ bei
+$(0.6,0.4)$, und  $q_3=q_0/4$ bei $(0.9,0.2)$ gegeben.\\
+Berechnen Sie die Größe und den Ort des Ladungsschwerpunkts $q_{\text{S}}$. Das
+Rechengebiet sei homogen mit $\eps_0$ gefüllt und äquidistant mit
+$3 \times 4$ Gitterzellen diskretisiert. Berechnen Sie außerdem die
+Potentiale der Randknoten so, dass die Problemstellung mit einer
+offenen Berandung versehen ist.\label{exer:averagePointCharges}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{5.} Berechnen Sie, wenn möglich, die Kapazitäten folgender Anordnungen mithilfe von Kondensatorschaltungen. Die Abmessung soll für alle Anordnungen mit $1\times1\times1$     
+angenommen werden. Dabei befinden sich die Elektroden bei $y = 0$ und $y = 1$. Wie kann Anordnung e) geändert werden, damit sie mit einer Kondensatorschaltung berechnet werden kann?
+\begin{enumerate}[label=\alph*)]
+\item Homogen mit Permittivität $\eps_\text{r}=1$.
+\item Äquidistant längsgeschichtet mit Permittivitäten $\eps_{\text{r}1}=1$ und $\eps_{\text{r}2}=2$                    (Reihenschaltung).
+\item Äquidistant quergeschichtet mit Permittivitäten $\eps_{\text{r}1}=1$ und $\eps_{\text{r}2}=2$                     (Parallelschaltung).
+\item Längs- und quergeschichtet mit Permittivitäten $\eps_{\text{r}1}=1$,                      
+$\eps_{\text{r}2}=2$, $\eps_{\text{r}3}=3$ und $\eps_{\text{r}4}=4$ (Reihenschaltung von Parallelschaltungen bzw. Parallelschaltung von Reihenschaltungen).
+\item Homogen gefüllter Kondensator ($\eps_\text{r}=1$) mit Zick-Zack-förmiger oberer Platte. Ausgehend von einem homogenen Plattenkondensator soll die Geometrie der oberen Platte durch das Einbringen eines metallischen Quaders mit den Punkten $(0,0.5,0)$ und $(0.5,1,1)$ modelliert werden.
+\end{enumerate}
+\label{exer:calcCapsAnalytical}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+\newpage
+%
+{\subsection{Skalare Magnetostatik}}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{6.} An welcher Stelle im Gitter müssen die Komponenten des Gitterstroms
+$\jfit$ allokiert werden (bei gegebenem Ansatz des magnetischen Skalarpotentials)?\label{exer:allocateCurrent}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{7.} Berechnen Sie analytisch das magnetische Feld um einen unendlich
+ausgedehnten Linienleiter und skizzieren Sie die zu erwartende
+Feldverteilung.\label{exer:HfieldAroundLineConductor}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{8.} Wie können die Dirichlet- und die Neumann- Randbedingung physikalisch gedeutet werden, wenn sie in der Magnetostatik auf das magnetische Skalarpotential angewandt werden?\label{exer:bndCondMagScalarPot}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{9.} Das Problem eines unendlich langen Leiters ist ein
+offenes 2D-Problem und müsste durch eine offene
+Randbedingung in der FIT modelliert werden. Wenn das
+Rechengebiet hinreichend groß ist, kann ohne großen
+Genauigkeitsverlust für die Felder im Inneren des Rechengebiets
+auf die komplizierte Implementierung eines offenen Randes
+verzichtet werden. Welche Randbedingung eignet sich hierfür besser? (Neumann ($H_{\text{n}}=0$) oder Dirichlet ($\vec{H}_{\text{t}}=0$))?\label{exer:boundCondInfiniteConductor}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+\section{Aufgaben während der Praktikumssitzung}
+
+{\subsection{Elektrostatik}}
+
+Kern dieses Abschnitts bildet die Implementierung eines Solvers für elektrostatische
+Probleme. Anhand der Kondensatoranordnungen aus der Vorbereitung können die
+Routinen mit analytischen Berechnungen verglichen und das Konvergenzverhalten
+untersucht werden. Der Kondensator mit Knick dient darüber hinaus als Beispiel
+für ein analytisch nicht lösbares Problem.
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{1.} Vervollständigen Sie die in \lstinline{solveES.m} vorgegebene Funktion
+\begin{align}
+\lstinline{[phi, ebow, dbow, relRes] = solveES(msh, eps, pots, q, bc)} \; ,
+\end{align}
+welche einem allgemeinen Elektrostatik-Solver entspricht. \lstinline{msh} ist hierbei das Rechengitter, \lstinline{eps} die Permittivität, \lstinline{pots} die gesetzten Potentiale für jeden Gitterpunkt (nicht bekannte Potentiale sind mit dem Wert \lstinline{NaN} in diesem Vektor gekennzeichnet), \lstinline{q} die vorgegebenen Ladungen und \lstinline{bc} die vorgegebenen Randbedingungen. \lstinline{phi}, \lstinline{ebow} und \lstinline{dbow} sind die integralen Feldgrößen und \lstinline{relRes} ist ein Vektor mit den relativen Residuen des Solvers in jedem Iterationsschritt.\\
+\ \\
+{\textbf{Hinweis:}} Für die Implementierung werden Ihnen einige Routinen vorgegeben
+(zum Teil handelt es sich um optimierte Funktionen aus vergangenen Versuchen), welche auf den nächsten Seiten beschrieben sind. Verwenden Sie diese so oft wie möglich.\label{exer:solveES}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{2.} Schreiben Sie eine Methode
+\begin{align}
+\lstinline{cap = calcCap(msh, ebow, dbow)} \; ,
+\end{align}
+die die Kapazität \lstinline{cap} berechnet und zurück gibt. Verwenden Sie hierzu die vorgegebenen Methoden \lstinline{intEdge} und
+\lstinline{intSurf}.\label{exer:calcCap}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{3.} Verwenden Sie nun die letzten beiden Methoden in dem teilweise vorgegebenen Skript \lstinline{exampleCaps.m}, um
+die Kapazität der Kondensatorkonfigurationen a) bis d) der Vorbereitungsaufgaben numerisch zu berechnen und mit Ihren analytischen Ergebnissen zu vergleichen. Hängt die Lösung von der Größe des Gitters ab?\label{exer:calcCapNumerically}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{4.} Visualisieren Sie im selben Skript das Potential (\lstinline{plotPotential}) und das elektrische Feld (\lstinline{plotEdgeVoltage})
+der fünf Kondensatorkonfigurationen. Wählen Sie hierfür eine sinnvolle Diskretisierung und eine zweidimensionale Darstellung mit sinnvoller Schnittebene~\lstinline{indz}. Kommentieren Sie kurz die Feldbilder im Hinblick auf die analytischen Feldverläufe.\label{exer:visualizeCapField}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{5.}   Dokumentieren Sie das Konvergenzverhalten des iterativen Solvers für Kondensatorkonfiguration~e), indem Sie
+den Verlauf des relativen Residuums als Funktion des Iteratonsschritts $n_\text{iter}$ mithilfe eines Matlab-Skripts \lstinline{plotConv.m} grafisch darstellen.\\
+{\textbf{Hinweis:}} Entsprechend Vorgabe ist das relative Residuum für jeden Iterationsschritt in \lstinline{relRes} enthalten.\label{exer:plotCapConvSolver}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{6.} Schreiben Sie nun ein Skript \lstinline{plotConvCap.m}, das die letzte Kondensatorkonfiguration e) numerisch berechnet
+und zusätzlich das Konvergenzverhalten (hier nicht vom Gleichungssystemlöser, sondern von der Gitterverfeinerung)
+angibt. Stellen Sie auch diese Lösung wieder grafisch dar.\\
+Welcher Unterschied besteht zwischen der Konvergenz des iterativen Solvers und der Verbesserung der Lösungsgenauigkeit durch zunehmende Gitterzellenanzahl, der sogenannten Verfahrenskonvergenz?\label{exer:plotCapConvMesh}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+%
+{\subsection{Skalare Magnetostatik}}
+Analog zur Elektrostatik wird nun ein Solver für magnetostatische Probleme implementiert, welcher das magnetische Skalarpotential verwendet. Das Rechengebiet wird erneut zu $1\times 1\times 1$ gewählt. In der Mitte des Rechengebietes soll sich ein in $z$-Richtung das komplette Rechengebiet durchlaufender Linienleiter, der den Strom \SI{1000}{A} führt, befinden.
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{7.} Verwenden Sie die vorgegebene Methode \lstinline{calcHi}, um das Hilfsfeld $\hfit_{\text{i}}$ des Linienleiters zu berechnen.
+Stellen Sie es grafisch dar. Nutzen Sie für diese Implementierung bitte das gegebene Skript \lstinline{exampleHi.m}.\label{exer:visualizeHi}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{8.} Vervollständigen Sie den Solver
+\begin{align}
+\lstinline{[hbow, bbow, relRes] = solveMS(msh, mu, jbow, bc)} \; ,
+\end{align}
+wobei \lstinline{mu} hier die Permeabilität, \lstinline{jbow} der Gitterstromfluss und
+\lstinline{hbow} bzw. \lstinline{bbow} die Feldgrößen sind.\\
+\ \\
+{\textbf{Hinweis:}} Verwenden Sie wieder die vorgegebenen Routinen sowie die \matlab-Datei \lstinline{solveMS}. Benutzen Sie
+dafür u.\,A. die Routine \lstinline{createMeps} und beachten Sie die vertauschte Allokation der Felder in der skalaren Magnetostatik.\label{exer:solveMS}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{9.} Verwenden Sie \lstinline{solveMS} um das $\vec{H}$-Feld zu berechnen und grafisch darzustellen. Nutzen Sie für diese Implementierung bitte das Skript \lstinline{exampleMShomogen.m}. Entspricht das Feldbild Ihren Erwartungen?\label{exer:visualizeHfield}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{10.} Wählen Sie ein einfaches (aber sinnvolles) Beispiel einer inhomogenen Materialverteilung. Verwenden Sie die vorhandenen Methoden, um das
+Problem zu lösen und grafisch darzustellen. Nutzen Sie für diese Implementierung bitte das Skript \lstinline{exampleMSinhomogen.m}.\label{exer:Hfield4inhomogenMaterial}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+
+
+\section{Fazit}
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+\end{document}
