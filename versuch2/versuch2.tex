@@ -53,10 +53,12 @@
                     Sie den Kanten eine Orientierung zu.\label{exer:triangleOrderedNumbering}
 \end{framed}
 
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Raster_2.png}
 	\caption{Gegebenes Gitter mit beliebig gewählter Indizierung für Punkte, Kanten und Flächen.}
+	\label{abb::5-eck}
 \end{figure}
 
 % --> Aufgabe
@@ -67,7 +69,67 @@
                     Umlaufrichtung der Fläche zeigen, mit einem negativen Vorzeichen vor dem Index gekennzeichnet.\label{exer:incidences}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\begin{table}[h!]
+	\begin{center}
+	
+	\label{tab:table1}
+	\begin{tabular}{c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+		$P_i$ & X & Y\\
+		\hline
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & $\cos 72^\circ$ &$\sin 72^\circ$ \\
+		4 & $-\cos 36^\circ$ &$\sin 36^\circ$ \\
+		5 & $-\cos 36^\circ$ &$-\sin 36^\circ$ \\
+		6 & $\cos 72^\circ$ &$-\sin 72^\circ$ \\
+	\end{tabular}
+	\end{center}
+\caption{Punktliste}
+
+\end{table}
+\begin{table}[h!]
+	\begin{center}
+	
+		\label{tab:table2}
+		\begin{tabular}{c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+			$L_i$ & $P_{in}$ & $P_{out}$\\
+			\hline
+			1 & 1 & 6\\
+			2 & 1 & 2\\
+			3 & 1 & 3\\
+			4 & 1 & 5\\
+			5 & 1 & 6\\
+			6 & 2 & 3\\
+			7 & 3 & 4\\
+			8 & 4 & 5\\
+			9 & 5 & 6\\
+			10 & 6 & 2\\  
+		\end{tabular}
+			\end{center}
+		\caption{Kanten-zu-Knoten Indextabelle}
+	
+\end{table}
+
+\begin{table}[h!]
+\begin{center}
+	
+	\label{tab:table3}
+	\begin{tabular}{c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+		$A_i$ & $L_{1}$ & $L_{2}$ & $L_{3}$\\
+		\hline
+		1 & 1 & -2 & 10\\
+		2 & 2 & -3 & 6\\
+		3 & 3 & -4 & 7\\
+		4 & 4 & -5 & 8\\
+		5 & -1 & 5 & 9\\
+	 
+	\end{tabular}
+\end{center}
+\caption{Flächen-zu-Kanten Indextabelle}
+
+\end{table}
+
+
 
 % --> Aufgabe
         \begin{framed}
@@ -79,7 +141,21 @@
                     $\gradfit \varphi$}$ gerade den Vektor $\efit$ ergibt, was der
                     kontinuierlichen Formel $\vec{E}=-\grad\varphi$ entspricht.\label{exer:gradfit}
 \end{framed}
+Aus  der Kanten-zu-Knoten Tabelle \ref{tab:table2} bekommt man Gradientenmatrix $\gradfit$:
 
+$$ \gradfit = \begin{bmatrix}
+-1 & 0 & 0 & 0 & 0 & 1\\
+-1 & 1 & 0 & 0 & 0 & 0\\
+-1 & 0 & 1 & 0 & 0 & 0\\
+-1 & 0 & 0 & 1 & 0 & 0\\
+-1 & 0 & 0 & 0 & 1 & 0\\
+0 & -1 & 1 & 0 & 0 & 0\\
+0 & 0 & -1 & 1 & 0 & 0\\
+0 & 0 & 0 & -1 & 1 & 0\\
+0 & 0 & 0 & 0 & -1 & 1\\
+0 & 1 & 0 & 0 & 0 & -1\\
+
+\end{bmatrix} $$
 \emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
@@ -89,13 +165,48 @@
 \end{framed}
 
 \emph{Fügen Sie hier Ihre Lösung ein}
-
+Aus der Flächen-zu-Kanten Tabelle \ref{tab:table3} bekommt man:
+$$ \curlfit = \begin{bmatrix}
+1 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0\\
+-1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 
+\end{bmatrix} $$
 % --> Aufgabe
         \begin{framed}
 	\noindent \textbf{7.} Überprüfen Sie, ob genau wie im kontinuierlichen Fall die Beziehung $\rot\grad=0$ auch für die aufgestellten diskreten Matrizen $\curlfit\gradfit={\textbf{0}}$ gilt.\label{exer:rotgradZero}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+
+$$ \curlfit\gradfit = \begin{bmatrix}
+1 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0\\
+-1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 
+\end{bmatrix}
+ \begin{bmatrix}
+ -1 & 0 & 0 & 0 & 0 & 1\\
+ -1 & 1 & 0 & 0 & 0 & 0\\
+ -1 & 0 & 1 & 0 & 0 & 0\\
+ -1 & 0 & 0 & 1 & 0 & 0\\
+ -1 & 0 & 0 & 0 & 1 & 0\\
+ 0 & -1 & 1 & 0 & 0 & 0\\
+ 0 & 0 & -1 & 1 & 0 & 0\\
+ 0 & 0 & 0 & -1 & 1 & 0\\
+ 0 & 0 & 0 & 0 & -1 & 1\\
+ 0 & 1 & 0 & 0 & 0 & -1\\
+ 
+ \end{bmatrix}$$\\
+$$ =\begin{bmatrix}
+ -1+1 & 1-1 & 1-1 & 0 & 0 & 1-1 \\
+ -1+1 & 1-1 &-1+1 & 0 & 0 & 0\\
+ -1+1 & 0 & 1-1 & -1+1 & 0 & 0\\
+ -1+1 & 0 & 0 & 1-1 & -1+1 & 0\\
+  1-1 & 0 & 0 & 0 & 1-1 &-1+1\\
+ \end{bmatrix} = \textbf{0}$$
+ 
 
 %
     {\subsection{Duale Gitter}}
@@ -180,7 +291,12 @@ Beim dualen Gitter im dreidimensionalen entspricht die Anzahl der dualen Punkte 
 	\noindent \textbf{3.} Nutzen Sie \lstinline{cartMesh} zur Erzeugung eines nicht äquidistanten Gitters mit \{3,4,5\} Punkten in \{$x$,$y$,$z$\}-Richtung und visualisieren Sie es mit \lstinline{plotMesh}. Nutzen Sie hierfür die bereits gegebene Datei \lstinline{exampleMesh.m}.\label{exer:createVisualizeMesh}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+	\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{exmesh.pdf}
+	\label{abb:example}
+	\caption{exampleMesh Plot}
+\end{figure}
 
 %
     {\subsection{Die topologischen Matrizen $\curlfit$, $\curldfit$, $\divfit$ und $\divdfit$}}
