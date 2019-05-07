@@ -25,10 +25,16 @@
         Anzahl der Indizes, zu denen keine Kanten gehören. Geben Sie diese Formel auch für den Sonderfall
         $N_{xy}=N_x=N_y$ in Abhängigkeit von $N_{\text{P}}=N_{xy}^2$ an. Geben Sie darüber hinaus auch eine Formel an, um die Indizes aller Geisterkanten nach dem kanonischen Indizierungsschema zu berechnen.\label{exer:nrOfGhostEdges}
 \end{framed}
-
+\noindent
 Die Anzahl der Geisterkanten eines $N_x \times N_y$-Gitters ergibt sich zu $N_x + N_y$ da jeweils an den in positiver Richtung liegenden Aussenseiten eine Reihe an Geisterkanten besitzt.\\
-Für den Fall von $N_x = N_y$ ergibt sich die Anzahl der Geisterkanten zu $\sqrt{N_p} \cdot 2$. 
-
+Für den Fall von $N_x = N_y$ ergibt sich die Anzahl der Geisterkanten zu $\sqrt{N_p} \cdot 2$. Die Indizes aller Geisterkanten nach dem kanonischen Indizierungsschema lassen sich einfach berechnen. Dazu erst die Geisterkanten in x-Richtung:
+\begin{equation*}
+	n\in[N_x,2N_x,\dots,N_xN_y].
+\end{equation*}
+und dann in y-Richtung:
+\begin{equation*}
+n\in[N_x(N_y-1)+1,N_x(N_y-1)+2,\dots,2N_p].
+\end{equation*}
 %
     {\subsection{Dreiecksgitter}}
     Gegeben sind die beiden Dreiecksgitter in Abb.~\ref{fig:tetmesh}, \textbf{wobei
@@ -91,7 +97,7 @@ Für den Fall von $N_x = N_y$ ergibt sich die Anzahl der Geisterkanten zu $\sqrt
 \begin{table}[h!]
 	\begin{center}
 	
-		\label{tab:table2}
+		
 		\begin{tabular}{c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
 			$L_i$ & $P_{in}$ & $P_{out}$\\
 			\hline
@@ -108,13 +114,13 @@ Für den Fall von $N_x = N_y$ ergibt sich die Anzahl der Geisterkanten zu $\sqrt
 		\end{tabular}
 			\end{center}
 		\caption{Kanten-zu-Knoten Indextabelle}
-	
+	\label{tab:table2}
 \end{table}
 
 \begin{table}[h!]
 \begin{center}
 	
-	\label{tab:table3}
+
 	\begin{tabular}{c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
 		$A_i$ & $L_{1}$ & $L_{2}$ & $L_{3}$\\
 		\hline
@@ -123,11 +129,10 @@ Für den Fall von $N_x = N_y$ ergibt sich die Anzahl der Geisterkanten zu $\sqrt
 		3 & 3 & -4 & 7\\
 		4 & 4 & -5 & 8\\
 		5 & -1 & 5 & 9\\
-	 
 	\end{tabular}
 \end{center}
 \caption{Flächen-zu-Kanten Indextabelle}
-
+	\label{tab:table3}
 \end{table}
 
 
@@ -142,6 +147,7 @@ Für den Fall von $N_x = N_y$ ergibt sich die Anzahl der Geisterkanten zu $\sqrt
                     $\gradfit \varphi$}$ gerade den Vektor $\efit$ ergibt, was der
                     kontinuierlichen Formel $\vec{E}=-\grad\varphi$ entspricht.\label{exer:gradfit}
 \end{framed}
+\noindent
 Aus  der Kanten-zu-Knoten Tabelle \ref{tab:table2} bekommt man Gradientenmatrix $\gradfit$:
 
 $$ \gradfit = \begin{bmatrix}
@@ -157,15 +163,14 @@ $$ \gradfit = \begin{bmatrix}
 0 & 1 & 0 & 0 & 0 & -1\\
 
 \end{bmatrix} $$
-\emph{Fügen Sie hier Ihre Lösung ein}
+
 
 % --> Aufgabe
         \begin{framed}
 	\noindent \textbf{6.} Konstruieren Sie mithilfe der Flächen-zu-Kanten-Inzidenz die Curlmatrix $\curlfit$.\\
               Zur Erinnerung: $\curlfit \efit = - \frac{\text{d}}{\text{d}t} \bfit$.\label{exer:curlfit}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
 Aus der Flächen-zu-Kanten Tabelle \ref{tab:table3} bekommt man:
 $$ \curlfit = \begin{bmatrix}
 1 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
@@ -254,8 +259,8 @@ $$ =\begin{bmatrix}
         von 3D-Gittern zusammenhängen. Besonderheiten am Rand sind hierzu zu vernachlässigen.
         Wie verhalten sich die Größen im Fall von 2D-Gittern?\label{exer:primaryDualCorrespondence}
 \end{framed}
-
-Beim dualen Gitter im dreidimensionalen entspricht die Anzahl der dualen Punkte $\tilde{N_P}$, aufgrund der Definition der dualen Gitterpunkte in den primären Volumen, der Anzahl der primären Volumen ${N_V}$. Durch die Definition der dualen Kante, die durch die primären Flächen verlaufen, ergibt sich $\tilde{N_L} = N_A$. Die dualen Volumen befinden sich jeweils um einen primären Punkt herum weshalb die Anzahl $\tilde{N_V}$ der dualen Volumen mit der Anzahl $N_P$ der primären Punkte übereinstimmt.  
+\noindent
+Beim dualen Gitter im dreidimensionalen entspricht die Anzahl der dualen Punkte $\tilde{N}_P$, aufgrund der Definition der dualen Gitterpunkte in den primären Volumen, der Anzahl der primären Volumen ${N_V}$. Durch die Definition der dualen Kante, die durch die primären Flächen verlaufen, ergibt sich $\tilde{N}_L = N_A$. Die dualen Volumen befinden sich jeweils um einen primären Punkt herum weshalb die Anzahl $\tilde{N}_V$ der dualen Volumen mit der Anzahl $N_P$ der primären Punkte übereinstimmt.  
 \section{Aufgaben während der Praktikumssitzung}
 
     {\subsection{Datenstruktur, Visualisierung des Gitters}}
@@ -294,7 +299,7 @@ Beim dualen Gitter im dreidimensionalen entspricht die Anzahl der dualen Punkte 
 
 	\begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{exmesh.pdf}
+	\includegraphics[trim = 15mm 65mm 15mm 60mm, clip,width=0.8\textwidth]{exmesh.pdf}
 	\label{abb:example}
 	\caption{exampleMesh Plot}
 \end{figure}
@@ -324,8 +329,8 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     zurück, wenn \emph{alle} ihre Argumente ebenfalls \lstinline{sparse}
                     sind. Mehr zu diesem Thema ist in der \matlab-Dokumentation zu finden.\label{exer:geoMats}
 \end{framed}
-
-Die Rückgabe der dualen Rotationsmatrix $\tilde{C}$ ist nicht sinnvoll, da diese durch $\tilde{C} = C^T$ und die Rückgabe von $C$ bereits einfach erzeugt werden kann. Selbiges gilt für die primäre Gradientenmatrix $G$ die aus $S^T$ durch $G = -\tilde{S^T}$ erzeugt werden kann. 
+\noindent
+Die Rückgabe der dualen Rotationsmatrix $\curldfit$ ist nicht sinnvoll, da diese durch $\curldfit = \curlfit^{\top}$ und die Rückgabe von $\curlfit$ bereits einfach erzeugt werden kann. Selbiges gilt für die primäre Gradientenmatrix $\mathbf{G}$ die aus $\divfit^{\top}$ durch $\mathbf{G} = -\divfit^{\top}$ erzeugt werden kann. 
 
 % --> Aufgabe
         \begin{framed}
@@ -336,10 +341,8 @@ Die Rückgabe der dualen Rotationsmatrix $\tilde{C}$ ist nicht sinnvoll, da dies
                     Ermitteln Sie wie viel Speicherplatz jeweils von \matlab benötigt wird
                     (\lstinline{sparse} und \lstinline{full}-Format). Legen Sie für die Ausarbeitung eine Tabelle mit dem jeweils benötigten Speicherplatz an. Nutzen Sie für diese Tests die bereits gegebene Datei \lstinline{exampleSparse.m}.\label{exer:spyStorage}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}\\
-
- Wie in Abb. \ref{fig:visucmatrixprimgitt} zu sehen entsteht durch die kanonische Indizierung eine Matrix, die sich aus einer Mehrzahl Elementen auf den Nebendiagonalen zusammen setzt. Dies ermöglicht eine sehr günstige Speicherung. \\
+\noindent
+ Wie in Abbildung \ref{fig:visucmatrixprimgitt} zu sehen entsteht durch die kanonische Indizierung eine Matrix, die sich aus einer Mehrzahl Elementen auf den Nebendiagonalen zusammen setzt. Dies ermöglicht eine sehr günstige Speicherung. \\
  Wie in Tabelle \ref{tbl:speicherCMatrix} zu erkennen ist, werden für die Speicherung einer mittleren C-Matrix mit 4913 Elementen im Vollformat 1,7 GB an Speicherplatz benötigt. Die selbe Matrix kann im Sparse-Format jedoch mit nur 0,4 MB gespeichert werden. 
  \begin{table}
 	
@@ -353,8 +356,8 @@ Die Rückgabe der dualen Rotationsmatrix $\tilde{C}$ ist nicht sinnvoll, da dies
  	4913& 1.737.904.968 Byte& 466.736 Byte \\ 
  	\hline 	
  \end{tabular} 	
-\label{tbl:speicherCMatrix}
 \caption{Speicherverbrauch einer C-Matrix in unterschiedlichen Speicherformaten}
+\label{tbl:speicherCMatrix}
   \end{table}
 \begin{figure}
 	\centering
@@ -374,11 +377,11 @@ Die Rückgabe der dualen Rotationsmatrix $\tilde{C}$ ist nicht sinnvoll, da dies
                     Was bedeutet das für die topologischen Matrizen in Hinblick
                     auf die jeweiligen analytischen Operatoren? Erinnern Sie sich, welche analytischen Operatoren den jeweiligen Matrizen entsprechen.\label{exer:CG_SC}
 \end{framed}
-
-Bei der Berechnung von $C(-\tilde{S^T})$ als auch $SC$ ist das Ergebnis eine Nullmatrix. Dies zeigt die Konsistenz der Diskreten Operationen mit den analytischen, da diese mit
+\noindent
+Bei der Berechnung von $\curlfit\, (-\divdfit^{\text{T}})$ als auch $\divfit\curlfit$ ist das Ergebnis eine Nullmatrix. Dies zeigt die Konsistenz der Diskreten Operationen mit den analytischen, da diese mit
 \begin{align*}
-	S C = 0  &\sim  \nabla \cdot \nabla \times = 0\\
-	C(-\tilde{S^T})=C(G) = 0 &\sim  \nabla \times \nabla	= 0
+	\divfit\curlfit = 0  &\sim  \nabla \cdot \nabla \times = 0\\
+	\curlfit\, (-\divdfit^{\text{T}})=\curlfit(\mathbf{G}) = 0 &\sim  \nabla \times \nabla	= 0
 \end{align*}
 einander entsprechen. 
 {\subsection{Unbelegte Kantenelemente}}
