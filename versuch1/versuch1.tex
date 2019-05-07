@@ -314,26 +314,31 @@ $	\begin{pmatrix}
 	$$A_\text{D} =  \frac12 r^2 \sin(\Delta\varphi)$$
 	
 	Wenn man den relativen Oberflächen- und Volumenfehler bestimmen wollte, soll man die Oberfläche und das Volumen des wahres und des diskretisiertes Zylinders ausrechnen.
+	\\
+	\\
+	Formel für eine Oberfläche diskretisiertes Zylinder($A_\text{disc}$) bekommt man mit dem Summation alle Dreieckflächen. Die Oberfläche besteht aus 2 Grundbasis Flachen ($2\cdot n_\text{D}A_\text{D}$) und Mantel ($2\cdot\frac12  a_\text{D}h$).\\
+		Formel für das Volumina diskretisiertes Zylinder($V_\text{disc}$) bekommt man mit Multiplikation der Grundbasis ($ n_\text{D}A_\text{D}$) und Höhe ($h$).\\
+	\\  
 	\begin{eqnarray*}
 		A_\text{disc}&=&2n_\text{D}r\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]\\
-		\\
+	    \\
 		V_\text{disc}&=&\frac12 n_\text{D} r^2 \sin\left(\frac{ 2\pi}{n_\text{D}}\right)h\\
 		\\
 		A&=&2 r \pi (r+h)\\
 		\\
 		V&=&r^2\pi h
 	\end{eqnarray*}
-	Die Formel für den absolute Fehler lautet\\
-	$$\Delta X = X- X_\text{disc}$$.
+	Die Formel für den absolute Fehler lautet:\\
+	$$\Delta X = X- X_\text{disc}$$
 	Damit bekommt man
 	\begin{eqnarray*}
 		\Delta A&=&2 r \pi (r+h) -2n_\text{D}r\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]\\
 		\\
 		\Delta V&=&r^2\pi h -\frac12 n_\text{D} r^2 \sin\left(\frac{ 2\pi}{n_\text{D}}\right)h\\
-	\end{eqnarray*}.
+	\end{eqnarray*}
 	Den relative Fehler bekommt man mit der Formel:
 	$$\varepsilon_{x}=\frac{\Delta X}{X}$$
-	Damit bekommt man
+	Damit bekommt man:
 	\begin{eqnarray*}
 		\varepsilon_{A}&=&\frac{ \pi (r+h) -n_\text{D}\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]}{\pi (r+h)}\\
 		\\
