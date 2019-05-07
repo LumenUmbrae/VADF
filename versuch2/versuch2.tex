@@ -12,7 +12,7 @@
         und $y$-Kanten nach dem kanonischen Indizierungsschema aus Gl.~(2.5) ein. Machen Sie sich klar, welche Indizes zu
         nicht existierenden Kanten gehören und markieren Sie diese.\label{exer:edgeIndices}
 \end{framed}
-	\begin{figure}[h]
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[trim = 10mm 170mm 65mm 20mm, clip, width=0.7\textwidth]{Zeichnung.pdf}
 		\caption{3$\times$4 Gitter mit kanonischer Kantenindizierung.}
@@ -61,12 +61,13 @@ n\in[N_x(N_y-1)+1,N_x(N_y-1)+2,\dots,2N_p].
 \end{framed}
 
 
-\begin{figure}[h]
+\begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Raster_2.png}
+	\includegraphics[width=0.6\textwidth]{Raster_2.png}
 	\caption{Gegebenes Gitter mit beliebig gewählter Indizierung für Punkte, Kanten und Flächen.}
 	\label{abb::5-eck}
 \end{figure}
+\newpage
 
 % --> Aufgabe
         \begin{framed}
@@ -75,7 +76,7 @@ n\in[N_x(N_y-1)+1,N_x(N_y-1)+2,\dots,2N_p].
                     zu Punkt 2 gerichtet. Bei der Flächen-zu-Kanten-Inzidenz werden Kanten, die gegen die
                     Umlaufrichtung der Fläche zeigen, mit einem negativen Vorzeichen vor dem Index gekennzeichnet.\label{exer:incidences}
 \end{framed}
-
+Mithilfe der Abbildung \ref{abb::5-eck} bekommt man folgende Tabellen:
 \begin{table}[h!]
 	\begin{center}
 	
@@ -134,7 +135,7 @@ n\in[N_x(N_y-1)+1,N_x(N_y-1)+2,\dots,2N_p].
 \caption{Flächen-zu-Kanten Indextabelle}
 	\label{tab:table3}
 \end{table}
-
+\newpage
 
 
 % --> Aufgabe
@@ -238,14 +239,14 @@ $$ =\begin{bmatrix}
 	Die dualen Gitter der gegebenen primären Gitter sind in den Abbildungen \ref{Abb:dual_1} und \ref{Abb:dual_2} gegeben.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Duales_Gitter_1.png}
+	\includegraphics[width=0.5\textwidth]{Duales_Gitter_1.png}
 	\caption{Duales Gitter für das erste gegebene Gitter.}
 	\label{Abb:dual_1}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Duales_Gitter_2.png}
+	\includegraphics[width=0.5\textwidth]{Duales_Gitter_2.png}
 	\caption{Duales Gitter für zweites gegebenes Gitter. Kanten, die die Orthogonalität nicht erfüllen, sind grün markiert.}
 	\label{Abb:dual_2}
 \end{figure}
@@ -278,7 +279,7 @@ Beim dualen Gitter im dreidimensionalen entspricht die Anzahl der dualen Punkte 
                     jede Raumrichtung, d.\,h. \lstinline{nx}, \lstinline{ny} und \lstinline{nz}, abgespeichert werden.\label{exer:cartMesh}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+
 
 % --> Aufgabe
         \begin{framed}
@@ -290,7 +291,7 @@ Beim dualen Gitter im dreidimensionalen entspricht die Anzahl der dualen Punkte 
                     Sie hierzu den \lstinline{line}-Befehl und eine 3-fach Schleife über die Indizes $i,j,k$.\label{exer:plotMesh}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+
 
 % --> Aufgabe
         \begin{framed}
@@ -299,7 +300,7 @@ Beim dualen Gitter im dreidimensionalen entspricht die Anzahl der dualen Punkte 
 
 	\begin{figure}[h]
 	\centering
-	\includegraphics[trim = 15mm 65mm 15mm 60mm, clip,width=0.8\textwidth]{exmesh.pdf}
+	\includegraphics[trim = 15mm 65mm 15mm 60mm, clip,width=0.5\textwidth]{exmesh.pdf}
 	\label{abb:example}
 	\caption{exampleMesh Plot}
 \end{figure}
@@ -344,7 +345,7 @@ Die Rückgabe der dualen Rotationsmatrix $\curldfit$ ist nicht sinnvoll, da dies
 \noindent
  Wie in Abbildung \ref{fig:visucmatrixprimgitt} zu sehen entsteht durch die kanonische Indizierung eine Matrix, die sich aus einer Mehrzahl Elementen auf den Nebendiagonalen zusammen setzt. Dies ermöglicht eine sehr günstige Speicherung. \\
  Wie in Tabelle \ref{tbl:speicherCMatrix} zu erkennen ist, werden für die Speicherung einer mittleren C-Matrix mit 4913 Elementen im Vollformat 1,7 GB an Speicherplatz benötigt. Die selbe Matrix kann im Sparse-Format jedoch mit nur 0,4 MB gespeichert werden. 
- \begin{table}
+ \begin{table}[h!]
 	
  \begin{tabular}{|c|c|c|}
  
@@ -359,16 +360,20 @@ Die Rückgabe der dualen Rotationsmatrix $\curldfit$ ist nicht sinnvoll, da dies
 \caption{Speicherverbrauch einer C-Matrix in unterschiedlichen Speicherformaten}
 \label{tbl:speicherCMatrix}
   \end{table}
-\begin{figure}
+\begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{versuch2/VisuCMatrixPrimGitt}
+	\includegraphics[width=0.5\linewidth]{versuch2/VisuCMatrixPrimGitt}
 	\caption{Speicherverbrauch einer C-Matrix in unterschiedlichen Speicherformaten}
 	\label{fig:visucmatrixprimgitt}
 \end{figure}
-
+\\
+\\
+\\
+\\
+\\
 
 % --> Aufgabe
-        \begin{framed}
+   \begin{framed}
 	\noindent \textbf{6.} Berechnen Sie
                     \begin{enumerate}
                         \item $\curlfit\, (-\divdfit^{\text{T}})$ und
@@ -442,7 +447,7 @@ einander entsprechen.
 
 
 % --> Aufgabe
-\newpage
+
         \begin{framed}
 	\noindent \textbf{10.} Verwenden Sie Ihre Methode \lstinline{impField} um folgende Felder zu diskretisieren:
         \begin{enumerate}
@@ -495,8 +500,6 @@ Das duale Gitter sollte am Rand so gewählt werden, dass der Teil der Kante, der
 	\caption{Primäres und duales Gitter für Erfüllung der magnetischen Randbedingung.}
 	\label{Abb:mgn_Rand_2}
 \end{figure}
-
-
 
 \section{Fazit}
 Wie aus den Aufgaben ersichtlich wird, ist die Generierung von Mesh Matrizen relativ einfach. Weiterhin können mit einfachen Operationen die Matrizen $\curlfit$, $\curldfit$, $\divfit$, $\divdfit$ und $\mathbf{G}$ erstellt und verwendet werden, um in Zukunft Feldprobleme effizient lösen zu können. 
