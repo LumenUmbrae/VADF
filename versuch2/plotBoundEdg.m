@@ -7,18 +7,11 @@ relOccurence = zeros(1,nxyMax);
 for nxy=1:nxyMax
     % Gittererzeugung: kartesisches Gitter mit nxy Punkten in x- und y-
     % Richtung. Es handelt sich um ein ebenes Gitter (x-y-Ebene) mit z = 1
-    xmesh=1:1:nxy;
-    for i=1:(nxy-1)
-      xmesh=[xmesh, 1:1:nxy];
-    endfor
-    
-    ymesh=ones(nxy, 1)';
-    
-    for i=2:1:nxy
-       ymesh=[ymesh, i.*ones(nxy, 1)'];
-    endfor
+    xmesh=linspace(1,nxy,nxy);
+    ymesh=linspace(1,nxy,nxy);
+    zmesh=1;
    
-    msh=cartMesh(xmesh,ymesh,ones(nxy.^3, 1));
+    msh=cartMesh(xmesh,ymesh,zmesh);
     % Geisterkanten finden
     edg = boundEdg(msh);
     % Geisterkanten zaehlen
@@ -41,3 +34,4 @@ ylabel('Rel. Anteil');
 title(['Relative Anzahl der Geisterkanten bei N_x bzw. N_y von 1 bis ',...
        num2str(nxyMax)]);
 ylim([min(relOccurence),max(relOccurence)])
+print -dpdf plotBoundEdg.pdf

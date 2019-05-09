@@ -1,0 +1,153 @@
+\documentclass[Protokollheft.tex]{subfiles}
+\begin{document}
+\chapter{HF-Zeitbereich 3: Streuparameter}
+%--------------- Start Vorbereitungsaufgaben ---------------
+Dieser Versuch schließt direkt an den letzten Versuch an. Es soll dieselbe
+Problemstellung sowie das im letzten Versuch bestimmte Zeitsignal verwendet werden,
+um dann mithilfe der DFT Analysen im Frequenzbereich durchzuführen. Insbesondere 
+werden die Anregung $I_0$ sowie die Abschlusswiderstände wieder über die jeweilige 
+Stirnfläche verteilt. Beachten Sie aber, dass im Gegensatz zum letzten Versuch hier nun
+für die homogene Leitung eine relative Permittivität von $\epsr=0.9$ verwendet wird.
+Dieser Wert ist zwar unphysikalisch, stellt aber sicher, dass der 
+Leitungswellenwiderstand \SI{50}{\ohm} beträgt. Für die inhomogene Leitung gilt weiterhin
+$\epsr=1.3$, während für beide Leitungen weiterhin $\mur=1$ gewählt wurde.
+
+\section{Vorbereitungsaufgaben}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{1.} Zeichnen Sie für die hier behandelte Leitung das entsprechende Zweitor mit Zählpfeilen orientiert wie in Abb.~7.7. Fügen Sie auch die hier verwendete äußere Beschaltung an den Leitungsenden hinzu.\label{exer:twoPort}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{2.} Bestimmen Sie den Eingangsstrom $I_1$ in Abhängigkeit von der Eingangsspannung $U_1$, dem Abschlusswiderstand $R$ und der Anregung $I_0$.\label{exer:calcI1}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{3.} Bestimmen Sie die Ausgangsspannung $\ul{U}_2$ und den Ausgangsstrom $\ul{I}_2$ in Abhängigkeit von der Eingangsspannung $U_1$, der Länge der Leitung $\ell$ und der Phasenkonstante $\beta$. Sie können dabei annehmen, dass die Leitung mit ihrem Wellenwiderstand abgeschlossen ist.\label{exer:calcU2I2}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{4.} Mit welcher Geschwindigkeit bewegt sich die Welle auf der gegebenen Leitung? Berechnen Sie die Zeit, die die Welle benötigt, um die Länge der Leitung einmal zu passieren.\label{exer:calcSpeedTime}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{5.} Wie kann man aus den im Allgemeinen komplexen Rückgabewerten der DFT (\matlab-Befehl \verb"fft") auf das Frequenzspektrum schließen?\label{exer:freqSpectByDFT}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+\section{Aufgaben während der Praktikumssitzung}
+
+{\subsection{Streuparameter}}
+
+\noindent
+Im Folgenden soll das Übertragungsverhalten der beiden Leitungen
+im Frequenzbereich von $0$ bis \SI{200}{MHz} bestimmt werden. Zu diesem
+Zweck sollen nur noch Gaußpulse verwendet werden.
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{1.} Regen Sie die homogene Leitung mit dem in Versuch 7 beschriebenen
+Gauß-Puls an.\label{exer:exciteGauss}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{2.} Bestimmen Sie die Spannungen und Ströme an Ein- und Ausgang der Leitung
+ im Zeitbereich und stellen Sie diese in entsprechenden Plots dar.\label{exer:UandVtimeDomain}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{3.} Schreiben Sie eine Routine, die das Spektrum eines
+Zeitsignals berechnet und eine zugehörige Frequenzachse erzeugt.
+Experimentieren Sie mit dem zero-padding, um im interessierenden
+Frequenzbereich eine genügend gute Auflösung zu bekommen.\label{exer:calcFreqSpectWithAxis}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{4.} Bestimmen Sie die Spannungen und Ströme an Ein- und Ausgang der Leitung 
+im Frequenzbereich und stellen Sie diese in entsprechenden Plots dar. Überprüfen Sie, ob 
+der Gauß-Puls im Frequenzbereich die Bedingungen erfüllt, die an 
+diesen in Versuch 7 gestellt wurden.\label{exer:UandVfreqDomain}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{5.} Berechnen Sie die Ein- und Ausgangsimpedanz im Frequenzbereich und stellen 
+Sie diese in Abhängigkeit der Frequenz dar.\label{exer:ZfreqDomain}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{6.} Berechnen Sie aus den Spektren der Strom- und 
+Spannungsgrößen die Spektren der zugehörigen Wellengrößen $a_1$,
+$b_1$ und $b_2$ und daraus die Streuparameter $S_{11}$ und
+$S_{21}$. Interpretieren Sie das Ergebnis für Reflexion und
+Transmission.\label{exer:calcWaveQuantities}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{7.} Überprüfen Sie die Energiebilanz nach~(8.8).\label{exer:checkEnergyBal4TLine}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{8.} Wiederholen Sie die Berechnungen für die inhomogene Leitung.\label{exer:calc4inhomTLine}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+{\subsection{Lösung im Frequenzbereich}}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{9.} Berechnen Sie das System für einen Frequenzpunkt im
+Frequenzbereich, wie in Versuch 5 beschrieben. Die zugehörige
+Gleichung für den verlustlosen Fall mit konzentrierten
+Elementen lautet
+\begin{equation}
+	\underbrace{(\curldfit \Mmui \curlfit -
+	\omega^2 \Meps + j \omega {\textbf{R}}^{-1} )}_{\Amat} \ul \efit = - j \omega \ul \jfit_{\text{e}}.
+\end{equation}
+Vergleichen Sie die Rechenzeit dieses einen Punktes mit einem
+kompletten Leapfrog-Durchlauf.\label{exer:cmpFreqSolWithLeapfrog}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+
+
+\section{Fazit}
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+\end{document}

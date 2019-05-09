@@ -1,9 +1,9 @@
 %% Skript to plot .stl file in octave 
 
-filename='zylinder.stl'; % .stl file 
-%filename='w210.stl';
+%filename='zylinder.stl'; % .stl file 
+filename='w210.stl';
 %filename='coaxial.stl'; % .stl file
-%filename='cut.stl'; % .stl file
+5%filename='cut.stl'; % .stl file
 %filename='cube.stl'; % .stl file
 %filename='kugel.stl'; % .stl file
 %filename='kugel2.stl';

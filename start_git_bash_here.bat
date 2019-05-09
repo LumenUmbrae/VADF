@@ -1,0 +1,1 @@
+Start "" "C:\Programme\Git\git-bash.exe"

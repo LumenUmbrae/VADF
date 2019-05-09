@@ -1,0 +1,222 @@
+\documentclass[Protokollheft.tex]{subfiles}
+\begin{document}
+\chapter{Magnetostatik 2, Quasistatik und Frequenzbereich}
+%--------------- Start Vorbereitungsaufgaben ---------------
+
+Über einer leitenden Platte mit der Leitfähigkeit $\kappa=5.8\cdot10^7\,\text{S/m}$ und der Permeabilität $\mu=1000\,\mu_0$ befindet sich eine quadratische Stromschleife. 
+Das Material des umgebenden Rechengebiet der festen Größe $1\,\text{m}\times1\,\text{m}\times1\,\text{m}$ ist Vakuum. 
+Darüber hinaus gilt im gesamten Rechengebiet für die Permittivität $\varepsilon = \varepsilon_0$. 
+Für eine äquidistante Diskretisierung der Größe $6\times6\times5$ ist diese Problemstruktur in Abbildung~\ref{fig:strukt} dargestellt.
+Trotz der gewählten Allokation auf dualen Flächen ist der Strom hier für eine bessere Übersicht auf primären Kanten eingezeichnet.
+Es sei in diesem Zusammenhang nochmal auf die Dualität des Gitters hingewiesen, die jeder primären Kante jeweils eine duale Fläche mit dem gleichen kanonischen Index zuordnet. 
+Diese Diskretisierung eignet sich für das Testen der Implementierung. Insbesondere für die Visualisierungen sollte jedoch ein feineres Gitter verwendet werden.
+Es sollen sinnvolle Randbedingungen verwendet werden. 
+    \begin{figure}[ht!]
+        \centerline{%
+        \includegraphics[scale=0.75]{v5_prakt3.pdf}
+        }
+        \caption{Problemstruktur. Gegeben ist ein äquidistantes, dreidimensionales Gitter. Die gestrichelt dargestellten Gitterzellen sollen mit leitfähigem Material gefüllt angenommen werden,
+        d.\,h. $\kappa\neq0$ und $\mu\neq\mu_0$, der Rest der Gitterzellen ist Vakuum. Es gilt überall $\varepsilon=\varepsilon_0$. Im Versuch sollen allgemeine Diskretisierungen betrachtet werden. Bei feinerem Gitter gehen die Abmessungen von Schleife und Materialschicht entsprechend über mehrere Gitterzellen.}\label{fig:strukt}
+    \end{figure}
+
+\section{Vorbereitungsaufgaben}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{1.} Bestimmen Sie für die Problemstruktur aus Abbildung~\ref{fig:strukt} die in FIT verwendeten
+    gemittelten Leitfähigkeiten $\bar{\kappa}=(\bar{\kappa}_x\;\bar{\kappa}_y\;\bar{\kappa}_z)$ für die primalen Kanten, die von den primalen Punkten $P_{ik}$ für $(i,k)\in\{(3,1),(3,2),(3,3)\}$ ausgehen. Berechnen Sie zusätzlich die gemittelten inversen Permeabilitäten $\bar{\mu}^{-1}=(\bar{\mu}_x^{-1}\;\bar{\mu}_y^{-1}\;\bar{\mu}_z^{-1})$ für die dualen Kanten, die von den dualen Punkten $\widetilde{P}_{ik}$ mit $(i,k)\in\{(3,1),(3,2)\}$ ausgehen. Verwenden Sie zum Ermitteln dieser gemittelten Werte eine Taylorreihenentwicklung analog zu Versuch 3.\label{exer:averagedMaterials}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{2.} Bestimmen Sie die Systemmatrix $\Amat_\text{F}$ des magnetoquasistatischen Problems im Frequenzbereich (Gleichung (5.14)).\label{exer:systemMatMQSF}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{3.} Bestimmen Sie die Systemmatrix $\Amat_\text{T}$ des impliziten
+      \textsc{Euler}-Zeitschrittverfahrens, d.h.\ setzen Sie die Näherung~(5.22) in das DAE-System~(5.7) ein und stellen Sie anschließend nach $\afit_{n+1}$ um.\label{exer:systemMatMQST}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{4.}\label{3}
+      Bei dem Vergleich einer Lösung im Zeitbereich mit der äquivalenten Lösung im Frequenzbereich stößt man auf das Problem, dass die Lösung im 
+      Frequenzbereich einem komplexen Feldphasor entspricht, während die Lösung im Zeitbereich rein reellwertig ist. Man könnte nun den Realteil 
+      des Feldphasors mit der Zeitbereichslösung vergleichen, kennt hier aber nicht die Phase des Phasors. Daher soll hier der Ansatz verfolgt werden, 
+      aus dem Zeitsignal einen komplexen Phasor zu gewinnen und diesen mit dem Phasor aus der Frequenzbereichslösung zu vergleichen.
+      
+Stellen Sie nun geeignete Bedingungen für den unbekannten Realteil und Imaginärteil des komplexen Phasors auf, um diese zu bestimmen. Formen Sie daraufhin diese Beziehungen so um, dass Sie diejenigen Zeitpunkte erhalten, an denen Sie den Realteil und den Imaginärteil des Phasors direkt am eingeschwungenen Zeitsignal ablesen können.\label{exer:calcTimes4RealImag}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{5.} Geben Sie für die Problemstruktur und unter der Voraussetzung, dass in der eingezeichneten Stromschleife ein Gleichstrom von $1\,\text{kA}$
+      fließt, die Einträge des Stromdichtevektors $\jfit_\text{s}$ an. Bauen Sie den Stromdichtevektor $\jfit_\text{s}$ wie gewohnt mit dem kanonischen Indizierungsschema auf.\label{exer:calcCurrentExcitation}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{6.}\label{loop}
+      Zur Erstellung des elektrischen Feldes und der Wirbelstromdichte
+      im impliziten Zeitbereichsverfahren muss nach Gl.~(5.9) die
+      Zeitableitung des Vektorpotentials ausgewertet werden.
+      Ein Ausdruck höherer Ordnung ensteht, indem für die
+      Zeitableitung am \emph{halben} Zeitpunkt $t_{n+1/2}=(t_n+t_{n+1})/2$
+      die beiden Näherungen
+      \begin{align}\label{eq:approx1}
+        \dot{\afit}_{n+1/2} &\approx \frac{\dot{\afit}_{n+1}+\dot{\afit}_n}{2} = \frac{-\efit_{n+1} - \efit_{n}}{2}, &\qquad\mbox{(arithmetisches Mittel)}\\
+        \label{eq:approx2} \dot{\afit}_{n+1/2} &\approx \frac{\afit_{n+1} - \afit_{n}}{\Delta t} &\qquad\mbox{(zentraler Differenzenquotient)}
+      \end{align}
+      angesetzt werden.
+    
+      Leiten Sie durch Gleichsetzen beider Näherungen \eqref{eq:approx1} und \eqref{eq:approx2} und Auflösen nach
+      $\efit_{n+1}$ eine Formel her, die die elektrische Gitterspannung
+      in Abhängigkeit von ihrem jeweils letzten Wert und zwei
+      Potentialwerten beschreibt.\label{exer:formulaEfit4pots}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{7.} Weiterhin wird die Struktur aus Abbildung~\ref{fig:strukt} betrachtet. Überlegen Sie sich, wie
+      $\Dkap$, d.\,h.\ die Matrix der Materialverteilung ohne Gitterabmessungen $\Delta s$ und $\Delta \widetilde{A}$, für eine allgemeine äquidistante Diskretisierung des Problems aussieht. Welcher Zusammenhang besteht zwischen dem elektrischen Gitterstrom und der elektrischen Gitterspannung? Welche Methode aus den letzten Versuchen
+      müssen Sie daher nur leicht modifizieren, um die Materialmatrix $\Mkap$ zu erstellen?
+      \label{exer:calcDkap}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+\section{Aufgaben während der Praktikumssitzung}
+
+    Alle Aufgaben dieses Versuchs benötigen die Modellierung des Problems, gegeben durch Gitter, Materialverteilung und Anregung.
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{1.} Modellieren Sie das Problem (siehe Abbildung~\ref{fig:strukt}), d.\,h.\ erstellen Sie das Rechengitter, die Anregung und die diskretisierten Materialverteilungen. Verwenden Sie hierzu das teilweise vorgegebene Skript \lstinline{versuch5.m}.\\
+{\textbf{Hinweis:}} Beachten Sie, dass später die inverse Permeabilität benötigt wird.\label{exer:modelProblem}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+%
+Zuerst soll das magnetostatische Problem gelöst werden:
+%
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{2.} Der Solver des magnetostatischen Problems mit Hilfe eines Vektorpotentials soll in der vorbereiteten Methode
+          \begin{align}
+                \lstinline{[hbow, bbow, relRes] = solveMSVec(msh, mui, jbow)} \label{pro:solveMsVec}
+            \end{align}
+            implementiert werden. Neben den bekannten Parametern \lstinline{msh} und \lstinline{jbow} ist \lstinline{mui} hier die diskrete, gemittelte, inverse Permeabilität.\label{exer:solveMSVec}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+        \begin{framed}
+	\noindent \textbf{3.} Erweitern Sie das Skript \lstinline{versuch5.m} und verwenden Sie Methode~\eqref{pro:solveMsVec} und \lstinline{plotEdgeVoltage}, um das magnetische Vektorpotential in der $x$-$y$-Ebene bei $k=3$ grafisch darzustellen. Visualisieren Sie außerdem die $z$-Komponente der magnetischen Flussdichte in der gleichen Schnittebene. Verwenden Sie hierfür den \lstinline{surf}-Befehl.\label{exer:visualizeMagVecPot}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+%
+Nun soll das Problem für eine harmonische Anregung bei der
+Frequenz $f=50\,\text{Hz}$ gelöst werden:
+%
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{4.} Implementieren Sie einen Solver für magnetoquasistatische Probleme im Frequenzbereich
+          \begin{align}
+                \lstinline{[hbow, bbow, jbow, relRes] = solveMQSF(msh, mui, kap, jebow, f)} \label{pro:solveMqs},
+            \end{align}
+            wobei \lstinline{kap} die diskrete, gemittelte Leitfähigkeit und \lstinline{f} die Frequenz der Anregung sind.\label{exer:solveMQSF}\\
+            \ \\
+            {\textbf{Hinweis:}} Beachten Sie dabei die korrekte Form der Systemmatrix $\Amat_\text{F}$ und der
+            rechten Seite des Gleichungssystems. Das Gleichungssystem soll mit dem PCG-Verfahren
+            gelöst werden (in \matlab\;gegeben als \lstinline{pcg}). Damit dieses konvergiert, müssen zunächst die Beiträge der Geisterkanten aus der Systemmatrix und der rechten Seite entfernt werden. Hierbei ist Ihnen die bereits gestellte Methode \lstinline{getGhostEdges} eine gute Hilfe. Außerdem muss ein geeigneter Vorkonditionierer (engl.\ preconditioner) gewählt werden. Besonders leicht zu implementieren ist z.B. der Jacobi Vorkonditionierer $\mathbf{M} = \text{diag}\,\Amat$.
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{5.} Verwenden Sie Methode~\eqref{pro:solveMqs} in \lstinline{versuch5.m} und stellen Sie die Stromdichteverteilung in der Grenzfläche von Vakuum und leitender Platte als Vektorplot unter Verwendung von der gegebenen Methode \lstinline{plotEdgeVoltage.m} grafisch dar.\label{exer:currentDensityAtInterface}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+Des Weiteren soll dasselbe Problem im Zeitbereich mit dem impliziten
+    \textsc{Euler}-Verfahren berechnet werden. Dazu muss ein
+    Zeitintervall mit einer Schleife durchschritten werden.
+    Das in jedem Schritt zu lösende Gleichungssystem haben Sie in der
+    Vorbereitung hergeleitet.
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{6.} Es soll nun ein Solver im Zeitbereich implementiert werden:
+      \begin{align}
+            \lstinline{[hbow, bbow, jbow] = solveMQST(msh, mui, kap, jsbow, tend, nt)} \label{pro:solveT} \; ,
+        \end{align}
+        wobei \lstinline{t} der Simulationszeit und \lstinline{nt} der Zeitschrittanzahl entsprechen.\label{exer:solveMQST}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{7.} Verwenden Sie Methode~\eqref{pro:solveT} und stellen Sie die Stromdichteverteilung im Punkt (3,2,2) in Abhängigkeit von der Zeit grafisch dar. Implementieren Sie diese Auswertung in \lstinline{versuch5.m}. Was erwarten Sie für grobe Diskretisierungen in der Zeit beim impliziten \textsc{Euler}-Verfahren als Vorteil gegenüber dem explizitem \textsc{Euler}-Verfahren?\label{exer:currDensityTimeDependent}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{8.} Vergleichen Sie die Ergebnisse des Zeitbereichs-Solvers mit dem Ergebnis der Frequenzbereichslösung. Für diesen Vergleich muss die Frequenzbereichslösung zunächst in den Zeitbereich transformiert werden. Verwenden Sie anschließend für diesen Vergleich die Fehlernorm
+      \begin{equation}
+          \text{error} = \frac{\max||\bbow{\mathbf{j}}_\text{mqs,t}(t_i)-\bbow{\mathbf{j}}_\text{mqs,f,t}(t_i)||_2}{\max||\bbow{\mathbf{j}}_\text{mqs,f,t}(t_i)||_2}.
+          \label{eq:errorNorm}
+      \end{equation}
+Die Zeitbereichslösung wird hier mit $\bbow{\mathbf{j}}_\text{mqs,t}$ und die in den Zeitbereich transformierte Frequenzbereichslösung mit $\bbow{\mathbf{j}}_\text{mqs,f,t}$ bezeichnet. Implementieren Sie diese Auswertung in \lstinline{versuch5.m}.\label{exer:compareFreqVStimeInTime}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+\begin{framed}
+	\noindent \textbf{9.} Führen Sie nun denselben Vergleich noch einmal im Frequenzbereich durch. Hierfür müssen Sie den entsprechenden Phasor für die Zeitbereichslösung aufstellen und daraufhin den Real- und Imaginärteil mit der Frequenzbereichslösung vergleichen. Als Fehlernorm soll hier für Real- und Imaginärteil jeweils die Formel
+    \begin{equation}
+        \text{error} = \frac{||\bbow{\mathbf{j}}_\text{mqs,t,f}-\bbow{\mathbf{j}}_\text{mqs,f}||_2}{||\bbow{\mathbf{j}}_\text{mqs,f}||_2}
+    \end{equation}
+    verwendet werden. Die Frequenzbereichslösung wird hier mit $\bbow{\mathbf{j}}_\text{mqs,f}$ und die in den Frequenzbereich transformierte Zeitbereichslösung mit $\bbow{\mathbf{j}}_\text{mqs,f,t}$ bezeichnet. Implementieren Sie diese Auswertung in \lstinline{versuch5.m}.\label{exer:compareFreqVStimeInFreq}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+% --> Aufgabe
+  \begin{framed}
+	\noindent \textbf{10.} Stellen Sie die relativen Abweichungen nach~\eqref{eq:errorNorm} für mehrere Zeitintegrationen mit
+      variierender Schrittweite in einem Skript \lstinline{plotConvSolveMQST} grafisch dar und beobachten Sie den entstehenden zeitlichen Diskretisierungsfehler. Bestimmen Sie die Ordnung des Zeitintegrationsverfahrens.\label{exer:relDiffMQSFvsMQST}
+\end{framed}
+
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+
+
+\section{Fazit}
+\emph{Fügen Sie hier Ihre Lösung ein}
+
+\end{document}

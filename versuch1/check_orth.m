@@ -1,9 +1,9 @@
 %Skript zur Ueberpruefung der Orthogonalitaet
 
 % Setzen der parameter n, ord, bc, L
-n=5;
-ord=4;
-bc=2;
+n=6;
+ord=2;
+bc=0;
 L=1;
 
 % Erstellen der CC matrix
@@ -13,7 +13,7 @@ L=1;
   dx=L/(n-1);
 
 % Loesen der Eigenwertgleichung mit solveCC
-  [kx,modes] = solveCC(cc,dx);
+  [kx,modes] = solveCC(cc,dx)
 
 % Ueberpruefung der Orthogonalitaet der Eigenvektoren
   orthogonal=modes*modes';

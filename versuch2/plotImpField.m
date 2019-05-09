@@ -6,38 +6,20 @@
 
 %% Aufgabe 9
 % Beispielgitter erzeugen (3D)
-nxy=2
-    xmesh=1:1:nxy;
-    for i=1:1:2*nxy-1
-      xmesh=[xmesh, 1:1:nxy];
-      xmesh
-    endfor
-    
-    ymesh=ones(nxy, 1)';
-    
-    for i=2:1:nxy
-       ymesh=[ymesh, i.*ones(nxy, 1)'];
-    endfor
-    ymesh=[ymesh,ymesh];
-    
-    zmesh = [];
-    for i=0:1:nxy-1
-      zmesh = [zmesh, i*ones(nxy*nxy,1)'];
-    endfor
-    zmesh
-    a=columns(xmesh)
-    a2=columns(ymesh)
-    b=columns(zmesh)
+nxy=3;
+    xmesh=linspace(1,nxy,nxy);
+    ymesh=linspace(1,nxy,nxy);
+    zmesh=linspace(1,nxy,nxy);
 %% msh struct berechnen
 msh = cartMesh(xmesh, ymesh, zmesh);
 
 %% anonymous function der beiden gegebenen Felder bestimmen
- f1 = @(x,y,z)([1./x.^2, 0.01*x, y+z]);
-% f2 = 
+ f1 = @(x,y,z)([5/2, -1.3, 2]);
+ f2 = @(x,y,z)([0,sin((pi/(xmesh(nxy)-xmesh(1)))*(x-xmesh(1))),0]);
 
 %% Bogengröße der beiden Felder mithilfe von impField bestimmen
 fbow1 = impField( msh, f1 );
-%fbow2 = impField( msh, f2 );
+fbow2 = impField( msh, f2 );
 
 %% diskretes Feld fbow mithilfe von plotArrowfield plotten
 figure;

@@ -12,8 +12,12 @@
         und $y$-Kanten nach dem kanonischen Indizierungsschema aus Gl.~(2.5) ein. Machen Sie sich klar, welche Indizes zu
         nicht existierenden Kanten gehören und markieren Sie diese.\label{exer:edgeIndices}
 \end{framed}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[trim = 10mm 170mm 65mm 20mm, clip, width=0.7\textwidth]{Zeichnung.pdf}
+		\caption{3$\times$4 Gitter mit kanonischer Kantenindizierung.}
+	\end{figure}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
         \begin{framed}
@@ -21,9 +25,16 @@
         Anzahl der Indizes, zu denen keine Kanten gehören. Geben Sie diese Formel auch für den Sonderfall
         $N_{xy}=N_x=N_y$ in Abhängigkeit von $N_{\text{P}}=N_{xy}^2$ an. Geben Sie darüber hinaus auch eine Formel an, um die Indizes aller Geisterkanten nach dem kanonischen Indizierungsschema zu berechnen.\label{exer:nrOfGhostEdges}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+\noindent
+Die Anzahl der Geisterkanten eines $N_x \times N_y$-Gitters ergibt sich zu $N_x + N_y$ da jeweils an den in positiver Richtung liegenden Aussenseiten eine Reihe an Geisterkanten besitzt.\\
+Für den Fall von $N_x = N_y$ ergibt sich die Anzahl der Geisterkanten zu $\sqrt{N_p} \cdot 2$. Die Indizes aller Geisterkanten nach dem kanonischen Indizierungsschema lassen sich einfach berechnen. Dazu erst die Geisterkanten in x-Richtung:
+\begin{equation*}
+	n\in[N_x,2N_x,\dots,N_xN_y].
+\end{equation*}
+und dann in y-Richtung:
+\begin{equation*}
+n\in[N_x(N_y-1)+1,N_x(N_y-1)+2,\dots,2N_p].
+\end{equation*}
 %
     {\subsection{Dreiecksgitter}}
     Gegeben sind die beiden Dreiecksgitter in Abb.~\ref{fig:tetmesh}, \textbf{wobei
@@ -49,7 +60,14 @@
                     Sie den Kanten eine Orientierung zu.\label{exer:triangleOrderedNumbering}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.6\textwidth]{Raster_2.png}
+	\caption{Gegebenes Gitter mit beliebig gewählter Indizierung für Punkte, Kanten und Flächen.}
+	\label{abb::5-eck}
+\end{figure}
+\newpage
 
 % --> Aufgabe
         \begin{framed}
@@ -58,8 +76,67 @@
                     zu Punkt 2 gerichtet. Bei der Flächen-zu-Kanten-Inzidenz werden Kanten, die gegen die
                     Umlaufrichtung der Fläche zeigen, mit einem negativen Vorzeichen vor dem Index gekennzeichnet.\label{exer:incidences}
 \end{framed}
+Mithilfe der Abbildung \ref{abb::5-eck} bekommt man folgende Tabellen:
+\begin{table}[h!]
+	\begin{center}
+	
+	\label{tab:table1}
+	\begin{tabular}{c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+		$P_i$ & X & Y\\
+		\hline
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & $\cos 72^\circ$ &$\sin 72^\circ$ \\
+		4 & $-\cos 36^\circ$ &$\sin 36^\circ$ \\
+		5 & $-\cos 36^\circ$ &$-\sin 36^\circ$ \\
+		6 & $\cos 72^\circ$ &$-\sin 72^\circ$ \\
+	\end{tabular}
+	\end{center}
+\caption{Punktliste}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\end{table}
+\begin{table}[h!]
+	\begin{center}
+	
+		
+		\begin{tabular}{c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+			$L_i$ & $P_{in}$ & $P_{out}$\\
+			\hline
+			1 & 1 & 6\\
+			2 & 1 & 2\\
+			3 & 1 & 3\\
+			4 & 1 & 5\\
+			5 & 1 & 6\\
+			6 & 2 & 3\\
+			7 & 3 & 4\\
+			8 & 4 & 5\\
+			9 & 5 & 6\\
+			10 & 6 & 2\\  
+		\end{tabular}
+			\end{center}
+		\caption{Kanten-zu-Knoten Indextabelle}
+	\label{tab:table2}
+\end{table}
+
+\begin{table}[h!]
+\begin{center}
+	
+
+	\begin{tabular}{c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+		$A_i$ & $L_{1}$ & $L_{2}$ & $L_{3}$\\
+		\hline
+		1 & 1 & -2 & 10\\
+		2 & 2 & -3 & 6\\
+		3 & 3 & -4 & 7\\
+		4 & 4 & -5 & 8\\
+		5 & -1 & 5 & 9\\
+	\end{tabular}
+\end{center}
+\caption{Flächen-zu-Kanten Indextabelle}
+	\label{tab:table3}
+\end{table}
+\newpage
+
 
 % --> Aufgabe
         \begin{framed}
@@ -71,23 +148,72 @@
                     $\gradfit \varphi$}$ gerade den Vektor $\efit$ ergibt, was der
                     kontinuierlichen Formel $\vec{E}=-\grad\varphi$ entspricht.\label{exer:gradfit}
 \end{framed}
+\noindent
+Aus  der Kanten-zu-Knoten Tabelle \ref{tab:table2} bekommt man Gradientenmatrix $\gradfit$:
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+$$ \gradfit = \begin{bmatrix}
+-1 & 0 & 0 & 0 & 0 & 1\\
+-1 & 1 & 0 & 0 & 0 & 0\\
+-1 & 0 & 1 & 0 & 0 & 0\\
+-1 & 0 & 0 & 1 & 0 & 0\\
+-1 & 0 & 0 & 0 & 1 & 0\\
+0 & -1 & 1 & 0 & 0 & 0\\
+0 & 0 & -1 & 1 & 0 & 0\\
+0 & 0 & 0 & -1 & 1 & 0\\
+0 & 0 & 0 & 0 & -1 & 1\\
+0 & 1 & 0 & 0 & 0 & -1\\
+
+\end{bmatrix} $$
+
 
 % --> Aufgabe
         \begin{framed}
 	\noindent \textbf{6.} Konstruieren Sie mithilfe der Flächen-zu-Kanten-Inzidenz die Curlmatrix $\curlfit$.\\
               Zur Erinnerung: $\curlfit \efit = - \frac{\text{d}}{\text{d}t} \bfit$.\label{exer:curlfit}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+\noindent
+Aus der Flächen-zu-Kanten Tabelle \ref{tab:table3} bekommt man:
+$$ \curlfit = \begin{bmatrix}
+1 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0\\
+-1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 
+\end{bmatrix} $$
 % --> Aufgabe
         \begin{framed}
 	\noindent \textbf{7.} Überprüfen Sie, ob genau wie im kontinuierlichen Fall die Beziehung $\rot\grad=0$ auch für die aufgestellten diskreten Matrizen $\curlfit\gradfit={\textbf{0}}$ gilt.\label{exer:rotgradZero}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+
+$$ \curlfit\gradfit = \begin{bmatrix}
+1 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & -1 & 0 & 0 & 1 & 0 & 0\\
+-1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 
+\end{bmatrix}
+ \begin{bmatrix}
+ -1 & 0 & 0 & 0 & 0 & 1\\
+ -1 & 1 & 0 & 0 & 0 & 0\\
+ -1 & 0 & 1 & 0 & 0 & 0\\
+ -1 & 0 & 0 & 1 & 0 & 0\\
+ -1 & 0 & 0 & 0 & 1 & 0\\
+ 0 & -1 & 1 & 0 & 0 & 0\\
+ 0 & 0 & -1 & 1 & 0 & 0\\
+ 0 & 0 & 0 & -1 & 1 & 0\\
+ 0 & 0 & 0 & 0 & -1 & 1\\
+ 0 & 1 & 0 & 0 & 0 & -1\\
+ 
+ \end{bmatrix}$$\\
+$$ =\begin{bmatrix}
+ -1+1 & 1-1 & 1-1 & 0 & 0 & 1-1 \\
+ -1+1 & 1-1 &-1+1 & 0 & 0 & 0\\
+ -1+1 & 0 & 1-1 & -1+1 & 0 & 0\\
+ -1+1 & 0 & 0 & 1-1 & -1+1 & 0\\
+  1-1 & 0 & 0 & 0 & 1-1 &-1+1\\
+ \end{bmatrix} = \textbf{0}$$
+ 
 
 %
     {\subsection{Duale Gitter}}
@@ -110,8 +236,20 @@
         Gitterkanten, die die Eigenschaft der Orthogonalität nicht mehr
         erfüllen.\label{exer:drawDualGrid}
 \end{framed}
+	Die dualen Gitter der gegebenen primären Gitter sind in den Abbildungen \ref{Abb:dual_1} und \ref{Abb:dual_2} gegeben.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Duales_Gitter_1.png}
+	\caption{Duales Gitter für das erste gegebene Gitter.}
+	\label{Abb:dual_1}
+\end{figure}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Duales_Gitter_2.png}
+	\caption{Duales Gitter für zweites gegebenes Gitter. Kanten, die die Orthogonalität nicht erfüllen, sind grün markiert.}
+	\label{Abb:dual_2}
+\end{figure}
 
 % --> Aufgabe
         \begin{framed}
@@ -122,9 +260,8 @@
         von 3D-Gittern zusammenhängen. Besonderheiten am Rand sind hierzu zu vernachlässigen.
         Wie verhalten sich die Größen im Fall von 2D-Gittern?\label{exer:primaryDualCorrespondence}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+\noindent
+Beim dualen Gitter im dreidimensionalen entspricht die Anzahl der dualen Punkte $\tilde{N}_P$, aufgrund der Definition der dualen Gitterpunkte in den primären Volumen, der Anzahl der primären Volumen ${N_V}$. Durch die Definition der dualen Kante, die durch die primären Flächen verlaufen, ergibt sich $\tilde{N}_L = N_A$. Die dualen Volumen befinden sich jeweils um einen primären Punkt herum weshalb die Anzahl $\tilde{N}_V$ der dualen Volumen mit der Anzahl $N_P$ der primären Punkte übereinstimmt.  
 \section{Aufgaben während der Praktikumssitzung}
 
     {\subsection{Datenstruktur, Visualisierung des Gitters}}
@@ -142,7 +279,7 @@
                     jede Raumrichtung, d.\,h. \lstinline{nx}, \lstinline{ny} und \lstinline{nz}, abgespeichert werden.\label{exer:cartMesh}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+
 
 % --> Aufgabe
         \begin{framed}
@@ -154,14 +291,19 @@
                     Sie hierzu den \lstinline{line}-Befehl und eine 3-fach Schleife über die Indizes $i,j,k$.\label{exer:plotMesh}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+
 
 % --> Aufgabe
         \begin{framed}
 	\noindent \textbf{3.} Nutzen Sie \lstinline{cartMesh} zur Erzeugung eines nicht äquidistanten Gitters mit \{3,4,5\} Punkten in \{$x$,$y$,$z$\}-Richtung und visualisieren Sie es mit \lstinline{plotMesh}. Nutzen Sie hierfür die bereits gegebene Datei \lstinline{exampleMesh.m}.\label{exer:createVisualizeMesh}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+	\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 60mm, clip,width=0.5\textwidth]{exmesh.pdf}
+	\label{abb:example}
+	\caption{exampleMesh Plot}
+\end{figure}
 
 %
     {\subsection{Die topologischen Matrizen $\curlfit$, $\curldfit$, $\divfit$ und $\divdfit$}}
@@ -188,8 +330,8 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     zurück, wenn \emph{alle} ihre Argumente ebenfalls \lstinline{sparse}
                     sind. Mehr zu diesem Thema ist in der \matlab-Dokumentation zu finden.\label{exer:geoMats}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
+Die Rückgabe der dualen Rotationsmatrix $\curldfit$ ist nicht sinnvoll, da diese durch $\curldfit = \curlfit^{\top}$ und die Rückgabe von $\curlfit$ bereits einfach erzeugt werden kann. Selbiges gilt für die primäre Gradientenmatrix $\mathbf{G}$ die aus $\divfit^{\top}$ durch $\mathbf{G} = -\divfit^{\top}$ erzeugt werden kann. 
 
 % --> Aufgabe
         \begin{framed}
@@ -200,11 +342,38 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     Ermitteln Sie wie viel Speicherplatz jeweils von \matlab benötigt wird
                     (\lstinline{sparse} und \lstinline{full}-Format). Legen Sie für die Ausarbeitung eine Tabelle mit dem jeweils benötigten Speicherplatz an. Nutzen Sie für diese Tests die bereits gegebene Datei \lstinline{exampleSparse.m}.\label{exer:spyStorage}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
+ Wie in Abbildung \ref{fig:visucmatrixprimgitt} zu sehen entsteht durch die kanonische Indizierung eine Matrix, die sich aus einer Mehrzahl Elementen auf den Nebendiagonalen zusammen setzt. Dies ermöglicht eine sehr günstige Speicherung. \\
+ Wie in Tabelle \ref{tbl:speicherCMatrix} zu erkennen ist, werden für die Speicherung einer mittleren C-Matrix mit 4913 Elementen im Vollformat 1,7 GB an Speicherplatz benötigt. Die selbe Matrix kann im Sparse-Format jedoch mit nur 0,4 MB gespeichert werden. 
+ \begin{table}[h!]
+	
+ \begin{tabular}{|c|c|c|}
+ 
+ 	\hline 
+ 	Anzahl der Elemente& Speicherbedarf im full-Format &  Speicherbedarf im Sparse-Format\\ 
+ 	\hline 
+ 	40& 115.200 Byte & 3.632 Byte \\ 
+ 	\hline 
+ 	4913& 1.737.904.968 Byte& 466.736 Byte \\ 
+ 	\hline 	
+ \end{tabular} 	
+\caption{Speicherverbrauch einer C-Matrix in unterschiedlichen Speicherformaten}
+\label{tbl:speicherCMatrix}
+  \end{table}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{versuch2/VisuCMatrixPrimGitt}
+	\caption{Speicherverbrauch einer C-Matrix in unterschiedlichen Speicherformaten}
+	\label{fig:visucmatrixprimgitt}
+\end{figure}
+\\
+\\
+\\
+\\
+\\
 
 % --> Aufgabe
-        \begin{framed}
+   \begin{framed}
 	\noindent \textbf{6.} Berechnen Sie
                     \begin{enumerate}
                         \item $\curlfit\, (-\divdfit^{\text{T}})$ und
@@ -213,9 +382,13 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     Was bedeutet das für die topologischen Matrizen in Hinblick
                     auf die jeweiligen analytischen Operatoren? Erinnern Sie sich, welche analytischen Operatoren den jeweiligen Matrizen entsprechen.\label{exer:CG_SC}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+\noindent
+Bei der Berechnung von $\curlfit\, (-\divdfit^{\text{T}})$ als auch $\divfit\curlfit$ ist das Ergebnis eine Nullmatrix. Dies zeigt die Konsistenz der Diskreten Operationen mit den analytischen, da diese mit
+\begin{align*}
+	\divfit\curlfit = 0  &\sim  \nabla \cdot \nabla \times = 0\\
+	\curlfit\, (-\divdfit^{\text{T}})=\curlfit(\mathbf{G}) = 0 &\sim  \nabla \times \nabla	= 0
+\end{align*}
+einander entsprechen. 
 {\subsection{Unbelegte Kantenelemente}}
 
 % --> Aufgabe
@@ -232,7 +405,6 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     {\textbf{Hinweis:}} Benötigt wird in diesem Versuch nur der zweidimensionale Fall \lstinline{nz=1}, jedoch ist es für spätere Versuche hilfreich auch den dreidimensionalen Fall zu implementieren. Zusätzlich ist es sinnvoll, Erfahrungen mit Vektoroperationen zu sammeln, da diese in \matlab in der Regel schneller sind als Schleifen. Das \lstinline{logical}-Format (in anderen Programmiersprachen auch als \lstinline{boolean} bekannt) hat den Vorteil, dass nur $1$ Byte (im Vergleich zu $8$ Bytes für \lstinline{double}) pro Eintrag benötigt wird.\label{exer:boundEdg}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
         \begin{framed}
@@ -240,8 +412,17 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     der Formel aus der 2. Vorbereitungsaufgabe, indem Sie die relative Anzahl der
                     unbelegten Kanten (inkl. Geisterkanten in $z$-Richtung) über die Anzahl aller Kanten für ein zweidimensionales Gitter \lstinline{msh} mit $N_{xy}=N_x=N_y$ darstellen. \lstinline{plotBoundEdg} soll diese Aufgaben dann in einem Skript zusammenfassen.\label{exer:plotBoundEdg}
 \end{framed}
+\noindent
+	Der Funktionsverlauf aus Abbildung \ref{Abb:boundEdg} ist proportional zu $\frac{\sqrt{x}+x}{x}$. Aus Vorbereitungsaufgabe 2 wurde klar, dass bei einem Quadratischen Gitter die Anzahl aller Geisterkanten gleich $2\sqrt{N_p}$ ist, wobei hier noch keine Geisterkanten in z-Richtung betrachtet wurden. Betrachtet man auch die Geisterkanten in z-Richtung, wobei die Höhe in z-Richtung 1 beträgt, so kommt man auf eine Gesamtanzahl von $2\sqrt{N_p}+N_p$. Dies kann man nun auf die Gesamtanzahl der Kanten beziehen und kommt auf $\frac{2\sqrt{N_p}+N_p}{3N_p}$. Die Werte aus Vorbereitungsaufgabe 2 bestätigen also das Diagramm.
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+	\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 60mm, clip, width=0.7\textwidth]{plotBoundEdg.pdf}
+	\caption{Anteil der Geisterkanten relativ zur Gesamtanzahl der Kanten.}
+	\label{Abb:boundEdg}
+	\end{figure}
+
+
 
 {\subsection{Einprägen gegebener Feldverteilungen}}
 
@@ -264,10 +445,9 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
         der Kantenlänge anstatt das Feld tatsächlich zu integrieren.\label{exer:impField}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
-\newpage
+
         \begin{framed}
 	\noindent \textbf{10.} Verwenden Sie Ihre Methode \lstinline{impField} um folgende Felder zu diskretisieren:
         \begin{enumerate}
@@ -276,8 +456,22 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
         \end{enumerate}
         wobei die Einheiten hier vernachlässigt werden. Mit Hilfe der vorgegebenen Routine \lstinline{plotEdgeVoltage} sollen Sie Ihre Implementation optisch verifizieren. Fassen Sie diese Aufgabe in einem Skript \lstinline{plotImpField} zusammen.\label{exer:plotImpField}
 \end{framed}
+	
+	Die vorgegebenen Feldverteilungen sind in den Abbildungen \ref{Abb:10_1} und \ref{Abb:10_2} dargestellt.
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 15mm 65mm 15mm 60mm, clip, width=0.7\textwidth]{10_1.pdf}
+		\caption{Feldverteilung aus 10.1}
+		\label{Abb:10_1}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 15mm 65mm 15mm 60mm, clip, width=0.7\textwidth]{10_2.pdf}
+		\caption{Feldverteilung aus 10.2}
+		\label{Abb:10_2}
+	\end{figure}
 
 \section{Fragen zur Ausarbeitung}
 
@@ -292,12 +486,22 @@ für ein einfaches zweidimensionalen kartesisches Gitter sowie für
 das Dreiecksgitter aus Bild \ref{fig:tetmesh} a). Ist diese Wahl
 des dualen Gitters am Rand immer notwendig?\label{exer:autoHomNeumann}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
-
-
+\noindent
+Das duale Gitter sollte am Rand so gewählt werden, dass der Teil der Kante, der aus dem Rechengebiet herausragt, genauso lang ist, wie der Teil der noch innerhalb des Rechengebietes liegt. Die dualen Gitter für die in der Aufgabe geforderten primären Gitter sind in den Abbildungen \ref{Abb:mgn_Rand_1} und \ref{Abb:mgn_Rand_2} zu sehen.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{mgn_Rand_1.png}
+	\caption{Primäres und duales Gitter für Erfüllung der magnetischen Randbedingung.}
+	\label{Abb:mgn_Rand_1}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Duales_Gitter_1.png}
+	\caption{Primäres und duales Gitter für Erfüllung der magnetischen Randbedingung.}
+	\label{Abb:mgn_Rand_2}
+\end{figure}
 
 \section{Fazit}
-\emph{Fügen Sie hier Ihre Lösung ein}
+Wie aus den Aufgaben ersichtlich wird, ist die Generierung von Mesh Matrizen relativ einfach. Weiterhin können mit einfachen Operationen die Matrizen $\curlfit$, $\curldfit$, $\divfit$, $\divdfit$ und $\mathbf{G}$ erstellt und verwendet werden, um in Zukunft Feldprobleme effizient lösen zu können. 
 
 \end{document}

@@ -201,18 +201,18 @@
 		(\text{I}) \ \ \ \underline{E}_y(0)&=&0\\
 		(\text{II}) \ \ \ \underline{E}_y(L)&=&0\\
 	\end{eqnarray*}
-	Mit (I) und (\ref{eq:ansatz}) folgt direkt $c_1=0$. Mit (II) und (\ref{eq:ansatz}) folgt $c_2$sin$(k_xL)=0$. Damit dies erfüllt wird muss $k_x=\frac{n\pi}{L}$ mit $n \in\mathbb{Z}$ gelten. Mit $c_2=0$ wäre die triviale Nulllösung erreicht. Die kleinste Wellenzahl ist damit $k_x=\frac{\pi}{L}$.\\
+	Mit (I) und (\ref{eq:ansatz}) folgt direkt $c_1=0$. Mit (II) und (\ref{eq:ansatz}) folgt $c_2$sin$(k_xL)=0$. Damit dies erfüllt wird muss $k_x=\frac{n\pi}{L}$ mit $n \in\mathbb{Z}$ gelten. Mit $c_2=0$ wird die triviale Nulllösung erreicht, aber man will alle möglichen Lösungen finden. Die kleinste Wellenzahl ist damit $k_x=\frac{\pi}{L}$.\\
 	\\
 	Im Fall, das eine Seite eine elektrische und eine Seite eine magnetische Randbedingung besitzt, sehen die Randbedingungen folgendermaßen aus:
 	\begin{eqnarray*}
 		(\text{I}) \ \ \ \underline{E}_y(0)&=&0\\
 		(\text{II}) \ \ \ \underline{H}_x(L)&=&0\\
 	\end{eqnarray*}
-	Für (II) kann man die 1. Maxwell'sche Gleichung im Frequenzbereich $\text{rot}\underline{E}_y=-j\omega\mu \underline{H}_x$ verwenden. Da die Rotation im eindimensionalen nur eine einfach Ableitung beschreibt, kann man $\frac{\text{d}\underline{E}_y}{\text{d}x}\propto\underline{H}_x$ schreiben. Damit folgt aus (II)
+	Für (II) kann man das Faraday'sche Gesetz im Frequenzbereich $\text{rot}\underline{E}_y=-j\omega\mu \underline{H}_x$ verwenden. Da die Rotation im eindimensionalen nur eine einfach Ableitung beschreibt, kann man $\frac{\text{d}\underline{E}_y}{\text{d}x}\propto\underline{H}_x$ schreiben. Damit folgt aus (II)
 	\begin{equation*}
 		(\text{III}) \ \ \ \frac{\text{d}\underline{E}_y(L)}{\text{d}x}=0\\.
 	\end{equation*}
-	Verwendet man nun wieder (\ref{eq:ansatz}) und (I) ergibt sich $c_1=0$. Mit (III) und (\ref{eq:ansatz}) ergibt sich $c_2k_x\text{cos}(k_xL)=0$ mit $n \in\mathbb{Z}$. Damit dies erfüllt wird muss $k_x=\frac{\pi}{L}(\frac{n}{2}+1)$ gelten. $c_2=0$ wäre die triviale Lösung. Die kleinste Wellenzahl ist damit $k_X=0$.
+	Verwendet man nun wieder (\ref{eq:ansatz}) und (I) ergibt sich $c_1=0$. Mit (III) und (\ref{eq:ansatz}) ergibt sich $c_2k_x\text{cos}(k_xL)=0$ mit $n \in\mathbb{Z}$. Damit dies erfüllt wird muss $k_x=\frac{\pi}{L}(\frac{n}{2}+1)$ gelten. $c_2=0$ wäre die einfache triviale Lösung. Die kleinste Wellenzahl ist damit $k_X=\frac{\pi}{L}$.
 	
 	
 	
@@ -312,28 +312,33 @@ $	\begin{pmatrix}
 	$$  \sin(\Delta\varphi)=2 \cos\left(\frac{\Delta \varphi}{2}\right) \sin\left(\frac{\Delta \varphi}{2}\right)  $$
 	kann man der Formel noch vereinfachen auf:
 	$$A_\text{D} =  \frac12 r^2 \sin(\Delta\varphi)$$
-	
-	Wenn man den relativen Oberflächen- und Volumenfehler bestimmen wollte, soll man die Oberfläche und das Volumen des wahres und des diskretisiertes Zylinders ausrechnen.
+	\noindent
+	Wenn man den relativen Oberflächen- und Volumenfehler bestimmen wollte, sollte man die Oberfläche und das Volumen des wahren und des diskreten Zylinders ausrechnen.
+	\\
+	\\
+	Eine Formel für die Oberfläche des diskreten Zylinders($A_\text{disc}$) erhält man mit der Summation über alle Dreiecksflächen. Die Oberfläche besteht aus 2 Grundflächen ($2\cdot n_\text{D}A_\text{D}$) und einem Mantel ($2n_\text{D}\cdot\frac12  a_\text{D}h$).\\
+	Eine Formel für das Volumen des diskreten Zylinders($V_\text{disc}$) erhält man mit der Multiplikation mit der Grundbasis ($ n_\text{D}A_\text{D}$) und der Höhe ($h$).\\
+	\\  
 	\begin{eqnarray*}
 		A_\text{disc}&=&2n_\text{D}r\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]\\
-		\\
+	    \\
 		V_\text{disc}&=&\frac12 n_\text{D} r^2 \sin\left(\frac{ 2\pi}{n_\text{D}}\right)h\\
 		\\
 		A&=&2 r \pi (r+h)\\
 		\\
 		V&=&r^2\pi h
 	\end{eqnarray*}
-	Die Formel für den absolute Fehler lautet\\
-	$$\Delta X = X- X_\text{disc}$$.
+	Die Formel für den absolute Fehler lautet:\\
+	$$\Delta X = X- X_\text{disc}$$
 	Damit bekommt man
 	\begin{eqnarray*}
 		\Delta A&=&2 r \pi (r+h) -2n_\text{D}r\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]\\
 		\\
 		\Delta V&=&r^2\pi h -\frac12 n_\text{D} r^2 \sin\left(\frac{ 2\pi}{n_\text{D}}\right)h\\
-	\end{eqnarray*}.
+	\end{eqnarray*}
 	Den relative Fehler bekommt man mit der Formel:
 	$$\varepsilon_{x}=\frac{\Delta X}{X}$$
-	Damit bekommt man
+	Damit bekommt man:
 	\begin{eqnarray*}
 		\varepsilon_{A}&=&\frac{ \pi (r+h) -n_\text{D}\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]}{\pi (r+h)}\\
 		\\
@@ -399,6 +404,7 @@ $	\begin{pmatrix}
 	\end{framed}
 	
 	%\lstinputlisting {check_orth.m}
+	Mit der Routine \texttt{check\_orth} und den gegebenen Parametern konnten 6 Eigenmoden bestimmt werden. 
 	
 	% --> Aufgabe
 	\begin{framed}
@@ -407,6 +413,12 @@ $	\begin{pmatrix}
 	\end{framed}
 	
 	%\lstinputlisting {plotModes.m}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 20mm 15mm 20mm 15mm, clip, width=0.7\textwidth]{modes.pdf}
+		\caption{Plot der zwei Moden mit der geringsten Frequenz.}
+		
+	\end{figure}
 	
 	% --> Aufgabe
 	\begin{framed}
@@ -419,13 +431,26 @@ $	\begin{pmatrix}
 		Verwenden Sie die Grafiken um die Ordnung der verschiedenen Implementierungen graphisch zu bestimmen. Vergleichen Sie Ihr Ergebnis
 		mit Aufgabe~\ref{exer:failureTerm} aus der Vorbereitung.  Wie verändert sich das Konvergenzverhalten, wenn keine Randbedingungen implementiert sind?\label{exer:plotConv}
 	\end{framed}
+	\noindent
+	In Abbildung \ref{Abb:plotCov} wird eine Approximation der Wellenzahl an Abhängigkeit der Stützstellenanzahl des Gitters mit verschiedenen Verfahren dargestellt. In Abbildung \ref{Abb:plotCovloglog} wird der Wellenzahlfehler in Abhängigkeit der Gitterschrittweite gezeigt. Das Konvergenzverhalten wird durch die nicht gegebenen Randbedingungen schlechter. Dies ist auch logisch, da durch die vorgegebenen Werte an den Rändern nicht mehr so viele Möglichkeiten für Lösungen existieren. Dadurch konvergiert ein Verfahren mit Randbedingungen schneller als ohne. 
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 25mm 10mm 25mm 15mm, clip, width=0.7\textwidth]{plotConv.pdf}
+		\caption{Approximation der Wellenzahl in Abhängigkeit der Stützstellenanzahl des Gitters.}
+		\label{Abb:plotCov}
+	\end{figure}
+	\noindent
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 25mm 10mm 25mm 15mm, clip, width=0.7\textwidth]{plotConvloglog.pdf}
+		\caption{Wellenzahlfehler in Abhängigkeit der Gitterschrittweite.}
+		\label{Abb:plotCovloglog}
+	\end{figure}
 	
-	Das Konvergenzverhalten wird durch die nicht gegebenen Randbedingungen schlechter.
 	
 	%\lstinputlisting {plotConv.m}
 	
-	
-	
+
 	{\subsection{Dreidimensionale Darstellung}}
 	
 	% --> Aufgabe
@@ -434,6 +459,14 @@ $	\begin{pmatrix}
 		Bauen Sie hierzu auf der \matlab-Funktion \lstinline{patch} auf. Verwenden Sie die Anzahl der Dreiecksflächen
 		in einer Deckelfläche \lstinline{nd=20}, den Radius \lstinline{r=1} und die Höhe \lstinline {h=1}.\label{exer:plotCyl}
 	\end{framed}
+	\noindent
+	Zur Lösung dieser Aufgabe wurde der Pseudocode aus Aufgabe 7 umgesetzt und die dabei gewählten Verfahren implementiert. Der Zylinder ist in Abbildung \ref{Abb:plotCyl} zu sehen.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 25mm 10mm 25mm 25mm, clip, width=0.7\textwidth]{plotCyl.pdf}
+		\caption{Nach den Vorgaben geplotteter Zylinder.}
+		\label{Abb:plotCyl}
+	\end{figure}
 	
 	%\lstinputlisting {plotCyl.m}
 	
@@ -445,9 +478,15 @@ $	\begin{pmatrix}
 		Darstellung skaliert.\\
 		Wie viele Dreiecke sind notwendig um einen Diskretisierungsfehler kleiner als $10^{-5}$ zu garantieren?\label{exer:plotVisErr}
 	\end{framed}
-	
+	\noindent
 	%\lstinputlisting {plotVisErr.m}
-	Um ein Fehler kleiner von $10^{-5}$ zu garantieren, benötigt man 812 Dreiecke.
+	In Abbildung \ref{Abb:plotVisErr} ist der relative Oberflächen- und Volumenfehler in Abhängigkeit der Dreiecke auf der Deckelfläche dargestellt. Um ein Fehler kleiner von $10^{-5}$ zu garantieren, benötigt man 812 Dreiecke.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 25mm 10mm 25mm 15mm, clip, width=0.7\textwidth]{plotVisErrloglog.pdf}
+		\caption{Relativer Oberflächen- und Volumenfehler in Abhängigkeit der Dreiecke auf der Deckelfläche.}
+		\label{Abb:plotVisErr}
+	\end{figure}
 	
 	% --> Aufgabe
 	\begin{framed}
@@ -460,6 +499,6 @@ $	\begin{pmatrix}
 	%-------------------- Ende der Aufgaben --------------------
 	
 	\section{Fazit}
-	Wie man in den Aufgaben sehen konnte, kann man durch die Bildung von Matrizen (Diskretisierungen) für die Ableitungsoperatoren die gegebenen Gleichungen einfach numerisch lösen. Auch bei der Diskretisierung von Oberklächen wurde erkannt, dass MAtrizen hier ein einfach zu handhabendes Speichermedium bilden. Die Diskretisierung kann man schnell, aber auch relativ genau bestimmen.
+	Wie man in den Aufgaben sehen konnte, kann man durch die Bildung von Matrizen (Diskretisierungen) für die Ableitungsoperatoren die gegebenen Gleichungen einfach numerisch lösen. Auch bei der Diskretisierung von Oberklächen wurde erkannt, dass Matrizen hier ein einfach zu handhabendes Speichermedium bilden. Die Diskretisierung kann man schnell, aber auch relativ genau bestimmen.
 	
 \end{document}

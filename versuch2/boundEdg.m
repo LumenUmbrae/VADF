@@ -25,14 +25,14 @@ Mz = nx*ny;
 
 % Bitvektor der Groesse 3*np erzeugen
 edg = true(3*np,1);
-
 % Geisterkanten an der rechten YZ-Flaeche auf False setzen
-nx
+
 for i=1:1:nz
   for k=nx:nx:Mz
     edg(i*k)=false;
   endfor
 endfor
+
 
 % Geisterkanten an der rechten XZ-Flaeche auf False setzen
 for i=1:1:nz
