@@ -26,7 +26,54 @@ ny = msh.ny;
 nz = msh.nz;
 
 %% Berechnung von dBow
-% ...
+
+for i=1:1:np
+  
+  if(msh(i+np)~=msh(i+1+np))
+    dBow(i)=0
+
+    if(i<My)
+      x=(msh(i)+msh(i+1))/2;
+      y=msh(i+np)+((msh(i+np)-msh(i+np+My))/4);
+    
+    elseif(i>(np-My))
+      x=(msh(i)+msh(i+1))/2;
+      y=msh(i+np)-((msh(i+np)-msh(i+np+My))/4);
+    
+    else
+      x=(msh(i)+msh(i+1))/2;
+      y=msh(i+np);
+    endif
+    
+  else
+   dBow(i)=(x/((x^2+y^2)^(3/2)))*DAtDiag(i);
+  endif
+
+endfor
+
+
+for i=(np+1):1:2*np
+  
+  if(i>(np-My))
+   dBow(i)=0;
+   
+    if(msh(i)~=msh(i-1))
+      y=(msh(i)+msh(i+My))/2;
+      x=msh(i-np)+((msh(i-np+1)+msh(i-np))/4);
+    elseif(msh(i)~=msh(i+1))
+      y=(msh(i)+msh(i+My))/2;
+      x=msh(i-np)-((msh(i-np-1)+msh(i-np))/4);
+    else
+      x=msh(i-np);
+      y=(msh(i)+msh(i+1))/2;
+    endif 
+    
+  else
+    dBow(i)=(y/((x^2+y^2)^(3/2)))*DAtDiag(i);
+  endif
+ 
+endfor
+
 
 %% Isotrope Permittivität
 eps_r = ones(3*np,1);

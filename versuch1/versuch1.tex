@@ -312,12 +312,12 @@ $	\begin{pmatrix}
 	$$  \sin(\Delta\varphi)=2 \cos\left(\frac{\Delta \varphi}{2}\right) \sin\left(\frac{\Delta \varphi}{2}\right)  $$
 	kann man der Formel noch vereinfachen auf:
 	$$A_\text{D} =  \frac12 r^2 \sin(\Delta\varphi)$$
-	
-	Wenn man den relativen Oberflächen- und Volumenfehler bestimmen wollte, soll man die Oberfläche und das Volumen des wahres und des diskretisiertes Zylinders ausrechnen.
+	\noindent
+	Wenn man den relativen Oberflächen- und Volumenfehler bestimmen wollte, sollte man die Oberfläche und das Volumen des wahren und des diskreten Zylinders ausrechnen.
 	\\
 	\\
-	Formel für eine Oberfläche diskretisiertes Zylinder($A_\text{disc}$) bekommt man mit dem Summation alle Dreieckflächen. Die Oberfläche besteht aus 2 Grundbasis Flachen ($2\cdot n_\text{D}A_\text{D}$) und Mantel ($2\cdot\frac12  a_\text{D}h$).\\
-		Formel für das Volumina diskretisiertes Zylinder($V_\text{disc}$) bekommt man mit Multiplikation der Grundbasis ($ n_\text{D}A_\text{D}$) und Höhe ($h$).\\
+	Eine Formel für die Oberfläche des diskreten Zylinders($A_\text{disc}$) erhält man mit der Summation über alle Dreiecksflächen. Die Oberfläche besteht aus 2 Grundflächen ($2\cdot n_\text{D}A_\text{D}$) und einem Mantel ($2n_\text{D}\cdot\frac12  a_\text{D}h$).\\
+	Eine Formel für das Volumen des diskreten Zylinders($V_\text{disc}$) erhält man mit der Multiplikation mit der Grundbasis ($ n_\text{D}A_\text{D}$) und der Höhe ($h$).\\
 	\\  
 	\begin{eqnarray*}
 		A_\text{disc}&=&2n_\text{D}r\left[ \frac12 \cdot r \sin\left(\frac{2 \pi}{n_\text{D}}\right)+ \sin\left(\frac{\pi}{n_\text{D}}\right)h  \right]\\
