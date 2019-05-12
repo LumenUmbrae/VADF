@@ -10,14 +10,49 @@
 	\noindent \textbf{1.} Überlegen Sie sich, wie man ausgehend vom 3-fach Index $i,j,k$ (vgl. Gl.~(3.1)) die Randpunkte eines kartesischen Rechengebietes im kanonischen Indizierungsschema bestimmt (eine Skizze ist hilfreich). Schreiben Sie hierfür ein Schleifenkonstrukt in Pseudocode.\label{exer:boundIdx}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+
+Ausgehend von einem 3-fach Index i,j,k lasen sich die Randpunkte eines Kartesischen Rechengitters im kanonischen Indizierungsschema durch ablaufen der Außenseiten bestimmen. Hierbei werden nacheinander i,j und k zu Null gesetzt und die beiden anderen Variablen Variiert. Anschließend wird selbiges mit einem Festsetzen beim Maximalwert der jeweiligen Variable wiederholt. Alle hierbei erreichten Punkte liegen auf den Außenseiten des Gitters. 
+
+Im Pseudocode lässt sich diese Verfahren für eine Richtung $i$ darstellen durch
+
+\begin{algorithmic}[1]
+	\STATE $c \leftarrow 1$
+	\STATE $d \leftarrow 1$
+	\WHILE{ c <= jmax} 
+	\WHILE{ d <= kmax}
+		\STATE $AddToListBoundaryElementAt(1,c,d)$
+		\STATE $d \leftarrow d+1$
+	\ENDWHILE
+	
+	\STATE $c \leftarrow c+1$
+	\ENDWHILE
+	
+	\STATE $c \leftarrow 1$
+	\STATE $d \leftarrow 1$
+	\WHILE{ c <= jmax} 
+	\WHILE{ d <= kmax}
+	\STATE $AddToListBoundaryElementAt(i_{max},c,d)$
+	\STATE $d \leftarrow d+1$
+	\ENDWHILE	
+	\STATE	$c \leftarrow c+1$
+	\ENDWHILE
+	
+\end{algorithmic}
+
+Die Funktion $AddToListBoundaryElementAt$ führt eine Liste mit den kanonischen Indizes, welche unter Zuhilfenahme von $M_x,\ M_y$ und $M_z$ bestimmt werden, der Randpunkte.  
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{2.} Wie sehen für ein äquidistantes, kartesisches Gitter die Geometriematrizen $\DS$, $\DSd$, $\DA$ und $\DAd$ aus? Was ist bei den Rändern zu beachten? Welche Dimensionen besitzen die Matrizen?\label{exer:geoMatsStructure}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+
+
+Für eine äquidistantes, kartesisches Gitter bildet die Matrix $D_S$ eine Diagonalmatrizen mit dem Abstand $\Delta x$ auf der Diagonalen. Die duale Matrix $\tilde{D_S}$ unterscheidet sich hiervon nur dadurch, das die Randelemente mit ½ multipliziert werden. \\
+Für die Flächenzentrierten $D_A$ gilt simultan das sie Diagonalmatrizen mit den Flächeninhalt $\Delta x^2$ sind. Bei der Dualen Flächenmatrix $\tilde{D_A}$ muss nun bei den Randelementen allerdings unterschieden werden zwischen denen die an einer Kante liegen und mit ½ multipliziert werden und denen an einer Ecke die mit ¼ multipliziert werden. \\
+Falls hier bereits Geisterkanten entfernt worden sind, sind bei den primären Matrizen $D_S$ und $D_A$ die Geisterelemente jeweils Null. \\
+
+Die Matrizen besitzen immer die Dimension  $[np,\ 3np]$ mit $np$ als Anzahl der Gitterpunkte.
 
 % --> Aufgabe
 \begin{framed}
