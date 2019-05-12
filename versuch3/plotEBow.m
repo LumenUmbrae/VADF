@@ -24,6 +24,21 @@ Mz = msh.Mz;
 xmesh = msh.xmesh;
 ymesh = msh.ymesh;
 
+eX = eField(:,1:np);
+eY = eField(:,np+1:2*np);
+eZ = eField(:,2*np+1:3*np);
+
+abValE = sqrt(eX.*eX.+eY.*eY.+eZ.*eZ); %bestimmen des Betrages des feldes an jedem Punkt
+
+%herausziehen des Punkte einer x-y-Ebene
+
+Ev = abValE((indz-1)*Mz+1:indz*Mz);
+
+toPlot = reshape(Ev, nx,ny)';
+
+surf( xmesh, ymesh ,toPlot);
+
+%{
 %% Berechnung des Betrages des interpolierten elektrischen Gitterflusses
 X = zeros(nx,ny); % x-Koordinaten der Punkte
 Y = zeros(nx,ny); % y-Koordinaten der Punkte
@@ -43,6 +58,6 @@ for i = 1:nx
 end
 
 %% Darstellen des elektrischen Feldes in einem surface plot
-
+ %}
 
 end

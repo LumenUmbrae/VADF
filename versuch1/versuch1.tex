@@ -32,9 +32,9 @@
 	Durch Subtraktion der Taylor Entwicklung zweiter Ordnung zu \ref{eq:rueckDif} von der Entwicklung zu \ref{eq:vorDif} ergibt sich 
 	\begin{align}
 		\label{eq:taylor}
-		f(x_{i+1})-f(x_{i-1})& = &f(x_i)+\Delta x_i \cdot f'(x_i) + \mathcal{O} (\Delta x_i) 
-		- (f(x_i) - \Delta x_{i-1}\cdot f'(x_i) + \mathcal{O} (\Delta x_{i-1})) \nonumber \\	
-		& = & (\Delta x_i + \Delta x_{i-1}) f'(x_i) + \mathcal{O} (\Delta x_i \cdot \Delta x_{i-1})
+		f(x_{i+1})-f(x_{i-1})& = &f(x_i)+\Delta x_i \cdot f'(x_i) + \Delta x_i \mathcal{O} (\Delta x_i) 
+		- (f(x_i) - \Delta x_{i-1}\cdot f'(x_i) + \Delta x_{i-1} \mathcal{O} (\Delta x_{i-1})) \nonumber \\	
+		& = & (\Delta x_i + \Delta x_{i-1}) f'(x_i) + \mathcal{O} (\Delta x_i  \Delta x_{i-1})
 	\end{align}
 	Hieraus ergibt sich durch Umstellen nach $f'(x_i)$ der Zentrale Differenzenquotient \ref{eq:zentDif}. \\
 	Der Fehler liegt zwischen $\mathcal{O}(\Delta x)$ und $\mathcal{O} (\Delta x^2)$ Abhängig vom Verhältnis der Abstände. Für äquidistante Abstände ist der Fehler $\mathcal{O} (\Delta x^2)$.
@@ -45,10 +45,10 @@
 		\noindent \textbf{2.} Berechnen Sie ausgehend von einem Startpunkt \(f(\tilde{x}_i)\) auf einem dualen Gitter mit Hilfe von Taylorentwicklungen analog zur Differenzenvorschrift (1.6) im Fall äquidistanter Gitter eine zentrale Differenzenvorschrift vierter Ordnung zur Berechnung der ersten Ableitung. Verwenden Sie hierfür \(f(x_i), f(x_{i+1}), f(x_{i+2})\) sowie \(f(x_{i-1})\).\label{exer:diffquotOrd4}
 	\end{framed}
 	\noindent
-	Um eine Differentiationsvorschrift vierter Ordnung für einen Startpunkt $\tilde{x_i}$ im dualen Gitter zu bestimmen wird ein lineares Gleichungssystem 
+	Um eine Differentiationsvorschrift vierter Ordnung für einen Startpunkt $\tilde{x_i}$ im dualen Gitter zu bestimmen werden nach der Vorschrift für die den Zentralen Differenzenquotienten die Gleichungen
 	\begin{align}
 		\label{eq:dgl}
-		f'(\tilde{x_i}) &= \frac{a(f(\tilde{x}_{i-\frac{h}{2}})-f(\tilde{x}_{i+\frac{h}{2}})+c(f(\tilde{x}_{i-\frac{3}{2}h})-f(\tilde{x}_{i+\frac{3}{2}h}))}{4h} \nonumber\\
+	%	f'(\tilde{x_i}) &= \frac{a(f(\tilde{x}_{i-\frac{h}{2}})-f(\tilde{x}_{i+\frac{h}{2}})+c(f(\tilde{x}_{i-\frac{3}{2}h})-f(\tilde{x}_{i+\frac{3}{2}h}))}{4h} \nonumber\\
 		f({x_i}) & = f(\tilde{x_i}) - \frac{h}{2}f'(\tilde{x_i})+\frac{h^2}{8}f''(\tilde{x_i})-\frac{h^3}{48}f'''(\tilde{x_i}) + \mathcal{O}(h^4) \nonumber\\
 		f({x_{i+1}}) & = f(\tilde{x_i}) + \frac{h}{2}f'(\tilde{x_i})+\frac{h^2}{8}f''(\tilde{x_i})+\frac{	h^3}{48}f'''(\tilde{x_i}) + \mathcal{O}(h^4)\\
 		f({x_{i+2}}) & = f(\tilde{x_i}) + \frac{3h}{2}f'(\tilde{x_i})+\frac{9h^2}{8}f''(\tilde{x_i})+\frac{27h^3}{48}f'''(\tilde{x_i}) + \mathcal{O}(h^4) \nonumber\\
@@ -58,12 +58,12 @@
 	Hieraus folgt somit
 	\begin{equation}
 	\label{eq:LGS}
-	f(x_{i+1} - f(x_i) = hf'(\tilde{x_i}) + \frac{1}{24}h^3 f'''(\tilde{x_i})+\mathcal{O}(h^4) 
+	f(x_{i+1}) - f(x_i) = hf'(\tilde{x_i}) + \frac{1}{24}h^3 f'''(\tilde{x_i})+\mathcal{O}(h^4) 
 	\end{equation}
 	und
 	\begin{equation}
 	\label{eq:LGS2}
-	f(x{i+2}) - f(x_{i-1})=3hf'(\tilde{x_i}) + \frac{27}{24}h^3f'''(\tilde{x_i}) + \mathcal{O}(h^4)
+	f(x_{i+2}) - f(x_{i-1})=3hf'(\tilde{x_i}) + \frac{27}{24}h^3f'''(\tilde{x_i}) + \mathcal{O}(h^4)
 	\end{equation}
 	
 	Damit nun die 3.Ableitungen wegfallen wird ein Koeffizientenvergleich von $a$ und $c$ durchgeführt.
@@ -223,7 +223,8 @@
 	\end{framed}
 	\noindent
 	Die Eigenvektoren können durch Bildung des Skalarproduktes und Überprüfung $\vec{A} \cdot \vec{B} = 0$ auf Orthogonalität getestet werden. \\
-	Orthogonalität der Eigenvektoren bedeutet, dass alle Moden senkrecht zueinander stehen.
+	Orthogonalität der Eigenvektoren bedeutet, dass alle Moden senkrecht zueinander stehen. Darüber hinaus wird durch die Vektoren eine Ortogonalbasis gebildet mit welcher durch Linearkombination alle Lösungen abgebildet werden können. 
+	
 	
 	\noindent{\subsection{Dreidimensionale Darstellung}}
 	

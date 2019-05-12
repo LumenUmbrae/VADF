@@ -32,7 +32,7 @@ dy=[diff(msh.ymesh),0]
 % Gitterabstände/Schrittweiten entlang der z-Achse
 %dz = [   ,   ];
 dz=[diff(msh.zmesh),0]
-if length(dz)!= nx ||length(dy)!= ny ||length(dx)!= nz
+if length(dx)!= nx ||length(dy)!= ny ||length(dz)!= nz
 error("something wrong with dimension phase 1");
 endif
 % Diagonalvektor erstellen (erst alle x-Kante, dann alle y-Kanten und dann alle z-Kanten)
@@ -41,7 +41,7 @@ endif
 % was die 3 komplizierten reshape und repmat Konstrukte eigentlich tun.
 DSdiag = [repmat(dx, 1, ny*nz), ...
 		repmat(reshape(repmat(dy, nx, 1), 1, nx*ny), 1, nz),...
-		reshape(repmat(dz, nx*ny, 1), 1, np)];
+		reshape(repmat(dz, nx*ny, 1), 1, np)]
 
 % aus dem Diagonalvektor für DS die matrix erstellen (Befehl spdiags verwenden)
 %DS
@@ -70,13 +70,16 @@ dyt=[ begin_dyt,mid_dyt,end_dyt]
 % Gitterabstände/Schrittweiten entlang der z-Achse
 %dzt =
 begin_dzt=dz(1)/2;
-end_dzt=dz(nz-1)/2;
 mid_dzt=diff(dual_z);
-dzt=[ begin_dzt,mid_dzt,end_dzt]
+dzt=[ begin_dzt,mid_dzt];
+if nz>1   %Notwendig für den Fall eines 2-D Gitters
+  end_dzt=dz(nz-1)/2;
+  dzt=[ dzt,end_dzt];
+endif;
 
-if length(dzt)!=nx || length(dyt)!=ny || length(dxt)!=nz 
-  error("something wrong with  dimensions phase 2");
-  endif
+
+
+%  error("something wrong with  dimensions phase 2");
 % Diagonalvektor erstellen (erst alle x-Kante, dann alle y-Kanten und dann alle z-Kanten)
 DStdiag = [repmat(dxt, 1, ny*nz), ...
 		repmat(reshape(repmat(dyt, nx, 1), 1, nx*ny), 1, nz),...
