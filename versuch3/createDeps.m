@@ -67,27 +67,27 @@ for i = 1:nx
           meanEpsY(n)= eps_y(n)*Ay(n);
           meanEpsZ(n)= eps_z(n)*Az(n);
           if n > Mz
-            meanEpsX(n)+=eps_x(n-Mz)*Ax(n-Mz);
-            meanEpsY(n)+=eps_y(n-Mz)*Ay(n-Mz);
+            meanEpsX(n)+=(eps_x(n-Mz)*Ax(n-Mz));
+            meanEpsY(n)+=(eps_y(n-Mz)*Ay(n-Mz));
           endif
           
           if n > My
-            meanEpsX(n)+=eps_x(n-My)*Ax(n-My);
-            meanEpsZ(n)+=eps_z(n-My)*Az(n-My);
+            meanEpsX(n)+=(eps_x(n-My)*Ax(n-My));
+            meanEpsZ(n)+=(eps_z(n-My)*Az(n-My));
           endif
           
           if n > Mx
-            meanEpsY(n)+=eps_y(n-Mx)*Ay(n-Mx);
-            meanEpsZ(n)+=eps_z(n-Mx)*Az(n-Mx);
+            meanEpsY(n)+=(eps_y(n-Mx)*Ay(n-Mx));
+            meanEpsZ(n)+=(eps_z(n-Mx)*Az(n-Mx));
           endif
           if n > Mz + My
-            meanEpsX(n)+=eps_x(n-Mz-My)*Ax(n-Mz-My);
+            meanEpsX(n)+=(eps_x(n-Mz-My)*Ax(n-Mz-My));
           endif
            if n > Mx + My
-            meanEpsZ(n)+=eps_z(n-Mx-My)*Az(n-Mx-My);
+            meanEpsZ(n)+=(eps_z(n-Mx-My)*Az(n-Mx-My));
           endif
           if n > Mx + Mz
-            meanEpsY(n)+=eps_y(n-Mx-Mz)*Ay(n-Mx-Mz);
+            meanEpsY(n)+=(eps_y(n-Mx-Mz)*Ay(n-Mx-Mz));
           endif
           meanEpsX(n)/=(4*Atx(n));
           meanEpsY(n)/=(4*Aty(n));
@@ -100,7 +100,7 @@ end
     
     
     
-end
+
 
 %% Randbedingungen
 
@@ -109,8 +109,12 @@ if bc==1
     for i=1:nx
         for j=1:ny
             for k=1:nz
-
-
+            n=1+(i-1)*Mx+(j-1)*My+(k-1)*Mz;
+            if i==nx || j==ny || k==nz||i==1 || j==1 || k==1
+              meanEpsX(n)= 0;
+              meanEpsY(n)= 0;
+              meanEpsZ(n)= 0;
+              endif
             end
         end
     end
