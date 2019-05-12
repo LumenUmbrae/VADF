@@ -13,7 +13,7 @@ msh = cartMesh(xmesh,ymesh,zmesh);
  DAt = createDA(DSt);
 
 %% Permittivitäten für jedes Element festlegen
- eps_r = ones(msh.np,1)%eps_r = 1; 
+ eps_r = ones(msh.np,1);%eps_r = 1; 
 
 %% Berechnen der Meps-Matrix
  bc = 1;

@@ -127,7 +127,7 @@ if bc==1
         end
     end
 end
-
+%%% Magnetische Randbedigugen normale Komponente =0
 if bc==2
     for i=1:nx
         for j=1:ny

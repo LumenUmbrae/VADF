@@ -12,9 +12,10 @@
 function [ DA ] = createDA( DS )
 
 % Anzahl der Punkte
- np = columns(DS)/3
+ np = columns(DS)/3;
 
 %% Berechnen der Flächen in xyz-Richtung
+
 DSdiag = spdiags(DS);
 
 DSx = DSdiag(1:np);
@@ -22,9 +23,9 @@ DSy = DSdiag(np+1:2*np);
 DSz = DSdiag(2*np+1:3*np);
 
 
-Ax = DSy.*DSz
-Ay = DSx.*DSz 
-Az = DSx.*DSy 
+Ax = DSy.*DSz;
+Ay = DSx.*DSz ;
+Az = DSx.*DSy ;
 
 % Zusammenfügen zur Gesamtmatrix DA bzw. DAt
 DA = spdiags( [Ax; Ay; Az], 0, 3*np, 3*np);

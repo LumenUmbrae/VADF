@@ -23,15 +23,15 @@ np = msh.np;
 
 % Gitterabstände/Schrittweiten entlang der x-Achse
 %dx = [   ,   ];
-dx=[diff(msh.xmesh),0]
+dx=[diff(msh.xmesh),0];
 
 % Gitterabstände/Schrittweiten entlang der y-Achse
 %dy = [   ,   ];
-dy=[diff(msh.ymesh),0]
+dy=[diff(msh.ymesh),0];
 
 % Gitterabstände/Schrittweiten entlang der z-Achse
 %dz = [   ,   ];
-dz=[diff(msh.zmesh),0]
+dz=[diff(msh.zmesh),0];
 
 
 
@@ -41,7 +41,7 @@ dz=[diff(msh.zmesh),0]
 % was die 3 komplizierten reshape und repmat Konstrukte eigentlich tun.
 DSdiag = [repmat(dx, 1, ny*nz), ...
 		repmat(reshape(repmat(dy, nx, 1), 1, nx*ny), 1, nz),...
-		reshape(repmat(dz, nx*ny, 1), 1, np)]
+		reshape(repmat(dz, nx*ny, 1), 1, np)];
 
 % aus dem Diagonalvektor für DS die matrix erstellen (Befehl spdiags verwenden)
 %DS
