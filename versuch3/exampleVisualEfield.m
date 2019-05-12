@@ -24,61 +24,66 @@ np = msh.np;
 nx = msh.nx;
 ny = msh.ny;
 nz = msh.nz;
-
+k=columns(xmesh)
 %% Berechnung von dBow
-
-for i=1:1:np
-  
-  if(msh(i+np)~=msh(i+1+np))
-    dBow(i)=0
-
-    if(i<My)
-      x=(msh(i)+msh(i+1))/2;
-      y=msh(i+np)+((msh(i+np)-msh(i+np+My))/4);
+for k=1:1:nz
+  for j=1:1:ny
+    for i=1:1:nx
+        
+        n = 1+(i-1)*Mx+(j-1)*My+(k-1)*Mz;
+        
+        x = xmesh(i);
+        y = ymesh(j);
+        z = zmesh(k);
+  dBow(n+2*np)=0;
+  if(i==nx)
+    dBow(n)=0;
     
-    elseif(i>(np-My))
-      x=(msh(i)+msh(i+1))/2;
-      y=msh(i+np)-((msh(i+np)-msh(i+np+My))/4);
+  else
+    if(n<My)
+      x1=(x+xmesh(i+1))/2;
+      y1=y+((y-ymesh(j+1))/4);
+    
+    elseif(n>(np-My))
+      x1=(x+xmesh(i+1))/2;
+      y1=y-((y-ymesh(j-1))/4);
     
     else
-      x=(msh(i)+msh(i+1))/2;
-      y=msh(i+np);
+      x1=(x+xmesh(i+1))/2;
+      y1=y;
     endif
-    
-  else
-   dBow(i)=(x/((x^2+y^2)^(3/2)))*DAtDiag(i);
+   dBow(n)=(x1/((x1^2+y1^2)^(3/2)))*DAtDiag(n);
   endif
-
-endfor
-
-
-for i=(np+1):1:2*np
   
-  if(i>(np-My))
-   dBow(i)=0;
-   
-    if(msh(i)~=msh(i-1))
-      y=(msh(i)+msh(i+My))/2;
-      x=msh(i-np)+((msh(i-np+1)+msh(i-np))/4);
-    elseif(msh(i)~=msh(i+1))
-      y=(msh(i)+msh(i+My))/2;
-      x=msh(i-np)-((msh(i-np-1)+msh(i-np))/4);
-    else
-      x=msh(i-np);
-      y=(msh(i)+msh(i+1))/2;
-    endif 
+  if(n>((nx*ny)-nx))
+   dBow(n)=0;
     
   else
-    dBow(i)=(y/((x^2+y^2)^(3/2)))*DAtDiag(i);
+    if(j==1 && x==xmesh(1) )
+      y1=(y+ymesh(j+1))/2;
+      x1=x+((xmesh(i+1)+x)/4);
+      
+    elseif(j==ny && x==xmesh(nx))
+      y1=(y+ymesh(j+1))/2;
+      x1=x-((xmesh(i-1)+x)/4);
+      
+    else
+      x1=x;
+      y1=(y+ymesh(j+1))/2;
+      
+    endif 
+    dBow(n+np)=(y1/((x1^2+y1^2)^(3/2)))*DAtDiag(n+np);
   endif
  
 endfor
-
+endfor
+endfor
+dBow=dBow'
 
 %% Isotrope Permittivität
 eps_r = ones(3*np,1);
-
-%bc = ; % PEC
+%PEC
+bc =2
 Deps = createDeps( msh, DA, DAt, eps_r, bc );
 Meps = createMeps( DAt, Deps, DS );
 MepsInv = nullInv( Meps );
