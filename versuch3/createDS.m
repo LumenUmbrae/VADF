@@ -34,7 +34,7 @@ dy=[diff(msh.ymesh),0]
 dz=[diff(msh.zmesh),0]
 
 
-endif
+
 % Diagonalvektor erstellen (erst alle x-Kante, dann alle y-Kanten und dann alle z-Kanten)
 % Ist aufgrund der schwierigen Implementation schon gegeben. 
 % Versuchen sie sich aber klar zu machen, 
