@@ -48,29 +48,21 @@ DSdiag = [repmat(dx, 1, ny*nz), ...
 DS=spdiags(DSdiag', 0, length(DSdiag),length(DSdiag));
 
 %% Das Gleiche nochmal für die Matrix DSt
-dxt = diff(mesh.xmesh);
-	dxt = [dxt dxt(nx-1)/2]; 
-	dxt(1) = dxt(1)/2;
-	dyt = diff(mesh.ymesh);
-	dyt = [dyt dyt(ny-1)/2];
-	dyt(1) = dyt(1)/2;
-	dzt = diff(mesh.zmesh);
-	dzt = [dzt dzt(nz-1)/2];
-	dzt(1) = dzt(1)/2;
+
 % Gitterabstände/Schrittweiten entlang der x-Achse
 %dxt =
-dxt = diff(mesh.xmesh);
+dxt = diff(msh.xmesh);
 	dxt = [dxt, dxt(nx-1)/2]; 
 	dxt(1) = dxt(1)/2;
 
 % Gitterabstände/Schrittweiten entlang der y-Achse
 %dyt = 
-dyt = diff(mesh.ymesh);
+dyt = diff(msh.ymesh);
 	dyt = [dyt, dyt(ny-1)/2];
 	dyt(1) = dyt(1)/2;
 % Gitterabstände/Schrittweiten entlang der z-Achse
 %dzt =
-dzt = diff(mesh.zmesh);
+dzt = diff(msh.zmesh);
 	dzt = [dzt, dzt(nz-1)/2];
 	dzt(1) = dzt(1)/2;
 

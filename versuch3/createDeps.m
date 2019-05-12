@@ -43,7 +43,7 @@ Aty = At(np+1:2*np);
 Atz = At(np*2+1:3*np); 
 
 Ax = A(1:np); 
-Ay = A(np+1;2*np);
+Ay = A(np+1:2*np);
 Az = A(2*np+1:3*np);
 
 % Erstellen der Vektoren für die gemittelten epsilon Werte für x-, y- und z-Flächen
@@ -118,7 +118,7 @@ if bc==1
              meanEpsX(n)=0; 
              meanEpsZ(n)=0;
              endif
-             if k==1 || h==nx
+             if i==1 || i==nx
              meanEpsZ(n)=0; 
              meanEpsY(n)=0;
             
@@ -141,7 +141,7 @@ if bc==2
              meanEpsY(n)=0; 
              
              endif
-             if k==1 || h==nx
+             if i==1 || i==nx
              meanEpsX(n)=0; 
              
             
