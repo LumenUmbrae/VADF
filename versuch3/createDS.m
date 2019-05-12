@@ -32,7 +32,7 @@ dy=[diff(msh.ymesh),0]
 % Gitterabstände/Schrittweiten entlang der z-Achse
 %dz = [   ,   ];
 dz=[diff(msh.zmesh),0]
-if length(dx)!= nx ||length(dy)!= ny ||length(dz)!= nz
+
 error("something wrong with dimension phase 1");
 endif
 % Diagonalvektor erstellen (erst alle x-Kante, dann alle y-Kanten und dann alle z-Kanten)
@@ -48,32 +48,33 @@ DSdiag = [repmat(dx, 1, ny*nz), ...
 DS=spdiags(DSdiag', 0, length(DSdiag),length(DSdiag));
 
 %% Das Gleiche nochmal für die Matrix DSt
-dual_x=[msh.xmesh+[msh.xmesh(2:end),0]];
-dual_x=dual_x(1:end-1)./2;
-dual_y=[msh.ymesh+[msh.ymesh(2:end),0]];
-dual_y=dual_y(1:end-1)./2;
-dual_z=[msh.zmesh+[msh.zmesh(2:end),0]];
-dual_z=dual_z(1:end-1)./2;
+dxt = diff(mesh.xmesh);
+	dxt = [dxt dxt(nx-1)/2]; 
+	dxt(1) = dxt(1)/2;
+	dyt = diff(mesh.ymesh);
+	dyt = [dyt dyt(ny-1)/2];
+	dyt(1) = dyt(1)/2;
+	dzt = diff(mesh.zmesh);
+	dzt = [dzt dzt(nz-1)/2];
+	dzt(1) = dzt(1)/2;
 % Gitterabstände/Schrittweiten entlang der x-Achse
 %dxt =
-begin_dxt=dx(1)/2;
-end_dxt=dx(nx-1)/2;
-mid_dxt=diff(dual_x);
-dxt=[ begin_dxt,mid_dxt,end_dxt]
+dxt = diff(mesh.xmesh);
+	dxt = [dxt, dxt(nx-1)/2]; 
+	dxt(1) = dxt(1)/2;
 
 % Gitterabstände/Schrittweiten entlang der y-Achse
 %dyt = 
-begin_dyt=dy(1)/2;
-end_dyt=dy(ny-1)/2;
-mid_dyt=diff(dual_y);
-dyt=[ begin_dyt,mid_dyt,end_dyt]
+dyt = diff(mesh.ymesh);
+	dyt = [dyt, dyt(ny-1)/2];
+	dyt(1) = dyt(1)/2;
 % Gitterabstände/Schrittweiten entlang der z-Achse
 %dzt =
-begin_dzt=dz(1)/2;
-end_dzt=dz(nz-1)/2;
-mid_dzt=diff(dual_z);
+dzt = diff(mesh.zmesh);
+	dzt = [dzt, dzt(nz-1)/2];
+	dzt(1) = dzt(1)/2;
 
-dzt=[begin_dzt,mid_dzt,end_dzt];
+
 
 
 
