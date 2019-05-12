@@ -110,11 +110,42 @@ if bc==1
         for j=1:ny
             for k=1:nz
             n=1+(i-1)*Mx+(j-1)*My+(k-1)*Mz;
-            if i==nx || j==ny || k==nz||i==1 || j==1 || k==1
-              meanEpsX(n)= 0;
-              meanEpsY(n)= 0;
-              meanEpsZ(n)= 0;
-              endif
+            if k==1 || k==nz
+             meanEpsX(n)=0; 
+             meanEpsY(n)=0;
+            endif
+            if j==1 || j==ny
+             meanEpsX(n)=0; 
+             meanEpsZ(n)=0;
+             endif
+             if k==1 || h==nx
+             meanEpsZ(n)=0; 
+             meanEpsY(n)=0;
+            
+            endif
+            end
+        end
+    end
+end
+
+if bc==2
+    for i=1:nx
+        for j=1:ny
+            for k=1:nz
+            n=1+(i-1)*Mx+(j-1)*My+(k-1)*Mz;
+            if k==1 || k==nz
+             meanEpsZ(n)=0; 
+            
+            endif
+            if j==1 || j==ny
+             meanEpsY(n)=0; 
+             
+             endif
+             if k==1 || h==nx
+             meanEpsX(n)=0; 
+             
+            
+            endif
             end
         end
     end

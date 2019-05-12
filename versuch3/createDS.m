@@ -33,7 +33,7 @@ dy=[diff(msh.ymesh),0]
 %dz = [   ,   ];
 dz=[diff(msh.zmesh),0]
 
-error("something wrong with dimension phase 1");
+
 endif
 % Diagonalvektor erstellen (erst alle x-Kante, dann alle y-Kanten und dann alle z-Kanten)
 % Ist aufgrund der schwierigen Implementation schon gegeben. 
