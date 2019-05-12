@@ -48,7 +48,7 @@ DSdiag = [repmat(dx, 1, ny*nz), ...
 DS=spdiags(DSdiag', 0, length(DSdiag),length(DSdiag));
 
 %% Das Gleiche nochmal für die Matrix DSt
-dual_x=[msh.xmesh.+[msh.xmesh(2:end),0]];
+dual_x=[msh.xmesh+[msh.xmesh(2:end),0]];
 dual_x=dual_x(1:end-1)./2;
 dual_y=[msh.ymesh+[msh.ymesh(2:end),0]];
 dual_y=dual_y(1:end-1)./2;
@@ -70,16 +70,13 @@ dyt=[ begin_dyt,mid_dyt,end_dyt]
 % Gitterabstände/Schrittweiten entlang der z-Achse
 %dzt =
 begin_dzt=dz(1)/2;
+end_dzt=dz(nz-1)/2;
 mid_dzt=diff(dual_z);
-dzt=[ begin_dzt,mid_dzt];
-if nz>1   %Notwendig für den Fall eines 2-D Gitters
-  end_dzt=dz(nz-1)/2;
-  dzt=[ dzt,end_dzt];
-endif;
+
+dzt=[begin_dzt,mid_dzt,end_dzt];
 
 
 
-%  error("something wrong with  dimensions phase 2");
 % Diagonalvektor erstellen (erst alle x-Kante, dann alle y-Kanten und dann alle z-Kanten)
 DStdiag = [repmat(dxt, 1, ny*nz), ...
 		repmat(reshape(repmat(dyt, nx, 1), 1, nx*ny), 1, nz),...
