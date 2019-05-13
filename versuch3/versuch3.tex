@@ -58,8 +58,74 @@ Die Matrizen besitzen immer die Dimension  $[np,\ 3np]$ mit $np$ als Anzahl der 
 \begin{framed}
 	\noindent \textbf{3.} Skizzieren Sie kurz, wie sich die Materialmatrizen zusammenstellen. Wie sind hierbei die Randbedingungen (elektrisch \& magnetisch) einzuarbeiten bzw. muss überhaupt eine Änderung vorgenommen werden?\label{exer:materialMats}
 \end{framed}
+Skizze:\\
+$$\Meps =\DAd\Deps\DS^{-1} = \begin{bmatrix}
+\tilde{dA}(1) & & \\
+& \ddots & \\
+& & \tilde{dA}(3\cdot\mathrm{np})
+\end{bmatrix}
+\cdot
+ \begin{bmatrix}
+\varepsilon(1) & & \\
+& \ddots & \\
+& & \varepsilon(3\cdot\mathrm{np})
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+\mathrm{ds}(1) & & \\
+& \ddots & \\
+& & \mathrm{ds}(3\cdot\mathrm{np})
+\end{bmatrix}^{-1}$$
+$$\Mmui=\DSd\Dmui\DA^{-1}=
+\begin{bmatrix}
+\tilde{ds}(1) & & \\
+& \ddots & \\
+& & \tilde{ds}(3\cdot\mathrm{np})
+\end{bmatrix}
+\cdot
+ \begin{bmatrix}
+\mu^{-1}(1) & & \\
+& \ddots & \\
+& & \mu^{-1}(3\cdot\mathrm{np})
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+\mathrm{dA}(1) & & \\
+& \ddots & \\
+& & \mathrm{dA}(3\cdot\mathrm{np})
+\end{bmatrix}^{-1}$$
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Wenn man elektrische Randbedingung hat, soll man die tangentiale Komponenten der Permitivität und normale Komponente der Permabilität an dem Rand auf Null setzen. Bei magnetischer Randbedingung ist die tangentiale Komponenten der magnetischen Feldstärke und normale Komponente des elektrischen Feldes gleich 0. Bei Materialmatrizen gibt es keine Veränderungen. Die normale Komponente an dem der primären Gitter ist eine Geisterkante und auf Geisterkante ist keine Kante der dualen Gitter definiert.\\%% unschön
+\\
+\begin{lstlisting}[caption={Einsetzten der elektrischen Randbedigungen}]
+%% Randbedingungen
+
+% Spezialfall nur bei PEC Rand (bc=1)
+	if bc==1
+	for i=1:nx
+		for j=1:ny
+			for k=1:nz
+			n=1+(i-1)*Mx+(j-1)*My+(k-1)*Mz;
+			if k==1 || k==nz
+				meanEpsX(n)=0; 
+				meanEpsY(n)=0;
+			endif
+			if j==1 || j==ny
+				meanEpsX(n)=0; 
+				meanEpsZ(n)=0;
+			endif
+			if i==1 || i==nx
+				meanEpsZ(n)=0; 
+				meanEpsY(n)=0;
+
+			endif
+		end
+	end
+	end
+end
+
+\end{lstlisting}
+
 
 % --> Aufgabe
 \begin{framed}
