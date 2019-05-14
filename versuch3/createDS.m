@@ -62,9 +62,17 @@ dyt = diff(msh.ymesh);
 	dyt(1) = dyt(1)/2;
 % Gitterabstände/Schrittweiten entlang der z-Achse
 %dzt =
+
+
 dzt = diff(msh.zmesh);
-	dzt = [dzt, dzt(nz-1)/2];
-	dzt(1) = dzt(1)/2;
+  if nz>1 
+    dzt = [dzt, dzt(nz-1)/2];
+    dzt(1) = dzt(1)/2;
+   endif
+   
+   if nz <=1
+     dzt = [0];   
+   endif
 
 
 
