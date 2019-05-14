@@ -159,8 +159,11 @@ Bestimmen Sie die diskreten Größen $\dfitloc(n)$ und $\efitloc(n)$ des vorgege
 Wie kann mit der zweiten Funktion auch $\DAd$ bestimmt werden?\label{exer:createDS_DA}
 \end{framed}
 
-
-
+Analog zu $\DA$ kann man zweite Funktion verwenden um $\DAd$ bestimmen. Man soll nur als Eingabe Parameter $\DSd$ setzen.
+\begin{align*}
+	\lstinline{[DS, DSt]} &= \lstinline{createDS(msh)} \\
+	\lstinline{[DAt]} &= \lstinline{createDA(DSt)} 
+\end{align*}
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{2.} Nun sollen die Funktionen
