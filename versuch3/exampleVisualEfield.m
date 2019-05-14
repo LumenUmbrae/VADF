@@ -1,3 +1,4 @@
+clear all;
 %% Aufgabe Visualisierung E-Feld 
 
 % Erstellen des Meshs und benötigter Geometrie-Matrizen
@@ -24,7 +25,7 @@ np = msh.np;
 nx = msh.nx;
 ny = msh.ny;
 nz = msh.nz;
-k=columns(xmesh)
+
 %% Berechnung von dBow
 for k=1:1:nz
   for j=1:1:ny
@@ -78,17 +79,18 @@ for k=1:1:nz
 endfor
 endfor
 endfor
-dBow=dBow'
 
+dBow2=dBow';
 %% Isotrope Permittivität
 eps_r = ones(3*np,1);
 %PEC
-bc =2
+bc = 1;
 Deps = createDeps( msh, DA, DAt, eps_r, bc );
 Meps = createMeps( DAt, Deps, DS );
 MepsInv = nullInv( Meps );
 
-eBow = MepsInv * dBow;
+eBow = MepsInv * dBow2;
+
 
 figure(1);
 plotEBow(msh,eBow,2);
@@ -97,30 +99,30 @@ xlabel('x');
 ylabel('y');
 zlabel('Elektrisches Feld E in V/m');
 
-figure(2);
-plotEdgeVoltage(msh,eBow,2,[bc bc bc bc bc bc]);
-title('Isotropes E-Feld');
-xlabel('x in m');
-ylabel('y in m');
+##figure(2);
+##plotEdgeVoltage(msh,eBow,2,[bc bc bc bc bc bc]);
+##title('Isotropes E-Feld');
+##xlabel('x in m');
+##ylabel('y in m');
 
 
 % Folge-Aufgabe: Anisotrope Permittivität
 %eps_r(1:np) =
 
 %bc = ; % PEC
-Deps = createDeps( msh, DA, DAt, eps_r, bc );
-Meps = createMeps( DAt, Deps, DS );
-MepsInv = nullInv( Meps );
-
-eBow = MepsInv * dBow;
-
-figure(3);
-plotEBow(msh,eBow,2);
-title('Anisotropes E-Feld');
-xlabel('x');
-ylabel('y');
-zlabel('Elektrisches Feld E in V/m');
-
-figure(4);
-plotEdgeVoltage(msh,eBow,2,[bc bc bc bc bc bc]);
-title('Anisotropes E-Feld');
+##Deps = createDeps( msh, DA, DAt, eps_r, bc );
+##Meps = createMeps( DAt, Deps, DS );
+##MepsInv = nullInv( Meps );
+##
+##eBow = MepsInv * dBow2;
+##
+##figure(3);
+##plotEBow(msh,eBow,2);
+##title('Anisotropes E-Feld');
+##xlabel('x');
+##ylabel('y');
+##zlabel('Elektrisches Feld E in V/m');
+##
+##figure(4);
+##%plotEdgeVoltage(msh,eBow,2,[bc bc bc bc bc bc]);
+##title('Anisotropes E-Feld');
