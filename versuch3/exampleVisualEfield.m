@@ -14,7 +14,7 @@ msh = cartMesh(xmesh, ymesh, zmesh);
 [DAt] = createDA(DSt);
 
 DSDiag = diag(DS);
-DAtDiag = diag(DAt);
+DAtDiag = diag(DAt)
 
 %% Spezifikation des kartesischen Gitters 
 Mx = msh.Mx;

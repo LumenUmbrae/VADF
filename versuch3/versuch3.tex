@@ -140,8 +140,16 @@ Bestimmen Sie die diskreten Größen $\dfitloc(n)$ und $\efitloc(n)$ des vorgege
     {\textbf{Hinweis:}} Transformieren Sie zuerst zur Bestimmung der notwendigen Feldwerte das gegebene Feld in kartesische Koordinaten $\vec{D}(x,y,z)$.\label{exer:visualizeFieldPrep}
 %
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
+Transformiert man $\vec{D}(r,\varphi,z)$ in kartesische Koordinaten ergibt sich
+\begin{equation*}
+	\vec{D}(x,y,z)=\frac{x}{(x^2+y^2)^{\frac{3}{2}}} \ \vec{e}_x+\frac{y}{(x^2+y^2)^{\frac{3}{2}}} \vec{e}_y.
+\end{equation*}
+Möchte man nun $\dfitloc(n)$ berechnen muss man einfach $\vec{D}$ am Mittelpunkt der dualen Fläche auswerten und mit dem Flächeninhalt multiplizieren. Um daraus \efitloc(n) zu bestimmt muss einfach die Material Matrix $\Meps$ mit \dfitloc(n) multipliziert werden. Daraus folgt:
+\begin{eqnarray*}
+\dfitloc(n)&=&\vec{D}(x_n,y_n,z_n)\ \tilde{dA}\\
+\efitloc(n)&=&\Meps\dfitloc
+\end{eqnarray*}
 
 
 
@@ -224,8 +232,21 @@ $x$-$y$-Ebene mit Index \lstinline{indz} grafisch darstellt. Verwenden Sie hierf
 Vektor $\dfit$ vor, berechnen Sie daraus mit Hilfe der Materialmatrix $\Mepsi$
 das Feld $\efit$ und wenden Sie dann Methode \eqref{mthd:plotEBow} an. Visualisieren Sie außerdem die selbe Schnittebene mit der in Versuch 2 vorgestellten Methode \lstinline{plotEdgeVoltage}. Vervollständigen Sie hierfür den ersten Teil des bereits gegebenen Skripts \lstinline{exampleVisualEfield.m}\label{exer:exampleVisualEfield1}
 \end{framed}
+\noindent
+Das elektrische Feld für isotrope Materialien ist in den Abbildungen \ref{Abb:61} und \ref{Abb:62} dargestellt.
+	\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 10mm 60mm 10mm 50mm, clip, width=0.7\textwidth]{efield_1.pdf}
+	\caption{Elektrisches Feld bei isotroper Materialverteilung in 3D.}
+	\label{Abb:61}
+	\end{figure}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[trim = 10mm 60mm 10mm 50mm, clip, width=0.7\textwidth]{efield_2.pdf}
+		\caption{Elektrisches Feld bei isotroper Materialverteilung dargestellt mit Vektorpfeilen.}
+		\label{Abb:62}
+	\end{figure}
 
 % --> Aufgabe
 \begin{framed}
@@ -237,10 +258,22 @@ $\eps_x / \eps_y=4$) sowie elektrische
 Randbedingungen. Interpolieren und visualisieren Sie das Feld
 $\efit$ wie in der Aufgabe zuvor. Visualisieren Sie auch hier das Ergebnis zusätzlich mit der Methode \lstinline{plotEdgeVoltage}. Vervollständigen Sie hierfür den zweiten Teil des bereits gegebenen Skripts \lstinline{exampleVisualEfield.m}\label{exer:exampleVisualEfield2}\\
 \end{framed}
+\noindent
+Das elektrische Feld für anisotrope Materialien ist in den Abbildungen \ref{Abb:71} und \ref{Abb:72} dargestellt.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 10mm 60mm 10mm 50mm, clip, width=0.7\textwidth]{efield_3.pdf}
+	\caption{Elektrisches Feld bei anisotroper Materialverteilung in 3D.}
+	\label{Abb:71}
+\end{figure}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
-
-
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 10mm 60mm 10mm 50mm, clip, width=0.7\textwidth]{efield_4.pdf}
+	\caption{Elektrisches Feld bei anisotroper Materialverteilung dargestellt mit Vektorpfeilen.}
+	\label{Abb:72}
+\end{figure}
+\newpage
 
 \section{Fragen zur Ausarbeitung}
 
@@ -250,8 +283,14 @@ $\efit$ wie in der Aufgabe zuvor. Visualisieren Sie auch hier das Ergebnis zusä
 	Gitterfläche mit den zugehörigen primären Gitterzellen, welche
     zur Mittelung der Permittivität notwendig sind (siehe (3.10)).\label{exer:averagingEps}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
+Die duale Fläche ist in Abbildung \ref{Abb:A1} zu sehen
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 0mm 0mm 0mm 0mm, clip, width=0.5\textwidth]{Ausarbeitung1.png}
+	\caption{Duale Fläche (Mitte) mit den primären Gitterzellen. Die für die Mittelung interessanten Bereiche sind schraffiert.}
+	\label{Abb:A1}
+\end{figure}
 
 % --> Aufgabe
 	\begin{framed}
