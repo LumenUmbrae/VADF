@@ -12,7 +12,7 @@
 
 
 Ausgehend von einem 3-fach Index i,j,k lasen sich die Randpunkte eines Kartesischen Rechengitters im kanonischen Indizierungsschema durch ablaufen der Außenseiten bestimmen. Hierbei werden nacheinander i,j und k zu Null gesetzt und die beiden anderen Variablen Variiert. Anschließend wird selbiges mit einem Festsetzen beim Maximalwert der jeweiligen Variable wiederholt. Alle hierbei erreichten Punkte liegen auf den Außenseiten des Gitters. 
-
+\noindent
 Im Pseudocode lässt sich diese Verfahren für eine Richtung $i$ darstellen durch
 
 \begin{algorithmic}[1]
@@ -38,26 +38,25 @@ Im Pseudocode lässt sich diese Verfahren für eine Richtung $i$ darstellen durc
 	\ENDWHILE
 	
 \end{algorithmic}
-
+\noindent
 Die Funktion $AddToListBoundaryElementAt$ führt eine Liste mit den kanonischen Indizes, welche unter Zuhilfenahme von $M_x,\ M_y$ und $M_z$ bestimmt werden, der Randpunkte.  
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{2.} Wie sehen für ein äquidistantes, kartesisches Gitter die Geometriematrizen $\DS$, $\DSd$, $\DA$ und $\DAd$ aus? Was ist bei den Rändern zu beachten? Welche Dimensionen besitzen die Matrizen?\label{exer:geoMatsStructure}
 \end{framed}
-
-
-
-Für eine äquidistantes, kartesisches Gitter bildet die Matrix $D_S$ eine Diagonalmatrizen mit dem Abstand $\Delta x$ auf der Diagonalen. Die duale Matrix $\tilde{D_S}$ unterscheidet sich hiervon nur dadurch, das die Randelemente mit ½ multipliziert werden. \\
-Für die Flächenzentrierten $D_A$ gilt simultan das sie Diagonalmatrizen mit den Flächeninhalt $\Delta x^2$ sind. Bei der Dualen Flächenmatrix $\tilde{D_A}$ muss nun bei den Randelementen allerdings unterschieden werden zwischen denen die an einer Kante liegen und mit ½ multipliziert werden und denen an einer Ecke die mit ¼ multipliziert werden. \\
-Falls hier bereits Geisterkanten entfernt worden sind, sind bei den primären Matrizen $D_S$ und $D_A$ die Geisterelemente jeweils Null. \\
-
+\noindent
+Für eine äquidistantes, kartesisches Gitter bildet die Matrix $DS$ eine Diagonalmatrizen mit dem Abstand $\Delta x$ auf der Diagonalen. Die duale Matrix $\DSd$ unterscheidet sich hiervon nur dadurch, das die Randelemente mit ½ multipliziert werden. \\
+Für die Flächenzentrierten $\DA$ gilt simultan das sie Diagonalmatrizen mit den Flächeninhalt $\Delta x^2$ sind. Bei der Dualen Flächenmatrix $\DAd$ muss nun bei den Randelementen allerdings unterschieden werden zwischen denen die an einer Kante liegen und mit ½ multipliziert werden und denen an einer Ecke die mit ¼ multipliziert werden. \\
+Falls hier bereits Geisterkanten entfernt worden sind, sind bei den primären Matrizen $\DS$ und $\DA$ die Geisterelemente jeweils Null. \\
+\noindent
 Die Matrizen besitzen immer die Dimension  $[np,\ 3np]$ mit $np$ als Anzahl der Gitterpunkte.
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{3.} Skizzieren Sie kurz, wie sich die Materialmatrizen zusammenstellen. Wie sind hierbei die Randbedingungen (elektrisch \& magnetisch) einzuarbeiten bzw. muss überhaupt eine Änderung vorgenommen werden?\label{exer:materialMats}
 \end{framed}
+\noindent
 Skizze:\\
 $$\Meps =\DAd\Deps\DS^{-1} = \begin{bmatrix}
 \tilde{dA}(1) & & \\
@@ -250,6 +249,7 @@ Das elektrische Feld für isotrope Materialien ist in den Abbildungen \ref{Abb:6
 		\caption{Elektrisches Feld bei isotroper Materialverteilung dargestellt mit Vektorpfeilen.}
 		\label{Abb:62}
 	\end{figure}
+\newpage
 
 % --> Aufgabe
 \begin{framed}
@@ -303,14 +303,16 @@ Die duale Fläche ist in Abbildung \ref{Abb:A1} zu sehen
 	Punkten. Beschreiben Sie für diese Mittelung \emph{kurz} eine geeignete Vorgehensweise (kleine Skizze sinnvoll)
 	und gehen Sie dabei auch auf die Randbedingungen ein.\label{exer:averageHfield}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
-
-
-
-
-
+\noindent
+Für die Mittelung von $\Hv$ auf den Primären Punkten muss zunächst die magnetische Flussdichte $\vec{B}$ von den 4 anliegenden primären Flächen mit $\bar{B}=\frac{1}{4}(B_1+B_2+B_3+B_4)$ gemittelt werden. Nun muss man weiterhin die Materialkonstate $\mu$ über die 4 anliegenden  Flächen mit $\bar{\mu}=\frac{1}{4}(\mu_1+\mu_2+\mu_3+\mu_4)$ mitteln. Die Feldstärke $\Hv$ ergibt sich nun aus der Materialbeziehung zwischen $\vec{B}$ und $\Hv$. Damit erhalten wir $\Hv=\bar{\mu}\bar{B}$. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 0mm 0mm 0mm 0mm, clip, width=0.5\textwidth]{Ausarbeitung2.png}
+	\caption{Darstellung der örtlichen Beziehungen zwischen $\Hv$ und $\vec{B}$.}
+	\label{Abb:A1}
+\end{figure}
+\newpage
 \section{Fazit}
-\emph{Fügen Sie hier Ihre Lösung ein}
+Wie in der Ausarbeitung deutlich wird, ist es nun möglich Materialmatrizen zu erstellen, sowie elektrische Felder zu visualisieren.
 
 \end{document}
