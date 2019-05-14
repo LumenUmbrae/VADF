@@ -127,30 +127,7 @@ if bc==1
         end
     end
 end
-%%% Magnetische Randbedigugen normale Komponente =0
-if bc==2
-    for i=1:nx
-        for j=1:ny
-            for k=1:nz
-            n=1+(i-1)*Mx+(j-1)*My+(k-1)*Mz;
-            if k==1 || k==nz
-             meanEpsZ(n)=0; 
-            
-            endif
-            if j==1 || j==ny
-             meanEpsY(n)=0; 
-             
-             endif
-             if i==1 || i==nx
-             meanEpsX(n)=0; 
-             
-            
-            endif
-            end
-        end
-    end
-end
-    
+  
 % Matrix Deps mithilfe des Diagonalenvektors (spdiags) erzeugen
 Deps = spdiags([meanEpsX; meanEpsY; meanEpsZ], 0, 3*np, 3*np);
     

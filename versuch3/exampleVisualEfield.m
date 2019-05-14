@@ -85,6 +85,7 @@ dBow2=dBow';
 eps_r = ones(3*np,1);
 %PEC
 bc = 1;
+
 Deps = createDeps( msh, DA, DAt, eps_r, bc );
 Meps = createMeps( DAt, Deps, DS );
 MepsInv = nullInv( Meps );
