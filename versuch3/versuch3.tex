@@ -94,8 +94,8 @@ $$\Mmui=\DSd\Dmui\DA^{-1}=
 & \ddots & \\
 & & \mathrm{dA}(3\cdot\mathrm{np})
 \end{bmatrix}^{-1}$$
-
-Wenn man elektrische Randbedingung hat, soll man die tangentiale Komponenten der Permitivität und normale Komponente der Permabilität an dem Rand auf Null setzen. Bei magnetischer Randbedingung ist die tangentiale Komponenten der magnetischen Feldstärke und normale Komponente des elektrischen Feldes gleich 0. Bei Materialmatrizen gibt es keine Veränderungen. Die normale Komponente an dem der primären Gitter ist eine Geisterkante und auf Geisterkante ist keine Kante der dualen Gitter definiert.\\%% unschön
+\noindent
+Wenn man elektrische Randbedingung hat, muss man die tangentiale Komponente der Permitivität und normale Komponente der Permeabilität am Rand auf Null setzen. Bei magnetischer Randbedingung ist die tangentiale Komponente der magnetischen Feldstärke und normale Komponente des elektrischen Feldes gleich Null. Bei den Materialmatrizen gibt es keine Veränderungen. Die normale Komponente auf dem primären Gitter ist eine Geisterkante und für die Geisterkante ist keine Kante auf dem dualen Gitter definiert.\\%% unschön
 \\
 \begin{lstlisting}[caption={Einsetzten der elektrischen Randbedigungen}]
 %% Randbedingungen
@@ -167,8 +167,11 @@ Möchte man nun $\dfitloc(n)$ berechnen muss man einfach $\vec{D}$ am Mittelpunk
 Wie kann mit der zweiten Funktion auch $\DAd$ bestimmt werden?\label{exer:createDS_DA}
 \end{framed}
 
-
-
+Analog zu $\DA$ kann man zweite Funktion verwenden um $\DAd$ bestimmen. Man soll nur als Eingabe Parameter $\DSd$ setzen.
+\begin{align*}
+	\lstinline{[DS, DSt]} &= \lstinline{createDS(msh)} \\
+	\lstinline{[DAt]} &= \lstinline{createDA(DSt)} 
+\end{align*}
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{2.} Nun sollen die Funktionen
