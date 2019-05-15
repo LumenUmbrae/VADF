@@ -18,25 +18,25 @@ function cap = calcCap( msh, ebow, dbow )
 % integriert wird, da die Platten in der XZ-Ebene liegen
 
 % Eine Beschreibung der Argumente von intEdge ist in intEdge.m zu finden
-% line.u = 
-% line.v = 
-% line.w = 
-% line.length = 
-% line.normal = 
+ line.u = 1;
+ line.v = 1;
+ line.w = 1;
+ line.length = msh.ny;
+ line.normal = [0,1,0];
 U = intEdge(msh, ebow, line);
 
 % Berechnen der Ladung auf den Kondensatorplatten mit dem Gauss'schen 
 % Gesetz, surface gibt die Integrationsfläche an, die hier in y-Richtung
 % gerichtet ist. Eine Beschreibung der Argumente von intSurf ist in intSurf.m zu finden.
-% surface.ul = 
-% surface.uh = 
-% surface.vl = 
-% surface.vh = 
-% surface.normal = 
-% surface.w = 
+ surface.ul = 1;
+ surface.uh = 1;
+ surface.vl = msh.xmesh(nx);
+ surface.vh = msh.ymesh(ny);
+ surface.normal = [0,1,0];
+ surface.w = 0;
 Q = intSurf(msh, dbow, surface);
 
 % Berechnen der Kapazität aus Q und U
-% cap =
+ cap = Q/U;
 
 end
