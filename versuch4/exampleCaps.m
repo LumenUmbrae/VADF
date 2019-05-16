@@ -68,18 +68,18 @@ q = zeros(msh.np, 1);
 % a) eps = 1
 [ phiA, ebowA, dbowA, relResA] = solveES( msh, epsA, potABCD, q);
 % b) eps = 1, eps = 2, Reihenschaltung
-[ phiB, ebowB, dbowB, relResB] = solveES( msh, epsB, potABCD, q);
+%[ phiB, ebowB, dbowB, relResB] = solveES( msh, epsB, potABCD, q);
 % c) eps = 1, eps = 2, Parallelschaltung
-[ phiC, ebowC, dbowC, relResC] = solveES( msh, epsC, potABCD, q);
+%[ phiC, ebowC, dbowC, relResC] = solveES( msh, epsC, potABCD, q);
 % d) eps = [1,2,3,4], Reihen und Parallelschaltung
-[ phiD, ebowD, dbowD, relResD] = solveES( msh, epsD, potABCD, q);
+%[ phiD, ebowD, dbowD, relResD] = solveES( msh, epsD, potABCD, q);
 % e) eps = 1 mit metallischem Block, Kondensator mit Sprung
-[ phiE, ebowE, dbowE, relResE] = solveES( msh, epsE, potE, q);
+% [ phiE, ebowE, dbowE, relResE] = solveES( msh, epsE, potE, q);
 
 
 %% Kapazitätsberechnung der verschiedenen Kondensatoranordnungen
 % a) e = 1
-capA = calcCap(msh, ebowA, dbowA);
+capA = calcCap(msh, ebowA, dbowA)
 fprintf('capA = %e\n',capA);
 % b) e = 1, e = 2, Reihenschaltung
 capB = calcCap(msh, ebowB, dbowB);
