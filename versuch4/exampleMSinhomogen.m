@@ -27,6 +27,9 @@ for i=1:1:msh.nx
 endfor
 
 % Erstellen der Permeabilitätsmatrix mit boxMesher
+boxes(1).box=[xmesh(5),xmesh(7),ymesh(5),ymesh(7),zmesh(1),zmesh(6)]
+boxes(1).value=1;
+boxes(2).box=[][xmesh(5),xmesh(7),ymesh(5),ymesh(7),zmesh(7),zmesh(11)]
 % mu = 
 
 % Lösen des Systems
