@@ -13,11 +13,21 @@ Mz = msh.Mz;
 np = msh.np;
 
 % Erstellen des Strom-Vektors
-% jbow = 
-% ...
+jbow=zeros(3*np,1);
+for i=1:1:msh.nx
+  for j=1:1:msh.ny
+    for k=1:1:msh.nz
+      n=1+(i-1)*Mx+(j-1)*My+(k-1)*Mz;
+      if xmesh(i)==0.5 && ymesh(j)==0.5 || xmesh(i)==0.4 && ymesh(j)==0.5 ...
+         || xmesh(i)==0.4 && ymesh(j)==0.4 || xmesh(i)==0.5 && ymesh(j)==0.4
+        jbow(2*np+n)=250;
+      endif
+    endfor
+  endfor
+endfor
 
 % Erstellen des Permeabilitätsvektors
-% mu = 
+ mu = ones(np,1);
 
 % Lösen des Systems
 [hbow, bbow, relRes] = solveMS(msh, mu, jbow);
