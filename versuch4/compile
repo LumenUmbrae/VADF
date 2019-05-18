@@ -1,0 +1,9 @@
+#!/bin/bash
+
+rm *.aux *.lof *.log *.out *.toc Protokollheft.pdf
+
+pdflatex Protokollheft.tex
+pdflatex Protokollheft.tex
+pdflatex Protokollheft.tex
+
+rm *.aux *.lof *.log *.out *.toc

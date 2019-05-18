@@ -12,10 +12,13 @@
         und $y$-Kanten nach dem kanonischen Indizierungsschema aus Gl.~(2.5) ein. Machen Sie sich klar, welche Indizes zu
         nicht existierenden Kanten gehören und markieren Sie diese.\label{exer:edgeIndices}
 \end{framed}
+\noindent
+	Das $3\times 4$ Gitter ist in Abbildung \ref{Abb:1.1} zu sehen. Die nicht existierenden Kanten sind jeweils gestrichelt dargestellt.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[trim = 10mm 170mm 65mm 20mm, clip, width=0.7\textwidth]{Zeichnung.pdf}
 		\caption{3$\times$4 Gitter mit kanonischer Kantenindizierung.}
+		\label{Abb:1.1}
 	\end{figure}
 
 
@@ -43,11 +46,11 @@ n\in[N_x(N_y-1)+1,N_x(N_y-1)+2,\dots,2N_p].
     \centering
     \begin{subfigure}{0.49\textwidth}
         \centering
-        \input{versuch2/dreiecksgitterGeordnet}            
+        \input{dreiecksgitterGeordnet}            
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
         \centering
-        \input{versuch2/dreiecksgitterUngeordnet}
+        \input{dreiecksgitterUngeordnet}
     \end{subfigure}
     \caption{Dreiecksgitter von zwei verschiedenen Rechengebieten.}
     \label{fig:tetmesh}
@@ -59,11 +62,12 @@ n\in[N_x(N_y-1)+1,N_x(N_y-1)+2,\dots,2N_p].
 	\noindent \textbf{3.} Nummerieren Sie die Flächen und Kanten des Gitters beliebig und ordnen
                     Sie den Kanten eine Orientierung zu.\label{exer:triangleOrderedNumbering}
 \end{framed}
-
+\noindent
+Das gegebene Gitter wurde entsprechend nummeriert und ist in Abbildung \ref{abb::5-eck} zu sehen.
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.6\textwidth]{Raster_2.png}
+	\includegraphics[width=0.8\textwidth]{Raster_2.pdf}
 	\caption{Gegebenes Gitter mit beliebig gewählter Indizierung für Punkte, Kanten und Flächen.}
 	\label{abb::5-eck}
 \end{figure}
@@ -239,7 +243,7 @@ $$ =\begin{bmatrix}
 	Die dualen Gitter der gegebenen primären Gitter sind in den Abbildungen \ref{Abb:dual_1} und \ref{Abb:dual_2} gegeben.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Duales_Gitter_1.png}
+	\includegraphics[width=0.5\textwidth]{Duales_Gitter_1.pdf}
 	\caption{Duales Gitter für das erste gegebene Gitter.}
 	\label{Abb:dual_1}
 \end{figure}
@@ -362,7 +366,7 @@ Die Rückgabe der dualen Rotationsmatrix $\curldfit$ ist nicht sinnvoll, da dies
   \end{table}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\linewidth]{versuch2/VisuCMatrixPrimGitt}
+	\includegraphics[width=0.5\linewidth]{VisuCMatrixPrimGitt}
 	\caption{Speicherverbrauch einer C-Matrix in unterschiedlichen Speicherformaten}
 	\label{fig:visucmatrixprimgitt}
 \end{figure}
@@ -487,16 +491,16 @@ das Dreiecksgitter aus Bild \ref{fig:tetmesh} a). Ist diese Wahl
 des dualen Gitters am Rand immer notwendig?\label{exer:autoHomNeumann}
 \end{framed}
 \noindent
-Das duale Gitter sollte am Rand so gewählt werden, dass der Teil der Kante, der aus dem Rechengebiet herausragt, genauso lang ist, wie der Teil der noch innerhalb des Rechengebietes liegt. Die dualen Gitter für die in der Aufgabe geforderten primären Gitter sind in den Abbildungen \ref{Abb:mgn_Rand_1} und \ref{Abb:mgn_Rand_2} zu sehen.
+Bei magnetischen Randbedingungen gilt, dass die tangentiale Komponente der magnetischen Feldstärke und die normale Komponente der elektrischen Feldstärke gleich Null sind. Die normale Komponente der elektrischen Feldstärke ist am Rand immer gleich Null, da diese auf den primären Kanten definiert ist und diese immer tangential zum Rand liegen. Damit ist dieser Teil bereits erfüllt. Da die tangentiale Komponente der magnetischen Feldstärke auf dualen Kanten definiert ist und es keine tangentialen dualen Kanten am Rand gibt, ist diese Bedingung auch erfüllt. Damit können nun die Dualen Kanten bis zum Rand geführt werden (nicht weiter) und die magnetische Randbedingung ist automatisch erfüllt. Die dualen Gitter für die in der Aufgabe geforderten primären Gitter sind in den Abbildungen \ref{Abb:mgn_Rand_1} und \ref{Abb:mgn_Rand_2} zu sehen.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\textwidth]{mgn_Rand_1.png}
+	\includegraphics[trim = 30mm 35mm 70mm 15mm, clip,width=0.5\textwidth]{mgn_Rand_1.pdf}
 	\caption{Primäres und duales Gitter für Erfüllung der magnetischen Randbedingung.}
 	\label{Abb:mgn_Rand_1}
 \end{figure}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Duales_Gitter_1.png}
+	\includegraphics[width=0.7\textwidth]{mgn_Rand_2.pdf}
 	\caption{Primäres und duales Gitter für Erfüllung der magnetischen Randbedingung.}
 	\label{Abb:mgn_Rand_2}
 \end{figure}
