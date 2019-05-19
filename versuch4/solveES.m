@@ -37,15 +37,16 @@ function [phi, ebow, dbow, relRes] = solveES(msh, eps, pots, q)
                                 % Iteration zurück, so kann man sie jedoch 
                                 % für alle berechnen.
 	% phi aus x bestimmen (eingeprÃ¤gte Potentiale wieder einfÃ¼gen)
-   for i=1:rows(pots)
-     if pots(i) ~= NaN
-       x=[x(1:(i-1));pots(i)];
-     endif
-   endfor
-	 phi = x;
+##   for i=1:rows(pots)
+##     if pots(i) ~= NaN
+##       x=[x(1:(i-1));pots(i)];
+##     endif
+##   endfor
+	 phi = pots;
+   phi(isnan(phi))=x;
 	
     % Elektrische Gitterspannung und Gitterfluss berechnen
      ebow = (st')*phi;    
-     dbow = nullInv(Meps)*ebow;  
+     dbow = Meps*ebow;  
                                 
 end

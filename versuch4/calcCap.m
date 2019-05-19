@@ -19,7 +19,7 @@ function cap = calcCap( msh, ebow, dbow )
 
 % Eine Beschreibung der Argumente von intEdge ist in intEdge.m zu finden
  line.u = 1;
- line.v = 1;
+ line.v = floor(msh.ny/2);
  line.w = 1;
  line.length = msh.ny-1;
  line.normal = [0,1,0];
@@ -29,11 +29,11 @@ U = intEdge(msh, ebow, line);
 % Gesetz, surface gibt die Integrationsfläche an, die hier in y-Richtung
 % gerichtet ist. Eine Beschreibung der Argumente von intSurf ist in intSurf.m zu finden.
  surface.ul = 1;
- surface.uh = msh.nx;
+ surface.uh = msh.nz;
  surface.vl = 1;
- surface.vh = msh.nz;
+ surface.vh = msh.nx;
  surface.normal = [0,1,0];
- surface.w = floor(msh.ny/2);
+ surface.w = 0;
 Q = intSurf(msh, dbow, surface);
 
 % Berechnen der Kapazität aus Q und U
