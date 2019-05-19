@@ -196,7 +196,17 @@ den Verlauf des relativen Residuums als Funktion des Iteratonsschritts $n_\text{
 {\textbf{Hinweis:}} Entsprechend Vorgabe ist das relative Residuum für jeden Iterationsschritt in \lstinline{relRes} enthalten.\label{exer:plotCapConvSolver}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Wie in Abb. \ref{fig:residiumiIterationen} zu erkennen nimmt das relative Residuum expotenzell mit der Anzahl der Iterationen ab. 
+Bim relativen Risidium Handelt es sich um die Differenz zwischen der $i.$ und $(i-1).$ Iteration. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{versuch4/ResidiumIterationenGraph}
+	\caption{Verlauf des relativen Residuums für einen iterativen Solvers über der Anzahl der Iterationsschritte am Beispiel der Berechnung eines Kondensators}
+	\label{fig:residiumiIterationen}
+\end{figure}
+
+
 
 % --> Aufgabe
 \begin{framed}
@@ -206,7 +216,17 @@ angibt. Stellen Sie auch diese Lösung wieder grafisch dar.\\
 Welcher Unterschied besteht zwischen der Konvergenz des iterativen Solvers und der Verbesserung der Lösungsgenauigkeit durch zunehmende Gitterzellenanzahl, der sogenannten Verfahrenskonvergenz?\label{exer:plotCapConvMesh}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Durch eine Verfeinerung des Gitters kann, wie in Abb. \ref{fig:kapazitaetueberanzstuetzstellen} zu erkennen, eine Annäherung in Form einer Kehrwertfunktion $\frac{1}{np}$ erreicht werden. \\
+Verglichen mit der exponentiellen Annäherung durch die Anzahl der Iterationsschritte, ist dies zwar deutlich langsamer, da aber die Iterationsschritte sich immer nur an die, durch die Anzahl der Stützstellen begrenzte, Genauigkeit annähern können, ist in der praktischen Anwendung eine Kombination aus beidem notwendig. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{versuch4/KapazitaetUeberAnzStuetzstellen}
+	\caption{Nummerisch bestimmte Kapazität eines Kondensators in Abhängigkeit von der Anzahl der Stützstellen}
+	\label{fig:kapazitaetueberanzstuetzstellen}
+\end{figure}
+
+
 
 %
 {\subsection{Skalare Magnetostatik}}
