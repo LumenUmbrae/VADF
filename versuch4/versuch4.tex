@@ -85,7 +85,7 @@ $\eps_{\text{r}2}=2$, $\eps_{\text{r}3}=3$ und $\eps_{\text{r}4}=4$ (Reihenschal
 	\noindent \textbf{6.} An welcher Stelle im Gitter müssen die Komponenten des Gitterstroms
 $\jfit$ allokiert werden (bei gegebenem Ansatz des magnetischen Skalarpotentials)?\label{exer:allocateCurrent}
 \end{framed}
-
+\noindent
 Da die diskrete magnetische Feldstärke $\hfit$ auf den primären Kanten definiert ist, ist die diskrete Stromdichte $\jfit$ als über die Divergenzmatrix $\mathbf{S}$ mit $\mathbf{S}\hfit = \jfit$, verbundene Größe auf den primären Flächen definiert. 
 
 
@@ -95,29 +95,28 @@ Da die diskrete magnetische Feldstärke $\hfit$ auf den primären Kanten definie
 ausgedehnten Linienleiter und skizzieren Sie die zu erwartende
 Feldverteilung.\label{exer:HfieldAroundLineConductor}
 \end{framed}
-
+\noindent
 Aus dem amperischen Gesetz für die Magnetostatik
 \begin{equation}
 	\label{eq:ampere}
-	\int_{\partial A} \vec{H} \cdot d\vec{s} = \int_A \vec{J} \cdot d \vec{A} 
+	\int_{\partial A} \vec{H} \cdot \text{d}\vec{s} = \int_A \vec{J} \cdot \text{d} \vec{A} 
 \end{equation}
 ergibt sich durch Transformation der linken Seite in Zylinderkoordinaten und auflösen der rechten Seite
 \begin{equation*}
-	\int_{0}^{2\pi} \vec{H} \vec{e_\varphi} \cdot r \ d \varphi = I
-\end{equation*}.
-Durch auflösen des Integrales, umstellen nach $\vec{H}$, umformen von $\vec{e_\varphi} = \vec{e_x} sin(\varphi) + \vec{e_y} cos(\varphi)$ und einsetzen in das Materialgesetz $\vec{H} = \mu \vec{B}$  ergibt sich somit
+	\int_{0}^{2\pi} \varrho\ \vec{H} \cdot \vec{e_\varphi}   \ \text{d} \varphi = I.
+\end{equation*}
+Durch auflösen des Integrales, umstellen nach $H_\varphi$ und einsetzen in das Materialgesetz $\vec{H} = \mu \vec{B}$  ergibt sich somit
 \begin{equation}
 	\label{eq:bLeiter}
-	\vec{B} = \frac{I}{2\mu \pi r} \vec{e_\varphi}  % wie geben ich hier den Richtungsvektor an????
+	B_\varphi = \frac{I}{2\mu \pi \varrho} %  an????
 \end{equation}
-\emph{Fügen Sie hier Ihre Lösung ein}
+
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{8.} Wie können die Dirichlet- und die Neumann- Randbedingung physikalisch gedeutet werden, wenn sie in der Magnetostatik auf das magnetische Skalarpotential angewandt werden?\label{exer:bndCondMagScalarPot}
 \end{framed}
-
-
+\noindent
 Bei einer physikalischen Deutung der Dirichlet-Randbedingungen lassen sich diese als Übergang zu einem Material perfekter elektrischer Leitfähigkeit interpretieren, das das Magnetfeld gänzlich aus sich hinausdrängt. \\
 Neuman-Randbedingungen lassen sich als perfekter magnetischer Leiter an den Ränder interpretieren, der alle Feldlinien in sich hineinzieht, weshalb die Felder senkrecht in den Rand übergehen.  
 
@@ -131,8 +130,8 @@ Genauigkeitsverlust für die Felder im Inneren des Rechengebiets
 auf die komplizierte Implementierung eines offenen Randes
 verzichtet werden. Welche Randbedingung eignet sich hierfür besser? (Neumann ($H_{\text{n}}=0$) oder Dirichlet ($\vec{H}_{\text{t}}=0$))?\label{exer:boundCondInfiniteConductor}
 \end{framed}
-
-Für die Approximation eines Linienleiters im freien Raum durch setzen von Rändern in hinreichend großer Entfernung eignen sich Dirichlet- besser als Neumann- Randbedingungen.\\
+\noindent
+Für die Approximation eines Linienleiters im freien Raum durch setzen von Rändern in hinreichend großer Entfernung eignen sich Dirichlet- besser als Neumann-Randbedingungen.\\
 Dies ist darin begründet das es sich beim approximierten Feld, wie in Abb. \ref{label} zu sehen, um ein Zylindrisches Feld handelt. Da die bei Dirichletrandbedingungen die tangentiale Komponente $\vec{H_t}$ des Feldes am Rand verschwindet und nur die Normalendkomponente auftritt, verlaufen Feldvektoren des Simulierten Feldes schon in weiten Teilen in eine ähnliche Richtung wie an den Grenzflächen und werden durch diese nur im geringen Maße, vor allem an den Ecken, gestört.   
 
 %TODO
@@ -195,16 +194,11 @@ der fünf Kondensatorkonfigurationen. Wählen Sie hierfür eine sinnvolle Diskre
 den Verlauf des relativen Residuums als Funktion des Iteratonsschritts $n_\text{iter}$ mithilfe eines Matlab-Skripts \lstinline{plotConv.m} grafisch darstellen.\\
 {\textbf{Hinweis:}} Entsprechend Vorgabe ist das relative Residuum für jeden Iterationsschritt in \lstinline{relRes} enthalten.\label{exer:plotCapConvSolver}
 \end{framed}
+\noindent
+Wie in Abb. \ref{fig:residiumiIterationen} zu erkennen nimmt das relative Residuum exponentiell mit der Anzahl der Iterationen ab. 
+Beim relativen Residuum handelt es sich um die Differenz zwischen der $i$-ten und $(i-1)$-ten Iteration. 
 
-Wie in Abb. \ref{fig:residiumiIterationen} zu erkennen nimmt das relative Residuum expotenzell mit der Anzahl der Iterationen ab. 
-Bim relativen Risidium Handelt es sich um die Differenz zwischen der $i.$ und $(i-1).$ Iteration. 
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{versuch4/ResidiumIterationenGraph}
-	\caption{Verlauf des relativen Residuums für einen iterativen Solvers über der Anzahl der Iterationsschritte am Beispiel der Berechnung eines Kondensators}
-	\label{fig:residiumiIterationen}
-\end{figure}
 
 
 
@@ -215,18 +209,9 @@ und zusätzlich das Konvergenzverhalten (hier nicht vom Gleichungssystemlöser, 
 angibt. Stellen Sie auch diese Lösung wieder grafisch dar.\\
 Welcher Unterschied besteht zwischen der Konvergenz des iterativen Solvers und der Verbesserung der Lösungsgenauigkeit durch zunehmende Gitterzellenanzahl, der sogenannten Verfahrenskonvergenz?\label{exer:plotCapConvMesh}
 \end{framed}
-
+\noindent
 Durch eine Verfeinerung des Gitters kann, wie in Abb. \ref{fig:kapazitaetueberanzstuetzstellen} zu erkennen, eine Annäherung in Form einer Kehrwertfunktion $\frac{1}{np}$ erreicht werden. \\
 Verglichen mit der exponentiellen Annäherung durch die Anzahl der Iterationsschritte, ist dies zwar deutlich langsamer, da aber die Iterationsschritte sich immer nur an die, durch die Anzahl der Stützstellen begrenzte, Genauigkeit annähern können, ist in der praktischen Anwendung eine Kombination aus beidem notwendig. 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{versuch4/KapazitaetUeberAnzStuetzstellen}
-	\caption{Nummerisch bestimmte Kapazität eines Kondensators in Abhängigkeit von der Anzahl der Stützstellen}
-	\label{fig:kapazitaetueberanzstuetzstellen}
-\end{figure}
-
-
 
 %
 {\subsection{Skalare Magnetostatik}}
@@ -274,5 +259,22 @@ Problem zu lösen und grafisch darzustellen. Nutzen Sie für diese Implementieru
 
 \section{Fazit}
 \emph{Fügen Sie hier Ihre Lösung ein}
+
+\clearpage
+\newpage
+\section{Abbildungen}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{ResidiumIterationenGraph.pdf}
+	\caption{Verlauf des relativen Residuums für einen iterativen Solvers über der Anzahl der Iterationsschritte am Beispiel der Berechnung eines Kondensators}
+	\label{fig:residiumiIterationen}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{KapazitaetUeberAnzStuetzstellen.pdf}
+	\caption{Nummerisch bestimmte Kapazität eines Kondensators in Abhängigkeit von der Anzahl der Stützstellen}
+	\label{fig:kapazitaetueberanzstuetzstellen}
+\end{figure}
 
 \end{document}
