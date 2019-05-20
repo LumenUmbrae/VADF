@@ -28,7 +28,7 @@ My = msh.My;
 Mz = msh.Mz;
 
 % selects the fit unit vector depending on the selected normal vector
-Ndir = [[My;Mz;Mx],[Mz;Mx;My],[Mx;My;Mz]]*surf.normal';
+Ndir = [[My;Mz;Mx],[Mx;Mz;My],[Mx;My;Mz]]*surf.normal';
 % defines a scalar that takes care of the offset in w-direction and of
 % chosing the correct component of the field vector vec
 Ns = (surf.w-1)*Ndir(3)+[0,np,2*np]*surf.normal';

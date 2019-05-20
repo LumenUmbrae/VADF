@@ -108,19 +108,22 @@ fprintf('capE = %e\n',capE);
 
 %% Plotten der elektrischen Felder und Potentialfelder
 % sinnvolle Schnittebene
- indz = 1;
+ indz = floor(msh.nz/2);
 
 % Potential plotten
-plotPotential(msh, phiE, indz);
+plotPotential(msh, phiD, indz);
+print -dpdf potential_D.pdf
 
 %% E-Feld plotten (2D)
 figure(2);
-plotEdgeVoltage(msh, ebowE, indz, bcs);
+plotEdgeVoltage(msh, ebowD, indz, bcs);
 xlabel('x');
 ylabel('y');
+print -dpdf E_2D_D.pdf
 
 %% E-Feld plotten (3D)
 figure(3);
-plotEdgeVoltage(msh, ebowE, 1:msh.nz, bcs);
-xlabel('x')
+plotEdgeVoltage(msh, ebowD, 1:msh.nz, bcs);
+xlabel('x');
 ylabel('y');
+print -dpdf E_3D_D.pdf

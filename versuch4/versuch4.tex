@@ -12,8 +12,8 @@
 Spannungen $\efit$, die Potentiale $\varphi$, die Ladungen $q$ und die
 dielektrischen Flüsse $\dfit$ in der Elektrostatik allokiert?\label{exer:allocateElectrical}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
+Die elektrischen Spannungen $\efit$ sind auf den primären Kanten definiert. Die elektrische Flussdichte $\dfit$ ist dagegen auf den dualen Flächen allokiert. Passend zu den elektrischen Spannungen, sind die Potentiale $\varphi$ auf den primären Knoten definiert. Die Ladungen $q$ sind in den dualen Volumen allokiert.
 
 % --> Aufgabe
 \begin{framed}
@@ -31,8 +31,39 @@ Permittivität $\eps_0$. Tragen Sie den entstehenden
 die mit den Kopplungskoeffizienten gewichtet werden) in Ihre
 Skizze ein.\label{exer:diffStar}
 \end{framed}
+\noindent
+Betrachtet man zunächst die diskrete Potentialgleichung
+\begin{equation*}
+\divdfit\Meps\divdfit^\top\varphi=\mathbf{q},
+\end{equation*}
+so kann man diese auch umschreiben zu
+\begin{equation*}
+	\Meps\divdfit\divdfit^\top\varphi=\mathbf{q},
+\end{equation*}
+da $\Meps$ eine Diagonalmatrix ist. Da es homogene Materialverteilung und ein äquidistantes Gitter angenommen wird vereinfacht sich die Gleichung zu
+\begin{equation}
+	\divdfit\divdfit^\top\varphi=\frac{1}{\Delta s\varepsilon_0}\mathbf{q}.
+	\label{eq:SSphi}
+\end{equation}
+Daraus lässt sich nun einfach der Differenzenstern ableiten. Dieser entsteht durch das Produkt $\divdfit\divdfit^\top$. Ausgehend vom Gauß'schen Gesetz für die duale Fläche
+\begin{equation*}
+\int_{\partial \tilde{A}}\vec{D}\cdot\text{d}\vec{s}=\mathbf{q}
+\end{equation*}
+erhält man durch einsetzen der diskreten elektrischen Flussdichten $\dfit$
+\begin{equation*}
+-\dfit_{n-1}+\dfit_{n}-\dfit_{n+n_p-1}+\dfit_{n+n_p}=\mathbf{q}_n.
+\end{equation*}
+durch Umschreiben in elektrische Feldstärken $\efit$ erhält man
+\begin{equation*}
+	-\efit_{n-1}+\efit_{n}-\efit_{n+n_p-1}+\efit_{n+n_p}=\frac{1}{\Delta s\varepsilon_0}\mathbf{q}_n.
+\end{equation*}
+Die elektrischen Feldstärken kann man nun wieder mit Hilfe des Gradienten in Potentiale umwandeln.
+\begin{eqnarray*}
+	-(-(\varphi_n-\varphi_{n-1})+(\varphi_{n+1}-\varphi_n)-(\varphi_n-\varphi_{n-n_x})+(\varphi_{n+n_x}-\varphi_n))&=&\frac{1}{\Delta s\varepsilon_0}\mathbf{q}_n\\
+	4\varphi_n-\varphi_{n-1}-\varphi_{n+1}-\varphi_{n+n_x}-\varphi_{n-n_x}&=&\frac{1}{\Delta s\varepsilon_0}\mathbf{q}_n\\
+\end{eqnarray*}
+Diese Formulierung entspricht genau einer Zeile der Gleichung \ref{eq:SSphi}. Der dazu passende geometrische Differenzenstern ist in Abbildung \ref{fig:diffstern} zu sehen.
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
 \begin{framed}
@@ -40,8 +71,12 @@ Skizze ein.\label{exer:diffStar}
 und inhomogener Materialverteilung, also die Werte der Materialmatrix im
 Differenzenstern. Veranschaulichen Sie sich die Struktur der Systemmatrix $\mathbf{A}$ mit Hilfe einer Skizze der Bandstruktur.\label{exer:bandsOfSystemMat}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
+Im Fall nichtäquidistanter Gitter ändern sich die Gewichtungen der einzelnen Werte im Differenzenstern. Die Struktur bleibt aber immer erhalten. Schuld für die Änderungen der Gewichte ist die Materialmatrix $\Meps$. Allein durch sie ändern sich die Gewichte. Ist das Material homogen und isotrop, so kann der Wert für $\varepsilon$ einfach auf die andere Seite der Gleichung gebracht werden (vgl. Gleichung \ref{eq:SSphi}). Ist dies nicht der Fall, so muss die Materialmatrix an den Differenzenstern multipliziert werden. Die Materialverteilung kann nun in jeder Zelle anders sein. Die Materialbeziehung zwischen $\dfit$ und $\efit$ ändert sich nun zu
+\begin{equation*}
+	\dfit_n=\frac{\bar{\varepsilon}|\tilde{A}_n|}{|L_n|}\efit_{n}.
+\end{equation*}
+Die Permittivität korreliert also mit dem Flächeninhalt der dualen Fläche $\tilde{A}_n$ und mit der Länge der primären Kante $L_n$. Genau dieser Faktor ist entscheidend für die Gewichtung innerhalb des Differenzensterns.
 
 % --> Aufgabe
 \begin{framed}
@@ -158,7 +193,6 @@ welche einem allgemeinen Elektrostatik-Solver entspricht. \lstinline{msh} ist hi
 (zum Teil handelt es sich um optimierte Funktionen aus vergangenen Versuchen), welche auf den nächsten Seiten beschrieben sind. Verwenden Sie diese so oft wie möglich.\label{exer:solveES}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
 \begin{framed}
@@ -185,8 +219,8 @@ die Kapazität der Kondensatorkonfigurationen a) bis d) der Vorbereitungsaufgabe
 	\noindent \textbf{4.} Visualisieren Sie im selben Skript das Potential (\lstinline{plotPotential}) und das elektrische Feld (\lstinline{plotEdgeVoltage})
 der fünf Kondensatorkonfigurationen. Wählen Sie hierfür eine sinnvolle Diskretisierung und eine zweidimensionale Darstellung mit sinnvoller Schnittebene~\lstinline{indz}. Kommentieren Sie kurz die Feldbilder im Hinblick auf die analytischen Feldverläufe.\label{exer:visualizeCapField}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
+Die Feldverläufe und Potentiale der Kondensatoren sind in den Abbildungen \ref{fig:potA} bis \ref{fig:C_5e_3D} zu sehen. Sie entsprechen weitestgehend den analytischen Feldbildern und Potentialen.
 
 % --> Aufgabe
 \begin{framed}
@@ -276,5 +310,108 @@ Problem zu lösen und grafisch darzustellen. Nutzen Sie für diese Implementieru
 	\caption{Nummerisch bestimmte Kapazität eines Kondensators in Abhängigkeit von der Anzahl der Stützstellen}
 	\label{fig:kapazitaetueberanzstuetzstellen}
 \end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{potential_A.pdf}
+	\caption{Numerisch bestimmter Potentialverlauf des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5a$)$}
+	\label{fig:potA}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{E_2D_A.pdf}
+	\caption{Numerisch bestimmter Verlauf des elektrischen Feldes des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5a$)$ in 2D}
+	\label{fig:potA}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{E_3D_A.pdf}
+	\caption{Numerisch bestimmter Verlauf des elektrischen Feldes des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5a$)$ in 3D}
+	\label{fig:potA}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{potential_B.pdf}
+	\caption{Numerisch bestimmter Potentialverlauf des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5b$)$}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{E_2D_B.pdf}
+	\caption{Numerisch bestimmter Verlauf des elektrischen Feldes des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5b$)$ in 2D}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{E_3D_B.pdf}
+	\caption{Numerisch bestimmter Verlauf des elektrischen Feldes des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5b$)$ in 3D}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{potential_C.pdf}
+	\caption{Numerisch bestimmter Potentialverlauf des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5c$)$}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{E_2D_C.pdf}
+	\caption{Numerisch bestimmter Verlauf des elektrischen Feldes des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5c$)$ in 2D}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{E_3D_C.pdf}
+	\caption{Numerisch bestimmter Verlauf des elektrischen Feldes des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5c$)$ in 3D}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{potential_D.pdf}
+	\caption{Numerisch bestimmter Potentialverlauf des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5d$)$}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{E_2D_D.pdf}
+	\caption{Numerisch bestimmter Verlauf des elektrischen Feldes des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5d$)$ in 2D}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{E_3D_D.pdf}
+	\caption{Numerisch bestimmter Verlauf des elektrischen Feldes des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5d$)$ in 3D}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{potential_E.pdf}
+	\caption{Numerisch bestimmter Potentialverlauf des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5e$)$}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{E_2D_E.pdf}
+	\caption{Numerisch bestimmter Verlauf des elektrischen Feldes des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5e$)$ in 2D}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{E_3D_E.pdf}
+	\caption{Numerisch bestimmter Verlauf des elektrischen Feldes des Kondensators aus \ref{exer:calcCapsAnalytical}.1 5e$)$ in 3D}
+	\label{fig:C_5e_3D}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\def\svgwidth{0.7\textwidth}
+	\input{diffstern.pdf_tex}
+	\caption{Differenzenstern}
+	\label{fig:diffstern}
+\end{figure}
+
 
 \end{document}

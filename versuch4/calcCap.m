@@ -29,9 +29,9 @@ U = intEdge(msh, ebow, line);
 % Gesetz, surface gibt die Integrationsfläche an, die hier in y-Richtung
 % gerichtet ist. Eine Beschreibung der Argumente von intSurf ist in intSurf.m zu finden.
  surface.ul = 1;
- surface.uh = msh.nz;
+ surface.uh = msh.nx;
  surface.vl = 1;
- surface.vh = msh.nx;
+ surface.vh = msh.nz;
  surface.normal = [0,1,0];
  surface.w = 0;
 Q = intSurf(msh, dbow, surface);
