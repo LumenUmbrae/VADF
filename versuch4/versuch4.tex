@@ -152,8 +152,8 @@ Durch auflösen des Integrales, umstellen nach $H_\varphi$ und einsetzen in das 
 	\noindent \textbf{8.} Wie können die Dirichlet- und die Neumann- Randbedingung physikalisch gedeutet werden, wenn sie in der Magnetostatik auf das magnetische Skalarpotential angewandt werden?\label{exer:bndCondMagScalarPot}
 \end{framed}
 \noindent
-Bei einer physikalischen Deutung der Dirichlet-Randbedingungen lassen sich diese als Übergang zu einem Material perfekter elektrischer Leitfähigkeit interpretieren, das das Magnetfeld gänzlich aus sich hinausdrängt. \\
-Neuman-Randbedingungen lassen sich als perfekter magnetischer Leiter an den Ränder interpretieren, der alle Feldlinien in sich hineinzieht, weshalb die Felder senkrecht in den Rand übergehen.  
+Bei einer physikalischen Deutung der Dirichlet-Randbedingungen für ein magnetisches Feld lassen sich diese als Übergang zu einem Material perfekter elektrischer Leitfähigkeit interpretieren, welches das Magnetfeld gänzlich aus sich hinausdrängt. \\
+Neuman-Randbedingungen lassen sich hingegen als perfekter magnetischer Leiter an den Ränder interpretieren, der alle Feldlinien in sich hineinzieht, weshalb die Felder senkrecht in den Rand übergehen.  
 
 % --> Aufgabe
 \begin{framed}
@@ -167,7 +167,23 @@ verzichtet werden. Welche Randbedingung eignet sich hierfür besser? (Neumann ($
 \end{framed}
 \noindent
 Für die Approximation eines Linienleiters im freien Raum durch setzen von Rändern in hinreichend großer Entfernung eignen sich Dirichlet- besser als Neumann-Randbedingungen.\\
-Dies ist darin begründet das es sich beim approximierten Feld, wie in Abb. \ref{label} zu sehen, um ein Zylindrisches Feld handelt. Da die bei Dirichletrandbedingungen die tangentiale Komponente $\vec{H_t}$ des Feldes am Rand verschwindet und nur die Normalendkomponente auftritt, verlaufen Feldvektoren des Simulierten Feldes schon in weiten Teilen in eine ähnliche Richtung wie an den Grenzflächen und werden durch diese nur im geringen Maße, vor allem an den Ecken, gestört.   
+Dies ist darin begründet das es sich beim approximierten Feld, wie in Abb. \ref{fig:dirchletrand} zu sehen, um ein Zylindrisches Feld handelt. Da die bei Dirichletrandbedingungen die tangentiale Komponente $\vec{H_t}$ des Feldes am Rand verschwindet und nur die Normalendkomponente auftritt, verlaufen Feldvektoren des Simulierten Feldes schon in weiten Teilen in eine ähnliche Richtung wie an den Grenzflächen und werden durch diese nur im geringen Maße, vor allem an den Ecken, gestört. \\
+Wie in \ref{fig:neumanrand} zu sehne führen Neumanrandbedinungen hier zu einer deutlichen Verzerrung des Feldes in der Nähe des Randes.   
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.3\linewidth]{DirchletRand}
+	\caption{Skizze des Magnetfeldes eines Linienleiters mit Dirichletrandbedingungen}
+	\label{fig:dirchletrand}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.3\linewidth]{NeumanRand}
+	\caption{Skizze des Magnetfeldes eines Linienleiters mit Neumannrandbedingungen}
+	\label{fig:neumanrand}
+\end{figure}
+
 
 %TODO
 
