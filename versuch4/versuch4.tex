@@ -152,8 +152,8 @@ Durch auflösen des Integrales, umstellen nach $H_\varphi$ und einsetzen in das 
 	\noindent \textbf{8.} Wie können die Dirichlet- und die Neumann- Randbedingung physikalisch gedeutet werden, wenn sie in der Magnetostatik auf das magnetische Skalarpotential angewandt werden?\label{exer:bndCondMagScalarPot}
 \end{framed}
 \noindent
-Bei einer physikalischen Deutung der Dirichlet-Randbedingungen für ein magnetisches Feld lassen sich diese als Übergang zu einem Material perfekter elektrischer Leitfähigkeit interpretieren, welches das Magnetfeld gänzlich aus sich hinausdrängt. \\
-Neuman-Randbedingungen lassen sich hingegen als perfekter magnetischer Leiter an den Ränder interpretieren, der alle Feldlinien in sich hineinzieht, weshalb die Felder senkrecht in den Rand übergehen.  
+Bei einer physikalischen Deutung der Dirichlet-Randbedingungen für ein magnetisches Feld lassen sich diese als Übergang zu einem Material perfekter magnetischer Leitfähigkeit interpretieren, welches alle Feldlinien in sich hineinzieht, weshalb die Felder senkrecht in den Rand übergehen. \\
+Neuman-Randbedingungen lassen sich hingegen als perfekter elektrischer Leiter an den Ränder interpretieren, der alle Feldlinien aus sich herausdrängt, weshalb die Felder senkrecht in den Rand übergehen.  
 
 % --> Aufgabe
 \begin{framed}
@@ -166,23 +166,9 @@ auf die komplizierte Implementierung eines offenen Randes
 verzichtet werden. Welche Randbedingung eignet sich hierfür besser? (Neumann ($H_{\text{n}}=0$) oder Dirichlet ($\vec{H}_{\text{t}}=0$))?\label{exer:boundCondInfiniteConductor}
 \end{framed}
 \noindent
-Für die Approximation eines Linienleiters im freien Raum durch setzen von Rändern in hinreichend großer Entfernung eignen sich Dirichlet- besser als Neumann-Randbedingungen.\\
-Dies ist darin begründet das es sich beim approximierten Feld, wie in Abb. \ref{fig:dirchletrand} zu sehen, um ein Zylindrisches Feld handelt. Da die bei Dirichletrandbedingungen die tangentiale Komponente $\vec{H_t}$ des Feldes am Rand verschwindet und nur die Normalendkomponente auftritt, verlaufen Feldvektoren des Simulierten Feldes schon in weiten Teilen in eine ähnliche Richtung wie an den Grenzflächen und werden durch diese nur im geringen Maße, vor allem an den Ecken, gestört. \\
-Wie in \ref{fig:neumanrand} zu sehne führen Neumanrandbedinungen hier zu einer deutlichen Verzerrung des Feldes in der Nähe des Randes.   
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.3\linewidth]{DirchletRand}
-	\caption{Skizze des Magnetfeldes eines Linienleiters mit Dirichletrandbedingungen}
-	\label{fig:dirchletrand}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.3\linewidth]{NeumanRand}
-	\caption{Skizze des Magnetfeldes eines Linienleiters mit Neumannrandbedingungen}
-	\label{fig:neumanrand}
-\end{figure}
+Für die Approximation eines Linienleiters im freien Raum durch setzen von Rändern in hinreichend großer Entfernung eignen sich Neumann- besser als Dirichlet-Randbedingungen.\\
+Dies ist darin begründet das es sich beim approximierten Feld, wie in Abb. \ref{fig:neumannrand} zu sehen, um ein Zylindrisches Feld handelt. Da die bei Neumannrandbedingungen die normale Komponente $\vec{H}_n$ des Feldes am Rand verschwindet und nur die Tangentialkomponente auftritt, verlaufen Feldvektoren des simulierten Feldes schon in weiten Teilen in eine ähnliche Richtung wie an den Grenzflächen und werden durch diese nur im geringen Maße, vor allem an den Ecken, gestört. \\
+Wie in \ref{fig:dirichletrand} zu sehen, führen Dirichletrandbedinungen hier zu einer deutlichen Verzerrung des Feldes in der Nähe des Randes.   
 
 
 %TODO
@@ -220,15 +206,23 @@ die die Kapazität \lstinline{cap} berechnet und zurück gibt. Verwenden Sie hie
 \lstinline{intSurf}.\label{exer:calcCap}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{3.} Verwenden Sie nun die letzten beiden Methoden in dem teilweise vorgegebenen Skript \lstinline{exampleCaps.m}, um
 die Kapazität der Kondensatorkonfigurationen a) bis d) der Vorbereitungsaufgaben numerisch zu berechnen und mit Ihren analytischen Ergebnissen zu vergleichen. Hängt die Lösung von der Größe des Gitters ab?\label{exer:calcCapNumerically}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
+Mit Hilfe der vorherigen Implementationen können wir nun die Kapazitäten der 5 Kondensatoren aus Aufgabe \ref{exer:calcCapsAnalytical}.1 5 numerisch bestimmen.
+\begin{eqnarray*}
+C_a &=& -4.058083\ \text{pF}\\
+C_b &=& -4.058083\ \text{pF}\\
+C_c &=& -8.116167\ \text{pF}\\
+C_d &=& -6.885970\ \text{pF}\\
+C_e &=& -1.014140\ \text{pF}\\
+\end{eqnarray*}
+\noindent
+Durch eine Verfeinerung des Gitters verändern sich die Werte unwesentlich.
 
 % --> Aufgabe
 \begin{framed}
@@ -427,6 +421,20 @@ Problem zu lösen und grafisch darzustellen. Nutzen Sie für diese Implementieru
 	\input{diffstern.pdf_tex}
 	\caption{Differenzenstern}
 	\label{fig:diffstern}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{NeumannRand}
+	\caption{Skizze des Magnetfeldes eines Linienleiters mit Neumannrandbedingungen}
+	\label{fig:neumannrand}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{DirichletRand}
+	\caption{Skizze des Magnetfeldes eines Linienleiters mit Dirichletrandbedingungen}
+	\label{fig:dirichletrand}
 \end{figure}
 
 
