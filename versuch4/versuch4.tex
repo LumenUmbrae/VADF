@@ -41,10 +41,10 @@ so kann man diese auch umschreiben zu
 	\Meps\divdfit\divdfit^\top\varphi=\mathbf{q},
 \end{equation*}
 da $\Meps$ eine Diagonalmatrix ist. Da es homogene Materialverteilung und ein äquidistantes Gitter angenommen wird vereinfacht sich die Gleichung zu
-\begin{equation}
+\begin{equation*}
 	\divdfit\divdfit^\top\varphi=\frac{1}{\Delta s\varepsilon_0}\mathbf{q}.
 	\label{eq:SSphi}
-\end{equation}
+\end{equation*}
 Daraus lässt sich nun einfach der Differenzenstern ableiten. Dieser entsteht durch das Produkt $\divdfit\divdfit^\top$. Ausgehend vom Gauß'schen Gesetz für die duale Fläche
 \begin{equation*}
 \int_{\partial \tilde{A}}\vec{D}\cdot\text{d}\vec{s}=\mathbf{q}
@@ -92,7 +92,104 @@ Potentiale der Randknoten so, dass die Problemstellung mit einer
 offenen Berandung versehen ist.\label{exer:averagePointCharges}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Die Große des Ladungsschwerpunkts bestimmt man mit Sumation alle Ladungen in betretenem Gebiet.
+$$ q_{\text{S}}=q_1 + q_2 + q_3= \frac{7}{4}q_0 $$
+Der Ort des Ladungsschwerpunkts bestimmt man mit dem Formel:
+$$\vec{r_\text{S}}=\begin{bmatrix}
+x_{\text{S}} \\
+ y_{\text{S}}  
+\end{bmatrix}=
+\frac{\begin{bmatrix}
+	x_{\text{1}} \\
+	y_{\text{1}}  
+	\end{bmatrix}q_1+
+\begin{bmatrix}
+x_{\text{2}} \\
+y_{\text{2}}  
+\end{bmatrix}q_2+
+\begin{bmatrix}
+x_{\text{3}} \\
+y_{\text{3}}  
+\end{bmatrix}q_3}{q_{\text{S}}}=
+\frac{\begin{bmatrix}
+	0.3 \\
+	0.2  
+	\end{bmatrix}q_0+
+	\begin{bmatrix}
+	0.6 \\
+	0.4  
+	\end{bmatrix}\frac{q_0}{2}+
+	\begin{bmatrix}
+	0.9 \\
+	0.2  
+	\end{bmatrix}\frac{q_0}{4}}{\frac{7}{4}q_0}=
+\begin{bmatrix}
+0.471 \\
+0.257  
+\end{bmatrix}
+$$
+Das Gabiet hat insgesamt 14 Randknoten und Potenzial an der Rand des homogenen Gebietes rechnet man mit der Formel:
+
+$$\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r})=\frac{q_\text{S}}{4\pi\varepsilon_0\vert\vert \vec{r}-\vec{r_\text{S}}\vert\vert} $$  
+Mit der Formel erhält man:
+\begin{eqnarray}
+\vec{r_1}=\begin{bmatrix}
+0 \\
+0    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_1})= 2.9314 \cdot 10^{10}q_0\\
+\vec{r_2}=\begin{bmatrix}
+0.3 \\
+0    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_2})= 5.0952 \cdot 10^{10}q_0\\
+\vec{r_3}=\begin{bmatrix}
+0.6 \\
+0    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_3})= 5.4697 \cdot 10^{10}q_0\\
+\vec{r_4}=\begin{bmatrix}
+0.9 \\
+0    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_4})= 3.1451 \cdot 10^{10}q_0\\
+\vec{r_5}=\begin{bmatrix}
+1.2 \\
+0    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_5})= 2.0348 \cdot 10^{10}q_0\\
+\vec{r_6}=\begin{bmatrix}
+0 \\
+0.2    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_6})= 3.3152 \cdot 10^{10}q_0\\
+\vec{r_{10}}=\begin{bmatrix}
+1.2 \\
+0.2    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_{10}})= 2.151 \cdot 10^{10}q_0\\
+\vec{r_{11}}=\begin{bmatrix}
+0 \\
+0.4    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_{11}})= 3.1954 \cdot 10^{10}q_0\\
+\vec{r_{15}}=\begin{bmatrix}
+1.2 \\
+0.4    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_{15}})= 2.1172 \cdot 10^{10}q_0\\
+\vec{r_{16}}=\begin{bmatrix}
+0 \\
+0.6    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_{16}})= 2.6994 \cdot 10^{10}q_0\\
+\vec{r_{17}}=\begin{bmatrix}
+0.3 \\
+0.6    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_{17}})= 4.1035 \cdot 10^{10}q_0\\
+\vec{r_{18}}=\begin{bmatrix}
+0,6 \\
+0.6    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_{18}})= 4.2921 \cdot 10^{10}q_0\\
+\vec{r_{19}}=\begin{bmatrix}
+0.9 \\
+0.6    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_{19}})= 2.863 \cdot 10^{10}q_0\\
+\vec{r_{20}}=\begin{bmatrix}
+1.2 \\
+0.6    
+\end{bmatrix} \text{ :       }\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r_{20}})= 1.9523 \cdot 10^{10}q_0
+\end{eqnarray} 
 
 % --> Aufgabe
 \begin{framed}
@@ -108,8 +205,20 @@ $\eps_{\text{r}2}=2$, $\eps_{\text{r}3}=3$ und $\eps_{\text{r}4}=4$ (Reihenschal
 \end{enumerate}
 \label{exer:calcCapsAnalytical}
 \end{framed}
+Um Kapazität einer Platenkondesator zu ausrechnen, benutzt man dieser Formel:
+$$\text{C}=\varepsilon_r\varepsilon_0\frac{A}{l} $$
+$\text{A}$ bezeichnet Fläche einer Platte un $\text{l}$ die Abstand zwischen zweier Platten.
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\begin{enumerate}[label=(\alph*)]
+	\item Hier hat man  einfaches Plattenkondensator mit  $\text{A}=1$ und $\text{l}=1$.\\
+	$$\text{C}=\varepsilon_0=8.54\mathrm{pF}$$
+	\item Hier hat man ein Reihenschaltung zweier Kondensatoren mit $\text{A}=1$ und $\text{l}=0.5$ 
+	$$\text{C}=2\varepsilon_0\frac{\varepsilon_1\varepsilon_2}{\varepsilon_1+\varepsilon_2}=\frac{2}{3}\varepsilon_0= 5.8\mathrm{pF}$$
+	\item Hier hat man ein Parallelschaltung zweier Kondensatoren mit $\text{A}=0.25$ und $\text{l}=1$ 
+	 $$\text{C}=\frac{1}{4}\varepsilon_0(\varepsilon_1+\varepsilon_2)=\frac{3}{4}\varepsilon_0=6.64\mathrm{pF}$$
+	\item  Hier hat man ein Parallelschaltung von Reihenschaltungen vier Kondensatoren mit $\text{A}=0.25$ und $\text{l}=0.5$
+	$$\text{C}=\frac{1}{2}\varepsilon_0\left[\frac{\varepsilon_1\varepsilon_2}{\varepsilon_1+\varepsilon_2}+\frac{\varepsilon_3\varepsilon_4}{\varepsilon_3+\varepsilon_4} \right]=\frac{25}{21}\varepsilon_0=10.54\mathrm{pF}$$
+\end{enumerate}
 
 \newpage
 %
@@ -267,7 +376,7 @@ Analog zur Elektrostatik wird nun ein Solver für magnetostatische Probleme impl
 Stellen Sie es grafisch dar. Nutzen Sie für diese Implementierung bitte das gegebene Skript \lstinline{exampleHi.m}.\label{exer:visualizeHi}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Graphische Darstellung befindet sich in Abbildung \ref{fig:hilffeld}.
 
 % --> Aufgabe
 \begin{framed}
@@ -282,14 +391,14 @@ wobei \lstinline{mu} hier die Permeabilität, \lstinline{jbow} der Gitterstromfl
 dafür u.\,A. die Routine \lstinline{createMeps} und beachten Sie die vertauschte Allokation der Felder in der skalaren Magnetostatik.\label{exer:solveMS}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{9.} Verwenden Sie \lstinline{solveMS} um das $\vec{H}$-Feld zu berechnen und grafisch darzustellen. Nutzen Sie für diese Implementierung bitte das Skript \lstinline{exampleMShomogen.m}. Entspricht das Feldbild Ihren Erwartungen?\label{exer:visualizeHfield}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Feldbild in Abb. \ref{fig:homfeld} sieht aus wie erwartet. Es soll ein radialsymmetrisches Wirbelfeld sein.
 
 % --> Aufgabe
 \begin{framed}
@@ -297,12 +406,12 @@ dafür u.\,A. die Routine \lstinline{createMeps} und beachten Sie die vertauscht
 Problem zu lösen und grafisch darzustellen. Nutzen Sie für diese Implementierung bitte das Skript \lstinline{exampleMSinhomogen.m}.\label{exer:Hfield4inhomogenMaterial}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Graphische Darstellung inhomogenes $\vec{H}$-Feldes ist in Abbildung \ref{fig:inhomfeld}.
 
 
 
 \section{Fazit}
-\emph{Fügen Sie hier Ihre Lösung ein}
+In diesem Versuch haben wir mit Magnetostatik und Elektrostatik beschäftigt. Wir haben die $\vec{E}$- und $\vec{H}$-Felder mittels FIT- Methode ausgerechnet. 
 
 \clearpage
 \newpage
@@ -436,6 +545,25 @@ Problem zu lösen und grafisch darzustellen. Nutzen Sie für diese Implementieru
 	\caption{Skizze des Magnetfeldes eines Linienleiters mit Dirichletrandbedingungen}
 	\label{fig:dirichletrand}
 \end{figure}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\linewidth]{Plot_der_hilffelders.pdf}
+	\caption{Graphische Darstellung des Hilffeldes $\hfit_{\text{i}}$ }
+	\label{fig:hilffeld}
+\end{figure}
 
+\begin{figure}[hb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{homoFeld.pdf}
+	\caption{homogenes $\vec{H}$-Feld  }
+	\label{fig:homfeld}
+\end{figure}
+
+\begin{figure}[hb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{inhomoFeld.pdf}
+	\caption{inhomogenes $\vec{H}$-Feld mit $\mu_1=1$ und $\mu_2=5$   }
+	\label{fig:inhomfeld}
+\end{figure}
 
 \end{document}
