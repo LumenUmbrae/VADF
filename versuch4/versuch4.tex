@@ -324,15 +324,14 @@ die Kapazität der Kondensatorkonfigurationen a) bis d) der Vorbereitungsaufgabe
 \noindent
 Mit Hilfe der vorherigen Implementationen können wir nun die Kapazitäten der 5 Kondensatoren aus Aufgabe \ref{exer:calcCapsAnalytical}.1 5 numerisch bestimmen.
 \begin{eqnarray*}
-C_a &=& -4.058083\ \text{pF}\\
-C_b &=& -4.058083\ \text{pF}\\
-C_c &=& -8.116167\ \text{pF}\\
-C_d &=& -6.885970\ \text{pF}\\
-C_e &=& -1.014140\ \text{pF}\\
+C_a &=& 8.854000\ \text{pF}\\
+C_b &=& 11.80533\ \text{pF}\\
+C_c &=& 13.28100\ \text{pF}\\
+C_d &=& 18.52102\ \text{pF}\\
+C_e &=& 4.778764\ \text{pF}\\
 \end{eqnarray*}
 \noindent
-Durch eine Verfeinerung des Gitters verändern sich die Werte unwesentlich.
-
+Die analytischen Ergebnisse von den Kondensatoren $C_a, C_b$ und $C_c$ entsprechen den numerisch berechneten Werten. Da zu den Kondensatoren $C_d$ und $C_e$ keine analytische Lösung vorliegt, können wir diese nicht vergleichen. Die Lösung hängt von der Größe des Gitters ab, jedoch konvergieren die Kapazitäten von $C_a, C_b$ und $C_c$ relativ schnell gegen einen Wert. 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{4.} Visualisieren Sie im selben Skript das Potential (\lstinline{plotPotential}) und das elektrische Feld (\lstinline{plotEdgeVoltage})
@@ -425,7 +424,7 @@ In diesem Versuch haben wir mit Magnetostatik und Elektrostatik beschäftigt. Wi
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{KapazitaetUeberAnzStuetzstellen.pdf}
+	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{KapazitaetUeberAnzStuetzstellen.pdf}
 	\caption{Nummerisch bestimmte Kapazität eines Kondensators in Abhängigkeit von der Anzahl der Stützstellen}
 	\label{fig:kapazitaetueberanzstuetzstellen}
 \end{figure}

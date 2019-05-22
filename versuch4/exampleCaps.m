@@ -4,9 +4,9 @@
 %   der vier Kondensatorkonfigurationen erstellt. 
 clear all;
 %% Erstellen des Gitters
-xmesh = linspace(0,1,31);
-ymesh = linspace(0,1,31);
-zmesh = linspace(0,1,7);
+xmesh = linspace(0,1,71);
+ymesh = linspace(0,1,71);
+zmesh = linspace(0,1,20);
 msh = cartMesh(xmesh, ymesh, zmesh);
 defaultvalue = 1;
 
