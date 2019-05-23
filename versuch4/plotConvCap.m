@@ -1,11 +1,11 @@
 %   Aufgabe 6
 %
-%   Erstellt einen Graphen, in dem die Kapazität der Kondensatorkon-
-%   figuration e) über der Anzahl der Gitterpunkte np aufgetragen ist.
+%   Erstellt einen Graphen, in dem die Kapazitï¿½t der Kondensatorkon-
+%   figuration e) ï¿½ber der Anzahl der Gitterpunkte np aufgetragen ist.
 
-%   Sie können nahezu analog zu Aufgabe 5 vorgehen. Sie müssen die
+%   Sie kï¿½nnen nahezu analog zu Aufgabe 5 vorgehen. Sie mï¿½ssen die
 %   Berechnung noch auf das Kovergenzverhalten hinsichtlich des Gitters
-%   anpassen. Sie benötigen daher die Kapazität. Berechnen Sie diese
+%   anpassen. Sie benï¿½tigen daher die Kapazitï¿½t. Berechnen Sie diese
 %   mit calcCap(msh, ebow, dbow).
 
 % Parameter und Initialisierungen
@@ -24,27 +24,38 @@ for i = 1:length(stuetzstellen)
     zmesh = linspace(0,1,5);
     msh = cartMesh(xmesh,ymesh,zmesh);
 	
-    % Berechnen der Permittivität mit boxMesher
+    boxesE(1).box = [1, msh.nx, 1, msh.ny, 1, msh.nz];
+    boxesE(1).value = 1;
+    
+    boxesPotE(1).box = [1, msh.nx, 1, 1, 1 , msh.nz];
+ boxesPotE(1).value = 0;
+ boxesPotE(2).box = [1,msh.nx,msh.ny,msh.ny,1,msh.nz];
+ boxesPotE(2).value = 1;
+ boxesPotE(3).box = [1, floor(msh.nx/2), floor(msh.ny/2), msh.ny, 1, msh.nz];
+ boxesPotE(3).value = 1;
+  
+    % Berechnen der Permittivitï¿½t mit boxMesher
     % defaultvalue = 
     % ...
-    
-    % Erstellen des Potentialvektors mit den eingeprägten Potentialen (auch mit boxMesher)
+    eps = boxMesher(msh, boxesE, defaultvalue);
+    % Erstellen des Potentialvektors mit den eingeprï¿½gten Potentialen (auch mit boxMesher)
     % ...
-	
+	pot = boxMesher(msh, boxesPotE, NaN);
     % Berechnen der Feldverteilung
     bc = 0;
     q = zeros(msh.np, 1);
     [phi, ebow, dbow, relRes] = solveES( msh, eps, pot, q, bc);
     
-    % Berechnen und speichern der Kapazität
+    % Berechnen und speichern der Kapazitï¿½t
     cap(i) = calcCap(msh, ebow, dbow);
 	
     % Anzahl der Gitterpunkte speichern
-    % nrgridpoints(i) = 
+     nrgridpoints(i) = n;
 end
 
 % Plot
 figure(1); clf;
 plot(nrgridpoints, cap, 'b.-', 'LineWidth', 2);
 xlabel('Anzahl der Punkte np');
-ylabel('Numerisch berechnete Kapazitaet des Kondensators / F');
+ylabel('Numerisch berechnete Kapazitaet des Kondensators in F');
+print -dpdf KapazitaetUeberAnzStuetzstellen.pdf

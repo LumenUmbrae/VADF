@@ -12,11 +12,9 @@
         und $y$-Kanten nach dem kanonischen Indizierungsschema aus Gl.~(2.5) ein. Machen Sie sich klar, welche Indizes zu
         nicht existierenden Kanten gehören und markieren Sie diese.\label{exer:edgeIndices}
 \end{framed}
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[trim = 10mm 170mm 65mm 20mm, clip, width=0.7\textwidth]{Zeichnung.pdf}
-		\caption{3$\times$4 Gitter mit kanonischer Kantenindizierung.}
-	\end{figure}
+\noindent
+	Das $3\times 4$ Gitter ist in Abbildung \ref{Abb:1.1} zu sehen. Die nicht existierenden Kanten sind jeweils gestrichelt dargestellt.
+
 
 
 % --> Aufgabe
@@ -27,13 +25,13 @@
 \end{framed}
 \noindent
 Die Anzahl der Geisterkanten eines $N_x \times N_y$-Gitters ergibt sich zu $N_x + N_y$ da jeweils an den in positiver Richtung liegenden Aussenseiten eine Reihe an Geisterkanten besitzt.\\
-Für den Fall von $N_x = N_y$ ergibt sich die Anzahl der Geisterkanten zu $\sqrt{N_p} \cdot 2$. Die Indizes aller Geisterkanten nach dem kanonischen Indizierungsschema lassen sich einfach berechnen. Dazu erst die Geisterkanten in x-Richtung:
+Für den Fall von $N_x = N_y$ ergibt sich die Anzahl der Geisterkanten zu $2\sqrt{N_p}$. Die Indizes aller Geisterkanten nach dem kanonischen Indizierungsschema lassen sich einfach berechnen. Dazu erst die Geisterkanten in x-Richtung:
 \begin{equation*}
-	n\in[N_x,2N_x,\dots,N_xN_y].
+	n=\{N_x,2N_x,\dots,N_xN_y\}.
 \end{equation*}
 und dann in y-Richtung:
 \begin{equation*}
-n\in[N_x(N_y-1)+1,N_x(N_y-1)+2,\dots,2N_p].
+n=\{N_x(N_y-1)+1,N_x(N_y-1)+2,\dots,2N_p\}.
 \end{equation*}
 %
     {\subsection{Dreiecksgitter}}
@@ -43,11 +41,11 @@ n\in[N_x(N_y-1)+1,N_x(N_y-1)+2,\dots,2N_p].
     \centering
     \begin{subfigure}{0.49\textwidth}
         \centering
-        \input{versuch2/dreiecksgitterGeordnet}            
+        \input{dreiecksgitterGeordnet}            
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
         \centering
-        \input{versuch2/dreiecksgitterUngeordnet}
+        \input{dreiecksgitterUngeordnet}
     \end{subfigure}
     \caption{Dreiecksgitter von zwei verschiedenen Rechengebieten.}
     \label{fig:tetmesh}
@@ -59,15 +57,9 @@ n\in[N_x(N_y-1)+1,N_x(N_y-1)+2,\dots,2N_p].
 	\noindent \textbf{3.} Nummerieren Sie die Flächen und Kanten des Gitters beliebig und ordnen
                     Sie den Kanten eine Orientierung zu.\label{exer:triangleOrderedNumbering}
 \end{framed}
+\noindent
+Das gegebene Gitter wurde entsprechend nummeriert und ist in Abbildung \ref{abb::5-eck} zu sehen.
 
-
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.6\textwidth]{Raster_2.png}
-	\caption{Gegebenes Gitter mit beliebig gewählter Indizierung für Punkte, Kanten und Flächen.}
-	\label{abb::5-eck}
-\end{figure}
-\newpage
 
 % --> Aufgabe
         \begin{framed}
@@ -237,19 +229,7 @@ $$ =\begin{bmatrix}
         erfüllen.\label{exer:drawDualGrid}
 \end{framed}
 	Die dualen Gitter der gegebenen primären Gitter sind in den Abbildungen \ref{Abb:dual_1} und \ref{Abb:dual_2} gegeben.
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5\textwidth]{Duales_Gitter_1.png}
-	\caption{Duales Gitter für das erste gegebene Gitter.}
-	\label{Abb:dual_1}
-\end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5\textwidth]{Duales_Gitter_2.png}
-	\caption{Duales Gitter für zweites gegebenes Gitter. Kanten, die die Orthogonalität nicht erfüllen, sind grün markiert.}
-	\label{Abb:dual_2}
-\end{figure}
 
 % --> Aufgabe
         \begin{framed}
@@ -297,13 +277,8 @@ Beim dualen Gitter im dreidimensionalen entspricht die Anzahl der dualen Punkte 
         \begin{framed}
 	\noindent \textbf{3.} Nutzen Sie \lstinline{cartMesh} zur Erzeugung eines nicht äquidistanten Gitters mit \{3,4,5\} Punkten in \{$x$,$y$,$z$\}-Richtung und visualisieren Sie es mit \lstinline{plotMesh}. Nutzen Sie hierfür die bereits gegebene Datei \lstinline{exampleMesh.m}.\label{exer:createVisualizeMesh}
 \end{framed}
+Das geforderte Gitter wurde mit \lstinline{plotMesh} erzeugt und ist in Abbildung \ref{abb:example} dargestellt.
 
-	\begin{figure}[h]
-	\centering
-	\includegraphics[trim = 15mm 65mm 15mm 60mm, clip,width=0.5\textwidth]{exmesh.pdf}
-	\label{abb:example}
-	\caption{exampleMesh Plot}
-\end{figure}
 
 %
     {\subsection{Die topologischen Matrizen $\curlfit$, $\curldfit$, $\divfit$ und $\divdfit$}}
@@ -360,17 +335,6 @@ Die Rückgabe der dualen Rotationsmatrix $\curldfit$ ist nicht sinnvoll, da dies
 \caption{Speicherverbrauch einer C-Matrix in unterschiedlichen Speicherformaten}
 \label{tbl:speicherCMatrix}
   \end{table}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\linewidth]{versuch2/VisuCMatrixPrimGitt}
-	\caption{Speicherverbrauch einer C-Matrix in unterschiedlichen Speicherformaten}
-	\label{fig:visucmatrixprimgitt}
-\end{figure}
-\\
-\\
-\\
-\\
-\\
 
 % --> Aufgabe
    \begin{framed}
@@ -415,12 +379,7 @@ einander entsprechen.
 \noindent
 	Der Funktionsverlauf aus Abbildung \ref{Abb:boundEdg} ist proportional zu $\frac{\sqrt{x}+x}{x}$. Aus Vorbereitungsaufgabe 2 wurde klar, dass bei einem Quadratischen Gitter die Anzahl aller Geisterkanten gleich $2\sqrt{N_p}$ ist, wobei hier noch keine Geisterkanten in z-Richtung betrachtet wurden. Betrachtet man auch die Geisterkanten in z-Richtung, wobei die Höhe in z-Richtung 1 beträgt, so kommt man auf eine Gesamtanzahl von $2\sqrt{N_p}+N_p$. Dies kann man nun auf die Gesamtanzahl der Kanten beziehen und kommt auf $\frac{2\sqrt{N_p}+N_p}{3N_p}$. Die Werte aus Vorbereitungsaufgabe 2 bestätigen also das Diagramm.
 
-	\begin{figure}[h]
-	\centering
-	\includegraphics[trim = 15mm 65mm 15mm 60mm, clip, width=0.7\textwidth]{plotBoundEdg.pdf}
-	\caption{Anteil der Geisterkanten relativ zur Gesamtanzahl der Kanten.}
-	\label{Abb:boundEdg}
-	\end{figure}
+	
 
 
 
@@ -459,20 +418,6 @@ einander entsprechen.
 	
 	Die vorgegebenen Feldverteilungen sind in den Abbildungen \ref{Abb:10_1} und \ref{Abb:10_2} dargestellt.
 
-	\begin{figure}[h]
-		\centering
-		\includegraphics[trim = 15mm 65mm 15mm 60mm, clip, width=0.7\textwidth]{10_1.pdf}
-		\caption{Feldverteilung aus 10.1}
-		\label{Abb:10_1}
-	\end{figure}
-	
-	\begin{figure}[h]
-		\centering
-		\includegraphics[trim = 15mm 65mm 15mm 60mm, clip, width=0.7\textwidth]{10_2.pdf}
-		\caption{Feldverteilung aus 10.2}
-		\label{Abb:10_2}
-	\end{figure}
-
 \section{Fragen zur Ausarbeitung}
 
 % --> Aufgabe
@@ -487,21 +432,79 @@ das Dreiecksgitter aus Bild \ref{fig:tetmesh} a). Ist diese Wahl
 des dualen Gitters am Rand immer notwendig?\label{exer:autoHomNeumann}
 \end{framed}
 \noindent
-Das duale Gitter sollte am Rand so gewählt werden, dass der Teil der Kante, der aus dem Rechengebiet herausragt, genauso lang ist, wie der Teil der noch innerhalb des Rechengebietes liegt. Die dualen Gitter für die in der Aufgabe geforderten primären Gitter sind in den Abbildungen \ref{Abb:mgn_Rand_1} und \ref{Abb:mgn_Rand_2} zu sehen.
+Bei magnetischen Randbedingungen gilt, dass die tangentiale Komponente der magnetischen Feldstärke und die normale Komponente der elektrischen Feldstärke gleich Null sind. Die normale Komponente der elektrischen Feldstärke ist am Rand immer gleich Null, da diese auf den primären Kanten definiert ist und diese immer tangential zum Rand liegen. Damit ist dieser Teil bereits erfüllt. Da die tangentiale Komponente der magnetischen Feldstärke auf dualen Kanten definiert ist und es keine tangentialen dualen Kanten am Rand gibt, ist diese Bedingung auch erfüllt. Damit können nun die Dualen Kanten bis zum Rand geführt werden (nicht weiter) und die magnetische Randbedingung ist automatisch erfüllt. Die dualen Gitter für die in der Aufgabe geforderten primären Gitter sind in den Abbildungen \ref{Abb:mgn_Rand_1} und \ref{Abb:mgn_Rand_2} zu sehen.
+
+\section{Fazit}
+Wie aus den Aufgaben ersichtlich wird, ist die Generierung von Mesh Matrizen relativ einfach. Weiterhin können mit einfachen Operationen die Matrizen $\curlfit$, $\curldfit$, $\divfit$, $\divdfit$ und $\mathbf{G}$ erstellt und verwendet werden, um in Zukunft Feldprobleme effizient lösen zu können. 
+
+\clearpage
+
+\section{Abbildungen}
+	\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 10mm 170mm 65mm 20mm, clip, width=0.7\textwidth]{Zeichnung.pdf}
+	\caption{3$\times$4 Gitter mit kanonischer Kantenindizierung.}
+	\label{Abb:1.1}
+\end{figure}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Raster_2.pdf}
+	\caption{Gegebenes Gitter mit beliebig gewählter Indizierung für Punkte, Kanten und Flächen.}
+	\label{abb::5-eck}
+\end{figure}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\textwidth]{mgn_Rand_1.png}
+	\includegraphics[width=0.7\textwidth]{Duales_Gitter_1.pdf}
+	\caption{Duales Gitter für das erste gegebene Gitter.}
+	\label{Abb:dual_1}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Duales_Gitter_2.png}
+	\caption{Duales Gitter für zweites gegebenes Gitter. Kanten, die die Orthogonalität nicht erfüllen, sind grün markiert.}
+	\label{Abb:dual_2}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 60mm, clip,width=0.7\textwidth]{exmesh.pdf}
+	\caption{exampleMesh Plot}
+	\label{abb:example}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{VisuCMatrixPrimGitt}
+	\caption{Speicherverbrauch einer C-Matrix in unterschiedlichen Speicherformaten}
+	\label{fig:visucmatrixprimgitt}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 60mm, clip, width=0.7\textwidth]{plotBoundEdg.pdf}
+	\caption{Anteil der Geisterkanten relativ zur Gesamtanzahl der Kanten.}
+	\label{Abb:boundEdg}
+\end{figure}
+	\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 60mm, clip, width=0.7\textwidth]{10_1.pdf}
+	\caption{Feldverteilung aus 10.1}
+	\label{Abb:10_1}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 60mm, clip, width=0.7\textwidth]{10_2.pdf}
+	\caption{Feldverteilung aus 10.2}
+	\label{Abb:10_2}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 30mm 35mm 70mm 15mm, clip,width=0.5\textwidth]{mgn_Rand_1.pdf}
 	\caption{Primäres und duales Gitter für Erfüllung der magnetischen Randbedingung.}
 	\label{Abb:mgn_Rand_1}
 \end{figure}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Duales_Gitter_1.png}
+	\includegraphics[width=0.7\textwidth]{mgn_Rand_2.pdf}
 	\caption{Primäres und duales Gitter für Erfüllung der magnetischen Randbedingung.}
 	\label{Abb:mgn_Rand_2}
 \end{figure}
-
-\section{Fazit}
-Wie aus den Aufgaben ersichtlich wird, ist die Generierung von Mesh Matrizen relativ einfach. Weiterhin können mit einfachen Operationen die Matrizen $\curlfit$, $\curldfit$, $\divfit$, $\divdfit$ und $\mathbf{G}$ erstellt und verwendet werden, um in Zukunft Feldprobleme effizient lösen zu können. 
 
 \end{document}
