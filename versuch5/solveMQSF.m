@@ -63,9 +63,8 @@ function [abow, hbow, bbow, jbow, relRes] = solveMQSF(msh, mui, kap, jsbow, f, b
     relRes = resVec./norm(rhs_reduced);
     
     % A und rhs zurück auf ursprÃ¼ngliche Größe bringen
-    for n=1:1:rows(abow_reduced)
-    abow = [abow_reduced(1:(n-1),:);0;abow_reduced(n:rows(abow_reduced),:)]
-    rhs = [rhs_reduced(1:(n-1),:);0;rhs_reduced(n:rows(rhs_reduced),:)]
+    abow(idxExistingEdges) = abow_reduced;
+    rhs(idxExistingEdges) = rhs_reduced;
     endfor
     % Magnetische Gitterspannung, magnetischen Fluss und Stromgitterfluss
     % berechnen
