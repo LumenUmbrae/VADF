@@ -72,8 +72,8 @@ return
 disp('Lösung des quasistatischen Problems im Frequenzbereich')
 
 % Frequenz festlegen
-% f = 
-% omega =
+ f = 50; 
+ omega = 2*pi*f;
 
 % Löser ausführen
 [abow_mqs_f, hbow_mqs_f, bbow_mqs_f, jbow_mqs_f, relRes] = solveMQSF(msh, mui,...
