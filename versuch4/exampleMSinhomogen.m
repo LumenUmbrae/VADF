@@ -27,11 +27,13 @@ for i=1:1:msh.nx
 endfor
 
 % Erstellen der Permeabilitätsmatrix mit boxMesher
+
 boxesM(1).box = [1, msh.nx, 1, floor(msh.ny/2), 1, msh.nz];
 boxesM(1).value = 1;
 boxesM(2).box = [1, msh.nx, floor(msh.ny/2)+1,msh.ny, 1, msh.nz];
-boxesM(2).value = 5;
+boxesM(2).value = 100;
 mu = boxMesher(msh, boxesM, NaN);
+
 
 
 % Lösen des Systems
