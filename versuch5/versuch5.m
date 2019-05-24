@@ -125,7 +125,7 @@ kappa = [kappaI; kappaJ; kappaK];
 
 boxeskappa(1).box = [ 1, 6 , 1,  6,  1, 2];
 boxeskappa(1).value = 10E6; %Leitwert von Fe
-kappa = boxMesher(msh, boxesmu, 0);
+kappa = boxMesher(msh, boxeskappa, 0);
 
 % boxesmu(1).box = [ ,  ,  ,  ,  , ];
 % boxesmu(1).value = 
@@ -134,11 +134,13 @@ kappa = boxMesher(msh, boxesmu, 0);
 
 boxesmu(1).box = [ 1, 6 , 1,  6,  1, 2];
 boxesmu(1).value = 5000E-7 * 4*pi; %permabilität von Fe
-mu = boxMesher(msh, boxesmu, pi*4E-7);
+mu = boxMesher(msh, boxesmu, pi*4E-7)
 
 % Inverse Permeabilität berechnen (siehe Hinweis Aufgabe 1)
 % mui = ....
 %mui = %siehe Versuch3 ist nihct nur die inverse
+
+mui = mu.^-1
 
 %{
 %% Aufgabe 3
