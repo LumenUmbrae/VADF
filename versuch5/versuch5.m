@@ -90,7 +90,7 @@ for i<=nz
   endfor  
 endfor
   
-%}
+
 
 
 
@@ -121,7 +121,11 @@ boxeskappa(1).value = 10E6; %Leitwert von Fe
 kappaK = boxMesher(msh, boxeskappa, 0);
 
 kappa = [kappaI; kappaJ; kappaK];
+%}
 
+boxeskappa(1).box = [ 1, 6 , 1,  6,  1, 2];
+boxeskappa(1).value = 10E6; %Leitwert von Fe
+kappa = boxMesher(msh, boxesmu, 0);
 
 % boxesmu(1).box = [ ,  ,  ,  ,  , ];
 % boxesmu(1).value = 
