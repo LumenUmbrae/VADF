@@ -44,13 +44,10 @@ disp('Gitter erstellen')
 
 % Erstellen von jsbow
 jsbow = zeros(3*np,1);
-% jsbow(...) = ...;
-% jsbow(...) = ...;
-% ...
 
 jsbow(84) = 1000;
 jsbow(93) = -1000;
-jsbo(267) = -1000;
+jsbow(267) = -1000;
 jsbow(268) = 1000;
 
 %TODO: Kapa und Mui von den Punkten auf die Flächen mitteln. Inverse von permeabilität bestimen mit der Formel, nihct nur inverse
@@ -123,7 +120,7 @@ kappaK = boxMesher(msh, boxeskappa, 0);
 kappa = [kappaI; kappaJ; kappaK];
 %}
 
-boxeskappa(1).box = [ 1, 6 , 1,  6,  1, 2];
+boxeskappa(1).box = [ 1, 6, 1,  6,  1, 1];
 boxeskappa(1).value = 10E6; %Leitwert von Fe
 kappa = boxMesher(msh, boxeskappa, 0);
 
@@ -132,17 +129,14 @@ kappa = boxMesher(msh, boxeskappa, 0);
 % mu = boxMesher(msh, boxesmu, ...);
 
 
-boxesmu(1).box = [ 1, 6 , 1,  6,  1, 2];
+boxesmu(1).box = [ 1, 6 , 1,  6,  1, 1];
 boxesmu(1).value = 5000E-7 * 4*pi; %permabilität von Fe
-mu = boxMesher(msh, boxesmu, pi*4E-7)
+mu = boxMesher(msh, boxesmu, pi*4E-7);
 
 % Inverse Permeabilität berechnen (siehe Hinweis Aufgabe 1)
-% mui = ....
-%mui = %siehe Versuch3 ist nihct nur die inverse
+mui = 1./mu;
 
-mui = mu.^-1
 
-%{
 %% Aufgabe 3
 % -------------------------------------------------------------------------
 % ----------- Lösen des magnetostatischen Problems ------------------------
@@ -161,7 +155,7 @@ if solve_statik
 	title('Statische Loesung des Vektorpotentials')
 
     % Grafisches Darstellen der z-Komponente des B-Feldes
-	% ...
+##	  surf(xmesh,ymesh,
 end
 
 % Verschiebt diese Zeile zur nächsten Aufgabe, wenn Aufgabe 3 abgeschlossen ist
@@ -172,12 +166,12 @@ return
 % -------------------------------------------------------------------------
 % ----------- Magnetoquasistatisches Problem im Frequenzbereich -----------
 % -------------------------------------------------------------------------
-disp('Lösung des quasistatischen Problems im Frequenzbereich')
+disp('L�sung des quasistatischen Problems im Frequenzbereich')
 
 % Frequenz festlegen
- f = 50; 
+ f = 50;
  omega = 2*pi*f;
-
+  
 % Löser ausführen
 [abow_mqs_f, hbow_mqs_f, bbow_mqs_f, jbow_mqs_f, relRes] = solveMQSF(msh, mui,...
                                                          kappa, jsbow, f, bc);
@@ -198,7 +192,7 @@ title(['Imaginaerteil der Stromdichte auf der Plattenoberflaeche, '  ...
 xlabel('x')
 ylabel('y') 
 
-
+%{
 %% Aufgabe 7
 % -------------------------------------------------------------------------
 % ----------- Magnetoquasistatisches Problem im Zeitbereich --------------

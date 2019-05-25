@@ -42,17 +42,17 @@ function [abow, hbow, bbow, jbow, relRes] = solveMQSF(msh, mui, kap, jsbow, f, b
     % Eintr√§ge der Geisterkanten aus Systemmatrix und rechter Seite
     % streichen (da pcg sonst nicht konvergieren w√ºrde, ausprobieren!)
     idxGhostEdges = getGhostEdges(msh);
-    idxAllEdges = linspace(1,np,np);
+    idxAllEdges = 1:3*np;
     idxExistingEdges = setdiff(idxAllEdges,idxGhostEdges);
-    A_reduced = A(idxExistingEdges,:);
-    rhs_reduced = rhs(idxExistingEdges,:);
-
+    A_reduced = A(idxExistingEdges,idxExistingEdges);
+    rhs_reduced = rhs(idxExistingEdges);
+   
     % Initialisieren der L√∂sung
      abow = zeros(rows(A),1);
     
     % Vorkonditionierer w√§hlen (hier Jacobi)
-     M = diag(A);
-    
+     M = diag(diag(A_reduced));
+   
     % Gleichungssystem loesen
     [abow_reduced, flag, relRes, iter, resVec] = pcg(A_reduced, rhs_reduced, 1e-6, 1000, M);
     if flag == 0
@@ -65,7 +65,7 @@ function [abow, hbow, bbow, jbow, relRes] = solveMQSF(msh, mui, kap, jsbow, f, b
     % A und rhs zur¸ck auf urspr√ºngliche Grˆﬂe bringen
     abow(idxExistingEdges) = abow_reduced;
     rhs(idxExistingEdges) = rhs_reduced;
-    endfor
+    
     % Magnetische Gitterspannung, magnetischen Fluss und Stromgitterfluss
     % berechnen
      bbow = c*abow; 

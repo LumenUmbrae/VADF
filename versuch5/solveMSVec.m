@@ -39,5 +39,5 @@ function [abow, hbow, bbow, relRes] = solveMSVec(msh, mui, jbow)
     % bbow = 
     bbow = c*abow;
     % hbow = 
-    hbow = bbow*mmui;
+    hbow = mmui*bbow;
 end
