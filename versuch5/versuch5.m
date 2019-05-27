@@ -134,7 +134,7 @@ boxesmu(1).value = 5000E-7 * 4*pi; %permabilität von Fe
 mu = boxMesher(msh, boxesmu, pi*4E-7);
 
 % Inverse Permeabilität berechnen (siehe Hinweis Aufgabe 1)
-mui = 1./mu;
+mui = nullInv(mu);
 
 
 %% Aufgabe 3
@@ -166,7 +166,7 @@ return
 % -------------------------------------------------------------------------
 % ----------- Magnetoquasistatisches Problem im Frequenzbereich -----------
 % -------------------------------------------------------------------------
-disp('L�sung des quasistatischen Problems im Frequenzbereich')
+disp('L�sung des quasistatischen Problems im Frequenzbereich')
 
 % Frequenz festlegen
  f = 50;
