@@ -34,15 +34,30 @@ Es sollen sinnvolle Randbedingungen verwendet werden.
 	\noindent \textbf{2.} Bestimmen Sie die Systemmatrix $\Amat_\text{F}$ des magnetoquasistatischen Problems im Frequenzbereich (Gleichung (5.14)).\label{exer:systemMatMQSF}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Man nützt die Gleichung (5.14):
 
+$$ \curldfit\Mmui\curlfit\afit + j \omega\Mkap\afit = \jfit_{\boldmath{s}} $$
+\begin{eqnarray}
+\left[ \curldfit\Mmui\curlfit + j \omega\Mkap \right]\afit = \jfit_{\boldmath{s}} \\
+\Amat_\text{F}\afit=\jfit_{\boldmath{s}}
+ \end{eqnarray}
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{3.} Bestimmen Sie die Systemmatrix $\Amat_\text{T}$ des impliziten
       \textsc{Euler}-Zeitschrittverfahrens, d.h.\ setzen Sie die Näherung~(5.22) in das DAE-System~(5.7) ein und stellen Sie anschließend nach $\afit_{n+1}$ um.\label{exer:systemMatMQST}
 \end{framed}
+Man nutzt die Gleichungen (5.7)
+$$ \curldfit\Mmui\curlfit\afit +           \Mkap      \frac{\partial }{\partial t}\afit = \jfit_{\boldmath{s}} $$
+und (5.22)
+$$ \frac{\partial }{\partial t}\afit(t_{i+1})=\frac{1}{\Delta t}\left(\afit_{i+1} - \afit_i\right).$$
+Man setzt  Gleichung 5.22 in 5.7
+$$ \curldfit\Mmui\curlfit\afit_{i+1}+\frac{1}{\Delta t}\Mkap\left(\afit_{i+1} - \afit_i\right)= \jfit_{\boldmath{s}}. $$
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Man stellt die Gleichung nach $\afit_{i+1}$:
+$$ \left(\curldfit\Mmui\curlfit+\frac{1}{\Delta t}\Mkap\right)\afit_{i+1}= \jfit_{\boldmath{s}}+\frac{1}{\Delta t}\Mkap\afit_i. $$
+Es ist deutlich zu sehen dass $\Amat_\text{T} =\curldfit\Mmui\curlfit+\frac{1}{\Delta t}\Mkap $ ist.
+
+
 
 % --> Aufgabe
 \begin{framed}
