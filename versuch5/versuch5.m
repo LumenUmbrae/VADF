@@ -192,7 +192,7 @@ title(['Imaginaerteil der Stromdichte auf der Plattenoberflaeche, '  ...
 xlabel('x')
 ylabel('y') 
 
-%{
+
 %% Aufgabe 7
 % -------------------------------------------------------------------------
 % ----------- Magnetoquasistatisches Problem im Zeitbereich --------------
@@ -200,17 +200,17 @@ ylabel('y')
 disp('Loesung des quasistatischen Problems im Zeitbereich')
 
 % Zeitparameter so setzen, dass drei Perioden durchlaufen werden
-periods =                   % Anzahl an Perioden
-nperperiod =                % Anzahl an Zeitpunkten pro Periode
-tend =                      % Endzeit
-nt =                        % Gesamtzahl an Zeitpunkten
-time =                      % Zeit-Vektor
+periods =   3                % Anzahl an Perioden 50Hz -> 0.02s 
+nperperiod =     50            % Anzahl an Zeitpunkten pro Periode
+tend =        0.06              % Endzeit
+nt =        periods*nperperiod   % Gesamtzahl an Zeitpunkten
+time =  linspace(0,tend,nt)                    % Zeit-Vektor
 
 % Anfangswert für die Lösung der DGL wählen
-% abow_init = ...
+ abow_init = zeros(np,1);
 
 % Anregung jsbow als Funktion der Zeit
-% jsbow_t = @(t)(....);
+ jsbow_t = @(t)(jsbow*sin(omega*t));
 
 % Lösen des MQS-Problems
 [abow_mqs_t, hbow_mqs_t, bbow_mqs_t, jbow_mqs_t, ebow_mqs_t] = solveMQST(msh, mui, kappa, abow_init, jsbow_t, time, bc);
@@ -232,7 +232,7 @@ plot(time,jbow_mqs_t(idx2plot,:));
 title('Loesung des quasistatischen Problems im Zeitbereich');
 xlabel('Zeit');
 ylabel('Strom jbow_{mqs,t}');
-
+%{
 
 %% Aufgabe 8
 % -------------------------------------------------------------------------
