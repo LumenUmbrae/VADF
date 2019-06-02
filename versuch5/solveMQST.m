@@ -46,9 +46,13 @@ function [abow, hbow, bbow, jbow, ebow] = solveMQST(msh, mui, kap, abow_init, js
 
     % Zeitintegrationsschleife
     %% wenn man n t Punkte hat dann n-1 tau intervale
-    for i=1:(nt-1)
-      
+    for i=1:nt
+      if i==1
         tau = time(i+1)-time(i);
+      else
+        tau = time(i)-time(i-1);
+      end
+      
       
       
 
