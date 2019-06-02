@@ -54,16 +54,58 @@ Es sollen sinnvolle Randbedingungen verwendet werden.
       
 Stellen Sie nun geeignete Bedingungen für den unbekannten Realteil und Imaginärteil des komplexen Phasors auf, um diese zu bestimmen. Formen Sie daraufhin diese Beziehungen so um, dass Sie diejenigen Zeitpunkte erhalten, an denen Sie den Realteil und den Imaginärteil des Phasors direkt am eingeschwungenen Zeitsignal ablesen können.\label{exer:calcTimes4RealImag}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
+Betrachtet man die Zeitbereichslösung in Abhängigkeit eines Phasors so ergibt sich 
+\begin{equation}
+a(x,t)=\Re\{\underline{a}(x)\ e^{j\omega t}\}.
+\label{eq:time_dom}
+\end{equation}
+Im Frequenzbereich kann man nun auch eine Gleichung aufstellen, indem man die Lösung in Real- und Imaginärteil aufteilt.
+\begin{equation}
+\underline{a}(x)=\underline{a}_{\Re}(x) +j\underline{a}_{\Im}(x)=|\underline{a}(x)|\ \text{cos}(\Phi)+j|\underline{a}(x)|\ \text{sin}(\Phi)
+\label{eq:freq_dom}
+\end{equation}
+Nun soll derjenige Zeitpunkt $t^*$ ermittelt werden, an dem man den Real- und Imaginärteil des Phasors direkt am eingeschwungenen Zeitsignal ablesen kann.
+Dazu verwendet man Gleichung \ref{eq:time_dom} und löst diese weiter auf. Man erhält:
+\begin{equation}
+a(x,t^*)=\Re\{\underline{a^*}(x)\ e^{j\omega t^*}\}=|\underline{a^*}(x)|\ \text{cos}(\omega t^*+\Phi).
+\label{eq:time_dom_2}
+\end{equation}
+Um nun die Zeitpunkte $t^*$ erhalten muss man nun die Zeitbereichslösung aus Gleichung \ref{eq:time_dom_2} mit der Frequenzbereichslösung aus Gleichung \ref{eq:freq_dom} vergleichen. Das Ganze einmal für den Realteil und für den Imaginärteil.\\
+\\
+Realteil:
+\begin{eqnarray*}
+|\underline{a^*}(x)|\ \text{cos}(\omega t^*+\Phi)&=&|\underline{a^*}(x)|\ \text{cos}(\Phi)\\
+\text{cos}(\omega t^*+\Phi)&=&\text{cos}(\Phi)\\
+\omega t^*&=&2n\pi\\
+t^*&=&\frac{n}{f}\\
+t^*&=&nT
+\end{eqnarray*}
+\\
+Imaginärteil:
+\begin{eqnarray*}
+|\underline{a}(x)|\ \text{sin}(\Phi)&=&|\underline{a}(x)|\ \text{cos}(\Phi-\frac{\pi}{2})\\
+|\underline{a}(x)|\ \text{cos}(\Phi-\frac{\pi}{2})&=&|\underline{a^*}(x)|\ \text{cos}(\omega t^*+\Phi)\\
+\text{cos}(\Phi-\frac{\pi}{2})&=&\text{cos}(\omega t^*+\Phi)\\
+\omega t^*&=&2n\pi-\frac{\pi}{2}\\
+t^*&=&nT-\frac{T}{4}
+\end{eqnarray*}
+\\
+Es ergeben sich somit für den Realteil die Zeitpunkte $t^*_{\Re}=nT$ und für den Imaginärteil die Zeitpunkte $t^*_{\Im}=nT-\frac{\pi}{2}$, um die jeweiligen Phasoren am Zeitsignal ablesen zu können.
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{5.} Geben Sie für die Problemstruktur und unter der Voraussetzung, dass in der eingezeichneten Stromschleife ein Gleichstrom von $1\,\text{kA}$
       fließt, die Einträge des Stromdichtevektors $\jfit_\text{s}$ an. Bauen Sie den Stromdichtevektor $\jfit_\text{s}$ wie gewohnt mit dem kanonischen Indizierungsschema auf.\label{exer:calcCurrentExcitation}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
+Die Stellen, an denen der Stromdichtevektor $\jfit_\text{s}$ nicht Null Einträge besitzt, sind durch das kanonische Indizierungsschema gegeben. Somit kann man $\jfit_\text{s}$ direkt aufstellen.
+\begin{eqnarray*}
+	\jfit_\text{s}(87)&=&1000\ \text{A}\\
+	\jfit_\text{s}(93)&=&-1000\ \text{A}\\
+	\jfit_\text{s}(267)&=&-1000\ \text{A}\\
+	\jfit_\text{s}(268)&=&1000\ \text{A}\\
+\end{eqnarray*}
 
 % --> Aufgabe
 \begin{framed}
