@@ -122,7 +122,7 @@ Die Stellen, an denen der Stromdichtevektor $\jfit_\text{s}$ nicht Null Einträg
 	\jfit_\text{s}(268)&=&1000\ \text{A}\\
 \end{eqnarray*}
 
-Da nur in dem Leiterring ein Strom fließt, treten nur in den Edges Ströme und somit auch Stromdichten auf. So besteht der Stromdichtendvektor $\jfit$ aus Nullen, bis auf die Stellen 84 und 93 wo der Strom von $1000 \  \text A$ in Richtung der der Kanten Fließt und somit die Einträge gleich $1000$ sind. In den Indizes 267 und 268 hingegen fließt der Strom entgegen der Kantenrichtung und die Einträge sind somit $-1000$. 
+%Da nur in dem Leiterring ein Strom fließt, treten nur in den Edges Ströme und somit auch Stromdichten auf. So besteht der Stromdichtendvektor $\jfit$ aus Nullen, bis auf die Stellen 84 und 93 wo der Strom von $1000 \  \text A$ in Richtung der der Kanten Fließt und somit die Einträge gleich $1000$ sind. In den Indizes 267 und 268 hingegen fließt der Strom entgegen der Kantenrichtung und die Einträge sind somit $-1000$. 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{6.}\label{loop}
@@ -146,6 +146,14 @@ Da nur in dem Leiterring ein Strom fließt, treten nur in den Edges Ströme und 
 
 \emph{Fügen Sie hier Ihre Lösung ein}
 
+Aus den Gleichungen \ref{eq:approx1} und \ref{eq:approx2} ergibt sich durch gleichsetzen
+\begin{equation}
+	\frac{-\efit_{n+1} - \efit_{n}}{2} \approx \frac{\afit_{n+1} - \afit_{n}}{\Delta t}
+\end{equation}
+Umstellen nach $\efit_{n+1}$ führt auf
+\begin{equation}
+	\efit_{n+1} = -2\frac{\afit_{n+1}-\afit_{n}}{\Delta t} - \efit_{n}
+\end{equation}
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{7.} Weiterhin wird die Struktur aus Abbildung~\ref{fig:strukt} betrachtet. Überlegen Sie sich, wie
@@ -154,7 +162,10 @@ Da nur in dem Leiterring ein Strom fließt, treten nur in den Edges Ströme und 
       \label{exer:calcDkap}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Da für den Elektrische Gitterstrom der Zusammenhang $\jfit = \Mkap \efit$ gilt und dies sehr ähnlich ist mit $\dfit = \Meps \efit$ kann die Materialmatrix $\Mkap$ durch eine leicht modifizierte Funktion \lstinline{createMeps} erstellt werden. 
+\\
+
+%\emph{Fügen Sie hier Ihre Lösung ein}
 
 \section{Aufgaben während der Praktikumssitzung}
 
