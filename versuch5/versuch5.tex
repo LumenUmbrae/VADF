@@ -143,9 +143,7 @@ Die Stellen, an denen der Stromdichtevektor $\jfit_\text{s}$ nicht Null Einträg
       in Abhängigkeit von ihrem jeweils letzten Wert und zwei
       Potentialwerten beschreibt.\label{exer:formulaEfit4pots}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+\noindent
 Aus den Gleichungen \ref{eq:approx1} und \ref{eq:approx2} ergibt sich durch gleichsetzen
 \begin{equation}
 	\frac{-\efit_{n+1} - \efit_{n}}{2} \approx \frac{\afit_{n+1} - \afit_{n}}{\Delta t}
@@ -161,7 +159,7 @@ Umstellen nach $\efit_{n+1}$ führt auf
       müssen Sie daher nur leicht modifizieren, um die Materialmatrix $\Mkap$ zu erstellen?
       \label{exer:calcDkap}
 \end{framed}
-
+\noindent
 Da für den Elektrische Gitterstrom der Zusammenhang $\jfit = \Mkap \efit$ gilt und dies sehr ähnlich ist mit $\dfit = \Meps \efit$ kann die Materialmatrix $\Mkap$ durch eine leicht modifizierte Funktion \lstinline{createMeps} erstellt werden. 
 \\
 
@@ -219,14 +217,12 @@ Frequenz $f=50\,\text{Hz}$ gelöst werden:
             gelöst werden (in \matlab\;gegeben als \lstinline{pcg}). Damit dieses konvergiert, müssen zunächst die Beiträge der Geisterkanten aus der Systemmatrix und der rechten Seite entfernt werden. Hierbei ist Ihnen die bereits gestellte Methode \lstinline{getGhostEdges} eine gute Hilfe. Außerdem muss ein geeigneter Vorkonditionierer (engl.\ preconditioner) gewählt werden. Besonders leicht zu implementieren ist z.B. der Jacobi Vorkonditionierer $\mathbf{M} = \text{diag}\,\Amat$.
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{5.} Verwenden Sie Methode~\eqref{pro:solveMqs} in \lstinline{versuch5.m} und stellen Sie die Stromdichteverteilung in der Grenzfläche von Vakuum und leitender Platte als Vektorplot unter Verwendung von der gegebenen Methode \lstinline{plotEdgeVoltage.m} grafisch dar.\label{exer:currentDensityAtInterface}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 Des Weiteren soll dasselbe Problem im Zeitbereich mit dem impliziten
     \textsc{Euler}-Verfahren berechnet werden. Dazu muss ein
@@ -262,7 +258,6 @@ Des Weiteren soll dasselbe Problem im Zeitbereich mit dem impliziten
 Die Zeitbereichslösung wird hier mit $\bbow{\mathbf{j}}_\text{mqs,t}$ und die in den Zeitbereich transformierte Frequenzbereichslösung mit $\bbow{\mathbf{j}}_\text{mqs,f,t}$ bezeichnet. Implementieren Sie diese Auswertung in \lstinline{versuch5.m}.\label{exer:compareFreqVStimeInTime}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
 \begin{framed}
@@ -273,7 +268,6 @@ Die Zeitbereichslösung wird hier mit $\bbow{\mathbf{j}}_\text{mqs,t}$ und die i
     verwendet werden. Die Frequenzbereichslösung wird hier mit $\bbow{\mathbf{j}}_\text{mqs,f}$ und die in den Frequenzbereich transformierte Zeitbereichslösung mit $\bbow{\mathbf{j}}_\text{mqs,f,t}$ bezeichnet. Implementieren Sie diese Auswertung in \lstinline{versuch5.m}.\label{exer:compareFreqVStimeInFreq}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
   \begin{framed}
@@ -281,7 +275,7 @@ Die Zeitbereichslösung wird hier mit $\bbow{\mathbf{j}}_\text{mqs,t}$ und die i
       variierender Schrittweite in einem Skript \lstinline{plotConvSolveMQST} grafisch dar und beobachten Sie den entstehenden zeitlichen Diskretisierungsfehler. Bestimmen Sie die Ordnung des Zeitintegrationsverfahrens.\label{exer:relDiffMQSFvsMQST}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+
 
 
 

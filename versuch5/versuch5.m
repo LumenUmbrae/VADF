@@ -7,10 +7,6 @@ clear all;
 % Konsolenausgabe
 disp('Gitter erstellen')
 % Erstellen des Gitters mit cartMesh
-% xmesh = 
-% ymesh = 
-% zmesh = 
-% msh = cartMesh(xmesh, ymesh, zmesh);
 
  xmesh = [1 2 3 4 5 6];
  ymesh = [1 2 3 4 5];
@@ -50,83 +46,12 @@ jsbow(93) = -1000;
 jsbow(267) = -1000;
 jsbow(268) = 1000;
 
-%TODO: Kapa und Mui von den Punkten auf die Flächen mitteln. Inverse von permeabilität bestimen mit der Formel, nihct nur inverse
-
 % Erstellen der Materialverteilung mui und kappa mithilfe von boxmesher
-disp('Materialmatrizen erstellen')
-% boxeskappa(1).box = [ ,  ,  ,  ,  , ];
-% boxeskappa(1).value = 
-% kappa = boxMesher(msh, boxeskappa, ...);
-
-
-%{
-LeiterSchichten
-%erstellen der kappas in die jeweiligen Richtungen
-direcktionShift = 0;
-kappa = zeros(3*np, 1);
-i=1;
-anzCondLayer = 2;
-anzNodes = anzCondLayer*nx*nz
-
-% x-Richtung
-for i<=nz
-  j =1;
-  for j<=anzCondLayer
-    k = 1;
-    for k<=nx
-      n = k*Mx+j*My+z*Mz;
-      fac = 1;
-      if k==nx
-        fac = 0;
-      endif
-      if j==0|
-      kappa(n) = 
-      
-      
-    endfor
-  endfor  
-endfor
-  
-
-
-
-
-boxeskappa(1).box = [ 1, nx-1 , 1,  6,  1, 1]; 
-boxeskappa(1).value = 0.5*10E6; %Leitwert von Fe
-kappaI1 = boxMesher(msh, boxeskappa, 0);
-
-
-boxeskappa(1).box = [ 1, nx-1 , 2,  6,  2, 2]; %obere Grenzschicht, Mitte
-boxeskappa(1).value = 0.5*10E6; %Leitwert von Fe
-kappaI2 = boxMesher(msh, boxeskappa, 0);
-
-kappaI = kappaI1.+kappaI2;
-
-boxeskappa(1).box = [ 1, 6 , 1,  5,  1, 1]; %untere Schicht
-boxeskappa(1).value = 0.5*10E6; %Leitwert von Fe
-kappaJ1 = boxMesher(msh, boxeskappa, 0);
-
-
-boxeskappa(1).box = [ 1, 6 , 1,  5,  2, 2];
-boxeskappa(1).value = 0.5*10E6; %Leitwert von Fe
-kappaJ2 = boxMesher(msh, boxeskappa, 0);
-
-kappaJ = kappaJ1.+kappaJ2;
-
-boxeskappa(1).box = [ 1, 6 , 1,  6,  1, 1];
-boxeskappa(1).value = 10E6; %Leitwert von Fe
-kappaK = boxMesher(msh, boxeskappa, 0);
-
-kappa = [kappaI; kappaJ; kappaK];
-%}
+disp('Materialmatrizen erstellen');
 
 boxeskappa(1).box = [ 1, 6, 1,  6,  1, 1];
 boxeskappa(1).value = 10E6; %Leitwert von Fe
 kappa = boxMesher(msh, boxeskappa, 0);
-
-% boxesmu(1).box = [ ,  ,  ,  ,  , ];
-% boxesmu(1).value = 
-% mu = boxMesher(msh, boxesmu, ...);
 
 
 boxesmu(1).box = [ 1, 6 , 1,  6,  1, 1];
