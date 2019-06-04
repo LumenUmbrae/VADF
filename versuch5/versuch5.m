@@ -155,7 +155,8 @@ if solve_statik
 	title('Statische Loesung des Vektorpotentials')
 
     % Grafisches Darstellen der z-Komponente des B-Feldes
-##	  surf(xmesh,ymesh,
+	  bbow_ms_z=bbow_ms(2*msh.np+1:3*np);
+    surf(xmesh,ymesh,bbow_ms_z);
 end
 
 % Verschiebt diese Zeile zur nächsten Aufgabe, wenn Aufgabe 3 abgeschlossen ist
@@ -275,7 +276,7 @@ legend('Zeitloesung','Frequenzloesung')
 % -> Implementierung der Fehlernorm aus der Aufgabenstellung
  norm1_t = sqrt(jbow_mqs_t.^2-jbow_mqs_f_t.^2);
  norm2_t = sqrt(jbow_mqs_f_t.^2);
- errorTimeVSfrequency = max(norm1_T)/max(norm2_t)
+ errorTimeVSfrequency = max(norm1_t)/max(norm2_t)
 % fprintf('Relativer Fehler im Zeitbereich: %e\n',errorTimeVSfrequency);
 
 %% Aufgabe 9
@@ -294,9 +295,9 @@ legend('Zeitloesung','Frequenzloesung')
      t_imag = -1/(f*4)
     jbow_re_t = zeros(3*msh.np,1);
     jbow_im_t = zeros(3*msh.np,1);
-    for i = 1:3*msh.np
-        jbow_re_t(i) = interp1(real(jbow_mqs_t));
-        jbow_im_t(i) = interp1(real(jbow_mqs_t*e^(i*omega*t_imag)));
+    for k = 1:3*msh.np
+        jbow_re_t(k) = interp1(real(jbow_mqs_t));
+        jbow_im_t(k) = interp1(real(jbow_mqs_t*e^(i*omega*t_imag)));
     end
 
 

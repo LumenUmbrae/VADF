@@ -20,7 +20,7 @@
 function plotConvSolveMQST(msh, mui, kappa, jsbow, jbow_mqs_f, periods, tend, f, nperperiodMax, bc)
 
 % Kreisfrequenz
-% omega =
+ omega = 2*pi*f;
 
 % Samples pro Periode als Vektor für Konvergenzstudie 
 nperperiod_vec=floor(linspace(5,nperperiodMax,5));
@@ -33,7 +33,7 @@ errorPhasorImag = zeros(length(nperperiod_vec),1);
 % Anfangswert für die Lösung der DGL im Zeitbereich wählen
 % abow_init =
 
-for i=1:length(nperperiod_vec)
+for k=1:length(nperperiod_vec)
 
     nperperiod = nperperiod_vec(i);
     nt = periods*nperperiod + 1;
@@ -43,22 +43,21 @@ for i=1:length(nperperiod_vec)
     [~, ~, ~, jbow_mqs_t,~] = solveMQST(msh, mui, kappa, abow_init, jsbow, time, bc);
 
     % Transformation der Frequenzbereichslösung in den Zeitbereich
-    % jbow_mqs_f_t =
+     jbow_mqs_f_t = real(jbow_mqs_t*e^(i*omega*time));
     
     % Vergleich von Zeitlösung zur Frequenzlösung im Zeitbereich
     % -> Implementierung der Fehlernorm aus der Aufgabenstellung
-    % ...
-	% ...
-	% ...
-    %errorTimeDomain(i) = 
+    norm1_t = sqrt(jbow_mqs_t.^2-jbow_mqs_f_t.^2);
+    norm2_t = sqrt(jbow_mqs_f_t.^2);
+    errorTimeDomain(k) = max(norm1_t)/max(norm2_t);
 
 
 	% Vergleich von Zeitlösung zur Frequenzlösung im Frequenzbereich
     % (Vergleich der Phasoren)
 
     % Real- und Imaginärteil der Stromdichte aus Zeitsignal bestimmen
-    % t_real =
-    % t_imag =
+    t_real = 0;
+    t_imag = -1/(4*f);
     jbow_re_t = zeros(3*msh.np,1);
     jbow_im_t = zeros(3*msh.np,1);
     for j = 1:3*msh.np
@@ -67,8 +66,8 @@ for i=1:length(nperperiod_vec)
     end
 
     % Fehler Real- und Imaginärteil
-    % errorPhasorReal(i) = 
-    % errorPhasorImag(i) = 
+    % errorPhasorReal(k) = 
+    % errorPhasorImag(k) = 
 end
 
 % Plot Vergleich im Zeitbereich
