@@ -27,8 +27,19 @@ Es sollen sinnvolle Randbedingungen verwendet werden.
     gemittelten Leitfähigkeiten $\bar{\kappa}=(\bar{\kappa}_x\;\bar{\kappa}_y\;\bar{\kappa}_z)$ für die primalen Kanten, die von den primalen Punkten $P_{ik}$ für $(i,k)\in\{(3,1),(3,2),(3,3)\}$ ausgehen. Berechnen Sie zusätzlich die gemittelten inversen Permeabilitäten $\bar{\mu}^{-1}=(\bar{\mu}_x^{-1}\;\bar{\mu}_y^{-1}\;\bar{\mu}_z^{-1})$ für die dualen Kanten, die von den dualen Punkten $\widetilde{P}_{ik}$ mit $(i,k)\in\{(3,1),(3,2)\}$ ausgehen. Verwenden Sie zum Ermitteln dieser gemittelten Werte eine Taylorreihenentwicklung analog zu Versuch 3.\label{exer:averagedMaterials}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Um die Werte zu bestimen, nutzt man die folgende 2 Formeln:
+\begin{enumerate}
+	\item Leitfähigkeit $\bar{\kappa}$
+     bspl. Für x-Komponente
+     \begin{eqnarray*} \bar{\kappa}_x(n)& = &\frac{1}{4\tilde{A}_x}(\kappa_x(n-M_y-M_z)A_x(n-M_y-M_z)\\
+     &  &+\kappa_x(n-M_z)A_x(n-M_z)\\
+     &    &+\kappa_x(n)A_x(n)\\
+     &   &+\kappa_x(n-M_y)A_x(n-M_y))
+    \end{eqnarray*}
 
+ \item inversen Permäbilität $\bar{\mu}^{-1}$ bspl. für x-Komponente
+$$\bar{\mu}_x^{-1}=\frac{\frac{\Delta x(n)}{2\mu(n)}+\frac{\Delta x(n-M_x)}{2\mu(n-M_x)}}{\Delta\tilde{x}(n)}$$ mit $$ \Delta\tilde{x}(n)=\frac{\Delta x(n-M_x)}{2}+\frac{\Delta x(n)}{2}$$
+\end{enumerate}
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{2.} Bestimmen Sie die Systemmatrix $\Amat_\text{F}$ des magnetoquasistatischen Problems im Frequenzbereich (Gleichung (5.14)).\label{exer:systemMatMQSF}
