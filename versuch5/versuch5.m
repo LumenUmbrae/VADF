@@ -141,7 +141,7 @@ mui = nullInv(mu);
 % -------------------------------------------------------------------------
 % ----------- Lösen des magnetostatischen Problems ------------------------
 % -------------------------------------------------------------------------
-solve_statik = true;
+solve_statik = false;
 if solve_statik
 	disp('Loesung des statischen Problems')
     
@@ -159,14 +159,13 @@ if solve_statik
 end
 
 % Verschiebt diese Zeile zur nächsten Aufgabe, wenn Aufgabe 3 abgeschlossen ist
-return
 
 
 %% Aufgabe 5
 % -------------------------------------------------------------------------
 % ----------- Magnetoquasistatisches Problem im Frequenzbereich -----------
 % -------------------------------------------------------------------------
-disp('L�sung des quasistatischen Problems im Frequenzbereich')
+disp('L�sung des quasistatischen Problems im Frequenzbereich')
 
 % Frequenz festlegen
  f = 50;
@@ -191,6 +190,7 @@ title(['Imaginaerteil der Stromdichte auf der Plattenoberflaeche, '  ...
       'Quasistatik, Frequenzbereich'])
 xlabel('x')
 ylabel('y') 
+
 
 
 %% Aufgabe 7
@@ -232,7 +232,9 @@ plot(time,jbow_mqs_t(idx2plot,:));
 title('Loesung des quasistatischen Problems im Zeitbereich');
 xlabel('Zeit');
 ylabel('Strom jbow_{mqs,t}');
-%{
+
+return
+
 
 %% Aufgabe 8
 % -------------------------------------------------------------------------
@@ -243,8 +245,9 @@ ylabel('Strom jbow_{mqs,t}');
 disp('Vergleich Frequenzbereich <=> Zeitbereich')
 
 % Transformation der Frequenzbereichslösung in den Zeitbereich
-% abow_mqs_f_t = ;
-% jbow_mqs_f_t = ;
+time
+ abow_mqs_f_t = abs(abow_mqs_f).*cos(omega*time+angle(abow_mqs_f));
+ jbow_mqs_f_t = abs(jbow_mqs_f).*cos(omega*time+angle(jbow_mqs_f));
 
 % Vektorpotential (Lösung der DGL) Frequenzbereich vs. Zeitbereich für gewählte duale Fläche (idx2plot) über die Zeit plotten
 figure(7)
@@ -270,10 +273,9 @@ legend('Zeitloesung','Frequenzloesung')
 
 % Vergleich von Zeitlösung zur Frequenzlösung im Zeitbereich
 % -> Implementierung der Fehlernorm aus der Aufgabenstellung
-% ...
-% ...
-% ...
-% errorTimeVSfrequency = 
+ norm1_t = sqrt(jbow_mqs_t.^2-jbow_mqs_f_t.^2);
+ norm2_t = sqrt(jbow_mqs_f_t.^2);
+ errorTimeVSfrequency = max(norm1_T)/max(norm2_t)
 % fprintf('Relativer Fehler im Zeitbereich: %e\n',errorTimeVSfrequency);
 
 %% Aufgabe 9
@@ -288,22 +290,22 @@ legend('Zeitloesung','Frequenzloesung')
 % Transformation der Zeitbereichslösung in den Frequenzbereich
 % Bestimmung von Real- und Imaginärteil des komplexen Phasors,
 % der aus dem Zeitsignal gewonnen werden kann
-    % t_real =
-    % t_imag =
+     t_real = 0;
+     t_imag = -1/(f*4)
     jbow_re_t = zeros(3*msh.np,1);
     jbow_im_t = zeros(3*msh.np,1);
     for i = 1:3*msh.np
-    %    jbow_re_t(i) = interp1(...);
-    %    jbow_im_t(i) = ...
+        jbow_re_t(i) = interp1(real(jbow_mqs_t));
+        jbow_im_t(i) = interp1(real(jbow_mqs_t*e^(i*omega*t_imag)));
     end
 
 
 % Vergleich von Real- und Imaginärteil des Phasors aus dem Zeitbereich
 % mit dem Phasor aus der Frequenzbereichslösung (Implementierung der Formel aus Aufgabenstellung)
-% errorPhasorReal = ...
-% errorPhasorImag = ...
-% fprintf('Relativer Fehler Realteil: %e\n',errorPhasorReal);
-% fprintf('Relativer Fehler Imaginärteil: %e\n',errorPhasorImag);
+ errorPhasorReal = max(sqrt(jbow_re_t.^2-real(jbow_mqs_f).^2))/max(sqrt(real(jbow_mqs_f).^2));
+ errorPhasorImag = max(sqrt(jbow_im_t.^2-imag(jbow_mqs_f).^2))/max(sqrt(imag(jbow_mqs_f).^2));
+ fprintf('Relativer Fehler Realteil: %e\n',errorPhasorReal);
+ fprintf('Relativer Fehler Imaginärteil: %e\n',errorPhasorImag);
   
 % Plot: gleiches Feldbild für Phasoren des Zeitintegration zum optischen 
 % Vergleich mit den Plots, die man für die Phasoren des Frequenzbereiches
@@ -330,6 +332,5 @@ zlabel('z')
 % -------------------------------------------------------------------------
 
 % Konvergenz des Fehlers der Zeitintegration
-% nperperiodMax = 100
-% plotConvSolveMQST(msh,mui,kappa,jsbow_t,jbow_mqs_f,periods,tend,f,nperperiodMax,bc);
-%}
+ nperperiodMax = 100
+ plotConvSolveMQST(msh,mui,kappa,jsbow_t,jbow_mqs_f,periods,tend,f,nperperiodMax,bc);

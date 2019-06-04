@@ -42,7 +42,7 @@ function [abow, hbow, bbow, jbow, relRes] = solveMQSF(msh, mui, kap, jsbow, f, b
     % Einträge der Geisterkanten aus Systemmatrix und rechter Seite
     % streichen (da pcg sonst nicht konvergieren würde, ausprobieren!)
     idxGhostEdges = getGhostEdges(msh);
-    idxAllEdges = 1:3*np;
+    idxAllEdges = 1:(3*np);
     idxExistingEdges = setdiff(idxAllEdges,idxGhostEdges);
     A_reduced = A(idxExistingEdges,idxExistingEdges);
     rhs_reduced = rhs(idxExistingEdges);
