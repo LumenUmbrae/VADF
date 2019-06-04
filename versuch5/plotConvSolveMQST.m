@@ -35,7 +35,7 @@ errorPhasorImag = zeros(length(nperperiod_vec),1);
 
 for k=1:length(nperperiod_vec)
 
-    nperperiod = nperperiod_vec(i);
+    nperperiod = nperperiod_vec(k);
     nt = periods*nperperiod + 1;
     time = linspace(0,tend,nt);
     

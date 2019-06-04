@@ -51,14 +51,14 @@ function [abow, hbow, bbow, jbow, relRes] = solveMQSF(msh, mui, kap, jsbow, f, b
      abow = zeros(rows(A),1);
     
     % Vorkonditionierer wählen (hier Jacobi)
-     M = diag(diag(A_reduced));
+     M = A_reduced;
    
     % Gleichungssystem loesen
     [abow_reduced, flag, relRes, iter, resVec] = pcg(A_reduced, rhs_reduced, 1e-6, 1000, M);
     if flag == 0
       fprintf('pcg: converged at iteration %2d to a solution with relative residual %d.\n',iter,relRes);
     else
-      error('pcg: some error ocurred, please check flag output.')
+      error('pcg: some error ocurred, please check flag output %2d.',flag)
     end
     relRes = resVec./norm(rhs_reduced);
     

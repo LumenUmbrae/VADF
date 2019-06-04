@@ -63,7 +63,7 @@ function [abow, hbow, bbow, jbow, ebow] = solveMQST(msh, mui, kap, abow_init, js
        A =c'*mmui*c+(1/tau)*mkap;
       
       % Rechte Seite rhs fuer diesen Zeitschritt bestimmen
-       je = jsbow_t(time(i+1));
+       je = jsbow_t(time(i));
        rhs = je + (1/tau)*mkap*abow_t_old;  
       
       % Gleichungssystem loesen

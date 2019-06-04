@@ -66,7 +66,7 @@ mui = nullInv(mu);
 % -------------------------------------------------------------------------
 % ----------- Lösen des magnetostatischen Problems ------------------------
 % -------------------------------------------------------------------------
-solve_statik = false;
+solve_statik = true;
 if solve_statik
 	disp('Loesung des statischen Problems')
     
@@ -80,8 +80,14 @@ if solve_statik
 	title('Statische Loesung des Vektorpotentials')
 
     % Grafisches Darstellen der z-Komponente des B-Feldes
-	  bbow_ms_z=bbow_ms(2*msh.np+1:3*np);
-    surf(xmesh,ymesh,bbow_ms_z);
+	  bbow_ms_z=bbow_ms(2*msh.np+1+2*nx*ny:2*msh.np+3*nx*ny);
+  
+  [X,Y]=meshgrid(xmesh,ymesh);
+    
+    
+    toplot=reshape(bbow_ms_z,nx,ny);
+    figure(2)
+    surf(X,Y,toplot');
 end
 
 % Verschiebt diese Zeile zur nächsten Aufgabe, wenn Aufgabe 3 abgeschlossen ist
@@ -128,15 +134,15 @@ disp('Loesung des quasistatischen Problems im Zeitbereich')
 % Zeitparameter so setzen, dass drei Perioden durchlaufen werden
 periods =   3                % Anzahl an Perioden 50Hz -> 0.02s 
 nperperiod =     50            % Anzahl an Zeitpunkten pro Periode
-tend =        0.06              % Endzeit
+tend =        periods/f            % Endzeit
 nt =        periods*nperperiod   % Gesamtzahl an Zeitpunkten
 time =  linspace(0,tend,nt)                    % Zeit-Vektor
 
 % Anfangswert für die Lösung der DGL wählen
- abow_init = zeros(np,1);
+ abow_init =zeros(3*np,1);
 
 % Anregung jsbow als Funktion der Zeit
- jsbow_t = @(t)(jsbow*sin(omega*t));
+ jsbow_t = @(t)(jsbow*cos(omega*t));
 
 % Lösen des MQS-Problems
 [abow_mqs_t, hbow_mqs_t, bbow_mqs_t, jbow_mqs_t, ebow_mqs_t] = solveMQST(msh, mui, kappa, abow_init, jsbow_t, time, bc);
