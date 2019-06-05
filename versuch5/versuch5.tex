@@ -40,6 +40,19 @@ Um die Werte zu bestimen, nutzt man die folgende 2 Formeln:
  \item inversen Permäbilität $\bar{\mu}^{-1}$ bspl. für x-Komponente
 $$\bar{\mu}_x^{-1}=\frac{\frac{\Delta x(n)}{2\mu(n)}+\frac{\Delta x(n-M_x)}{2\mu(n-M_x)}}{\Delta\tilde{x}(n)}$$ mit $$ \Delta\tilde{x}(n)=\frac{\Delta x(n-M_x)}{2}+\frac{\Delta x(n)}{2}$$
 \end{enumerate}
+
+So ergibt sich die Leitfähigkeiten zu:
+\begin{enumerate}
+	\item $(3,1) = (1\ 1\ 1) \cdot 5,8\cdot 10^7$S/m
+	\item $(3,2) = (2,9\ 2,9\ 0)\cdot 10^7$S/m
+	\item $(3,3) = (0\ 0\ 0)$
+\end{enumerate}
+Die inversen ermtivitäten auf den Dualen Kanten ergeben sich zu:
+\begin{enumerate}
+	\item $(3,1) = (1000\ 1000\ 500,5)\cdot \mu_0$
+	\item $(3,2) = (\mu_0\ \mu_0\ \mu_0)$
+\end{enumerate}
+
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{2.} Bestimmen Sie die Systemmatrix $\Amat_\text{F}$ des magnetoquasistatischen Problems im Frequenzbereich (Gleichung (5.14)).\label{exer:systemMatMQSF}
@@ -207,9 +220,15 @@ Zuerst soll das magnetostatische Problem gelöst werden:
         \begin{framed}
 	\noindent \textbf{3.} Erweitern Sie das Skript \lstinline{versuch5.m} und verwenden Sie Methode~\eqref{pro:solveMsVec} und \lstinline{plotEdgeVoltage}, um das magnetische Vektorpotential in der $x$-$y$-Ebene bei $k=3$ grafisch darzustellen. Visualisieren Sie außerdem die $z$-Komponente der magnetischen Flussdichte in der gleichen Schnittebene. Verwenden Sie hierfür den \lstinline{surf}-Befehl.\label{exer:visualizeMagVecPot}
 \end{framed}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{versuch5/StatischeLoesungdesVektorpotenzials}
+	\caption{Statische Lösung des magnetischen Vektorpotenzials}
+	\label{fig:statischeloesungdesvektorpotenzials}
+\end{figure}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+Das Vektorpotenzial des gegebenen Problems ist in Abb. \ref{fig:statischeloesungdesvektorpotenzials} dargestellt. Es ist eine Deutliche Überhöhung am unteren Rand des Rechengebietes zu erkennen. 
+\\
 %
 Nun soll das Problem für eine harmonische Anregung bei der
 Frequenz $f=50\,\text{Hz}$ gelöst werden:
