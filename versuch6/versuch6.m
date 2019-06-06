@@ -75,19 +75,22 @@ end
 %% Experimentelle Bestimmung mithilfe der Energie des Systems
 
 % Parameter der Zeitsimulation
-% sigma = 
-% dt = 
-% tend = 
-% steps = 
+sigma = 6E-10;
+% dt = tend/steps;     
+ tend = 2*sigma;
+ steps = 100;
+  dt = tend/steps;     
+
 sourcetype= 1;  % 1: Gauss Anregung, 2: Harmonisch, 3: Konstante Anregung
 
 % Anregung jsbow als anonyme Funktion, die einen 3*np Vektor zurückgibt
 % Anregung wird später in Schleife für t>2*sigma_gauss abgeschnitten, also null gesetzt
 jsbow_space = zeros(3*np, 1);
-% jsbow_space(...) = ...
+ jsbow_space = ones(3*np, 1);
 
 % Gauss Anregung
 % jsbow_gauss = @(t)(jsbow_space * ...);
+ jsbow_gauss = @(t)(jsbow_space * e^(-4*((t-sigma)/sigma)^2));
 
 % Harmonische Anregung (optional)
 % jsbow_harm = @(t)(jsbow_space * ...);
@@ -109,7 +112,7 @@ draw_only_every = 4;
 % Zeitintegration
 for ii = 1:steps
     % Zeitpunkt berechnen
-    % t = 
+     t = ii*dt;
 
     % alte Werte speichern
     ebow_old = ebow_new;
@@ -152,7 +155,7 @@ for ii = 1:steps
     % energy_t = 
     % leistungQuelle_t = 
      energy_t = 0,5*(ebow_new'*Meps*ebow_new + hbow_new'*Mmu*hbow_new);
-     leistungQuelle_t = ebow_new*js;
+     leistungQuelle_t = ebow_new'*js;
 
     % Energiewerte speichern
     energy(ii) =  energy_t;
