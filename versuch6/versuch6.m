@@ -10,9 +10,9 @@
  msh = cartMesh(xmesh, ymesh, zmesh); 
 
 % Gitterweiten in x-,y- und z-Richtung (äquidistant vorausgesetzt)
- delta_x = xmesh(2)-xmesh(1);
- delta_y = ymesh(2)-ymesh(1);
- delta_z = zmesh(2)-zmesh(1);
+ delta_x = min(diff(xmesh));
+ delta_y = min(diff(ymesh));
+ delta_z = min(diff(ymesh));
 
 Mx = msh.Mx;
 My = msh.My;
@@ -46,10 +46,10 @@ Mepsi = nullInv(Meps);
 %% CFL-Bedingung
 
 % Minimale Gitterweite bestimmen
- delta_s = min([delta_x,delta_y,delta_z]);
+ delta_s = [delta_x,delta_y,delta_z];
 % Berechnung und Ausgabe des minimalen Zeitschritts mittels CFL-Bedingung
- deltaTmaxCFL = sqrt(eps0*mu0)*sqrt(1/(1/delta_x^2+1/delta_y^2+1/delta_z^2));
-% fprintf('Nach CFL-Bedingung: deltaTmax = %e\n',deltaTmaxCFL);
+ deltaTmaxCFL = sqrt(eps0*mu0)*sqrt(1/(1/delta_s(1)^2+1/delta_s(2)^2+1/delta_s(3)^2));
+ fprintf('Nach CFL-Bedingung: deltaTmax = %e\n',deltaTmaxCFL);
 
 %% Stabilitätsuntersuchung mithilfe der Systemmatrix
 % Methode 1
