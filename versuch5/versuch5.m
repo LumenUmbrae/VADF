@@ -9,8 +9,8 @@ disp('Gitter erstellen')
 % Erstellen des Gitters mit cartMesh
 
  xmesh = [1 2 3 4 5 6];
- ymesh = [1 2 3 4 5];
- zmesh = [1 2 3 4 5 6];
+ ymesh = [1 2 3 4 5 6];
+ zmesh = [1 2 3 4 5];
  msh = cartMesh(xmesh, ymesh, zmesh);
 
  np = msh.np;
@@ -23,25 +23,25 @@ disp('Gitter erstellen')
  
  
  %Bestimmen der Abstände
- dX = [diff(xmesh), 0];
- dY = [diff(ymesh), 0];
- dZ = [diff(zmesh), 0];
- 
- [ds, dst, da, dat] = createGeoMats(msh);
-
-% tempM = eye(nx,nx).+diag(ones(nx-1,1),1); Bestimmen der dualen kantenlängen
- dDX = 0.5*dX*(eye(nx,nx).+diag(ones(nx-1,1),1));
- dDY = 0.5*dY*(eye(ny,ny).+diag(ones(ny-1,1),1));
- dDZ = 0.5*dZ*(eye(nz,nz).+diag(ones(nz-1,1),1));
+## dX = [diff(xmesh), 0];
+## dY = [diff(ymesh), 0];
+## dZ = [diff(zmesh), 0];
+## 
+## [ds, dst, da, dat] = createGeoMats(msh);
+##
+##% tempM = eye(nx,nx).+diag(ones(nx-1,1),1); Bestimmen der dualen kantenlängen
+## dDX = 0.5*dX*(eye(nx,nx).+diag(ones(nx-1,1),1));
+## dDY = 0.5*dY*(eye(ny,ny).+diag(ones(ny-1,1),1));
+## dDZ = 0.5*dZ*(eye(nz,nz).+diag(ones(nz-1,1),1));
 
 % Randbedingung für alle Raumrichtungen definieren [xmin, xmax, ymin, ymax, zmin, zmax] (0 = magnetisch, 1 = elektrisch)
 
- bc = [ 1, 1, 1, 1, 1, 1] 
+ bc = [ 0, 0, 0, 0, 0, 0] 
 
 % Erstellen von jsbow
 jsbow = zeros(3*np,1);
 
-jsbow(84) = 1000;
+jsbow(87) = 1000;
 jsbow(93) = -1000;
 jsbow(267) = -1000;
 jsbow(268) = 1000;
@@ -50,12 +50,12 @@ jsbow(268) = 1000;
 disp('Materialmatrizen erstellen');
 
 boxeskappa(1).box = [ 1, 6, 1,  6,  1, 1];
-boxeskappa(1).value = 10E6; %Leitwert von Fe
+boxeskappa(1).value = 5.8*10^7; %Leitwert von Fe
 kappa = boxMesher(msh, boxeskappa, 0);
 
 
 boxesmu(1).box = [ 1, 6 , 1,  6,  1, 1];
-boxesmu(1).value = 5000E-7 * 4*pi; %permabilität von Fe
+boxesmu(1).value = 1000E-7 * 4*pi; %permabilität von Fe
 mu = boxMesher(msh, boxesmu, pi*4E-7);
 
 % Inverse Permeabilität berechnen (siehe Hinweis Aufgabe 1)
@@ -66,7 +66,7 @@ mui = nullInv(mu);
 % -------------------------------------------------------------------------
 % ----------- Lösen des magnetostatischen Problems ------------------------
 % -------------------------------------------------------------------------
-solve_statik = true;
+solve_statik = false;
 if solve_statik
 	disp('Loesung des statischen Problems')
     
@@ -82,7 +82,7 @@ if solve_statik
     % Grafisches Darstellen der z-Komponente des B-Feldes
 	  bbow_ms_z=bbow_ms(2*msh.np+1+2*nx*ny:2*msh.np+3*nx*ny);
   
-  [X,Y]=meshgrid(xmesh,ymesh);
+    [X,Y]=meshgrid(xmesh,ymesh);
     
     
     toplot=reshape(bbow_ms_z,nx,ny);

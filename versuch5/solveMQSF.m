@@ -36,7 +36,7 @@ function [abow, hbow, bbow, jbow, relRes] = solveMQSF(msh, mui, kap, jsbow, f, b
      omega = 2*pi*f;   
     
     % Berechnung Systemmatrix A und rechte Seite rhs
-     A = c'*mmui*c+i.*omega.*mkap;
+     A = c'*mmui*c+i*omega*mkap;
      rhs = jsbow;
 
     % Einträge der Geisterkanten aus Systemmatrix und rechter Seite
@@ -48,13 +48,13 @@ function [abow, hbow, bbow, jbow, relRes] = solveMQSF(msh, mui, kap, jsbow, f, b
     rhs_reduced = rhs(idxExistingEdges);
    
     % Initialisieren der Lösung
-     abow = zeros(rows(A),1);
+     abow = zeros(3*np,1);
     
     % Vorkonditionierer wählen (hier Jacobi)
-     M = A_reduced;
+     M = diag(diag(A_reduced));
    
     % Gleichungssystem loesen
-    [abow_reduced, flag, relRes, iter, resVec] = pcg(A_reduced, rhs_reduced, 1e-6, 1000, M);
+    [abow_reduced, flag, relRes, iter, resVec] = bicgstab(A_reduced, rhs_reduced, 1e-6, 1000, M);
     if flag == 0
       fprintf('pcg: converged at iteration %2d to a solution with relative residual %d.\n',iter,relRes);
     else
