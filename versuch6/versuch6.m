@@ -152,6 +152,8 @@ for ii = 1:steps
     % Gesamtenergie und Quellenenergie für diesen Zeitschritt berechnen
     % energy_t = 
     % leistungQuelle_t = 
+     energy_t = 0,5*(ebow_new'*Meps*ebow_new + hbow_new'*Mmu*hbow_new);
+     leistungQuelle_t = ebow_new*js;
 
     % Energiewerte speichern
     energy(ii) =  energy_t;
