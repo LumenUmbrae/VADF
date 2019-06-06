@@ -1,5 +1,5 @@
 % Versuch 6
-
+clear all;
 %% Gitter erstellen (nicht mesh nennen, da dies ein Matlab-Befehl ist)
  nx = 11; %49, 93
  ny = 11; %49, 93
@@ -12,7 +12,7 @@
 % Gitterweiten in x-,y- und z-Richtung (äquidistant vorausgesetzt)
  delta_x = min(diff(xmesh));
  delta_y = min(diff(ymesh));
- delta_z = min(diff(ymesh));
+ delta_z = min(diff(zmesh));
 
 Mx = msh.Mx;
 My = msh.My;
@@ -29,10 +29,10 @@ np = msh.np;
 % Materialmatrizen gesetzt werden
 eps0 = 8.854e-12;
  eps_r = 1;
- epsilon = eps0*eps_r*ones(np,1);
+ epsilon = eps0*eps_r;
 mu0 = 4e-7*pi;
  mu_r = 1;
- mu = mu0*mu_r*ones(np,1);
+ mu = mu0*mu_r;
  mui = mu.^(-1);
  bcs = [1,1,1,1,1,1];
 
@@ -67,7 +67,7 @@ if msh.np<4000
  end
 
 % delta T bestimmen
- deltaTmaxEigA = 1/(2*lambdaMaxA)
+ deltaTmaxEigA = 2/abs(lambdaMaxA);
  fprintf('Nach Eigenwert-Berechnung von A: deltaTmax = %e\n', deltaTmaxEigA);
 
 end
