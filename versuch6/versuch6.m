@@ -78,7 +78,7 @@ end
 sigma = 6E-10;
 % dt = tend/steps;     
  tend = 2*sigma;
- steps = 100;
+ steps = 1000;
   dt = tend/steps;     
 
 sourcetype= 1;  % 1: Gauss Anregung, 2: Harmonisch, 3: Konstante Anregung
@@ -174,7 +174,7 @@ end
          jsbow_spatial = jsbow_const(step*dt);
      end
      nonzero_idx = find(jsbow_spatial~=0);
-     jsbow_plot(step) = jsbow_spatial(nonzero_idx);
+     jsbow_plot(step) = jsbow_spatial(nonzero_idx(step));
  end
  plot(dt:dt:dt*steps, jsbow_plot);
  xlabel('t in s');
