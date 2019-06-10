@@ -77,7 +77,7 @@ end
 % Parameter der Zeitsimulation
 sigma = 6E-10;
 % dt = tend/steps;     
- tend = 2*sigma;
+ tend = 5*sigma;
  steps = 100;
   dt = tend/steps;     
 
@@ -192,12 +192,10 @@ end
  ylabel('Energie des EM-Feldes W in J')
 
 % Zeitliche Änderung der Energie (Leistung)
-leistungSystem =  diff(energy);
+leistungSystem =  diff(energy)./dt;
  figure(4); clf;
  hold on
-
- 
- plot(dt:dt:dt*(steps), leistungSystem)
+ plot(dt:dt:dt*(steps-1), leistungSystem)
  plot(dt:dt:dt*steps, leistungQuelle, 'r')
  hold off
  legend('Leistung System', 'Leistung Quelle')
