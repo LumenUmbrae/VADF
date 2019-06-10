@@ -78,7 +78,7 @@ end
 sigma = 6E-10;
 % dt = tend/steps;     
  tend = 2*sigma;
- steps = 1000;
+ steps = 100;
   dt = tend/steps;     
 
 sourcetype= 1;  % 1: Gauss Anregung, 2: Harmonisch, 3: Konstante Anregung
@@ -158,7 +158,7 @@ for ii = 1:steps
     % Gesamtenergie und Quellenenergie für diesen Zeitschritt berechnen
     % energy_t = 
     % leistungQuelle_t = 
-     energy_t = 0,5*(ebow_new'*Meps*ebow_new + hbow_new'*Mmu*hbow_new);
+     energy_t = 0.5*(ebow_new'*Meps*ebow_new + hbow_new'*Mmu*hbow_new);
      leistungQuelle_t = ebow_new'*js;
 
     % Energiewerte speichern
