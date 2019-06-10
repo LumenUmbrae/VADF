@@ -134,8 +134,8 @@ Zeitschrittweite soll durch drei verschiedene Methoden gefunden werden. Nutzen S
 Bestimmen Sie für alle drei Gitter den maximal möglichen Zeitschritt anhand des CFL-Kriterium.\label{exer:calcDeltaTmaxWithCFL}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+%\emph{Fügen Sie hier Ihre Lösung ein}
+Mithilfe des CFL-Kriteriums bestimmen sich die Maximalen Zeitschritte zu $2.352755\cdot 10^{-10}$ s für $n_x = n_y = 11$, $5.895652 \cdot 10^{-11}$ s für $n_x = n_y = 41$ und $2.620618 \cdot 10^{-11}$ s für $n_x = n_y = 91$
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{2.} \textbf{Stabilitätsuntersuchung mithilfe der Systemmatrix}\\
@@ -145,7 +145,8 @@ des Matlab-Befehls\\
 \lstinline{[Eigenvektoren,Eigenwerte] = eigs(A,1)} gefunden werden.\label{exer:calcDeltaTmaxWithEV}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+%\emph{Fügen Sie hier Ihre Lösung ein}
+Mit der Eigenwertbestimmung der Systemmatrizen kommt für den Fall $n_x=n_y =11$ eine maximale Zeitschrittweite von $2.388030 \cdot 10^{-10}$ s. Für $n_x=n_y=41$ führt dies auf eine Zeitschrittweite von $5.901125\cdot 10^{-11} $ s. Im Falle von $n_x=n_y=91$ kommt der Rechner zu keinem Ergebnis. 
 
 % --> Aufgabe
 \begin{framed}
