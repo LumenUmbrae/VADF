@@ -85,8 +85,12 @@ sourcetype= 1;  % 1: Gauss Anregung, 2: Harmonisch, 3: Konstante Anregung
 
 % Anregung jsbow als anonyme Funktion, die einen 3*np Vektor zurückgibt
 % Anregung wird später in Schleife für t>2*sigma_gauss abgeschnitten, also null gesetzt
-jsbow_space = zeros(3*np, 1);
- jsbow_space = ones(3*np, 1);
+jsbow_space = zeros(np, 1);
+i=ceil(nx/2);
+j=ceil(ny/2);
+k=1;
+jsbow_space(1+(i-1)*Mx+(j-1)*My+(k-1)*Mz)=1;
+jsbow_space=[zeros(2*np,1);jsbow_space];
 
 % Gauss Anregung
 % jsbow_gauss = @(t)(jsbow_space * ...);
@@ -174,7 +178,7 @@ end
          jsbow_spatial = jsbow_const(step*dt);
      end
      nonzero_idx = find(jsbow_spatial~=0);
-     jsbow_plot(step) = jsbow_spatial(nonzero_idx(step));
+     jsbow_plot(step) = jsbow_spatial(nonzero_idx);
  end
  plot(dt:dt:dt*steps, jsbow_plot);
  xlabel('t in s');
