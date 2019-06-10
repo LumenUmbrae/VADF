@@ -1,8 +1,8 @@
 % Versuch 6
 clear all;
 %% Gitter erstellen (nicht mesh nennen, da dies ein Matlab-Befehl ist)
- nx = 41; %49, 91
- ny = 41; %49, 93
+ nx = 91; %41, 91
+ ny = 91; %41, 91
  nz = 2;
  xmesh = linspace(0,1,nx);
  ymesh = linspace(0,1,ny);
@@ -77,7 +77,7 @@ end
 % Parameter der Zeitsimulation
 sigma = 6E-10;
 % dt = tend/steps;     
- tend = 5*sigma;
+ tend = 2*sigma;
  steps = 100;
   dt = tend/steps;     
 
@@ -160,7 +160,7 @@ for ii = 1:steps
     % leistungQuelle_t = 
      energy_t = 0.5*(ebow_new'*Meps*ebow_new + hbow_new'*Mmu*hbow_new);
      leistungQuelle_t = ebow_new'*js;
-
+     
     % Energiewerte speichern
     energy(ii) =  energy_t;
     leistungQuelle(ii) = leistungQuelle_t;
