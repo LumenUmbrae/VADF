@@ -133,9 +133,8 @@ Zeitschrittweite soll durch drei verschiedene Methoden gefunden werden. Nutzen S
 	\noindent \textbf{1.} \textbf{CFL-Kritierium}\\
 Bestimmen Sie für alle drei Gitter den maximal möglichen Zeitschritt anhand des CFL-Kriterium.\label{exer:calcDeltaTmaxWithCFL}
 \end{framed}
-
-%\emph{Fügen Sie hier Ihre Lösung ein}
-Mithilfe des CFL-Kriteriums bestimmen sich die Maximalen Zeitschritte zu $2.352755\cdot 10^{-10}$ s für $n_x = n_y = 11$, $5.895652 \cdot 10^{-11}$ s für $n_x = n_y = 41$ und $2.620618 \cdot 10^{-11}$ s für $n_x = n_y = 91$
+\noindent
+Mithilfe des CFL-Kriteriums bestimmen sich die Maximalen Zeitschritte zu $2.352755\cdot 10^{-10}$ s für $n_x = n_y = 11$, $5.895652 \cdot 10^{-11}$ s für $n_x = n_y = 41$ und $2.620618 \cdot 10^{-11}$ s für $n_x = n_y = 91$.
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{2.} \textbf{Stabilitätsuntersuchung mithilfe der Systemmatrix}\\
@@ -144,9 +143,8 @@ Der größte Eigenwert einer Systemmatrix A kann mit Hilfe
 des Matlab-Befehls\\
 \lstinline{[Eigenvektoren,Eigenwerte] = eigs(A,1)} gefunden werden.\label{exer:calcDeltaTmaxWithEV}
 \end{framed}
-
-%\emph{Fügen Sie hier Ihre Lösung ein}
-Mit der Eigenwertbestimmung der Systemmatrizen kommt für den Fall $n_x=n_y =11$ eine maximale Zeitschrittweite von $2.388030 \cdot 10^{-10}$ s. Für $n_x=n_y=41$ führt dies auf eine Zeitschrittweite von $5.901125\cdot 10^{-11} $ s. Im Falle von $n_x=n_y=91$ kommt der Rechner zu keinem Ergebnis. 
+\noindent
+Mit der Eigenwertbestimmung der Systemmatrizen kommt für den Fall $n_x=n_y =11$ eine maximale Zeitschrittweite von $2.388030 \cdot 10^{-10}$ s. Für $n_x=n_y=41$ führt dies auf eine Zeitschrittweite von $5.901125\cdot 10^{-11} $ s. Im Falle von $n_x=n_y=91$ kommt die Methode zu keinem Ergebnis, da diese nur für eine maximale Gesamtzahl der Gitterknoten von 4000 ausgelegt ist.
 
 % --> Aufgabe
 \begin{framed}
@@ -169,17 +167,31 @@ hier der exakte Werte für die Energie nicht interessant ist,
 sondern nur untersucht werden soll, ob die Energie divergiert, ist
 diese Näherung zulässig.}.\label{exer:calcDeltaTmaxWithEnergy}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+\noindent
+Durch Ausgeben der Gesamtenergie konnten experimentell die maximalen Zeitschrittweiten bestimmt werden. Für $n_x=n_y =11$ ergibt sich eine maximale Schrittweite von $t_{max}=2.4\cdot 10^{-10}$s. Für $n_x=n_y =41$ ergibt sich $t_{max}=5.7143\cdot 10^{-11}$s und für $n_x=n_y =91$ ergibt sich $t_{max}=2.6087\cdot 10^{-11}$s.\\
+\\
 \noindent Nun sollen die gefundenen maximalen Zeitschrittweiten für die verschiedenen Gitter verglichen und interpretiert werden.
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{4.} Erstellen Sie für den Vergleich eine Tabelle und kommentieren Sie, welche die exakteste Methode ist. Von welchen Parametern hängt die maximale Zeitschrittweite ab? Hat die Anregung einen Einfluss auf die Stabilität des Zeitschrittverfahrens?\label{exer:compareMethods4deltaTmax}
 \end{framed}
+\noindent
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	  Verfahren & $n_x=n_y =11$ & $n_x=n_y =41$ & $n_x=n_y =91$ \\
+	\hline
+	CFL-Kriterium & $2.352755\cdot 10^{-10}$ s & $5.895652 \cdot 10^{-11}$ s & $ 2.620618\cdot 10^{-11}$ s\\
+	\hline
+	Systemmatrix & $2.388030 \cdot 10^{-10}$ s & $5.901125\cdot 10^{-11} $ s & keine Angabe\\
+	\hline
+	Experimentell & $2.4\cdot 10^{-10}$ s & $5.7143\cdot 10^{-11}$ s & $2.6087\cdot 10^{-11}$ s\\
+	\hline
+\end{tabular}
+\end{center}
+Da die Untersuchung mit der Systemmatrix bei $n_x=n_y =11$ besser ist, aber bei $n_x=n_y =41$ das CFL-Kriterium genauer ist, kann kein eindeutig besseres Verfahren identifiziert werden. Die maximale Zeitschrittweite hängt von vielen Faktoren ab. Dazu gehören die Feinheit des Rechengitters, die Materialverteilung, aber auch die Anregung des Systems, da dies maßgeblich die Feldverläufe bestimmt.
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
 \begin{framed}
@@ -188,44 +200,37 @@ Somit erhält man den zeitlichen Verlauf einer sich in $x$- und $y$-Richtung
 ausbreitenden Welle. Wählen Sie die Simulationszeit so, dass die Welle den Rand des Rechengebietes gerade noch nicht erreicht und speichern Sie sich den Plot des Feldes nach dem letzten Zeitschritt für die Ausarbeitung. Interpretieren Sie die Ergebnisse.\label{exer:visualizeWave}
 \end{framed}
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Welle}
 	\caption{Z-Komponente des E-Feldes bei $t= 3\sigma$}
 	\label{fig:welle}
 \end{figure}
-
-
-Wie in Abb. \ref{fig:welle} zu erkennen entsteht eine sich in x- und y- Richtung ausbreitenden Wellen die sich von der Kante des Anregestromes löst.\\
- Bei einem längeren Laufzeit kommt es beim auftreffen der Welle auf die Ränder zu Rechenfehlern die die Ergebnisse unbrauchbar machen. 
+\noindent
+Wie in Abb. \ref{fig:welle} zu erkennen entsteht eine sich in x- und y- Richtung ausbreitende Welle, die sich von der Kante des Anregestroms löst.\\
+Bei einem längeren Laufzeit kommt es beim auftreffen der Welle auf die Ränder zu Reflektionen.
 %\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{6.} Bestimmen Sie nun die Energie mithilfe einer geeigneten Mittelung (siehe Abschnitt 6.2.4) und erstellen Sie einen Plot, der die Energieerhaltung verdeutlicht. Warum sinkt die Energie nach Erreichen des Maximalwertes wieder ab?\label{exer:energyConservation}
 \end{framed}
-
-In Abb. \ref{fig:enegiedesfeldes} ist deutlich der zeitlich etwas versetzte Anstieg der Energie mit zunehmender Anregung zu erkennen. Da sich eine Welle vom Leiter löst, folgt die Energie dem abnehmenden Anregestrom nur teilweise und strebt einem konstanten Wert zu. 
-
-\begin{figure}
+\noindent
+In Abb. \ref{fig:enegiedesfeldes} ist deutlich der zeitlich etwas versetzte Anstieg der Energie mit zunehmender Anregung zu erkennen. Da sich eine Welle vom Leiter löst, folgt die Energie dem abnehmenden Anregestrom nur teilweise und strebt einem konstanten Wert zu, da nun die Energie in der Welle gespeichert ist.
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{EnegiedesFeldes}
 	\caption{Energie der Zylinderwelle}
 	\label{fig:enegiedesfeldes}
 \end{figure}
 
-
-
-%\emph{Fügen Sie hier Ihre Lösung ein}
-
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{7.} Bestimmen Sie abschließend die Leistung der Quelle und des Gesamtsystems und stellen Sie beide Größen in einem Plot dar.\label{exer:powerPlot}
 \end{framed}
-
-
- Wie in Abb. \ref{fig:leistung} deutlich zu erkennen verhält sich die Leistung der Zylinderwelle entgegengesetzt zu der der Anregung. In dieser Folge ist die Leitung des Gesamtsystems nach außen ausgeglichen. 
-\begin{figure}
+\noindent
+ Wie in Abb. \ref{fig:leistung} deutlich zu erkennen, verhält sich die Leistung der Zylinderwelle entgegengesetzt zu der der Anregung. In dieser Folge ist die Leitung des Gesamtsystems nach außen ausgeglichen. 
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Leistung}
 	\caption{Leistung des Anregestroms und der Zylinderwelle}
@@ -238,6 +243,6 @@ In Abb. \ref{fig:enegiedesfeldes} ist deutlich der zeitlich etwas versetzte Anst
 
 
 \section{Fazit}
-\emph{Fügen Sie hier Ihre Lösung ein}
+Mit den aus diesem Versuch gewonnenen Erkenntnissen, ist es nun möglich maximale Zeitschrittweiten für das Leapfrog-Verfahren gezielt zu ermitteln bzw. abzuschätzen.
 
 \end{document}

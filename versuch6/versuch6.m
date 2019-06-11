@@ -1,8 +1,8 @@
 % Versuch 6
 clear all;
 %% Gitter erstellen (nicht mesh nennen, da dies ein Matlab-Befehl ist)
- nx = 41; %41, 11
- ny = 41; %41, 11
+ nx = 91; %41, 11
+ ny = 91; %41, 11
  nz = 2;
  xmesh = linspace(0,1,nx);
  ymesh = linspace(0,1,ny);
@@ -75,12 +75,14 @@ end
 %% Experimentelle Bestimmung mithilfe der Energie des Systems
 
 % Parameter der Zeitsimulation
-%dt max bei 91,41,11 = 1E-11
+% dt max bei 91 0.000000000026087 - 46
+% 41 = 0.000000000057143 - 21
+% 11 = 0.0000000002.4000 - 5
 sigma = 6E-10;
- %dt = 1E-11;     
+ %dt = ;    
  tend = 2*sigma;
  steps = 200;
- dt = tend/steps     
+ dt = tend/steps   
 
 sourcetype= 1;  % 1: Gauss Anregung, 2: Harmonisch, 3: Konstante Anregung
 
@@ -128,7 +130,7 @@ for ii = 1:steps
         if t <= 2*sigma
             js = jsbow_gauss(t);
         else
-            js = 0;
+            js = zeros(3*np,1);
         end
     elseif sourcetype == 2
         % Harmonische Anregung
@@ -159,7 +161,7 @@ for ii = 1:steps
     % Gesamtenergie und Quellenenergie für diesen Zeitschritt berechnen
     % energy_t = 
     % leistungQuelle_t = 
-     energy_t = 0.5*(ebow_new'*Meps*ebow_new + hbow_new'*Mmu*hbow_new);
+     energy_t = 0.5*(ebow_new'*Meps*ebow_new + hbow_new'*Mmu*hbow_new)
      leistungQuelle_t = ebow_new'*js;
      
     % Energiewerte speichern
