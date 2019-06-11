@@ -1,8 +1,8 @@
 % Versuch 6
 clear all;
 %% Gitter erstellen (nicht mesh nennen, da dies ein Matlab-Befehl ist)
- nx = 91; %41, 11
- ny = 91; %41, 11
+ nx = 41; %41, 11
+ ny = 41; %41, 11
  nz = 2;
  xmesh = linspace(0,1,nx);
  ymesh = linspace(0,1,ny);
@@ -79,7 +79,7 @@ end
 sigma = 6E-10;
  %dt = 1E-11;     
  tend = 2*sigma;
- steps = 100;
+ steps = 200;
  dt = tend/steps     
 
 sourcetype= 1;  % 1: Gauss Anregung, 2: Harmonisch, 3: Konstante Anregung
@@ -202,4 +202,4 @@ leistungSystem =  diff(energy)./dt;
  hold off
  legend('Leistung System', 'Leistung Quelle')
  xlabel('t in s')
- ylabel('Leistung P in W')
+ ylabel('Leistung P in W') 
