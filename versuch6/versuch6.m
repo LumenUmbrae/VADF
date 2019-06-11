@@ -75,11 +75,12 @@ end
 %% Experimentelle Bestimmung mithilfe der Energie des Systems
 
 % Parameter der Zeitsimulation
+%dt max bei 91,41,11 = 1E-11
 sigma = 6E-10;
-% dt = tend/steps;     
+ %dt = 1E-11;     
  tend = 2*sigma;
  steps = 100;
-  dt = tend/steps;     
+ dt = tend/steps     
 
 sourcetype= 1;  % 1: Gauss Anregung, 2: Harmonisch, 3: Konstante Anregung
 
