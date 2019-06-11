@@ -1,8 +1,8 @@
 % Versuch 6
 clear all;
 %% Gitter erstellen (nicht mesh nennen, da dies ein Matlab-Befehl ist)
- nx = 91; %49, 11
- ny = 91; %49, 1
+ nx = 91; %41, 11
+ ny = 91; %41, 11
  nz = 2;
  xmesh = linspace(0,1,nx);
  ymesh = linspace(0,1,ny);
@@ -67,7 +67,7 @@ if msh.np<4000
  end
 
 % delta T bestimmen
- deltaTmaxEigA = 2/abs(lambdaMaxA);
+ deltaTmaxEigA = 2/abs(lambdaMaxA)
  fprintf('Nach Eigenwert-Berechnung von A: deltaTmax = %e\n', deltaTmaxEigA);
 
 end
@@ -160,7 +160,7 @@ for ii = 1:steps
     % leistungQuelle_t = 
      energy_t = 0.5*(ebow_new'*Meps*ebow_new + hbow_new'*Mmu*hbow_new);
      leistungQuelle_t = ebow_new'*js;
-
+     
     % Energiewerte speichern
     energy(ii) =  energy_t;
     leistungQuelle(ii) = leistungQuelle_t;
@@ -191,11 +191,12 @@ end
  xlabel('t in s')
  ylabel('Energie des EM-Feldes W in J')
 
-%% Zeitliche Änderung der Energie (Leistung)
- leistungSystem = energy
+
+% Zeitliche Änderung der Energie (Leistung)
+leistungSystem =  diff(energy)./dt;
  figure(4); clf;
  hold on
- %plot(2*dt:dt:dt*(steps-1), leistungSystem)
+ plot(dt:dt:dt*(steps-1), leistungSystem)
  plot(dt:dt:dt*steps, leistungQuelle, 'r')
  hold off
  legend('Leistung System', 'Leistung Quelle')
