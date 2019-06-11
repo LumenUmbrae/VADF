@@ -182,6 +182,7 @@ end
      jsbow_plot(step) = jsbow_spatial(nonzero_idx);
  end
  plot(dt:dt:dt*steps, jsbow_plot);
+ title('Strom-Zeit Diagram')
  xlabel('t in s');
  ylabel('Anregungsstrom J in A');
 
@@ -189,6 +190,7 @@ end
  figure(3); clf;
  plot (dt:dt:dt*steps, energy)
  legend(['Zeitschritt: ', num2str(dt)])
+ title('Energie-Zeit Diagram')
  xlabel('t in s')
  ylabel('Energie des EM-Feldes W in J')
 
@@ -200,6 +202,7 @@ leistungSystem =  diff(energy)./dt;
  plot(dt:dt:dt*(steps-1), leistungSystem)
  plot(dt:dt:dt*steps, leistungQuelle, 'r')
  hold off
+ title('Leistung-Zeit Diagram');
  legend('Leistung System', 'Leistung Quelle')
  xlabel('t in s')
  ylabel('Leistung P in W') 
