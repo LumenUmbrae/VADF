@@ -36,7 +36,7 @@ assert(np==length(Mmui)/3)
  time =  linspace(0,tend,1001);
 
 % excitation parameter (choose 'Gauss', 'Trapez' or 'Sinusoidal')
-signalShape = 'Trapez';
+signalShape = 'Gauss';
 distributed = false; % choose true or false
  trise = 0.5*10^(-9)
  thold = 0.7*10^(-9)
@@ -50,8 +50,8 @@ idxEdge2plot = 5;
 
 % implement and choose transmission line termination
 % choose 'noResistance', 'singleResistance' or '8parallelResistances'
-resistanceImpl = 'noResistance';
-% R = 
+resistanceImpl = '8parallelResistances';
+ R = 50; 
 if strcmp(resistanceImpl,'noResistance')
     Rmat = no_ohmic_termination(np);
 elseif strcmp(resistanceImpl,'singleResistance')
