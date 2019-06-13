@@ -31,7 +31,7 @@ assert(np==length(Mmui)/3)
 % -------------------------------------------------------------------------
 
 % simulation in time domain, nts time steps of size dt
- tend = 2*10^(-9)
+ tend = 10*10^(-9)
  dt = tend/1000;
  time =  linspace(0,tend,1001);
 
@@ -86,17 +86,17 @@ ylabel('Stromanregung in A');
 j_matrix = zeros(3*np,length(time));
 if distributed
     % set j in a way that the current is distributed over the entire port face
-    j_matrix(5)=j_time/8;
-    j_matrix(7)=j_time/8;
-    j_matrix(9)=j_time/8;
-    j_matrix(11)=j_time/8;
-    j_matrix(2418)=j_time/8;
-    j_matrix(2419)=j_time/8;
-    j_matrix(2426)=j_time/8;
-    j_matrix(2427)=j_time/8;
+    j_matrix(5,:)=(j_time./8)';
+    j_matrix(7,:)=(j_time./8)';
+    j_matrix(9,:)=(j_time./8)';
+    j_matrix(11,:)=(j_time./8)';
+    j_matrix(2418,:)=(j_time./8)';
+    j_matrix(2419,:)=(j_time./8)';
+    j_matrix(2426,:)=(j_time./8)';
+    j_matrix(2427,:)=(j_time./8)';
 else
     % set j in a way that one edge in the port face is excited by the entire current
-    j_matrix(5)=j_time;
+    j_matrix(5,:)=j_time';
 end
 
 %% time loop
@@ -105,13 +105,14 @@ counter = 1;
 for k=1:length(time)
     % set time and excitation for current time step
     t = time(k);
-    j = j_matrix;
+    j = j_matrix(:,k);
 
     % leapfrog method (take the one from the last lab but with R this time)
     [hbow,ebow] = leapfrog(hbow, ebow, j, Mmui, Meps, C, Rmat, dt);
         
     % voltage along the transmission line (for each z-layer one value)
-     for m=1:np
+     %u_line = 
+     for m=1:nz
      u_line(m) = ebow(5+(m-1)*16);
      endfor
         
