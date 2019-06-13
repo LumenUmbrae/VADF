@@ -104,14 +104,16 @@ figure(2)
 counter = 1;
 for k=1:length(time)
     % set time and excitation for current time step
-%    t = 
-%    j = 
+    t = time(k);
+    j = j_matrix;
 
     % leapfrog method (take the one from the last lab but with R this time)
     [hbow,ebow] = leapfrog(hbow, ebow, j, Mmui, Meps, C, Rmat, dt);
         
     % voltage along the transmission line (for each z-layer one value)
-    % u_line = 
+     for m=1:np
+     u_line(m) = ebow(5+(m-1)*16);
+     endfor
         
     % voltage plot
     if mod(k,2) == 0
