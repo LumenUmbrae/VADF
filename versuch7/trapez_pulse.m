@@ -13,13 +13,13 @@ jvalue = zeros(1,nt);
 for k = 1:nt
     t = time(k);
     if (0 <= t && t < t1)
-        % jvalue(k) =
+         jvalue(k) = t/t1;
     elseif (t1 <= t && t < t2)
-        % jvalue(k) =
+         jvalue(k) = 1;
     elseif ( t2 <= t && t < t3)
-        % jvalue(k) = 
+         jvalue(k) =(t3-t)/(t3-t2); 
     else
-        % jvalue(k) = 
+         jvalue(k) = 0;
 end
 
 end
