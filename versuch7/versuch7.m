@@ -31,17 +31,17 @@ assert(np==length(Mmui)/3)
 % -------------------------------------------------------------------------
 
 % simulation in time domain, nts time steps of size dt
-% tend = 
-% dt = 
-% time = 
+ tend = 2*10^(-9)
+ dt = tend/1000;
+ time =  linspace(0,tend,1001);
 
 % excitation parameter (choose 'Gauss', 'Trapez' or 'Sinusoidal')
 signalShape = 'Trapez';
 distributed = false; % choose true or false
-% trise = 
-% thold = 
-% tfall = 
-% fmax_gauss = 
+ trise = 0.5*10^(-9)
+ thold = 0.7*10^(-9)
+ tfall = 0.5*10^(-9)
+ fmax_gauss = 1*10^9
 % f_sin = 
 
 % define which edge shall be excited and plotted
@@ -86,10 +86,17 @@ ylabel('Stromanregung in A');
 j_matrix = zeros(3*np,length(time));
 if distributed
     % set j in a way that the current is distributed over the entire port face
-
+    j_matrix(5)=j_time/8;
+    j_matrix(7)=j_time/8;
+    j_matrix(9)=j_time/8;
+    j_matrix(11)=j_time/8;
+    j_matrix(2418)=j_time/8;
+    j_matrix(2419)=j_time/8;
+    j_matrix(2426)=j_time/8;
+    j_matrix(2427)=j_time/8;
 else
     % set j in a way that one edge in the port face is excited by the entire current
-
+    j_matrix(5)=j_time;
 end
 
 %% time loop
