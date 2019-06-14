@@ -36,12 +36,12 @@ assert(np==length(Mmui)/3)
  time =  linspace(0,tend,1001);
 
 % excitation parameter (choose 'Gauss', 'Trapez' or 'Sinusoidal')
-signalShape = 'Gauss';
+signalShape = 'Trapez';
 distributed = true; % choose true or false
- trise = 0.5*10^(-9)
- thold = 0.7*10^(-9)
- tfall = 0.5*10^(-9)
- fmax_gauss = 1*10^9
+ trise = 0.5*10^(-9);
+ thold = 0.7*10^(-9);
+ tfall = 0.5*10^(-9);
+ fmax_gauss = 1*10^9;
 % f_sin = 
 
 % define which edge shall be excited and plotted
