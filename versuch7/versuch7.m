@@ -42,7 +42,7 @@ distributed = true; % choose true or false
  thold = 0.7*10^(-9);
  tfall = 0.5*10^(-9);
  fmax_gauss = 1*10^9;
-% f_sin = 
+% f_sin = 1;
 
 % define which edge shall be excited and plotted
 idxEdge2excite = 5; % if distributed == false
@@ -70,6 +70,7 @@ if strcmp(signalShape,'Trapez')
     j_time = - trapez_pulse(time,trise,thold,tfall); 
 elseif strcmp(signalShape,'Gauss')
     j_time = - gauss_pulse(time,fmax_gauss);
+    plot(j_time);
 elseif strcmp(signalShape,'Sinusoidal')
 %    j_time = 
     printf('Frequency of sinusoidal signal: %d\n',f_sin);

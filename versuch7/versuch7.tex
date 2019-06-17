@@ -57,8 +57,9 @@
 	\noindent \textbf{1.} Weshalb ist es sinnvoll, für die Stirnseiten der Leitungen
 magnetische Randbedingungen zu wählen?\label{exer:bound4frontOfLine}
 \end{framed}
+Im Falle von Elektrischen Randbedienungen für die magnetische Simulation, bei denen die Normalenkomponente des E-Feldes am Rand Null sind, würde der Rand somit einen PEC darstellt und den Innenleiter mit dem Außenleiter kurzschließen. Zudem würde dies auch zu einem \" verbiegen\" des elektrischen Feldes in der Nähe des Randes führen. \\
+Somit sind magnetische Randbedingungen hier die richtige Wahl für die Stirnseiten. 
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
 \begin{framed}
@@ -68,8 +69,9 @@ Stirnfläche, die jeweils Innen- und Außenleiter miteinander
 verbinden? Welchen Richtungssinn haben sie?\label{exer:idxConductorInterconnection}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+Vom Innen- zum Außenleiter führen in der hinteren Stirnseite die Kanten 7, 11, 2426 und 2427. Vom Außen- zum Innenleiter führen die Kanten 5, 9, 2418 und 2419. \\
+In der Vorderen Fläche führen die Kanten 2407, 2411, 4826 und 4827 vom Innen- zur Außenleiter
+und die Kanten 2405, 2409, 4818 und 4819 vom Außen- zum Innenleiter. 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{3.} Nehmen Sie die erste Kante in $x$-Richtung, die Innen- und Außenleiter
@@ -78,8 +80,12 @@ entsprechenden Kante, jeweils um einen $z$-Gitterschritt nach
 hinten versetzt durch alle 151 Ebenen.\label{exer:idxEdge4allZ}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+Die erste Kante in X-Richtung die Außen- und Innenleiter verbindet ist die Kante 5. \\
+Für jeden Versatz um einen Schritt in Z-Richtung muss 16 Addiert werden. Die Indizes ergeben sich so zu 
+\begin{equation}
+	E_x = 5+M_zz = 5 + 16\cdot z
+\end{equation}
+.
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{4.} Geben Sie die Funktion eines stückweise linearen
