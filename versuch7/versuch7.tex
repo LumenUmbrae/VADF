@@ -93,7 +93,16 @@ Für jeden Versatz um einen Schritt in Z-Richtung muss 16 Addiert werden. Die In
 Trapezpulses in Abhängigkeit der Koordinaten der Knickpunkte an.\label{exer:calcPiecewiseTrapezoidal}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Funktion eines stückweise linearen Trapezpulses, wie in Abb. \ref{tra}  lautet:
+
+$$
+f(x)=\left\{
+\begin{array}{ll} \frac{t}{t_1}, & x\in [0,t_1) \\
+1, & x\in [t_1,t_2) \\
+\frac{t_3-t}{t_3-t_2} & x\in [t_2,t_3)
+
+\end{array}\right. .
+$$
 
 \begin{figure}[ht]
 	\centering
@@ -112,7 +121,32 @@ Zeitsignal soll zum Zeitpunkt $t=0$ nur 0,1~\% seines
 Maximalwertes betragen.\label{exer:calcGaussConst}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Konstanten $\sigma$ und $t_0$ bestimmt man aus die Formeln des Gauspulses
+
+$$ F(j\omega)=\sigma\sqrt{2\pi}\exp\left(\frac{-\sigma^2\omega^2}{2}\right)\exp\left(-j\omega t_0\right)$$ in Frequenzbereich und
+$$
+f(t)=\exp\left( \frac{-(t-t_0)^2}{2\sigma^2}         \right)
+$$
+in Zeitbereich.
+\\
+\\
+Man betrachtet zuerst man das Gaußpuls in Zeitbereich. Es ist leicht zu bemerken, dass die Funktion ein Maximum hat. Das Maximum ist 1.
+$$f(0)=\exp\left( \frac{-t_0^2}{2\sigma^2}    \right)= 1 \cdot 0.001$$
+Daraus bekommt man $t_0$.
+
+$$t_0 = \sqrt{6\sigma^2\ln(10)} $$
+\\
+\\
+Jetzt betrachtet man die Formel in der Frequenzbereich. Maximum dieser Funktion ist $\sigma\sqrt{2\pi}$.
+
+$$ F(j\omega_{max})=\sigma\sqrt{2\pi}\left|\left|\exp\left(\frac{-\sigma^2\omega_{max}^2}{2}\right)\exp\left(-j\omega_{max} t_0\right)\right|\right|=\sigma\sqrt{2\pi}\cdot 0.01$$
+
+Daraus bekommt man die Formel
+
+$$\exp\left(\frac{-\sigma^2\omega_{max}^2}{2}\right)=0.01$$
+und auch $\sigma$
+$$ \sigma =\frac{2\sqrt{\ln(10)}}{\omega_{max}}=\frac{\sqrt{\ln(10)}}{\pi f_{max}}$$
+
 
 % --> Aufgabe
 \begin{framed}
