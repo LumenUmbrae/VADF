@@ -1,6 +1,6 @@
 %%% choose inhomogen or homogen
-%material_option = 'homogen';
-material_option = 'inhomogen';
+material_option = 'homogen';
+%material_option = 'inhomogen';
 
 % load material data and curl matrix C
 load material_data
@@ -31,13 +31,13 @@ assert(np==length(Mmui)/3)
 % -------------------------------------------------------------------------
 
 % simulation in time domain, nts time steps of size dt
- tend = 10*10^(-9)
+ tend = 10*10^(-9);
  dt = tend/1000;
  time =  linspace(0,tend,1001);
 
 % excitation parameter (choose 'Gauss', 'Trapez' or 'Sinusoidal')
 signalShape = 'Trapez';
-distributed = true; % choose true or false
+distributed = false; % choose true or false
  trise = 0.5*10^(-9);
  thold = 0.7*10^(-9);
  tfall = 0.5*10^(-9);
@@ -97,7 +97,7 @@ if distributed
     j_matrix(2427,:)=-(j_time./8)';
 else
     % set j in a way that one edge in the port face is excited by the entire current
-    j_matrix(5,:)=-j_time';
+    j_matrix(5,:)=j_time';
 end
 
 %% time loop
