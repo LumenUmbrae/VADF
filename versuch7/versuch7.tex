@@ -1,4 +1,5 @@
 \documentclass[Protokollheft.tex]{subfiles}
+\usepackage{amsmath}
 \begin{document}
 \chapter{HF-Zeitbereich 2: Leitungen und Ports}
 %--------------- Start Vorbereitungsaufgaben ---------------
@@ -117,8 +118,13 @@ Maximalwertes betragen.\label{exer:calcGaussConst}
 \begin{framed}
 	\noindent \textbf{6.} Berechnen Sie die maximale Zeitschrittweite nach dem CFL-Kriterium.\label{exer:calcDeltaTmaxCFL}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
+Mit $\Delta x=\Delta y=\Delta z = 1\,\text{cm}$, sowie der minimalen Permittivität im Rechengebiet $\varepsilon_{min}=1.3\varepsilon_0$ und der minimalen Permeabilität $\mu_{min}=\mu_0$ ergibt sich mit dem CFL-Kriterium
+\begin{eqnarray*}
+	\Delta t\leq\Delta t^{\text{CFL}}_{max}&=&\min_j\Bigg\{\sqrt{\varepsilon_j\mu_j}\sqrt{\frac{1}{\frac{1}{\Delta x^2}+\frac{1}{\Delta y^2}+\frac{1}{\Delta z^2}}}\Bigg\}\\
+	\Delta t^{\text{CFL}}_{max}&=&\sqrt{1.3\varepsilon_0\mu_0}\sqrt{\frac{1\,\text{cm}^2}{3}}\\
+	\Delta t^{\text{CFL}}_{max}&=&2.196\cdot 10^{-11}\,\text{s}
+\end{eqnarray*}
 
 \section{Aufgaben während der Praktikumssitzung}
 Die vorliegende Beschreibung soll nur die grobe Vorgehensweise
