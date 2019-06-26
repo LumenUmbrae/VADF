@@ -1,6 +1,6 @@
 %%% choose inhomogen or homogen
-material_option = 'homogen';
-%material_option = 'inhomogen';
+%material_option = 'homogen';
+material_option = 'inhomogen';
 
 % load material data and curl matrix C
 load material_data
@@ -50,7 +50,7 @@ idxEdge2plot = 5;
 
 % implement and choose transmission line termination
 % choose 'noResistance', 'singleResistance' or '8parallelResistances'
-resistanceImpl = '8parallelResistances';
+resistanceImpl = 'singleResistance';
  R = 50; 
 if strcmp(resistanceImpl,'noResistance')
     Rmat = no_ohmic_termination(np);
@@ -107,7 +107,9 @@ for k=1:length(time)
     % set time and excitation for current time step
     t = time(k);
     j = j_matrix(:,k);
-
+    if k >= 3*length(time)/3;
+      break
+      endif
     % leapfrog method (take the one from the last lab but with R this time)
     [hbow,ebow] = leapfrog(hbow, ebow, j, Mmui, Meps, C, Rmat, dt);
         
