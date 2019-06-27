@@ -104,7 +104,7 @@ title('Ausgangsstrom im Zeitbereich')
 Ns = length(time);
 zp = 10000;
 N = 2^(nextpow2(Ns+zp));
-fmax2plot = Fs/2;
+fmax2plot = 200*10^6;
 
 % Transformation der Eingangsgrößen
 [U1_fft,freq]=fftmod(U1,N,Fs);
