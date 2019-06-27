@@ -104,7 +104,7 @@ title('Ausgangsstrom im Zeitbereich')
 Ns = length(time);
 zp = 2^(nextpow2(Ns))-Ns;
 N = Ns+zp;
-fmax2plot = 5000;
+fmax2plot = Fs/2;
 
 % Transformation der EingangsgrÃ¶ÃŸen
 [U1_fft,freq]=fftmod(U1,N,Fs);
@@ -172,14 +172,14 @@ ylim([45 55]);
     
 Zwsqrt = sqrt(R);
 
-a1 = 1/2(U1_fft./Zwsqrt.+I1_fft.*Zwsqrt);
-b1 = 1/2(U1_fft./Zwsqrt.-I1_fft.*Zwsqrt);
-b2 = 1/2(U2_fft./Zwsqrt.-I2_fft.*Zwsqrt);
+a1 = (1/2)*(U1_fft./Zwsqrt.+I1_fft.*Zwsqrt);
+b1 = (1/2)*(U1_fft./Zwsqrt.-I1_fft.*Zwsqrt);
+b2 = (1/2)*(U2_fft./Zwsqrt.-I2_fft.*Zwsqrt);
 %
 S11 = b1./a1;
 S21 = b2./a1;
-%
-%energy = 
+
+energy = abs(S11).^2+abs(S21).^2
 
 % Darstellung Energie und Wellengrößen
 figure(5);

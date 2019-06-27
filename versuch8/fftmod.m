@@ -12,7 +12,7 @@ function [Y,freq]=fftmod(y,N,Fs)
 %   freq    Frequenzachse
 
 % max. darstellbare Frequenz (Abtast-Theorem)
-fmax = 2*Fs;
+fmax = Fs/2;
 
 % Frequenzabstand bestimmen
 df = Fs/N;
