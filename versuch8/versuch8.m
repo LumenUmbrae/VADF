@@ -39,7 +39,7 @@ time = 0:dt:(nts*dt);
 fmax = 1e9;
 
 % Sampling-Frequenz der Zeitdiskretisierung
-%Fs = 
+Fs = 1./dt; 
 fprintf('Sampling-Frequenz: %d Hz\n',Fs);
 
 % index used for current and voltage measurements
@@ -63,11 +63,11 @@ for k=2:nts
         
     [hbow,ebow] = leapfrog(hbow, ebow, je(:,k), Mmui, Meps, C, Rmat, dt);
 
-    % Spannung und Strom für Ein- und Ausgang
-%    U1(k) =
-%    I1(k) =
-%    U2(k) =
-%    I2(k) =
+    % Spannung und Strom f�r Ein- und Ausgang
+    U1(k) = ebow(5);
+    I1(k) = sum(abs(je(:,k))) - U1(k)/R;
+    U2(k) = ebow(2405);
+    I2(k) = -U2(k)/R;
     
 end
 time_TD = toc;
@@ -101,10 +101,10 @@ title('Ausgangsstrom im Zeitbereich')
 %% Transformation in den Frequenzbereich zur Auswertung der Impedanz
 
 % Anzahl an Samples Ns, zero-padding zp, Anzahl an Samples für fft N und maximale zu plottende Frequenz fmax2plot
-%Ns =
-%zp =
-%N =
-%fmax2plot =
+Ns = length(time);
+zp = 2^(nextpow2(Ns))-Ns;
+N = Ns+zp;
+fmax2plot = 5000;
 
 % Transformation der Eingangsgrößen
 [U1_fft,freq]=fftmod(U1,N,Fs);
@@ -140,7 +140,7 @@ xlim([0 2*fmax]);
 subplot(2,2,4)
 plot(freq,abs(I2_fft));
 xlabel('Frequenz in Hz')
-ylabel('I_2 in V')
+ylabel('I_2 in A')
 title('Ausgangsstrom im Frequenzbereich')
 xlim([0 2*fmax]);    
 
@@ -148,8 +148,8 @@ xlim([0 2*fmax]);
 %% Darstellung der Ein-/Ausgangsimpedanz im Frequenzbereich
 
 % Berechnung Ein- und Ausgangsimpedanz im Frequenzbereich
-%Z1_fft=
-%Z2_fft=
+Z1_fft=U1_fft./I1_fft;
+Z2_fft=U2_fft./I2_fft;
 
 figure(3);
 plot(freq,abs(Z1_fft),'k-');
@@ -170,18 +170,18 @@ ylim([45 55]);
                 
 %% Auswertung Wellengrößen
     
-%Zwsqrt =
+Zwsqrt = sqrt(R);
 
-%a1 =
-%b1 =
-%b2 =
+a1 = 1/2(U1_fft./Zwsqrt.+I1_fft.*Zwsqrt);
+b1 = 1/2(U1_fft./Zwsqrt.-I1_fft.*Zwsqrt);
+b2 = 1/2(U2_fft./Zwsqrt.-I2_fft.*Zwsqrt);
 %
-%S11 =
-%S21 =
+S11 = b1./a1;
+S21 = b2./a1;
 %
-%energy =
+%energy = 
 
-% Darstellung Energie und Wellengrößen
+% Darstellung Energie und Wellengr��en
 figure(5);
 plot(freq, abs(S11),freq,abs(S21),freq,energy);
 xlabel('Frequenz in Hz')
