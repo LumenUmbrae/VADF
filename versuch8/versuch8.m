@@ -102,8 +102,8 @@ title('Ausgangsstrom im Zeitbereich')
 
 % Anzahl an Samples Ns, zero-padding zp, Anzahl an Samples für fft N und maximale zu plottende Frequenz fmax2plot
 Ns = length(time);
-zp = 2^(nextpow2(Ns))-Ns;
-N = Ns+zp;
+zp = 10000;
+N = 2^(nextpow2(Ns+zp));
 fmax2plot = Fs/2;
 
 % Transformation der Eingangsgrößen
