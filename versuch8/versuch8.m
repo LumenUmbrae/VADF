@@ -63,7 +63,7 @@ for k=2:nts
         
     [hbow,ebow] = leapfrog(hbow, ebow, je(:,k), Mmui, Meps, C, Rmat, dt);
 
-    % Spannung und Strom für Ein- und Ausgang
+    % Spannung und Strom fï¿½r Ein- und Ausgang
     U1(k) = ebow(5);
     I1(k) = sum(abs(je(:,k))) - U1(k)/R;
     U2(k) = ebow(2405);
@@ -179,9 +179,9 @@ b2 = (1/2)*(U2_fft./Zwsqrt.-I2_fft.*Zwsqrt);
 S11 = b1./a1;
 S21 = b2./a1;
 
-energy = abs(S11).^2+abs(S21).^2
+energy = abs(S11).^2+abs(S21).^2;
 
-% Darstellung Energie und Wellengrößen
+% Darstellung Energie und Wellengrï¿½ï¿½en
 figure(5);
 plot(freq, abs(S11),freq,abs(S21),freq,energy);
 xlabel('Frequenz in Hz')
