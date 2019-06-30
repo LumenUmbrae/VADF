@@ -53,7 +53,7 @@ Für die inhomogene Leitung mit $\varepsilon_r = 1.3$ für den Anfang und das En
 	\noindent \textbf{5.} Wie kann man aus den im Allgemeinen komplexen Rückgabewerten der DFT (\matlab-Befehl \verb"fft") auf das Frequenzspektrum schließen?\label{exer:freqSpectByDFT}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Um aus den Rückgabewerten der DFT ein Frequenzspektrum zu erstellen müssen die Frequenzpunkte gleichmäßig aufgetragen werden und anschließend darüber die, durch die Anzahl der Sampels geteilten, Rückgabewerte der DFT aufgetragen werden. 
 
 \section{Aufgaben während der Praktikumssitzung}
 
@@ -78,8 +78,13 @@ Gauß-Puls an.\label{exer:exciteGauss}
  im Zeitbereich und stellen Sie diese in entsprechenden Plots dar.\label{exer:UandVtimeDomain}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{versuch8/EinAusSpanStromZeit}
+	\caption{Ein- und Ausgangsspannungen  und Ströme der homogenen Koaxialleitung im Zeitbereich}
+	\label{fig:einausspanstromzeit}
+\end{figure}
+Wie in Abb. \ref{fig:einausspanstromzeit} zu erkennen wird ein Gaussimpuls in die Leitung eingespeist, der mit einer geringen Verzögerung von ca. $0.5\cdot 10^-8 \ \si{s}$  am Ende ankommt. Die Der Ausgangsstrom ist aufgrund der Wahl der Flussrichtungen dem Eingangstrom mathematisch entgegen gerichtet.  
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{3.} Schreiben Sie eine Routine, die das Spektrum eines
@@ -97,16 +102,34 @@ im Frequenzbereich und stellen Sie diese in entsprechenden Plots dar. Überprüf
 der Gauß-Puls im Frequenzbereich die Bedingungen erfüllt, die an 
 diesen in Versuch 7 gestellt wurden.\label{exer:UandVfreqDomain}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+Wie in Abb. \ref{fig:einausspanstromfrequenz} zu sehen nehmen Ein- und Ausgangsspannung sowie Strom mit zunehmender Frequenz ab. \\
+Der Grußimpuls erfüllt im Frequenzbereich die Anforderung ein Begrenztes Signal zu haben, da er mit zunehmender Frequenz zu Null hin abfällt. 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{versuch8/EinAusSpanStromFrequenz}
+	\caption{Ein- und Ausgangsspannungen  und Ströme der homogenen Koaxialleitung im Frequenzbereich}
+	\label{fig:einausspanstromfrequenz}
+\end{figure}
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{5.} Berechnen Sie die Ein- und Ausgangsimpedanz im Frequenzbereich und stellen 
 Sie diese in Abhängigkeit der Frequenz dar.\label{exer:ZfreqDomain}
 \end{framed}
+Im Frequenzbereich verhalten sich die Ein- und Ausgangsimpedanzen wie in den Abb. \ref{fig:eingangsimpedanz} und \ref{fig:ausgangsimpedanz} dargestellt. 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{versuch8/Eingangsimpedanz}
+	\caption{Eingangsimpedanz im Frequenzbereich für die homogene Koaxialleitung}
+	\label{fig:eingangsimpedanz}
+\end{figure}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{versuch8/Ausgangsimpedanz}
+	\caption{Ausgangsimpedanz im Frequenzbereich für die homogene Koaxialleitung}
+	\label{fig:ausgangsimpedanz}
+\end{figure}
 
 % --> Aufgabe
 \begin{framed}
@@ -117,7 +140,13 @@ $S_{21}$. Interpretieren Sie das Ergebnis für Reflexion und
 Transmission.\label{exer:calcWaveQuantities}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{versuch8/SParameterEnergie}
+	\caption{Spektren der Strom- und Spannungsstreuparameter $S_{11}$ und $S_{21}$ sowie die Energiebilanz $|S_{11}|^2 + |S_{21}|^2$}
+	\label{fig:sparameterenergie}
+\end{figure}
+
 
 % --> Aufgabe
 \begin{framed}
