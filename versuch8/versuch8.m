@@ -1,6 +1,6 @@
 %% Wähle inhomogen oder homogen
-material_option = 'homogen';
-% material_option = 'inhomogen';
+%material_option = 'homogen';
+material_option = 'inhomogen';
 
 %% Materialdaten und rot-Operator der Leitung laden
 if strcmp( material_option, 'homogen' )

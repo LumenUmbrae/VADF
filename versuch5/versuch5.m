@@ -165,7 +165,7 @@ title('Loesung des quasistatischen Problems im Zeitbereich');
 xlabel('Zeit');
 ylabel('Strom jbow_{mqs,t}');
 
-return
+%return
 
 
 %% Aufgabe 8
