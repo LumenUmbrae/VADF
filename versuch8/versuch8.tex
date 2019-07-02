@@ -135,11 +135,13 @@ $b_1$ und $b_2$ und daraus die Streuparameter $S_{11}$ und
 $S_{21}$. Interpretieren Sie das Ergebnis für Reflexion und
 Transmission.\label{exer:calcWaveQuantities}
 \end{framed}
+\noindent
+Die Streuparameter beschreiben verschiedene Reflexions und Transmissionseigenschaften. $S_{11}$ beschreibt den Eingangs-Reflexionsfaktor, $S_{21}$ den Vorwärts-Transmissionsfaktor. Sie sind ein Maß dafür, wie stark am Eingang auftreffende reflektierte Wellen reflektiert oder transmittiert werden. Aus Abbildung \ref{fig:sparameterenergie} ist zu entnehmen, dass diese Parameter nicht stark von der Frequenz abhängig sind.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{SParameterEnergie}
-	\caption{Spektren der Strom- und Spannungsstreuparameter $S_{11}$ und $S_{21}$ sowie die Energiebilanz $|S_{11}|^2 + |S_{21}|^2$}
+	\caption{Spektren der Streuparameter $S_{11}$ und $S_{21}$ sowie die Energiebilanz $|S_{11}|^2 + |S_{21}|^2$ im homogenen Fall}
 	\label{fig:sparameterenergie}
 \end{figure}
 
@@ -148,15 +150,52 @@ Transmission.\label{exer:calcWaveQuantities}
 \begin{framed}
 	\noindent \textbf{7.} Überprüfen Sie die Energiebilanz nach~(8.8).\label{exer:checkEnergyBal4TLine}
 \end{framed}
-
+\noindent
 Bei unserer Untersuchung der Energiebilanz kommen wir auf eine Energiebilanz von 5 was auf einen Fehler in der Implementierung oder Rechenvorschrift hindeutet, den wir aber nicht zu finden in der Lage waren. Diese Annahme ist vor allem dadurch begründet, das die anderen Ergebnisse der Berechnungen sich im erwarteten Ergebnisbereich befinden, was bei dieser Energiebilanz so nicht sein könnte. 
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{8.} Wiederholen Sie die Berechnungen für die inhomogene Leitung.\label{exer:calc4inhomTLine}
 \end{framed}
+\noindent
+Aus \ref{fig:inhomo_1} ist zu erkennen, dass im inhomogenen Fall Reflexionen auftreten. Diese sind sowohl am Eingang, aber auch am Ausgang messbar. Die Reflexionen entstehen durch die Inhomogenität der Leitung und den damit verbundenen Reflexions- und Transmissionsparametern.\\
+\\
+In Abbildung \ref{fig:inhomo_2} ist nun ein anderes Frequenzsprektrum, als im homogenen Fall. Dies liegt an den gerade beschriebenen Reflexionen, die andere Frequenzanteile enthalten, als der Ausgangspuls. Die Anforderung eines begrenzten Signals im Frequenzbereich ist aber weiterhin erfüllt.\\
+\\
+Bei der Eingangsimpedanz, die in Abbildung \ref{fig:inhomo_3} dargestellt ist, ist nun eine deutlich höhere Frequenzabhängigkeit erkennbar, als im homogenen Fall. Die Ausgangsimpedanz aus Abbildung \ref{fig:inhomo_4} liegt weiterhin bei den festgesetzten $50\,$Ohm.\\
+\\
+Auch die Streuparameter und die damit verbundene Energiebilanz aus Abbildung \ref{fig:inhomo_5} zeigen nun eine deutlich höhere Frequenzabhängigkeit als vorher. Dies bedeutet, dass sowohl die Reflexion, als auch die Transmission am Eingang stärker von der Frequenz abhängig sind, als im homogenen Fall.
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\begin{figure}
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{inhomo_12}
+	\caption{Ein- und Ausgangsspannungen  und Ströme der inhomogenen Koaxialleitung im Zeitbereich}
+	\label{fig:inhomo_1}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{inhomo_2}
+	\caption{Ein- und Ausgangsspannungen  und Ströme der inhomogenen Koaxialleitung im Frequenzbereich}
+	\label{fig:inhomo_2}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{inhomo_3}
+	\caption{Eingangsimpedanz im Frequenzbereich für die inhomogene Koaxialleitung}
+	\label{fig:inhomo_3}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{inhomo_4}
+	\caption{Ausgangsimpedanz im Frequenzbereich für die inhomogene Koaxialleitung}
+	\label{fig:inhomo_4}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{inhomo_5}
+	\caption{Spektren der Streuparameter $S_{11}$ und $S_{21}$ sowie die Energiebilanz $|S_{11}|^2 + |S_{21}|^2$ im inhomogenen Fall}
+	\label{fig:inhomo_5}
+\end{figure}
 
 {\subsection{Lösung im Frequenzbereich}}
 
@@ -174,11 +213,8 @@ Vergleichen Sie die Rechenzeit dieses einen Punktes mit einem
 kompletten Leapfrog-Durchlauf.\label{exer:cmpFreqSolWithLeapfrog}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
-
-
 
 \section{Fazit}
-\emph{Fügen Sie hier Ihre Lösung ein}
+Durch die durchgeführten Simulationen ist es nun möglich das Frequenzspektrum eines Signals zu analysieren, sowie Ein- und Ausgangsimpedanz abhängig von der Frequenz zu bestimmen.
 
 \end{document}
