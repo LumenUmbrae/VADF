@@ -1,8 +1,8 @@
 % Versuch 6
 clear all;
 %% Gitter erstellen (nicht mesh nennen, da dies ein Matlab-Befehl ist)
- nx = 91; %41, 11
- ny = 91; %41, 11
+ nx = 41; %41, 11
+ ny = 41; %41, 11
  nz = 2;
  xmesh = linspace(0,1,nx);
  ymesh = linspace(0,1,ny);
@@ -80,8 +80,8 @@ end
 % 11 = 0.0000000002.4000 - 5
 sigma = 6E-10;
  %dt = ;    
- tend = 2*sigma;
- steps = 200;
+ tend = 6*sigma;
+ steps = 150;
  dt = tend/steps   
 
 sourcetype= 1;  % 1: Gauss Anregung, 2: Harmonisch, 3: Konstante Anregung

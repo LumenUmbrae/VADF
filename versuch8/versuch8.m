@@ -157,7 +157,7 @@ xlabel('Frequenz in Hz');
 ylabel('Z_1 in \Omega');
 title('Eingangsimpedanz');
 xlim([0 fmax2plot]);
-ylim([12 22]);
+ylim([5 30]);
 
 figure(4);
 plot(freq,abs(Z2_fft),'b-');

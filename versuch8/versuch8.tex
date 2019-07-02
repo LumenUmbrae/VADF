@@ -39,7 +39,7 @@ $\epsr=1.3$, während für beide Leitungen weiterhin $\mur=1$ gewählt wurde.
 \begin{framed}
 	\noindent \textbf{4.} Mit welcher Geschwindigkeit bewegt sich die Welle auf der gegebenen Leitung? Berechnen Sie die Zeit, die die Welle benötigt, um die Länge der Leitung einmal zu passieren.\label{exer:calcSpeedTime}
 \end{framed}
-
+\noindent
 Für die Ausbreitungsgeschwindigkeit $c$ eines Elektrischen Impulses in einem Material gilt 
 \begin{equation}
  \label{eq:cSpeed}
@@ -52,7 +52,7 @@ Für die inhomogene Leitung mit $\varepsilon_r = 1.3$ für den Anfang und das En
 \begin{framed}
 	\noindent \textbf{5.} Wie kann man aus den im Allgemeinen komplexen Rückgabewerten der DFT (\matlab-Befehl \verb"fft") auf das Frequenzspektrum schließen?\label{exer:freqSpectByDFT}
 \end{framed}
-
+\noindent
 Um aus den Rückgabewerten der DFT ein Frequenzspektrum zu erstellen müssen die Frequenzpunkte gleichmäßig aufgetragen werden und anschließend darüber die, durch die Anzahl der Sampels geteilten, Rückgabewerte der DFT aufgetragen werden. 
 
 \section{Aufgaben während der Praktikumssitzung}
@@ -69,18 +69,15 @@ Zweck sollen nur noch Gaußpulse verwendet werden.
 	\noindent \textbf{1.} Regen Sie die homogene Leitung mit dem in Versuch 7 beschriebenen
 Gauß-Puls an.\label{exer:exciteGauss}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
-
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{2.} Bestimmen Sie die Spannungen und Ströme an Ein- und Ausgang der Leitung
  im Zeitbereich und stellen Sie diese in entsprechenden Plots dar.\label{exer:UandVtimeDomain}
 \end{framed}
-
+\noindent
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\linewidth]{versuch8/EinAusSpanStromZeit}
+	\includegraphics[width=0.9\linewidth]{EinAusSpanStromZeit}
 	\caption{Ein- und Ausgangsspannungen  und Ströme der homogenen Koaxialleitung im Zeitbereich}
 	\label{fig:einausspanstromzeit}
 \end{figure}
@@ -92,9 +89,6 @@ Zeitsignals berechnet und eine zugehörige Frequenzachse erzeugt.
 Experimentieren Sie mit dem zero-padding, um im interessierenden
 Frequenzbereich eine genügend gute Auflösung zu bekommen.\label{exer:calcFreqSpectWithAxis}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
-
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{4.} Bestimmen Sie die Spannungen und Ströme an Ein- und Ausgang der Leitung 
@@ -102,11 +96,12 @@ im Frequenzbereich und stellen Sie diese in entsprechenden Plots dar. Überprüf
 der Gauß-Puls im Frequenzbereich die Bedingungen erfüllt, die an 
 diesen in Versuch 7 gestellt wurden.\label{exer:UandVfreqDomain}
 \end{framed}
+\noindent
 Wie in Abb. \ref{fig:einausspanstromfrequenz} zu sehen nehmen Ein- und Ausgangsspannung sowie Strom mit zunehmender Frequenz ab. \\
 Der Grußimpuls erfüllt im Frequenzbereich die Anforderung ein Begrenztes Signal zu haben, da er mit zunehmender Frequenz zu Null hin abfällt. 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\linewidth]{versuch8/EinAusSpanStromFrequenz}
+	\includegraphics[width=0.9\linewidth]{EinAusSpanStromFrequenz}
 	\caption{Ein- und Ausgangsspannungen  und Ströme der homogenen Koaxialleitung im Frequenzbereich}
 	\label{fig:einausspanstromfrequenz}
 \end{figure}
@@ -116,17 +111,18 @@ Der Grußimpuls erfüllt im Frequenzbereich die Anforderung ein Begrenztes Signa
 	\noindent \textbf{5.} Berechnen Sie die Ein- und Ausgangsimpedanz im Frequenzbereich und stellen 
 Sie diese in Abhängigkeit der Frequenz dar.\label{exer:ZfreqDomain}
 \end{framed}
-Im Frequenzbereich verhalten sich die Ein- und Ausgangsimpedanzen wie in den Abb. \ref{fig:eingangsimpedanz} und \ref{fig:ausgangsimpedanz} dargestellt. 
+\noindent
+Im Frequenzbereich verhalten sich die Ein- und Ausgangsimpedanzen wie in den Abb. \ref{fig:eingangsimpedanz} und \ref{fig:ausgangsimpedanz} dargestellt. Es ist deutlich zu erkennen, dass die Ausgangsimpedanz, wie angesetzt dauerhaft bei 50\, Ohm liegt
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{versuch8/Eingangsimpedanz}
+	\includegraphics[width=0.7\linewidth]{Eingangsimpedanz}
 	\caption{Eingangsimpedanz im Frequenzbereich für die homogene Koaxialleitung}
 	\label{fig:eingangsimpedanz}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{versuch8/Ausgangsimpedanz}
+	\includegraphics[width=0.7\linewidth]{Ausgangsimpedanz}
 	\caption{Ausgangsimpedanz im Frequenzbereich für die homogene Koaxialleitung}
 	\label{fig:ausgangsimpedanz}
 \end{figure}
@@ -142,7 +138,7 @@ Transmission.\label{exer:calcWaveQuantities}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{versuch8/SParameterEnergie}
+	\includegraphics[width=0.7\linewidth]{SParameterEnergie}
 	\caption{Spektren der Strom- und Spannungsstreuparameter $S_{11}$ und $S_{21}$ sowie die Energiebilanz $|S_{11}|^2 + |S_{21}|^2$}
 	\label{fig:sparameterenergie}
 \end{figure}
