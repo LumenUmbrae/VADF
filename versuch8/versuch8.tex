@@ -19,21 +19,57 @@ $\epsr=1.3$, während für beide Leitungen weiterhin $\mur=1$ gewählt wurde.
 	\noindent \textbf{1.} Zeichnen Sie für die hier behandelte Leitung das entsprechende Zweitor mit Zählpfeilen orientiert wie in Abb.~7.7. Fügen Sie auch die hier verwendete äußere Beschaltung an den Leitungsenden hinzu.\label{exer:twoPort}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
-
+\begin{figure}[h]
+	\centering
+	\def\svgwidth{0.8\textwidth}
+	\input{schaltung.pdf_tex}
+	\caption{Zweitor}
+	\label{fig:schal}
+\end{figure}
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{2.} Bestimmen Sie den Eingangsstrom $I_1$ in Abhängigkeit von der Eingangsspannung $U_1$, dem Abschlusswiderstand $R$ und der Anregung $I_0$.\label{exer:calcI1}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+Um das Strom $I_1$ zu bestimmen, betrachtet man die Stromquelle $I_0$ und  das ersten Knoten. Aus die Knotenanalyse erhält man folgende Gelichung: 
+\begin{eqnarray}
+I_0  = I_1 + \frac{U_1}{R} \\
+I_1 = I_0-\frac{U_1}{R}.
+\end{eqnarray}
+ 
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{3.} Bestimmen Sie die Ausgangsspannung $\ul{U}_2$ und den Ausgangsstrom $\ul{I}_2$ in Abhängigkeit von der Eingangsspannung $U_1$, der Länge der Leitung $\ell$ und der Phasenkonstante $\beta$. Sie können dabei annehmen, dass die Leitung mit ihrem Wellenwiderstand abgeschlossen ist.\label{exer:calcU2I2}
 \end{framed}
+In dem Versuch 7 und 8 geht es um Koaxialleiter. Um die $U_2$ und $I_2$ zu finden, nutzt man schön aus Versuch 7 bekannte Leitungsgleichungen.
 
-\emph{Fügen Sie hier Ihre Lösung ein}
+\begin{eqnarray}
+\underline{U}(z)&=&U^{+}_0\exp(-j\beta z)+U^{-}_0\exp(+j\beta z)\\
+\underline{I}(z)&=&I^{+}_0\exp(-j\beta z)-I^{-}_0\exp(+j\beta z)=\frac{U^{+}_0}{Z_w}\exp(-j\beta z)-\frac{U^{-}_0}{Z_w}\exp(+j\beta z)
+\end{eqnarray}
+
+Weil die Leitung mit einem Wellenwiderstand abgeschlossen ist, betrachtet man die rücklaufende Welle nicht.
+
+\begin{eqnarray}
+\underline{U}(z)&=&U^{+}_0\exp(-j\beta z)\\
+\underline{I}(z)&=&I^{+}_0\exp(-j\beta z)=\frac{U^{+}_0}{Z_w}\exp(-j\beta z)
+\end{eqnarray}
+Zuerst bestimmt man $U_1$.\\
+ $U_1$ befindet sich bei $\underline{U}(z=0)$ . 
+
+$$U_1=\underline{U}(z=0)=U^{+}_0 $$
+
+Analog zu $U_1$ bekommt man auch $\underline{U}_2$ und $\underline{I}_2 $, nur soll man als $z$ die Länge der Leitung $\ell$ einsetzen. 
+
+\begin{eqnarray}
+\underline{U}_2=\underline{U}(z=\ell)&=&U^{+}_0\exp(-j\beta \ell)\\
+\underline{I}_2=-\underline{I}(z=\ell)&=&-I^{+}_0\exp(-j\beta \ell)=-\frac{U^{+}_0}{Z_w}\exp(-j\beta \ell)
+\end{eqnarray}
+Am Ende bekommt man
+
+$$\underline{U}_2=U_1\exp(-j\beta \ell)$$
+$$\underline{I}_2=-\frac{U_1}{Z_w}\exp(-j\beta \ell). $$
 
 % --> Aufgabe
 \begin{framed}
