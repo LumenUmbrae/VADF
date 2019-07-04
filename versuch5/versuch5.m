@@ -205,8 +205,8 @@ legend('Zeitloesung','Frequenzloesung')
 
 % Vergleich von Zeitlösung zur Frequenzlösung im Zeitbereich
 % -> Implementierung der Fehlernorm aus der Aufgabenstellung
- norm1_t = sqrt(jbow_mqs_t.^2-jbow_mqs_f_t.^2);
- norm2_t = sqrt(jbow_mqs_f_t.^2);
+ norm1_t = norm(jbow_mqs_t-jbow_mqs_f_t);
+ norm2_t = norm(jbow_mqs_f_t);
  errorTimeVSfrequency = max(norm1_t)/max(norm2_t)
 % fprintf('Relativer Fehler im Zeitbereich: %e\n',errorTimeVSfrequency);
 
@@ -223,19 +223,19 @@ legend('Zeitloesung','Frequenzloesung')
 % Bestimmung von Real- und Imaginärteil des komplexen Phasors,
 % der aus dem Zeitsignal gewonnen werden kann
      t_real = 0;
-     t_imag = -1/(f*4)
+     t_imag = 3/(f*4);
     jbow_re_t = zeros(3*msh.np,1);
     jbow_im_t = zeros(3*msh.np,1);
     for k = 1:3*msh.np
-        jbow_re_t(k) = interp1(real(jbow_mqs_t));
-        jbow_im_t(k) = interp1(real(jbow_mqs_t*e^(i*omega*t_imag)));
+        jbow_re_t(k) = interp1(time,jbow_mqs_t(k,:),t_real);
+        jbow_im_t(k) = interp1(time,jbow_mqs_t(k,:),t_imag);
     end
 
 
 % Vergleich von Real- und Imaginärteil des Phasors aus dem Zeitbereich
 % mit dem Phasor aus der Frequenzbereichslösung (Implementierung der Formel aus Aufgabenstellung)
- errorPhasorReal = max(sqrt(jbow_re_t.^2-real(jbow_mqs_f).^2))/max(sqrt(real(jbow_mqs_f).^2));
- errorPhasorImag = max(sqrt(jbow_im_t.^2-imag(jbow_mqs_f).^2))/max(sqrt(imag(jbow_mqs_f).^2));
+ errorPhasorReal = norm(jbow_re_t-real(jbow_mqs_f))./norm(real(jbow_mqs_f));
+ errorPhasorImag = norm(jbow_im_t-imag(jbow_mqs_f))./norm(imag(jbow_mqs_f));
  fprintf('Relativer Fehler Realteil: %e\n',errorPhasorReal);
  fprintf('Relativer Fehler Imaginärteil: %e\n',errorPhasorImag);
   

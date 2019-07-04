@@ -31,7 +31,7 @@ errorPhasorReal = zeros(length(nperperiod_vec),1);
 errorPhasorImag = zeros(length(nperperiod_vec),1);
 
 % Anfangswert für die Lösung der DGL im Zeitbereich wählen
-% abow_init =
+ abow_init = zeros(3*msh.np,1);
 
 for k=1:length(nperperiod_vec)
 
@@ -43,12 +43,12 @@ for k=1:length(nperperiod_vec)
     [~, ~, ~, jbow_mqs_t,~] = solveMQST(msh, mui, kappa, abow_init, jsbow, time, bc);
 
     % Transformation der Frequenzbereichslösung in den Zeitbereich
-     jbow_mqs_f_t = real(jbow_mqs_t*e^(i*omega*time));
+      jbow_mqs_f_t = abs(jbow_mqs_f).*cos(omega*time+angle(jbow_mqs_f));
     
     % Vergleich von Zeitlösung zur Frequenzlösung im Zeitbereich
     % -> Implementierung der Fehlernorm aus der Aufgabenstellung
-    norm1_t = sqrt(jbow_mqs_t.^2-jbow_mqs_f_t.^2);
-    norm2_t = sqrt(jbow_mqs_f_t.^2);
+    norm1_t = norm(jbow_mqs_t-jbow_mqs_f_t);
+    norm2_t = norm(jbow_mqs_f_t);
     errorTimeDomain(k) = max(norm1_t)/max(norm2_t);
 
 
@@ -57,30 +57,30 @@ for k=1:length(nperperiod_vec)
 
     % Real- und Imaginärteil der Stromdichte aus Zeitsignal bestimmen
     t_real = 0;
-    t_imag = -1/(4*f);
+    t_imag = 3/(4*f);
     jbow_re_t = zeros(3*msh.np,1);
     jbow_im_t = zeros(3*msh.np,1);
     for j = 1:3*msh.np
-    %    jbow_re_t(j) = interp1(...);
-    %    jbow_im_t(j) = ...
+        jbow_re_t(j) = interp1(time,jbow_mqs_t(j,:),t_real);
+        jbow_im_t(j) = interp1(time,jbow_mqs_t(j,:),t_imag);
     end
 
     % Fehler Real- und Imaginärteil
-    % errorPhasorReal(k) = 
-    % errorPhasorImag(k) = 
+    errorPhasorReal = norm(jbow_re_t-real(jbow_mqs_f))./norm(real(jbow_mqs_f));
+    errorPhasorImag = norm(jbow_im_t-imag(jbow_mqs_f))./norm(imag(jbow_mqs_f));
 end
 
 % Plot Vergleich im Zeitbereich
 figure(11)
-% loglog(...,'-x','LineWidth',2)
+ loglog(nperperiod_vec,errorTimeDomain,'-x','LineWidth',2)
 xlabel('Anzahl der Stuetzstellen pro Periode')
 ylabel('Relativer Fehler im Zeitbereich')
 
 % Plot Vergleich im Frequenzbereich (Vergleich der Phasoren)
 figure(12)
-% loglog(...,'-x','LineWidth',2)
+ loglog(nperperiod_vec,errorPhasorReal,'-x','LineWidth',2)
 hold all
-% loglog(...,'-x','LineWidth',2)
+ loglog(nperperiod_vec,errorPhasorImag,'-x','LineWidth',2)
 hold off
 xlabel('Anzahl der Stuetzstellen pro Periode')
 ylabel('Relativer Fehler im Frequenzbereich')
