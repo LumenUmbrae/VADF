@@ -39,7 +39,7 @@ time = 0:dt:(nts*dt);
 fmax = 1e9;
 
 % Sampling-Frequenz der Zeitdiskretisierung
-Fs = 1./dt; 
+Fs = 1./dt;
 fprintf('Sampling-Frequenz: %d Hz\n',Fs);
 
 % index used for current and voltage measurements
@@ -63,11 +63,11 @@ for k=2:nts
         
     [hbow,ebow] = leapfrog(hbow, ebow, je(:,k), Mmui, Meps, C, Rmat, dt);
 
-    % Spannung und Strom f�r Ein- und Ausgang
-    U1(k) = ebow(5);
-    I1(k) = sum(abs(je(:,k))) - U1(k)/R;
-    U2(k) = ebow(2405);
-    I2(k) = -U2(k)/R;
+    % Spannung und Strom für Ein- und Ausgang
+      U1(k) = ebow(5);
+      I1(k) = sum(abs(je(:,k))) - U1(k)/R;
+      U2(k) = ebow(2405);
+      I2(k) = -U2(k)/R;
     
 end
 time_TD = toc;
@@ -140,7 +140,7 @@ xlim([0 2*fmax]);
 subplot(2,2,4)
 plot(freq,abs(I2_fft));
 xlabel('Frequenz in Hz')
-ylabel('I_2 in A')
+ylabel('I_2 in V')
 title('Ausgangsstrom im Frequenzbereich')
 xlim([0 2*fmax]);    
 
@@ -157,7 +157,7 @@ xlabel('Frequenz in Hz');
 ylabel('Z_1 in \Omega');
 title('Eingangsimpedanz');
 xlim([0 fmax2plot]);
-ylim([5 30]);
+ylim([45 55]);
 
 figure(4);
 plot(freq,abs(Z2_fft),'b-');
@@ -170,18 +170,20 @@ ylim([45 55]);
                 
 %% Auswertung Wellengrößen
     
+%Zwsqrt =
+
 Zwsqrt = sqrt(R);
 
 a1 = (1/2)*(U1_fft./Zwsqrt.+I1_fft.*Zwsqrt);
 b1 = (1/2)*(U1_fft./Zwsqrt.-I1_fft.*Zwsqrt);
 b2 = (1/2)*(U2_fft./Zwsqrt.-I2_fft.*Zwsqrt);
-%
+
 S11 = b1./a1;
 S21 = b2./a1;
 
 energy = abs(S11).^2+abs(S21).^2;
 
-% Darstellung Energie und Wellengr��en
+% Darstellung Energie und Wellengrößen
 figure(5);
 plot(freq, abs(S11),freq,abs(S21),freq,energy);
 xlabel('Frequenz in Hz')
