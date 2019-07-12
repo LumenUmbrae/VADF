@@ -27,27 +27,27 @@ Es sollen sinnvolle Randbedingungen verwendet werden.
     gemittelten Leitfähigkeiten $\bar{\kappa}=(\bar{\kappa}_x\;\bar{\kappa}_y\;\bar{\kappa}_z)$ für die primalen Kanten, die von den primalen Punkten $P_{ik}$ für $(i,k)\in\{(3,1),(3,2),(3,3)\}$ ausgehen. Berechnen Sie zusätzlich die gemittelten inversen Permeabilitäten $\bar{\mu}^{-1}=(\bar{\mu}_x^{-1}\;\bar{\mu}_y^{-1}\;\bar{\mu}_z^{-1})$ für die dualen Kanten, die von den dualen Punkten $\widetilde{P}_{ik}$ mit $(i,k)\in\{(3,1),(3,2)\}$ ausgehen. Verwenden Sie zum Ermitteln dieser gemittelten Werte eine Taylorreihenentwicklung analog zu Versuch 3.\label{exer:averagedMaterials}
 \end{framed}
 
-Um die Werte zu bestimen, nutzt man die folgende 2 Formeln:
+Um die Werte zu bestimmen, nutzt man die folgenden 2 Formeln:
 \begin{enumerate}
 	\item Leitfähigkeit $\bar{\kappa}$
-     bspl. Für x-Komponente
+     bspl. für x-Komponente
      \begin{eqnarray*} \bar{\kappa}_x(n)& = &\frac{1}{4\tilde{A}_x}(\kappa_x(n-M_y-M_z)A_x(n-M_y-M_z)\\
      &  &+\kappa_x(n-M_z)A_x(n-M_z)\\
      &    &+\kappa_x(n)A_x(n)\\
      &   &+\kappa_x(n-M_y)A_x(n-M_y))
     \end{eqnarray*}
 
- \item inversen Permäbilität $\bar{\mu}^{-1}$ bspl. für x-Komponente
+ \item Inverse Permäbilität $\bar{\mu}^{-1}$ bspl. für x-Komponente
 $$\bar{\mu}_x^{-1}=\frac{\frac{\Delta x(n)}{2\mu(n)}+\frac{\Delta x(n-M_x)}{2\mu(n-M_x)}}{\Delta\tilde{x}(n)}$$ mit $$ \Delta\tilde{x}(n)=\frac{\Delta x(n-M_x)}{2}+\frac{\Delta x(n)}{2}$$
 \end{enumerate}
 
-So ergibt sich die Leitfähigkeiten zu:
+So ergeben sich die Leitfähigkeiten zu:
 \begin{enumerate}
 	\item $(3,1) = (1\ 1\ 1) \cdot 5,8\cdot 10^7$S/m
 	\item $(3,2) = (2,9\ 2,9\ 0)\cdot 10^7$S/m
 	\item $(3,3) = (0\ 0\ 0)$
 \end{enumerate}
-Die inversen ermtivitäten auf den Dualen Kanten ergeben sich zu:
+Die inversen Permeabilitäten auf den Dualen Kanten ergeben sich zu:
 \begin{enumerate}
 	\item $(3,1) = (1000\ 1000\ 500,5)\cdot \mu_0$
 	\item $(3,2) = (\mu_0\ \mu_0\ \mu_0)$
@@ -61,24 +61,25 @@ Die inversen ermtivitäten auf den Dualen Kanten ergeben sich zu:
 Man nutzt die Gleichung (5.14):
 
 $$ \curldfit\Mmui\curlfit\afit + j \omega\Mkap\afit = \jfit_{\boldmath{s}} $$
-\begin{eqnarray}
+\begin{eqnarray*}
 \left[ \curldfit\Mmui\curlfit + j \omega\Mkap \right]\afit = \jfit_{\boldmath{s}} \\
 \Amat_\text{F}\afit=\jfit_{\boldmath{s}}
- \end{eqnarray}
+ \end{eqnarray*}
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{3.} Bestimmen Sie die Systemmatrix $\Amat_\text{T}$ des impliziten
       \textsc{Euler}-Zeitschrittverfahrens, d.h.\ setzen Sie die Näherung~(5.22) in das DAE-System~(5.7) ein und stellen Sie anschließend nach $\afit_{n+1}$ um.\label{exer:systemMatMQST}
 \end{framed}
+\noindent
 Man nutzt die Gleichungen (5.7)
 $$ \curldfit\Mmui\curlfit\afit +           \Mkap      \frac{\partial }{\partial t}\afit = \jfit_{\boldmath{s}} $$
 und (5.22)
 $$ \frac{\partial }{\partial t}\afit(t_{i+1})=\frac{1}{\Delta t}\left(\afit_{i+1} - \afit_i\right).$$
-Man setzt  Gleichung 5.22 in 5.7 ein
-$$ \curldfit\Mmui\curlfit\afit_{i+1}+\frac{1}{\Delta t}\Mkap\left(\afit_{i+1} - \afit_i\right)= \jfit_{\boldmath{s}}. $$
-
+Man setzt  Gleichung (5.22) in (5.7) ein
+$$ \curldfit\Mmui\curlfit\afit_{i+1}+\frac{1}{\Delta t}\Mkap\left(\afit_{i+1} - \afit_i\right)= \jfit_{\boldmath{s},i+1}. $$
+\noindent
 Man stellt die Gleichung nach $\afit_{i+1}$ um:
-$$ \left(\curldfit\Mmui\curlfit+\frac{1}{\Delta t}\Mkap\right)\afit_{i+1}= \jfit_{\boldmath{s}}+\frac{1}{\Delta t}\Mkap\afit_i. $$
+$$ \left(\curldfit\Mmui\curlfit+\frac{1}{\Delta t}\Mkap\right)\afit_{i+1}= \jfit_{\boldmath{s},i+1}+\frac{1}{\Delta t}\Mkap\afit_i. $$
 Es ist deutlich zu sehen, dass $\Amat_\text{T} =\curldfit\Mmui\curlfit+\frac{1}{\Delta t}\Mkap $ ist.
 
 
@@ -170,11 +171,11 @@ Die Stellen, an denen der Stromdichtevektor $\jfit_\text{s}$ nicht Null Einträg
 \noindent
 Aus den Gleichungen \ref{eq:approx1} und \ref{eq:approx2} ergibt sich durch gleichsetzen
 \begin{equation}
-	\frac{-\efit_{n+1} - \efit_{n}}{2} \approx \frac{\afit_{n+1} - \afit_{n}}{\Delta t}
+	\frac{-\efit_{n+1} - \efit_{n}}{2} \approx \frac{\afit_{n+1} - \afit_{n}}{\Delta t}.
 \end{equation}
 Umstellen nach $\efit_{n+1}$ führt auf
 \begin{equation}
-	\efit_{n+1} = -2\frac{\afit_{n+1}-\afit_{n}}{\Delta t} - \efit_{n}
+	\efit_{n+1} = -2\frac{\afit_{n+1}-\afit_{n}}{\Delta t} - \efit_{n}.
 \end{equation}
 % --> Aufgabe
 \begin{framed}
@@ -184,7 +185,7 @@ Umstellen nach $\efit_{n+1}$ führt auf
       \label{exer:calcDkap}
 \end{framed}
 \noindent
-Da für den Elektrische Gitterstrom der Zusammenhang $\jfit = \Mkap \efit$ gilt und dies sehr ähnlich ist mit $\dfit = \Meps \efit$ kann die Materialmatrix $\Mkap$ durch eine leicht modifizierte Funktion \lstinline{createMeps} erstellt werden. 
+Da für den elektrischen Gitterstrom der Zusammenhang $\jfit = \Mkap \efit$ gilt und dies sehr ähnlich zu $\dfit = \Meps \efit$ ist, kann die Materialmatrix $\Mkap$ durch eine leicht modifizierte Funktion \lstinline{createMeps} erstellt werden. 
 \\
 
 %\emph{Fügen Sie hier Ihre Lösung ein}
@@ -199,8 +200,6 @@ Da für den Elektrische Gitterstrom der Zusammenhang $\jfit = \Mkap \efit$ gilt 
 {\textbf{Hinweis:}} Beachten Sie, dass später die inverse Permeabilität benötigt wird.\label{exer:modelProblem}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
-
 %
 Zuerst soll das magnetostatische Problem gelöst werden:
 %
@@ -214,7 +213,6 @@ Zuerst soll das magnetostatische Problem gelöst werden:
             implementiert werden. Neben den bekannten Parametern \lstinline{msh} und \lstinline{jbow} ist \lstinline{mui} hier die diskrete, gemittelte, inverse Permeabilität.\label{exer:solveMSVec}
 \end{framed}
 
-\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
         \begin{framed}
@@ -222,12 +220,13 @@ Zuerst soll das magnetostatische Problem gelöst werden:
 \end{framed}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{StatischeLoesungdesVektorpotenzials.pdf}
-	\caption{Statische Lösung des magnetischen Vektorpotenzials}
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{StatischeLoesungdesVektorpotenzials.pdf}
+	\caption{Statische Lösung des magnetischen Vektorpotenzials in der $x$-$y$-Ebene bei $k=3$}
 	\label{fig:statischeloesungdesvektorpotenzials}
 \end{figure}
-
-Das Vektorpotenzial des gegebenen Problems ist in Abb. \ref{fig:statischeloesungdesvektorpotenzials} dargestellt. Es ist eine Deutliche Überhöhung am unteren Rand des Rechengebietes zu erkennen. 
+\noindent
+Das Vektorpotenzial des gegebenen Problems ist in Abb. \ref{fig:statischeloesungdesvektorpotenzials} dargestellt. Es ist zu erkennen, dass das Vektorpotential in die gleiche Richtung zeigt, wie der eingeprägte Strom und nach außen hin abnimmt. 
+\\
 \\
 %
 Nun soll das Problem für eine harmonische Anregung bei der
@@ -246,12 +245,29 @@ Frequenz $f=50\,\text{Hz}$ gelöst werden:
             rechten Seite des Gleichungssystems. Das Gleichungssystem soll mit dem PCG-Verfahren
             gelöst werden (in \matlab\;gegeben als \lstinline{pcg}). Damit dieses konvergiert, müssen zunächst die Beiträge der Geisterkanten aus der Systemmatrix und der rechten Seite entfernt werden. Hierbei ist Ihnen die bereits gestellte Methode \lstinline{getGhostEdges} eine gute Hilfe. Außerdem muss ein geeigneter Vorkonditionierer (engl.\ preconditioner) gewählt werden. Besonders leicht zu implementieren ist z.B. der Jacobi Vorkonditionierer $\mathbf{M} = \text{diag}\,\Amat$.
 \end{framed}
-
+\noindent
+Zur Implementierung eines Solvers für magnetoquasistatische Probleme im Frequenzbereich wurde die Systemmatrix $\Amat_\text{F}$ erstellt und dann reduziert, das heißt die Geisterkanten entfernt. Das gleiche wurde mit der rechten Seite, dem Strom $\jfit_s$ gemacht. Daraufhin wird das Gleichungssystem mit Hilfe eines vorgegebenen Solvers gelöst. Für bessere Konvergenzeigenschaften wurde die Matrix $\Amat_\text{F}$ mit $\mathbf{M} = \text{diag}\,\Amat$ vorkonditioniert. Durch die Lösung des Solvers kann nun $\afit$ und damit $\hfit$, $\bfit$ und $\jfit$ bestimmt werden.
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{5.} Verwenden Sie Methode~\eqref{pro:solveMqs} in \lstinline{versuch5.m} und stellen Sie die Stromdichteverteilung in der Grenzfläche von Vakuum und leitender Platte als Vektorplot unter Verwendung von der gegebenen Methode \lstinline{plotEdgeVoltage.m} grafisch dar.\label{exer:currentDensityAtInterface}
 \end{framed}
+\noindent
+Die Stromdichteverteilungen aus dem Frequenzbereichssolver sind in den Abbildungen \ref{fig:Stromdichte_real} (Realteil) und \ref{fig:Stromdichte_ima} (Imaginärteil) zu sehen.
+\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{Stromdichte_real.pdf}
+	\caption{Realteil der Stromdichte in der $x$-$y$-Ebene bei $k=2$}
+	\label{fig:Stromdichte_real}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{Stromdichte_ima.pdf}
+	\caption{Imaginärteil der Stromdichte in der $x$-$y$-Ebene bei $k=2$}
+	\label{fig:Stromdichte_ima}
+\end{figure}
+
 
 
 Des Weiteren soll dasselbe Problem im Zeitbereich mit dem impliziten
@@ -268,15 +284,20 @@ Des Weiteren soll dasselbe Problem im Zeitbereich mit dem impliziten
         \end{align}
         wobei \lstinline{t} der Simulationszeit und \lstinline{nt} der Zeitschrittanzahl entsprechen.\label{exer:solveMQST}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+\noindent
+Für den Zeitbereichssolver wird die Systemmatrix $\Amat_\text{T}$ zu jeden Zeitschritt erstellt und das Gleichungssystem gelöst. Danach wird, ähnlich wie im Frequenzbereich, $\afit$ und damit $\hfit$, $\bfit$ und $\jfit$ bestimmt.
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{7.} Verwenden Sie Methode~\eqref{pro:solveT} und stellen Sie die Stromdichteverteilung im Punkt (3,2,2) in Abhängigkeit von der Zeit grafisch dar. Implementieren Sie diese Auswertung in \lstinline{versuch5.m}. Was erwarten Sie für grobe Diskretisierungen in der Zeit beim impliziten \textsc{Euler}-Verfahren als Vorteil gegenüber dem explizitem \textsc{Euler}-Verfahren?\label{exer:currDensityTimeDependent}
 \end{framed}
-
-\emph{Fügen Sie hier Ihre Lösung ein}
+Die Stromdichteverteilung im Punkt (3,2,2) in Abhängigkeit der Zeit ist in Abbildung \ref{fig:Stromdichte_punkt} zu sehen. Für grobe Diskretisierungen wird das implizite \textsc{Euler}-Verfahren bessere Ergebnisse liefern, als das Explizite, da das Explizite beii zu großen Zeitschritten schnell instabil werden kann.
+\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{Stromdichte_punkt.pdf}
+	\caption{Stromdichteverteilung im Punkt (3,2,2) in Abhängigkeit der Zeit}
+	\label{fig:Stromdichte_punkt}
+\end{figure}
 
 % --> Aufgabe
 \begin{framed}
@@ -287,6 +308,15 @@ Des Weiteren soll dasselbe Problem im Zeitbereich mit dem impliziten
       \end{equation}
 Die Zeitbereichslösung wird hier mit $\bbow{\mathbf{j}}_\text{mqs,t}$ und die in den Zeitbereich transformierte Frequenzbereichslösung mit $\bbow{\mathbf{j}}_\text{mqs,f,t}$ bezeichnet. Implementieren Sie diese Auswertung in \lstinline{versuch5.m}.\label{exer:compareFreqVStimeInTime}
 \end{framed}
+\noindent
+Die Zeit- und Frequenzbereichslösung im Zeitbereich sind in Abbildung \ref{fig:Zeit_Freq_Vergl} zu sehen. Es ist deutlich zu sehen, dass beide Lösungen identisch sind.
+\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{Zeit_Freq_Vergl.pdf}
+	\caption{Vergleich der Zeitbereichslösung mit der Frequenzbereichslösung im Zeitbereich}
+	\label{fig:Zeit_Freq_Vergl}
+\end{figure}
+
 
 
 % --> Aufgabe
@@ -297,6 +327,21 @@ Die Zeitbereichslösung wird hier mit $\bbow{\mathbf{j}}_\text{mqs,t}$ und die i
     \end{equation}
     verwendet werden. Die Frequenzbereichslösung wird hier mit $\bbow{\mathbf{j}}_\text{mqs,f}$ und die in den Frequenzbereich transformierte Zeitbereichslösung mit $\bbow{\mathbf{j}}_\text{mqs,f,t}$ bezeichnet. Implementieren Sie diese Auswertung in \lstinline{versuch5.m}.\label{exer:compareFreqVStimeInFreq}
 \end{framed}
+\noindent
+Bei der Auswertung der Zeitbereichslösung im Frequenzbereich lag der relative Fehler des Realteils bei $3.191394\cdot 10^{-5}$ und der relative Fehler des Imaginärteils bei $1.902135\cdot 10^{-1}$. Da der Realteil der realen Stromdichte entspricht und der relative Fehler in der Größenordnung $10^{-5}$ liegt, können die Auswertung der Zeitbereichslösung und der Frequenzbereichslösung im Frequenzbereich als nahezu identisch angenommen werden, was auch aus dem Vergleich der Abbildungen \ref{fig:Stromdichte_real_t} und \ref{fig:Stromdichte_ima_t} mit den Abbildungen \ref{fig:Stromdichte_real} und \ref{fig:Stromdichte_ima} aus Aufgabe \ref{exer:currentDensityAtInterface} deutlich wird.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{Stromdichte_real_t.pdf}
+	\caption{Realteil der Stromdichteverteilung der Zeitbereichslösung im Frequenzbereich}
+	\label{fig:Stromdichte_real_t}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{Stromdichte_ima_t.pdf}
+	\caption{Imaginärteil der Stromdichteverteilung der Zeitbereichslösung im Frequenzbereich}
+	\label{fig:Stromdichte_ima_t}
+\end{figure}
 
 
 % --> Aufgabe
@@ -304,12 +349,19 @@ Die Zeitbereichslösung wird hier mit $\bbow{\mathbf{j}}_\text{mqs,t}$ und die i
 	\noindent \textbf{10.} Stellen Sie die relativen Abweichungen nach~\eqref{eq:errorNorm} für mehrere Zeitintegrationen mit
       variierender Schrittweite in einem Skript \lstinline{plotConvSolveMQST} grafisch dar und beobachten Sie den entstehenden zeitlichen Diskretisierungsfehler. Bestimmen Sie die Ordnung des Zeitintegrationsverfahrens.\label{exer:relDiffMQSFvsMQST}
 \end{framed}
-
+\noindent
+In Abbildung \ref{fig:Konvergenz_time} ist die Konvergenz des relativen Fehlers im Zeitbereich dargestellt. Es ist zu erkennen, dass das Verfahren mit 1. Ordnung konvergiert.
+\begin{figure}[h]
+	\centering
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{Konvergenz_time.pdf}
+	\caption{Konvergenz des relativen Fehlers im Zeitbereich}
+	\label{fig:Konvergenz_time}
+\end{figure}
 
 
 
 
 \section{Fazit}
-\emph{Fügen Sie hier Ihre Lösung ein}
+Es wurden quasistatische Probleme behandelt und Zeit- und Frequenzbereichslösungen jeweils im Zeit- und Frequenzbereich verglichen. 
 
 \end{document}

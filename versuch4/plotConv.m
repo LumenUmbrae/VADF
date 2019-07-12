@@ -30,7 +30,7 @@ msh = cartMesh(xmesh, ymesh, zmesh);
 % [ phiE, ebowE, dbowE, relResE] = solveES( msh, epsE, potE, q);
 
 % Berechnen der Permittivit�t mit boxMesher
-eps = boxMesher(msh, boxesE, defaultvalue);
+eps = boxMesher(msh, boxesE, NaN);
 
 
 % Berechnen des Potentials mit boxMesher

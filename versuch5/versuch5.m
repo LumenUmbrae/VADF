@@ -1,5 +1,6 @@
 % Aufgabe 1,3,4,7,8,9
 clear all;
+close all;
 %% Aufgabe 1
 % -------------------------------------------------------------------------
 % ------------ Problem modellieren ----------------------------------------
@@ -20,23 +21,11 @@ disp('Gitter erstellen')
  Mx = msh.Mx;
  My = msh.My;
  Mz = msh.Mz;
- 
- 
- %Bestimmen der Abstände
-## dX = [diff(xmesh), 0];
-## dY = [diff(ymesh), 0];
-## dZ = [diff(zmesh), 0];
-## 
-## [ds, dst, da, dat] = createGeoMats(msh);
-##
-##% tempM = eye(nx,nx).+diag(ones(nx-1,1),1); Bestimmen der dualen kantenlängen
-## dDX = 0.5*dX*(eye(nx,nx).+diag(ones(nx-1,1),1));
-## dDY = 0.5*dY*(eye(ny,ny).+diag(ones(ny-1,1),1));
-## dDZ = 0.5*dZ*(eye(nz,nz).+diag(ones(nz-1,1),1));
+
 
 % Randbedingung für alle Raumrichtungen definieren [xmin, xmax, ymin, ymax, zmin, zmax] (0 = magnetisch, 1 = elektrisch)
 
- bc = [ 0, 0, 0, 0, 0, 0] 
+bc = [ 0, 0, 0, 0, 0, 0] 
 
 % Erstellen von jsbow
 jsbow = zeros(3*np,1);
@@ -66,7 +55,7 @@ mui = nullInv(mu);
 % -------------------------------------------------------------------------
 % ----------- Lösen des magnetostatischen Problems ------------------------
 % -------------------------------------------------------------------------
-solve_statik = false;
+solve_statik = true;
 if solve_statik
 	disp('Loesung des statischen Problems')
     
@@ -78,10 +67,12 @@ if solve_statik
 	figure(1)
 	plotEdgeVoltage(msh, abow_ms, 3,  bc)
 	title('Statische Loesung des Vektorpotentials')
+  xlabel('x')
+  ylabel('y')
 
     % Grafisches Darstellen der z-Komponente des B-Feldes
 	  bbow_ms_z=bbow_ms(2*msh.np+1+2*nx*ny:2*msh.np+3*nx*ny);
-  
+    
     [X,Y]=meshgrid(xmesh,ymesh);
     
     

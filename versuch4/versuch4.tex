@@ -41,10 +41,10 @@ so kann man diese auch umschreiben zu
 	\Meps\divdfit\divdfit^\top\varphi=\mathbf{q},
 \end{equation*}
 da $\Meps$ eine Diagonalmatrix ist. Da es homogene Materialverteilung und ein äquidistantes Gitter angenommen wird vereinfacht sich die Gleichung zu
-\begin{equation*}
+\begin{equation}
 	\divdfit\divdfit^\top\varphi=\frac{1}{\Delta s\varepsilon_0}\mathbf{q}.
 	\label{eq:SSphi}
-\end{equation*}
+\end{equation}
 Daraus lässt sich nun einfach der Differenzenstern ableiten. Dieser entsteht durch das Produkt $\divdfit\divdfit^\top$. Ausgehend vom Gauß'schen Gesetz für die duale Fläche
 \begin{equation*}
 \int_{\partial \tilde{A}}\vec{D}\cdot\text{d}\vec{s}=\mathbf{q}
@@ -92,9 +92,9 @@ Potentiale der Randknoten so, dass die Problemstellung mit einer
 offenen Berandung versehen ist.\label{exer:averagePointCharges}
 \end{framed}
 
-Die Große des Ladungsschwerpunkts bestimmt man mit Sumation alle Ladungen in betretenem Gebiet.
+Die Größe des Ladungsschwerpunkts bestimmt man mit Sumation alle Ladungen in betretenem Gebiet.
 $$ q_{\text{S}}=q_1 + q_2 + q_3= \frac{7}{4}q_0 $$
-Der Ort des Ladungsschwerpunkts bestimmt man mit dem Formel:
+Den Ort des Ladungsschwerpunkts bestimmt man mit der Formel:
 $$\vec{r_\text{S}}=\begin{bmatrix}
 x_{\text{S}} \\
  y_{\text{S}}  
@@ -127,11 +127,12 @@ y_{\text{3}}
 0.471 \\
 0.257  
 \end{bmatrix}
+.
 $$
-Das Gabiet hat insgesamt 14 Randknoten und Potenzial an der Rand des homogenen Gebietes rechnet man mit der Formel:
+Das Gebiet hat insgesamt 14 Randknoten. Das Potenzial am Rand des homogenen Gebietes berechnet man mit der Formel
 
-$$\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r})=\frac{q_\text{S}}{4\pi\varepsilon_0\vert\vert \vec{r}-\vec{r_\text{S}}\vert\vert} $$  
-Mit der Formel erhält man:
+$$\varphi_\text{Rand}(\vec{r_\text{S}},\vec{r})=\frac{q_\text{S}}{4\pi\varepsilon_0\vert\vert \vec{r}-\vec{r_\text{S}}\vert\vert}. $$
+Mit dieser Formel erhält man:
 \begin{eqnarray}
 \vec{r_1}=\begin{bmatrix}
 0 \\
@@ -205,19 +206,19 @@ $\eps_{\text{r}2}=2$, $\eps_{\text{r}3}=3$ und $\eps_{\text{r}4}=4$ (Reihenschal
 \end{enumerate}
 \label{exer:calcCapsAnalytical}
 \end{framed}
-Um die Kapazität eines Platenkondensators auszurechnen, benutzt man diese Formel:
-$$\text{C}=\varepsilon_r\varepsilon_0\frac{A}{l} $$
-$\text{A}$ bezeichnet Fläche einer Platte und $\text{l}$ die Abstand zwischen zweier Platten.
+Um die Kapazität eines Platenkondensators auszurechnen, verwendet man diese Formel:
+$$C=\varepsilon_r\varepsilon_0\frac{A}{l}.$$
+$A$ bezeichnet Fläche beider Platten und $\text{l}$ die Abstand zwischen ihnen.
 
 \begin{enumerate}[label=(\alph*)]
-	\item Hier hat man  einfaches Plattenkondensator mit  $\text{A}=1$ und $\text{l}=1$.\\
-	$$\text{C}=\varepsilon_0=8.54\mathrm{pF}$$
-	\item Hier hat man ein Reihenschaltung zweier Kondensatoren mit $\text{A}=1$ und $\text{l}=0.5$ 
-	$$\text{C}=2\varepsilon_0\frac{\varepsilon_1\varepsilon_2}{\varepsilon_1+\varepsilon_2}=\frac{2}{3}\varepsilon_0= 5.8\mathrm{pF}$$
-	\item Hier hat man ein Parallelschaltung zweier Kondensatoren mit $\text{A}=0.25$ und $\text{l}=1$ 
-	 $$\text{C}=\frac{1}{4}\varepsilon_0(\varepsilon_1+\varepsilon_2)=\frac{3}{4}\varepsilon_0=6.64\mathrm{pF}$$
-	\item  Hier hat man ein Parallelschaltung von Reihenschaltungen vier Kondensatoren mit $\text{A}=0.25$ und $\text{l}=0.5$
-	$$\text{C}=\frac{1}{2}\varepsilon_0\left[\frac{\varepsilon_1\varepsilon_2}{\varepsilon_1+\varepsilon_2}+\frac{\varepsilon_3\varepsilon_4}{\varepsilon_3+\varepsilon_4} \right]=\frac{25}{21}\varepsilon_0=10.54\mathrm{pF}$$
+	\item Hier liegt ein einfacher Plattenkondensator mit  $A=1\,\text{m}^2$ und $l=1\,\text{m}$ vor.\\
+	$$C_a=\varepsilon_0=8.54\mathrm{pF}$$
+	\item Hier liegt eine Reihenschaltung zweier Kondensatoren mit $A=1\,\text{m}$ und $l=0.5\,\text{m}$ vor. 
+	$$C_b=2\varepsilon_0\frac{\varepsilon_1\varepsilon_2}{\varepsilon_1+\varepsilon_2}=\frac{2}{3}\varepsilon_0= 5.8\mathrm{pF}$$
+	\item Hier liegt eine Parallelschaltung zweier Kondensatoren mit $A=0.25\,\text{m}^2$ und $l=1\,\text{m}$ vor.
+	 $$C_c=\frac{1}{4}\varepsilon_0(\varepsilon_1+\varepsilon_2)=\frac{3}{4}\varepsilon_0=6.64\mathrm{pF}$$
+	\item  Hier liegt eine Parallelschaltung von Reihenschaltungen von jeweils zwei Kondensatoren mit $A=0.25\,\text{m}^2$ und $l=0.5\,\text{m}$
+	$$C_d=\frac{1}{2}\varepsilon_0\left[\frac{\varepsilon_1\varepsilon_2}{\varepsilon_1+\varepsilon_2}+\frac{\varepsilon_3\varepsilon_4}{\varepsilon_3+\varepsilon_4} \right]=\frac{25}{21}\varepsilon_0=10.54\mathrm{pF}$$
 \end{enumerate}
 
 \newpage
@@ -262,7 +263,7 @@ Durch auflösen des Integrales, umstellen nach $H_\varphi$ und einsetzen in das 
 \end{framed}
 \noindent
 Bei einer physikalischen Deutung der Dirichlet-Randbedingungen für ein magnetisches Feld lassen sich diese als Übergang zu einem Material perfekter magnetischer Leitfähigkeit interpretieren, welches alle Feldlinien in sich hineinzieht, weshalb die Felder senkrecht in den Rand übergehen. \\
-Neuman-Randbedingungen lassen sich hingegen als perfekter elektrischer Leiter an den Ränder interpretieren, der alle Feldlinien aus sich herausdrängt, weshalb die Felder senkrecht in den Rand übergehen.  
+Neuman-Randbedingungen lassen sich hingegen als perfekter elektrischer Leiter an den Ränder interpretieren, der alle Feldlinien aus sich herausdrängt, weshalb die Felder parallel zum Rand stehen.  
 
 % --> Aufgabe
 \begin{framed}
@@ -347,7 +348,7 @@ den Verlauf des relativen Residuums als Funktion des Iteratonsschritts $n_\text{
 {\textbf{Hinweis:}} Entsprechend Vorgabe ist das relative Residuum für jeden Iterationsschritt in \lstinline{relRes} enthalten.\label{exer:plotCapConvSolver}
 \end{framed}
 \noindent
-Wie in Abb. \ref{fig:residiumiIterationen} zu erkennen nimmt das relative Residuum exponentiell mit der Anzahl der Iterationen ab. 
+Wie in Abb. \ref{fig:residiumiIterationen} zu erkennen, nimmt das relative Residuum exponentiell mit der Anzahl der Iterationen ab. 
 Beim relativen Residuum handelt es sich um die Differenz zwischen der $i$-ten und $(i-1)$-ten Iteration. 
 
 
@@ -362,7 +363,7 @@ angibt. Stellen Sie auch diese Lösung wieder grafisch dar.\\
 Welcher Unterschied besteht zwischen der Konvergenz des iterativen Solvers und der Verbesserung der Lösungsgenauigkeit durch zunehmende Gitterzellenanzahl, der sogenannten Verfahrenskonvergenz?\label{exer:plotCapConvMesh}
 \end{framed}
 \noindent
-Durch eine Verfeinerung des Gitters kann, wie in Abb. \ref{fig:kapazitaetueberanzstuetzstellen} zu erkennen, eine Annäherung in Form einer Kehrwertfunktion $\frac{1}{np}$ erreicht werden. \\
+Durch eine Verfeinerung des Gitters kann, wie in Abb. \ref{fig:kapazitaetueberanzstuetzstellen} zu erkennen, eine Annäherung in Form einer Kehrwertfunktion $\frac{1}{n_p}$ erreicht werden. \\
 Verglichen mit der exponentiellen Annäherung durch die Anzahl der Iterationsschritte, ist dies zwar deutlich langsamer, da aber die Iterationsschritte sich immer nur an die, durch die Anzahl der Stützstellen begrenzte, Genauigkeit annähern können, ist in der praktischen Anwendung eine Kombination aus beidem notwendig. 
 
 %
@@ -374,8 +375,8 @@ Analog zur Elektrostatik wird nun ein Solver für magnetostatische Probleme impl
 	\noindent \textbf{7.} Verwenden Sie die vorgegebene Methode \lstinline{calcHi}, um das Hilfsfeld $\hfit_{\text{i}}$ des Linienleiters zu berechnen.
 Stellen Sie es grafisch dar. Nutzen Sie für diese Implementierung bitte das gegebene Skript \lstinline{exampleHi.m}.\label{exer:visualizeHi}
 \end{framed}
-
-Graphische Darstellung befindet sich in Abbildung \ref{fig:hilffeld}.
+\noindent
+Die graphische Darstellung von $\hfit_{\text{i}}$ befindet sich in Abbildung \ref{fig:hilffeld}.
 
 % --> Aufgabe
 \begin{framed}
@@ -396,21 +397,21 @@ dafür u.\,A. die Routine \lstinline{createMeps} und beachten Sie die vertauscht
 \begin{framed}
 	\noindent \textbf{9.} Verwenden Sie \lstinline{solveMS} um das $\vec{H}$-Feld zu berechnen und grafisch darzustellen. Nutzen Sie für diese Implementierung bitte das Skript \lstinline{exampleMShomogen.m}. Entspricht das Feldbild Ihren Erwartungen?\label{exer:visualizeHfield}
 \end{framed}
-
-Feldbild in Abb. \ref{fig:homfeld} sieht aus wie erwartet. Es soll ein radialsymmetrisches Wirbelfeld sein.
+\noindent
+Das Feldbild in Abb. \ref{fig:homfeld} sieht aus wie erwartet. Es soll ein radialsymmetrisches Wirbelfeld sein.
 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{10.} Wählen Sie ein einfaches (aber sinnvolles) Beispiel einer inhomogenen Materialverteilung. Verwenden Sie die vorhandenen Methoden, um das
 Problem zu lösen und grafisch darzustellen. Nutzen Sie für diese Implementierung bitte das Skript \lstinline{exampleMSinhomogen.m}.\label{exer:Hfield4inhomogenMaterial}
 \end{framed}
-
-Graphische Darstellung inhomogenes $\vec{H}$-Feldes ist in Abbildung \ref{fig:inhomfeld}.
+\noindent
+Die graphische Darstellung des inhomogenen $\vec{H}$-Feldes ist in Abbildung \ref{fig:inhomfeld} zu sehen.
 
 
 
 \section{Fazit}
-In diesem Versuch haben wir mit Magnetostatik und Elektrostatik beschäftigt. Wir haben die $\vec{E}$- und $\vec{H}$-Felder mittels FIT- Methode ausgerechnet. 
+In diesem Versuch haben wir uns mit Magnetostatik und Elektrostatik beschäftigt. Wir haben die $\vec{E}$- und $\vec{H}$-Felder mittels FIT- Methode ausgerechnet und analysiert. Des Weiteren wurden als Anwendungsfälle verschiedene Kondensatoren ausgewertet.
 
 \clearpage
 \newpage
@@ -424,7 +425,7 @@ In diesem Versuch haben wir mit Magnetostatik und Elektrostatik beschäftigt. Wi
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[trim = 20mm 70mm 20mm 70mm, clip,width=0.7\linewidth]{KapazitaetUeberAnzStuetzstellen.pdf}
+	\includegraphics[trim = 10mm 65mm 20mm 70mm, clip,width=0.7\linewidth]{KapazitaetUeberAnzStuetzstellen.pdf}
 	\caption{Nummerisch bestimmte Kapazität eines Kondensators in Abhängigkeit von der Anzahl der Stützstellen}
 	\label{fig:kapazitaetueberanzstuetzstellen}
 \end{figure}
