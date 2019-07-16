@@ -47,16 +47,22 @@ for k=1:length(nperperiod_vec)
     
     % Vergleich von Zeitlösung zur Frequenzlösung im Zeitbereich
     % -> Implementierung der Fehlernorm aus der Aufgabenstellung
-    norm1_t = norm(jbow_mqs_t-jbow_mqs_f_t);
-    norm2_t = norm(jbow_mqs_f_t);
-    errorTimeDomain(k) = max(norm1_t)/max(norm2_t);
+##    norm1_t = norm(jbow_mqs_t-jbow_mqs_f_t);
+##    norm2_t = norm(jbow_mqs_f_t);
+##    errorTimeDomain(k) = max(norm1_t)/max(norm2_t);
+
+    for j=1:nt
+    errorNormeachTimeStep=norm(jbow_mqs_t(:,j)-jbow_mqs_f_t(:,j));
+    referenceNormEachTimeStep=norm(jbow_mqs_f_t(:,j));
+  endfor
+  errorTimeDomain(k)=max(errorNormeachTimeStep)/(referenceNormEachTimeStep);
 
 
 	% Vergleich von Zeitlösung zur Frequenzlösung im Frequenzbereich
     % (Vergleich der Phasoren)
 
     % Real- und Imaginärteil der Stromdichte aus Zeitsignal bestimmen
-    t_real = 0;
+    t_real = 1/f;
     t_imag = 3/(4*f);
     jbow_re_t = zeros(3*msh.np,1);
     jbow_im_t = zeros(3*msh.np,1);
@@ -66,8 +72,8 @@ for k=1:length(nperperiod_vec)
     end
 
     % Fehler Real- und Imaginärteil
-    errorPhasorReal = norm(jbow_re_t-real(jbow_mqs_f))./norm(real(jbow_mqs_f));
-    errorPhasorImag = norm(jbow_im_t-imag(jbow_mqs_f))./norm(imag(jbow_mqs_f));
+    errorPhasorReal(k) = norm(jbow_re_t-real(jbow_mqs_f),2)/norm(real(jbow_mqs_f),2);
+    errorPhasorImag(k) = norm(jbow_im_t-imag(jbow_mqs_f),2)/norm(imag(jbow_mqs_f),2);
 end
 
 % Plot Vergleich im Zeitbereich
