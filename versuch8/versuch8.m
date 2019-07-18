@@ -1,6 +1,7 @@
 %% Wähle inhomogen oder homogen
-%material_option = 'homogen';
-material_option = 'inhomogen';
+
+material_option = 'homogen';
+%material_option = 'inhomogen';
 
 %% Materialdaten und rot-Operator der Leitung laden
 if strcmp( material_option, 'homogen' )
@@ -157,7 +158,7 @@ xlabel('Frequenz in Hz');
 ylabel('Z_1 in \Omega');
 title('Eingangsimpedanz');
 xlim([0 fmax2plot]);
-ylim([45 55]);
+ylim([40 60]);
 
 figure(4);
 plot(freq,abs(Z2_fft),'b-');

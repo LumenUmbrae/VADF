@@ -22,7 +22,7 @@ $\epsr=1.3$, während für beide Leitungen weiterhin $\mur=1$ gewählt wurde.
 \begin{figure}[h]
 	\centering
 	\def\svgwidth{0.8\textwidth}
-	\input{versuch8/schaltung.pdf_tex}
+	\input{schaltung.pdf_tex}
 	\caption{Zweitor}
 	\label{fig:schal}
 \end{figure}
@@ -148,17 +148,17 @@ Der Grußimpuls erfüllt im Frequenzbereich die Anforderung ein Begrenztes Signa
 Sie diese in Abhängigkeit der Frequenz dar.\label{exer:ZfreqDomain}
 \end{framed}
 \noindent
-Im Frequenzbereich verhalten sich die Ein- und Ausgangsimpedanzen wie in den Abb. \ref{fig:eingangsimpedanz} und \ref{fig:ausgangsimpedanz} dargestellt. Es ist deutlich zu erkennen, dass die Ausgangsimpedanz, wie angesetzt dauerhaft bei 50\, Ohm liegt
+Im Frequenzbereich verhalten sich die Ein- und Ausgangsimpedanzen wie in den Abb. \ref{fig:eingangsimpedanz} und \ref{fig:ausgangsimpedanz} dargestellt. Es ist deutlich zu erkennen, dass die Ausgangsimpedanz, wie angesetzt dauerhaft bei 50\, Ohm liegt. Die Eingangsimpedanz schwankt leicht um 50\, Ohm.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{Eingangsimpedanz}
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{Eingangsimpedanz}
 	\caption{Eingangsimpedanz im Frequenzbereich für die homogene Koaxialleitung}
 	\label{fig:eingangsimpedanz}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{Ausgangsimpedanz}
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{Ausgangsimpedanz}
 	\caption{Ausgangsimpedanz im Frequenzbereich für die homogene Koaxialleitung}
 	\label{fig:ausgangsimpedanz}
 \end{figure}
@@ -172,11 +172,11 @@ $S_{21}$. Interpretieren Sie das Ergebnis für Reflexion und
 Transmission.\label{exer:calcWaveQuantities}
 \end{framed}
 \noindent
-Die Streuparameter beschreiben verschiedene Reflexions und Transmissionseigenschaften. $S_{11}$ beschreibt den Eingangs-Reflexionsfaktor, $S_{21}$ den Vorwärts-Transmissionsfaktor. Sie sind ein Maß dafür, wie stark am Eingang auftreffende reflektierte Wellen reflektiert oder transmittiert werden. Aus Abbildung \ref{fig:sparameterenergie} ist zu entnehmen, dass diese Parameter nicht stark von der Frequenz abhängig sind.
+Die Streuparameter beschreiben verschiedene Reflexions und Transmissionseigenschaften. $S_{11}$ beschreibt den Eingangs-Reflexionsfaktor, $S_{21}$ den Vorwärts-Transmissionsfaktor. Sie sind ein Maß dafür, wie stark am Eingang auftreffende reflektierte Wellen reflektiert oder transmittiert werden. Aus Abbildung \ref{fig:sparameterenergie} ist zu entnehmen, dass diese Parameter nicht stark von der Frequenz abhängig sind. Dabei ist $S_{11}$ ziemlich klein und $S_{21}$ immer nahe an 1.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{SParameterEnergie}
+	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{SParameterEnergie}
 	\caption{Spektren der Streuparameter $S_{11}$ und $S_{21}$ sowie die Energiebilanz $|S_{11}|^2 + |S_{21}|^2$ im homogenen Fall}
 	\label{fig:sparameterenergie}
 \end{figure}
@@ -200,7 +200,7 @@ In Abbildung \ref{fig:inhomo_2} ist nun ein anderes Frequenzsprektrum, als im ho
 \\
 Bei der Eingangsimpedanz, die in Abbildung \ref{fig:inhomo_3} dargestellt ist, ist nun eine deutlich höhere Frequenzabhängigkeit erkennbar, als im homogenen Fall. Die Ausgangsimpedanz aus Abbildung \ref{fig:inhomo_4} liegt weiterhin bei den festgesetzten $50\,$Ohm.\\
 \\
-Auch die Streuparameter und die damit verbundene Energiebilanz aus Abbildung \ref{fig:inhomo_5} zeigen nun eine deutlich höhere Frequenzabhängigkeit als vorher. Dies bedeutet, dass sowohl die Reflexion, als auch die Transmission am Eingang stärker von der Frequenz abhängig sind, als im homogenen Fall.
+Auch die Streuparameter aus Abbildung \ref{fig:inhomo_5} zeigen nun eine deutlich höhere Frequenzabhängigkeit als vorher. Dies bedeutet, dass sowohl die Reflexion, als auch die Transmission am Eingang stärker von der Frequenz abhängig sind, als im homogenen Fall. Die Energiebilanz bei konstant bei 1.
 
 \begin{figure}
 	\centering

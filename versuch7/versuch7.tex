@@ -80,13 +80,13 @@ miteinander verbindet und finden Sie die Indizes der
 entsprechenden Kante, jeweils um einen $z$-Gitterschritt nach
 hinten versetzt durch alle 151 Ebenen.\label{exer:idxEdge4allZ}
 \end{framed}
-
-Die erste Kante in X-Richtung die Außen- und Innenleiter verbindet ist die Kante 5. \\
-Für jeden Versatz um einen Schritt in Z-Richtung muss 16 Addiert werden. Die Indizes ergeben sich so zu 
+\noindent
+Die erste Kante in $x$-Richtung die Außen- und Innenleiter verbindet ist die Kante 5. \\
+Für jeden Versatz um einen Schritt in $z$-Richtung muss 16 Addiert werden. Die Indizes ergeben sich so zu 
 \begin{equation}
-	E_x = 5+M_zz = 5 + 16\cdot z
+	E_x = 5+M_z(k-1) = 5 + 16\cdot z.
 \end{equation}
-.
+Dabei beschreibt $k$ den Index in $z$-Richtung mit $z=k-1$.
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{4.} Geben Sie die Funktion eines stückweise linearen
@@ -99,7 +99,8 @@ $$
 f(x)=\left\{
 \begin{array}{ll} \frac{t}{t_1}, & x\in [0,t_1) \\
 1, & x\in [t_1,t_2) \\
-\frac{t_3-t}{t_3-t_2} & x\in [t_2,t_3)
+\frac{t_3-t}{t_3-t_2} & x\in [t_2,t_3)\\
+0 & x\geq t_3
 
 \end{array}\right. .
 $$
@@ -120,32 +121,30 @@ Maximalwertes ($\sigma\sqrt{2\pi}$) betragen. Das zugehörige
 Zeitsignal soll zum Zeitpunkt $t=0$ nur 0,1~\% seines
 Maximalwertes betragen.\label{exer:calcGaussConst}
 \end{framed}
-
-Konstanten $\sigma$ und $t_0$ bestimmt man aus die Formeln des Gauspulses
-
-$$ F(j\omega)=\sigma\sqrt{2\pi}\exp\left(\frac{-\sigma^2\omega^2}{2}\right)\exp\left(-j\omega t_0\right)$$ in Frequenzbereich und
+\noindent
+Die Konstanten $\sigma$ und $t_0$ bestimmt man aus den Formeln des Gauspulses
+$$ F(j\omega)=\sigma\sqrt{2\pi}\exp\left(\frac{-\sigma^2\omega^2}{2}\right)\exp\left(-j\omega t_0\right)$$ im Frequenzbereich und
 $$
 f(t)=\exp\left( \frac{-(t-t_0)^2}{2\sigma^2}         \right)
 $$
-in Zeitbereich.
+im Zeitbereich.
 \\
 \\
-Man betrachtet zuerst man das Gaußpuls in Zeitbereich. Es ist leicht zu bemerken, dass die Funktion ein Maximum hat. Das Maximum ist 1.
+Man betrachtet zuerst den Gaußpuls in Zeitbereich. Es ist leicht zu bemerken, dass die Funktion ein Maximum hat. Das Maximum ist 1.
 $$f(0)=\exp\left( \frac{-t_0^2}{2\sigma^2}    \right)= 1 \cdot 0.001$$
-Daraus bekommt man $t_0$.
+Daraus erhält man $t_0$.
 
 $$t_0 = \sqrt{6\sigma^2\ln(10)} $$
 \\
 \\
-Jetzt betrachtet man die Formel in der Frequenzbereich. Maximum dieser Funktion ist $\sigma\sqrt{2\pi}$.
+Jetzt betrachtet man die Formel im Frequenzbereich. Das Maximum dieser Funktion ist $\sigma\sqrt{2\pi}$.
 
-$$ F(j\omega_{max})=\sigma\sqrt{2\pi}\left|\left|\exp\left(\frac{-\sigma^2\omega_{max}^2}{2}\right)\exp\left(-j\omega_{max} t_0\right)\right|\right|=\sigma\sqrt{2\pi}\cdot 0.01$$
+$$ ||F(j\omega_{max})||=\sigma\sqrt{2\pi}\left|\left|\exp\left(\frac{-\sigma^2\omega_{max}^2}{2}\right)\exp\left(-j\omega_{max} t_0\right)\right|\right|=\sigma\sqrt{2\pi}\cdot 0.01$$
 
-Daraus bekommt man die Formel
-
+Daraus erhält man die Formel
 $$\exp\left(\frac{-\sigma^2\omega_{max}^2}{2}\right)=0.01$$
 und auch $\sigma$
-$$ \sigma =\frac{2\sqrt{\ln(10)}}{\omega_{max}}=\frac{\sqrt{\ln(10)}}{\pi f_{max}}$$
+$$ \sigma =\frac{2\sqrt{\ln(10)}}{\omega_{max}}=\frac{\sqrt{\ln(10)}}{\pi f_{max}}.$$
 
 
 % --> Aufgabe
@@ -283,39 +282,37 @@ Durch die Verteilung des Anregestroms, sowie durch den reflexionsfreien Abschlus
 mit $f_{\text{max}}=\SI{1}{GHz}$. Was fällt bei der Ausbreitung im Vergleich
 zum Trapezpuls auf?\label{exer:gaussExcitation}
 \end{framed}
-
-Es passiert ganz ähnlich wie bei dem Trapezpuls, nur es gibt kein Rauschen.
-
-In Abbildungen  \ref{fig:gauss1},\ref{fig:gauss2},\ref{fig:gauss3}, \ref{fig:gauss4}, \ref{fig:gauss5} und \ref{fig:gauss6} sind die Fälle dargestellt.
+\noindent
+Die Vorgang läuft mit dem Gaußpuls ganz ähnlich ab wie mit dem Trapezpuls, nur, dass von Anfangan kein Rauschen vorhanden ist. In Abbildungen  \ref{fig:gauss1},\ref{fig:gauss2},\ref{fig:gauss3}, \ref{fig:gauss4}, \ref{fig:gauss5} und \ref{fig:gauss6} sind diese Fälle dargestellt.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitled1.pdf}
-	\caption{Gausspuls vor der Reflexion ohne Leitungsabschluss.}\label{fig:gauss1}
+	\caption{Gaußpuls vor der Reflexion ohne Leitungsabschluss.}\label{fig:gauss1}
 \end{figure}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitled2.pdf}
-	\caption{Gausspuls nach der Reflexion ohne Leitungsabschluss.}\label{fig:gauss2}
+	\caption{Gaußpuls nach der Reflexion ohne Leitungsabschluss.}\label{fig:gauss2}
 \end{figure}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitled3.pdf}
-	\caption{Gausspuls vor der Reflexion mit einem Leitungsabschluss an einer Kante von $50\,\Omega$.}\label{fig:gauss3}
+	\caption{Gaußpuls vor der Reflexion mit einem Leitungsabschluss an einer Kante von $50\,\Omega$.}\label{fig:gauss3}
 \end{figure}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitled4.pdf}
-	\caption{Gausspuls nach der Reflexion mit einem Leitungsabschluss an einer Kante von $50\,\Omega$.}\label{fig:gauss4}
+	\caption{Gaußpuls nach der Reflexion mit einem Leitungsabschluss an einer Kante von $50\,\Omega$.}\label{fig:gauss4}
 \end{figure}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitled5.pdf}
-	\caption{Gausspuls vor der Reflexion mit einem Leitungsabschluss von $50\,\Omega$ mit 8 Kanten.}\label{fig:gauss5}
+	\caption{Gaußpuls vor der Reflexion mit einem Leitungsabschluss von $50\,\Omega$ mit 8 Kanten.}\label{fig:gauss5}
 \end{figure}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitled6.pdf}
-	\caption{Gauisspuls nach der Reflexion mit einem Leitungsabschluss von $50\,\Omega$ mit 8 Kanten.}\label{fig:gauss6}
+	\caption{Gaußpuls nach der Reflexion mit einem Leitungsabschluss von $50\,\Omega$ mit 8 Kanten.}\label{fig:gauss6}
 \end{figure}
 
 
@@ -326,42 +323,42 @@ inhomogene. Beachten Sie die Pulsform und
 Ausbreitungsgeschwindigkeit innerhalb des dielektrischen
 Einsatzes.\label{exer:inhomogenTLine}
 \end{framed}
-
-Nach durchgeführte Simulationen mit homogenen Leiter hat man auch mit inhomogenen Leiter durchgeführt. Als inhomogenen Leiter betrachtet man das Leiter, das von 75cm bis 100cm in Ausbreitungsrichtung ein dialektrisches Einsatz von $\eps_r=10$ hat. In Abbildungen \ref{fig:inh1},\ref{fig:inh2},\ref{fig:inh3},\ref{fig:inh4},\ref{fig:inh5} und \ref{fig:inh6} sind die Beispiele dargestellt. \\ \\
-Jedes Puls(Trapezpuls oder Gausspuls) wird Innerhalb des dialektrisches Einsatzes verkleinert und verlangsamt.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitledT1.pdf}
-	\caption{Trapezpuls vor dem Reflektion von dem Einsatz ohne Leitungsabschluss an der kanten}\label{fig:inh1}
-\end{figure} 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitledT2.pdf}
-	\caption{Trapezpuls in dem Einsatz. $50\,\Omega$.}\label{fig:inh2}
-\end{figure} 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitledT3.pdf}
-	\caption{Trapezpuls nach Simulation}\label{fig:inh3}
-\end{figure} 
-
-
+\noindent
+Nach den Simulationen eines homogenen Leiter wird nun auch der inhomogene Leiter simuliert. Als inhomogenen Leiter betrachtet man den Leiter, der von 75cm bis 100cm in Ausbreitungsrichtung einen dielektrischen Einsatz von $\eps_r=10$ hat. In den Abbildungen \ref{fig:inh1},\ref{fig:inh2},\ref{fig:inh3},\ref{fig:inh4},\ref{fig:inh5} und \ref{fig:inh6} sind die Simulationen dargestellt. Es wird aus den Abilldungen deutlich, dass an den Übergängen zum jeweils anderen Material Reflexionen und Transmissionen entstehen. Dabei werden die Amplituden der Pulse immer kleiner.\\ \\
+Jedes Puls(Trapezpuls oder Gausspuls) wird innerhalb des dielektrisches Einsatzes verkleinert und verlangsamt.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitledG1.pdf}
-	\caption{Gausspuls vor dem Reflektion von dem Einsatz ohne Leitungsabschluss an der kanten}\label{fig:inh4}
+	\includegraphics[trim = 15mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitledT1.pdf}
+	\caption{Trapezpuls vor der Reflektion am Einsatz ohne Leitungsabschluss}\label{fig:inh1}
 \end{figure} 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitledG2.pdf}
-	\caption{Gausspuls in dem Einsatz}\label{fig:inh5}
+	\includegraphics[trim = 15mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitledT2.pdf}
+	\caption{Trapezpuls im Einsatz bei einem Leitungsabschluss von $50\,\Omega$.}\label{fig:inh2}
 \end{figure} 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitledG3.pdf}
-	\caption{Gausspuls nach Simulation}\label{fig:inh6}
+	\includegraphics[trim = 15mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitledT3.pdf}
+	\caption{Trapezpuls nach weiteren Reflexionen}\label{fig:inh3}
+\end{figure} 
+
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[trim = 15mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitledG1.pdf}
+	\caption{Gaußpuls vor der Reflektion am Einsatz ohne Leitungsabschluss}\label{fig:inh4}
+\end{figure} 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[trim = 15mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitledG2.pdf}
+	\caption{Gaußpuls im Einsatz bei einem Leitungsabschluss von $50\,\Omega$}\label{fig:inh5}
+\end{figure} 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[trim = 15mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitledG3.pdf}
+	\caption{Gaußpuls nach weiteren Reflexionen}\label{fig:inh6}
 \end{figure} 
 
 
