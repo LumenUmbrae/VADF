@@ -190,6 +190,7 @@ Die Materialverteilung auf dem Gitter \lstinline{msh} soll inhomogen und isotrop
 \lstinline{nullInv} vorgegeben.\label{exer:createDeps_Meps}
 \end{framed}
 
+In der Methode createDeps sollte man sehr vorsichtig mit Randbedingungen und Materialverteilung sein. Wenn Methode createDeps richtig implementiert würde, könnte man einfach createMeps mit bekannte Formel $\Meps=\DAd\Deps\DS^{-1}$  realisieren.
 
 
 % --> Aufgabe
@@ -199,7 +200,7 @@ Die Materialverteilung auf dem Gitter \lstinline{msh} soll inhomogen und isotrop
 isotropem $\eps=\eps_0$ die Materialmatrix
 $\Meps$ für elektrische Randbedingungen berechnen und ausgeben. Vervollständigen Sie hierfür das bereits gegebene Skript \lstinline{exampleMeps.m}\label{exer:MepsExample}
 \end{framed}
-
+Mit dem Ausführen der Skript \lstinline{exampleMeps.m} erhält man zwei Diagonalematrizen $\Deps$ und $\Meps$. Beide Matrizen sind  $54 \times 54$ Matrizen. 
 
 
 \subsection{Interpolation und Visualisierung}
