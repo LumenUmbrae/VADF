@@ -28,7 +28,7 @@ eX = eField(:,1:np);
 eY = eField(:,np+1:2*np);
 eZ = eField(:,2*np+1:3*np);
 
-abValE = sqrt(eX.*eX.+eY.*eY.+eZ.*eZ); %bestimmen des Betrages des feldes an jedem Punkt
+abValE = sqrt(eX.*eX.+eY.*eY.+eZ.*eZ); %bestimmen des Betrages des Feldes an jedem Punkt
 
 %herausziehen des Punkte einer x-y-Ebene
 

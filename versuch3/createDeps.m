@@ -104,7 +104,7 @@ end
 
 %% Randbedingungen
 
-% Spezialfall nur bei PEC Rand (bc=1)
+% Spezialfall nur bei PEC Rand (bc=1) setzen der Randbedinungen über die Materialmatrix
 if bc==1
     for i=1:nx
         for j=1:ny
