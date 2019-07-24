@@ -43,7 +43,7 @@ zerY = find(~Dy);
 zerZ = find(~Dz);
 
 
-% Berechnen der Bogenwalter, private im Reisebuero, ueber das Internet oder in deren Office, meist in der Naehe des Busbahnhofes.erte in X,Y,Z-Richtung
+% Berechnen der Bogenwerte in X,Y,Z-Richtung
 eEdgeX = eBow(1:np)./(Dx>0);
 eEdgeY = eBow(np+1:2*np)./(Dy>0);
 eEdgeZ = eBow(np*2+1:3*np)./(Dz>0);
@@ -52,6 +52,9 @@ eEdgeX(zerX)=0;
 eEdgeY(zerY)=0;
 eEdgeZ(zerZ)=0;
 
+
+%zur verbesserung der Laufzeit werden die Interpolationen als Matrixoperationen und nicht als Schleifen ausgeführt
+% hierzu werden Verchiebungsmatritzen erstellt um e(P) = (e_x (n − M_x )∆x(n) + e_x (n)∆x(n − M_x )/ (∆x(n − M_x ) + ∆x(n)) zu berechnen
 %erstellen der verschiebungsmatritzen
 
 vX = spdiags(ones(np,1),Mx,np,np);
@@ -59,20 +62,20 @@ vY = spdiags(ones(np,1),My,np,np);
 vZ = spdiags(ones(np,1),Mz,np,np);
 
 %% Interpolation des E-Feldes
-%X
+%X- Richtung
 
 A = eEdgeX'*vX.*Dx';
 B = eEdgeX'.*(Dx'*vX);
 C = Dx'*vX.+Dx';
 eX = (A.+B)./C;
 
-%Y
+%Y - Richtung
 A = eEdgeY'*vY.*Dy';
 B = eEdgeY'.*(Dy'*vY);
 C = Dy'*vY.+Dy';
 eY = (A.+B)./C;
 
-%Z
+%Z - Richtung
 A = eEdgeZ'*vZ.*Dz';
 B = eEdgeZ'.*(Dz'*vZ);
 C = Dz'*vZ.+Dz';
@@ -96,6 +99,8 @@ eZ = (A.+B)./C
     %end
 %end
 
+
+%Abfangen des falles eines 2D-Gitters
  if nx==1 
     eX = zeros(1,np);
   endif
@@ -107,7 +112,7 @@ eZ = (A.+B)./C
   endif
 
 
-  
+ %das E-Feld setzt sich zusamen aus den x-,y- und z-Komponenete des E-Feldes
 eField = [eX eY eZ];
 
  
