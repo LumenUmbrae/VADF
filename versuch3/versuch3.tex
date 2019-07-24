@@ -100,7 +100,7 @@ Bei elektrischen Randbedienungen sind die tangentialen Anteile der Permitivität
 Bei magnetischen Randbedingungen sind die normalen Anteile des elektrischen Feldes und der tangentiale Anteil des magnetischen Feldes Null. 
 Die Materialmatrizen sind hiervon nicht betroffen. \\
 Die normale Komponente auf dem primären Gitter ist eine Geisterkante und für diese ist auf dem dualen Gitter keine Kante definiert. Der Code dazu ist in Listing \ref{lst:mgn_RB} zu sehen.
-\begin{lstlisting}[caption={Einsetzten der elektrischen Randbedigungen},label={lst:mgn_RB}]
+\begin{lstlisting}[caption={Einsetzen der elektrischen Randbedigungen},label={lst:mgn_RB}]
 %% Randbedingungen
 
 % Spezialfall nur bei PEC Rand (bc=1)
@@ -200,7 +200,8 @@ In der Methode createDeps sollte man sehr vorsichtig mit Randbedingungen und Mat
 isotropem $\eps=\eps_0$ die Materialmatrix
 $\Meps$ für elektrische Randbedingungen berechnen und ausgeben. Vervollständigen Sie hierfür das bereits gegebene Skript \lstinline{exampleMeps.m}\label{exer:MepsExample}
 \end{framed}
-Mit dem Ausführen der Skript \lstinline{exampleMeps.m} erhält man zwei Diagonalematrizen $\Deps$ und $\Meps$. Beide Matrizen sind  $54 \times 54$ Matrizen. 
+\noindent
+Durch Ausführen des Skripts \lstinline{exampleMeps.m} erhält man die zwei Diagonalmatrizen $\Deps$ und $\Meps$. Beide Matrizen sind  $54 \times 54$ Matrizen. 
 
 
 \subsection{Interpolation und Visualisierung}
@@ -252,7 +253,7 @@ Randbedingungen. Interpolieren und visualisieren Sie das Feld
 $\efit$ wie in der Aufgabe zuvor. Visualisieren Sie auch hier das Ergebnis zusätzlich mit der Methode \lstinline{plotEdgeVoltage}. Vervollständigen Sie hierfür den zweiten Teil des bereits gegebenen Skripts \lstinline{exampleVisualEfield.m}\label{exer:exampleVisualEfield2}\\
 \end{framed}
 \noindent
-Das elektrische Feld für anisotrope Materialien ist in den Abbildungen \ref{Abb:71} und \ref{Abb:72} dargestellt.
+Für anisotrope Materialien muss die Methode \lstinline{createDeps.m} so angepasst werden, dass der Vektor \lstinline{eps_r} auch die Läange $3n_p$ besitzen darf. Das elektrische Feld für anisotrope Materialien ist in den Abbildungen \ref{Abb:71} und \ref{Abb:72} dargestellt.
 
 \section{Fragen zur Ausarbeitung}
 

@@ -58,7 +58,7 @@
 	\noindent \textbf{1.} Weshalb ist es sinnvoll, für die Stirnseiten der Leitungen
 magnetische Randbedingungen zu wählen?\label{exer:bound4frontOfLine}
 \end{framed}
-Im Falle von Elektrischen Randbedienungen für die magnetische Simulation, bei denen die Normalenkomponente des E-Feldes am Rand Null sind, würde der Rand somit einen PEC darstellt und den Innenleiter mit dem Außenleiter kurzschließen. Zudem würde dies auch zu einem \" verbiegen\" des elektrischen Feldes in der Nähe des Randes führen. \\
+Im Falle von elektrischen Randbedienungen, würde der Rand einen PEC darstellen und somit den Innenleiter mit dem Außenleiter kurzschließen. Zudem würde dies auch zu einem \glqq verbiegen\grqq des elektrischen Feldes in der Nähe des Randes führen. \\
 Somit sind magnetische Randbedingungen hier die richtige Wahl für die Stirnseiten. 
 
 
@@ -69,9 +69,9 @@ Indizes entsprechen diejenigen Kanten in der vorderen und der hinteren
 Stirnfläche, die jeweils Innen- und Außenleiter miteinander
 verbinden? Welchen Richtungssinn haben sie?\label{exer:idxConductorInterconnection}
 \end{framed}
-
-Vom Innen- zum Außenleiter führen in der hinteren Stirnseite die Kanten 7, 11, 2426 und 2427. Vom Außen- zum Innenleiter führen die Kanten 5, 9, 2418 und 2419. \\
-In der Vorderen Fläche führen die Kanten 2407, 2411, 4826 und 4827 vom Innen- zur Außenleiter
+\noindent
+Vom Innen- zum Außenleiter führen in der vorderen Stirnseite die Kanten 7, 11, 2426 und 2427. Vom Außen- zum Innenleiter führen die Kanten 5, 9, 2418 und 2419. \\
+In der hinteren Fläche führen die Kanten 2407, 2411, 4826 und 4827 vom Innen- zur Außenleiter
 und die Kanten 2405, 2409, 4818 und 4819 vom Außen- zum Innenleiter. 
 % --> Aufgabe
 \begin{framed}
@@ -81,7 +81,7 @@ entsprechenden Kante, jeweils um einen $z$-Gitterschritt nach
 hinten versetzt durch alle 151 Ebenen.\label{exer:idxEdge4allZ}
 \end{framed}
 \noindent
-Die erste Kante in $x$-Richtung die Außen- und Innenleiter verbindet ist die Kante 5. \\
+Die erste Kante in $x$-Richtung die Außen- und Innenleiter verbindet, ist die Kante 5. \\
 Für jeden Versatz um einen Schritt in $z$-Richtung muss 16 Addiert werden. Die Indizes ergeben sich so zu 
 \begin{equation}
 	E_x = 5+M_z(k-1) = 5 + 16\cdot z.
@@ -130,17 +130,17 @@ $$
 im Zeitbereich.
 \\
 \\
-Man betrachtet zuerst den Gaußpuls in Zeitbereich. Es ist leicht zu bemerken, dass die Funktion ein Maximum hat. Das Maximum ist 1.
+Man betrachtet zuerst den Gaußpuls im Zeitbereich. Es ist leicht zu bemerken, dass die Funktion ein Maximum hat. Das Maximum ist 1. Jedoch soll der Funktionswert für $t=0$ nur 0,1~\% seines Maximalwertes betragen.
 $$f(0)=\exp\left( \frac{-t_0^2}{2\sigma^2}    \right)= 1 \cdot 0.001$$
 Daraus erhält man $t_0$.
 
 $$t_0 = \sqrt{6\sigma^2\ln(10)} $$
 \\
 \\
-Jetzt betrachtet man die Formel im Frequenzbereich. Das Maximum dieser Funktion ist $\sigma\sqrt{2\pi}$.
+Jetzt betrachtet man die Formel im Frequenzbereich. Das Maximum dieser Funktion ist $\sigma\sqrt{2\pi}$. Hier soll bei $f=f_{\text{max}}$ nur 1~\% des Maximalwertes erreicht werden.
 
 $$ ||F(j\omega_{max})||=\sigma\sqrt{2\pi}\left|\left|\exp\left(\frac{-\sigma^2\omega_{max}^2}{2}\right)\exp\left(-j\omega_{max} t_0\right)\right|\right|=\sigma\sqrt{2\pi}\cdot 0.01$$
-
+\noindent
 Daraus erhält man die Formel
 $$\exp\left(\frac{-\sigma^2\omega_{max}^2}{2}\right)=0.01$$
 und auch $\sigma$

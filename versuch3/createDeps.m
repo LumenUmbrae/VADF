@@ -33,7 +33,8 @@ Mz = msh.Mz;
 eps0 = 8.854187817*10^-12;
 eps =eps0*eps_r; 
 
-% Nur die Diagonale der DA und DAt Matrix ist besetzt, also brauchen wir nur die Diagonale
+% Nur die Diagonale der DA und DAt Matrix ist besetzt, also brauchen wir nur
+% die Diagonale
 At = diag(DAt);
 A  = diag(DA);
 

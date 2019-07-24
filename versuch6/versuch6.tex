@@ -69,22 +69,18 @@ Die grafische Darstellung des Leapfrog-Algorithmus ist in Abbildung \ref{fig:zei
     homogener Materialfüllung und unter Vernachlässigung von Randeffekten ab. Geben Sie für diesen Fall $\Delta t_{\text{max}}$ an.\label{exer:approxEVofAprime}
 \end{framed}
 
-Um das großte Eigenwert abzuschatzen,soll man Matrix $\Amat'$ definieren
+Um den größten Eigenwert abzuschätzen, muss man zunächst die Matrix $\Amat'$ definieren.
 $$\Amat'=\begin{bmatrix}
 \boldsymbol{0} & \Mmui^{\frac12}\curlfit\Meps^{-\frac12}\\
 \Meps^{-\frac12}\curldfit \Mmui^{\frac12} & \boldsymbol{0}
 \end{bmatrix} $$
-
-
-
 $$\Mmui = \diag\left(\frac{\Delta\tilde{l}}{\mu\Delta A}\right) $$
 $$\Mepsi = \diag\left(\frac{\Delta l}{\eps\Delta \tilde{A}}\right) $$
-
-Diese Aufgabe händelt sich um eine aquidistante Gitter und $\Delta l$ und  $\Delta \tilde{l}$  repräsentieren die Breite und Tiefe einer Gitterzeile. $\Delta l$ und  $\Delta \tilde{l}$ haben dasselbe Große, aber $\Delta \tilde{l}$ handelt sich um Dualegitterzeile.
-
-Jetzt verwendet man gegebene Formel (1.3):
+\noindent
+In diese Aufgabe handelt sich um ein aquidistantes Gitter. Dabei repräsentieren $\Delta l$ und  $\Delta \tilde{l}$ die Breite und Tiefe einer Gitterzeile. $\Delta l$ und  $\Delta \tilde{l}$ sind gleich groß, jedoch bezieht sich $\Delta \tilde{l}$ auf duale Gitterzellen.\\
+Jetzt verwendet man die gegebene Formel (6.3):
 $$\|\Amat'\|_1 = \frac{4}{\sqrt{\mu\eps}\Delta l}$$
-$\Delta t_{\text{max}}$ bekommt man mit der Formel:
+$\Delta t_{\text{max}}$ erhält man mit dieser Formel:
 $$ \Delta t_{\text{max}}=\frac{2}{\|\Amat'\|_1}$$
 $$ \Delta t_{\text{max}}=\frac{\sqrt{\mu\eps}\Delta l}{2}$$
 
@@ -94,21 +90,18 @@ $$ \Delta t_{\text{max}}=\frac{\sqrt{\mu\eps}\Delta l}{2}$$
 	\noindent \textbf{5.} Gehen Sie wie in der vorherigen Aufgabe vor, jedoch benutzen Sie
     dieses Mal die Matrix $\Amat$ um $\Delta t_{\text{max}}$ abzuschätzen. Verwenden Sie hierfür~(6.18).\label{exer:approxEVofA}
 \end{framed}
-
-Zuerst definiert man Matrix $\Amat$:
-
+\noindent
+Zuerst definiert man die Matrix $\Amat$:
 $$\Amat=\begin{bmatrix}
 \boldsymbol{0} & -\Mmui\curlfit\\
 \Meps\curldfit & \boldsymbol{0}
 \end{bmatrix} $$
-
-In disem Fall hat man zwei mögliche Eigenwerte und es ist nicht  deutlich zu bestimmen, welche von diese zwei Eigenwerten größer ist:
-
+\noindent
+In diesem Fall hat man zwei mögliche Eigenwerte und es ist nicht direkt deutlich, welcher von den zwei Eigenwerten größer ist:
 $$\lambda_{\text{max,1}} \approx \frac{4}{\Delta l}\max\left(\frac{1}{\mu}\right) $$
 $$\lambda_{\text{max,2}} \approx \frac{4}{\Delta l}\max\left(\frac{1}{\eps}\right) $$
-
-Damit erhält man 
- 
+\noindent
+Damit erhält man:
 $$\Delta t_{\text{max}}=\frac{\Delta l}{2\max\left(\frac{1}{\mu},\frac{1}{\eps}\right)}.$$
 
 
@@ -123,7 +116,7 @@ $$\Delta t_{\text{max}}=\frac{\Delta l}{2\max\left(\frac{1}{\mu},\frac{1}{\eps}\
     der Spaltensummennorm von $\Amat'$ ab.\label{exer:approxDeltaTmax}
 \end{framed}
 
-Zuerst definiert man Materialmatrizen:
+Zuerst definiert man die Materialmatrizen:
 $$\Mmui^\frac12 = \begin{bmatrix}
 \ensuremath{\mathbf{M}^{\frac12}_{\upmu^{-1},x}} & \boldsymbol{0} &\boldsymbol{0}\\
 \boldsymbol{0} & \ensuremath{\mathbf{M}^{\frac12}_{\upmu^{-1},y}} & \boldsymbol{0} \\
@@ -136,9 +129,9 @@ $$\Meps^{-\frac12} = \begin{bmatrix}
 \boldsymbol{0} & \boldsymbol{0} & \boldsymbol{0}\\
 \boldsymbol{0} & \boldsymbol{0} & \boldsymbol{0}\\
 \boldsymbol{0} & \boldsymbol{0} & \ensuremath{\mathbf{M}^{-\frac12}_{\upvarepsilon, z}}
-\end{bmatrix} $$
+\end{bmatrix}.$$
 
-Man setzt die Materialmatrizen in Matrix $\Amat'$ ein
+Danach setzt man die Materialmatrizen in die Matrix $\Amat'$ ein.
 $$\Amat'= \begin{bmatrix}
 \boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} & \ensuremath{\mathbf{M}^{\frac12}_{\upmu^{-1},x}}\Pmat_\mathrm{y} \ensuremath{\mathbf{M}^{-\frac12}_{\upvarepsilon, z}}\\
 \boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} & -\ensuremath{\mathbf{M}^{\frac12}_{\upmu^{-1},y}}\Pmat_\mathrm{x} \ensuremath{\mathbf{M}^{-\frac12}_{\upvarepsilon, z}}\\
@@ -146,12 +139,11 @@ $$\Amat'= \begin{bmatrix}
 \boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} & \boldsymbol{0}\\
 \boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} & \boldsymbol{0}\\
 -\ensuremath{\mathbf{M}^{-\frac12}_{\upvarepsilon, z}}\tilde{\Pmat}_\mathrm{y}\ensuremath{\mathbf{M}^{\frac12}_{\upmu^{-1},x}} & \ensuremath{\mathbf{M}^{-\frac12}_{\upvarepsilon, z}}\tilde{\Pmat}_\mathrm{x}\ensuremath{\mathbf{M}^{\frac12}_{\upmu^{-1},y}} & \boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0} &\boldsymbol{0}
-
 \end{bmatrix}$$
-
-Wenn man homogene Permabilität betrachtet, kann man das größte Eigenwert aus der letzte Reihe der Matrix abschätzen.
+\noindent
+Wenn man eine homogene Permeabilität betrachtet, kann man den größten Eigenwert aus der letzte Reihe der Matrix abschätzen.
 $$\|\Amat'\|_1 = \frac{4}{\sqrt{\mu\eps}\Delta l}$$
-und
+Daraus folgt direkt $\Delta t_{\text{max}}$.
 $$ \Delta t_{\text{max}}=\frac{\sqrt{\mu\eps}\Delta l}{2}$$
 
 
@@ -274,7 +266,7 @@ ausbreitenden Welle. Wählen Sie die Simulationszeit so, dass die Welle den Rand
 \end{figure}
 \noindent
 Wie in Abb. \ref{fig:welle} zu erkennen entsteht eine sich in x- und y- Richtung ausbreitende Welle, die sich von der Kante des Anregestroms löst.\\
-Bei einem längeren Laufzeit kommt es beim auftreffen der Welle auf die Ränder zu Reflektionen.
+Bei einem längeren Laufzeit kommt es beim Auftreffen der Welle auf die Ränder zu Reflektionen.
 %\emph{Fügen Sie hier Ihre Lösung ein}
 
 % --> Aufgabe
