@@ -11,13 +11,8 @@
 \end{framed}
 
 
-Ranpunkte sind die Punkte, die an der Rand des Rechengebietes liegen. Um es zu finden, sollte man kanonische Nummerierung und deren Indizies benutzen. Randpunkt ist jedes Punkt, dessen Index gleich 1 oder bei Definition maximal möglich ist.
-Hierfür ist ein Pseudocode geschrieben. 
-
-
-
-  
-\begin{lstlisting}[caption={Randpunkte },label={lst:mgn_RB}]
+Randpunkte sind die Punkte, die am Rand des Rechengebietes liegen. Um sie zu finden, sollte man die kanonische Nummerierung und deren Indizies benutzen. Randpunkt ist jeder Punkt, dessen Index ($i,j,k$) gleich 1 oder \lstinline{nx}, \lstinline{ny} beziehungsweise \lstinline{nz} ist. Der Pseudocode, der diese Methode implementiert, ist in Listing 3.1 zu sehen.
+\begin{lstlisting}[caption={Pseudocode zur Ermittlung der Randpunkte },label={lst:mgn_RB}]
 Randpunkte=[];
 Mx=1;
 My=nx;
@@ -33,9 +28,8 @@ for i=1:nx
 		endfor
 	endfor
 endfor
-
 \end{lstlisting}
-Die Funktion $AddToListBoundaryElementAt$ führt eine Liste mit den kanonischen Indizes der Randpunkte, welche unter Zuhilfenahme von $M_x,\ M_y$ und $M_z$ bestimmt werden.  
+ 
 
 % --> Aufgabe
 \begin{framed}
@@ -307,14 +301,14 @@ Wie in der Ausarbeitung deutlich wird, ist es nun möglich Materialmatrizen zu e
 \begin{figure}[h!]
 	\centering
 	\def\svgwidth{0.5\textwidth}
-	\input{dual_flaeche.pdf_tex}
+	\input{versuch3/dual_flaeche.pdf_tex}
 	\caption{Duale Fläche (Mitte) mit den primären Gitterzellen. Die für die Mittelung interessanten Bereiche sind schraffiert.}
 	\label{Abb:A1}
 \end{figure}
 \begin{figure}[h!]
 	\centering
 	\def\svgwidth{0.5\textwidth}
-	\input{b_h_mitt.pdf_tex}
+	\input{versuch3/b_h_mitt.pdf_tex}
 	\caption{Darstellung der örtlichen Beziehungen zwischen $\Hv$ und $\vec{B}$.}
 	\label{Abb:A2}
 \end{figure}
