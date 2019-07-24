@@ -11,34 +11,30 @@
 \end{framed}
 
 
-Ausgehend von einem 3-fach Index i,j,k lasen sich die Randpunkte eines Kartesischen Rechengitters im kanonischen Indizierungsschema durch ablaufen der Außenseiten bestimmen. Hierbei werden nacheinander i,j und k zu Eins gesetzt und die beiden anderen Variablen Variiert. Anschließend wird selbiges mit einem Festsetzen beim Maximalwert der jeweiligen Variable wiederholt. Alle hierbei erreichten Punkte liegen auf den Außenseiten des Gitters. 
-\noindent
-Im Pseudocode lässt sich diese Verfahren für eine Richtung $i$ darstellen durch
+Ranpunkte sind die Punkte, die an der Rand des Rechengebietes liegen. Um es zu finden, sollte man kanonische Nummerierung und deren Indizies benutzen. Randpunkt ist jedes Punkt, dessen Index gleich 1 oder bei Definition maximal möglich ist.
+Hierfür ist ein Pseudocode geschrieben. 
 
-\begin{algorithmic}[1]
-	\STATE $c \leftarrow 1$
-	\STATE $d \leftarrow 1$
-	\WHILE{ c <= jmax} 
-	\WHILE{ d <= kmax}
-		\STATE $AddToListBoundaryElementAt(1,c,d)$
-		\STATE $d \leftarrow d+1$
-	\ENDWHILE
-	
-	\STATE $c \leftarrow c+1$
-	\ENDWHILE
-	
-	\STATE $c \leftarrow 1$
-	\STATE $d \leftarrow 1$
-	\WHILE{ c <= jmax} 
-	\WHILE{ d <= kmax}
-	\STATE $AddToListBoundaryElementAt(i_{max},c,d)$
-	\STATE $d \leftarrow d+1$
-	\ENDWHILE	
-	\STATE	$c \leftarrow c+1$
-	\ENDWHILE
-	
-\end{algorithmic}
-\noindent
+
+
+  
+\begin{lstlisting}[caption={Randpunkte },label={lst:mgn_RB}]
+Randpunkte=[];
+Mx=1;
+My=nx;
+Mz=nx*ny;
+kanon=@(i,j,k)(1+(i-1)*Mx+(j-1)*My+(k-1)*Mz);
+
+for i=1:nx
+	for j=1:ny
+		for k=1:nz
+		if i==1 || j==1 || k==1 || i==nx || j==ny || k==nz
+		Randpunkte(end+1)=kanon(i,j,k);
+		endif
+		endfor
+	endfor
+endfor
+
+\end{lstlisting}
 Die Funktion $AddToListBoundaryElementAt$ führt eine Liste mit den kanonischen Indizes der Randpunkte, welche unter Zuhilfenahme von $M_x,\ M_y$ und $M_z$ bestimmt werden.  
 
 % --> Aufgabe
@@ -311,14 +307,14 @@ Wie in der Ausarbeitung deutlich wird, ist es nun möglich Materialmatrizen zu e
 \begin{figure}[h!]
 	\centering
 	\def\svgwidth{0.5\textwidth}
-	\input{versuch3/dual_flaeche.pdf_tex}
+	\input{dual_flaeche.pdf_tex}
 	\caption{Duale Fläche (Mitte) mit den primären Gitterzellen. Die für die Mittelung interessanten Bereiche sind schraffiert.}
 	\label{Abb:A1}
 \end{figure}
 \begin{figure}[h!]
 	\centering
 	\def\svgwidth{0.5\textwidth}
-	\input{versuch3/b_h_mitt.pdf_tex}
+	\input{b_h_mitt.pdf_tex}
 	\caption{Darstellung der örtlichen Beziehungen zwischen $\Hv$ und $\vec{B}$.}
 	\label{Abb:A2}
 \end{figure}
