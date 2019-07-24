@@ -54,7 +54,8 @@ eEdgeZ(zerZ)=0;
 
 
 %zur verbesserung der Laufzeit werden die Interpolationen als Matrixoperationen und nicht als Schleifen ausgeführt
-% hierzu werden Verchiebungsmatritzen erstellt um e(P) = (e_x (n − M_x )∆x(n) + e_x (n)∆x(n − M_x )/ (∆x(n − M_x ) + ∆x(n)) zu berechnen
+% hierzu werden Verchiebungsmatritzen erstellt um nach (3.11) e(P) = (e_x (n − M_x )∆x(n) + e_x (n)∆x(n − M_x )/ (∆x(n − M_x ) + ∆x(n)) zu berechnen
+
 %erstellen der verschiebungsmatritzen
 
 vX = spdiags(ones(np,1),Mx,np,np);
