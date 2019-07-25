@@ -14,7 +14,6 @@ function [ c, s, st ] = geoMats( msh )
 
 % Bestimmen von Mx, My, Mz sowie np aus struct msh
 
-
 % Px Matrix erzeugen
 
 % Py-Matrix erzeugen

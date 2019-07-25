@@ -219,9 +219,9 @@ in~(7.6) den Befehl \verb|nullInv|.
 %
 \end{framed}
 \noindent
-Für den Abschluss mit einem Widerstand von $50\,\Omega$ wurde die Kante mit dem Index 2405 gewählt. Die Ausbreitung vor der Reflexion ist in Abbildung \ref{fig:Aufg2_1} zu sehen, die Ausbreitung nach der Reflexion in Abbildung \ref{fig:Aufg2_2}. Es ist zu erkennen, dass der Puls komplett absorbiert wird, jedoch noch Restreflexionen auftreten.
-
-
+Die neue Leapfrog-Routine ist in Listing 7.1 zu sehen. Für den Abschluss mit einem Widerstand von $50\,\Omega$ wurde die Kante mit dem Index 2405 gewählt. Die Ausbreitung vor der Reflexion ist in Abbildung \ref{fig:Aufg2_1} zu sehen, die Ausbreitung nach der Reflexion in Abbildung \ref{fig:Aufg2_2}. Es ist zu erkennen, dass der Puls komplett absorbiert wird, jedoch noch Restreflexionen auftreten.
+\newpage
+\lstinputlisting[caption=neue Leapfrog-Routine]{versuch7/leapfrog.m}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{Aufgabe2_1.pdf}
@@ -283,7 +283,7 @@ mit $f_{\text{max}}=\SI{1}{GHz}$. Was fällt bei der Ausbreitung im Vergleich
 zum Trapezpuls auf?\label{exer:gaussExcitation}
 \end{framed}
 \noindent
-Die Vorgang läuft mit dem Gaußpuls ganz ähnlich ab wie mit dem Trapezpuls, nur, dass von Anfangan kein Rauschen vorhanden ist. In Abbildungen  \ref{fig:gauss1},\ref{fig:gauss2},\ref{fig:gauss3}, \ref{fig:gauss4}, \ref{fig:gauss5} und \ref{fig:gauss6} sind diese Fälle dargestellt.
+Die Vorgang läuft mit dem Gaußpuls ganz ähnlich ab wie mit dem Trapezpuls, nur, dass von Anfangan kein Rauschen vorhanden ist. In Abbildungen  \ref{fig:gauss1}, \ref{fig:gauss2}, \ref{fig:gauss3}, \ref{fig:gauss4}, \ref{fig:gauss5} und \ref{fig:gauss6} sind diese Fälle dargestellt.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[trim = 20mm 65mm 20mm 65mm, clip,width=0.7\linewidth]{untitled1.pdf}
@@ -324,8 +324,8 @@ Ausbreitungsgeschwindigkeit innerhalb des dielektrischen
 Einsatzes.\label{exer:inhomogenTLine}
 \end{framed}
 \noindent
-Nach den Simulationen eines homogenen Leiter wird nun auch der inhomogene Leiter simuliert. Als inhomogenen Leiter betrachtet man den Leiter, der von 75cm bis 100cm in Ausbreitungsrichtung einen dielektrischen Einsatz von $\eps_r=10$ hat. In den Abbildungen \ref{fig:inh1},\ref{fig:inh2},\ref{fig:inh3},\ref{fig:inh4},\ref{fig:inh5} und \ref{fig:inh6} sind die Simulationen dargestellt. Es wird aus den Abilldungen deutlich, dass an den Übergängen zum jeweils anderen Material Reflexionen und Transmissionen entstehen. Dabei werden die Amplituden der Pulse immer kleiner.\\ \\
-Jedes Puls(Trapezpuls oder Gausspuls) wird innerhalb des dielektrisches Einsatzes verkleinert und verlangsamt.
+Nach den Simulationen eines homogenen Leiter wird nun auch der inhomogene Leiter simuliert. Als inhomogenen Leiter betrachtet man den Leiter, der von 75cm bis 100cm in Ausbreitungsrichtung einen dielektrischen Einsatz von $\eps_r=10$ hat. In den Abbildungen \ref{fig:inh1}, \ref{fig:inh2}, \ref{fig:inh3}, \ref{fig:inh4}, \ref{fig:inh5} und \ref{fig:inh6} sind die Simulationen dargestellt. Es wird aus den Abilldungen deutlich, dass an den Übergängen zum jeweils anderen Material Reflexionen und Transmissionen entstehen. Dabei werden die Amplituden der Pulse immer kleiner.\\ \\
+Jeder Puls (Trapezpuls oder Gausspuls) wird innerhalb des dielektrisches Einsatzes abgeschwächt und verlangsamt.
 
 \begin{figure}[ht]
 	\centering

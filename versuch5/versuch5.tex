@@ -40,7 +40,7 @@ Um die Werte zu bestimmen, nutzt man die folgenden 2 Formeln:
  \item Inverse Permäbilität $\bar{\mu}^{-1}$ bspl. für x-Komponente
 $$\bar{\mu}_x^{-1}=\frac{\frac{\Delta x(n)}{2\mu(n)}+\frac{\Delta x(n-M_x)}{2\mu(n-M_x)}}{\Delta\tilde{x}(n)}$$ mit $$ \Delta\tilde{x}(n)=\frac{\Delta x(n-M_x)}{2}+\frac{\Delta x(n)}{2}$$
 \end{enumerate}
-
+\noindent
 So ergeben sich die Leitfähigkeiten zu:
 \begin{enumerate}
 	\item $(3,1) = (1\ 1\ 1) \cdot 5,8\cdot 10^7$S/m
@@ -212,20 +212,29 @@ Zuerst soll das magnetostatische Problem gelöst werden:
             \end{align}
             implementiert werden. Neben den bekannten Parametern \lstinline{msh} und \lstinline{jbow} ist \lstinline{mui} hier die diskrete, gemittelte, inverse Permeabilität.\label{exer:solveMSVec}
 \end{framed}
+\noindent
+Die Methode \lstinline{solveMSVec} implementiert einen magnetostatischen Solver, der den Ansatz den Vektorpotentials verwendet. Dafür wird zunächst die Systemmatrix $\mathbf{A}=\curlfit^\top\Mmui\curlfit$ aufgestellt und das Gleichungssystem $\mathbf{A}\afit=\jfit$ mit einem Solver gelöst. Mit dem Ergebnis für $\afit$ lassen sich nun $\hfit$ und $\bfit$ bestimmen.
 
 
 % --> Aufgabe
         \begin{framed}
 	\noindent \textbf{3.} Erweitern Sie das Skript \lstinline{versuch5.m} und verwenden Sie Methode~\eqref{pro:solveMsVec} und \lstinline{plotEdgeVoltage}, um das magnetische Vektorpotential in der $x$-$y$-Ebene bei $k=3$ grafisch darzustellen. Visualisieren Sie außerdem die $z$-Komponente der magnetischen Flussdichte in der gleichen Schnittebene. Verwenden Sie hierfür den \lstinline{surf}-Befehl.\label{exer:visualizeMagVecPot}
 \end{framed}
+
+\noindent
+Das Vektorpotenzial des gegebenen Problems ist in Abb. \ref{fig:statischeloesungdesvektorpotenzials} dargestellt. Es ist zu erkennen, dass das Vektorpotential in die gleiche Richtung zeigt, wie der eingeprägte Strom und nach außen hin abnimmt. Das B-Feld ist in Abbildung \ref{fig:b_feld} zu sehen.
 \begin{figure}
 	\centering
 	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{StatischeLoesungdesVektorpotenzials.pdf}
 	\caption{Statische Lösung des magnetischen Vektorpotenzials in der $x$-$y$-Ebene bei $k=3$}
 	\label{fig:statischeloesungdesvektorpotenzials}
 \end{figure}
-\noindent
-Das Vektorpotenzial des gegebenen Problems ist in Abb. \ref{fig:statischeloesungdesvektorpotenzials} dargestellt. Es ist zu erkennen, dass das Vektorpotential in die gleiche Richtung zeigt, wie der eingeprägte Strom und nach außen hin abnimmt. 
+\begin{figure}
+	\centering
+	\includegraphics[trim = 5mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{b_feld.pdf}
+	\caption{Amplitude des B-Feldes in der $x$-$y$-Ebene bei $k=3$}
+	\label{fig:b_feld}
+\end{figure}
 \\
 \\
 %
@@ -291,7 +300,8 @@ Für den Zeitbereichssolver wird die Systemmatrix $\Amat_\text{T}$ zu jeden Zeit
 \begin{framed}
 	\noindent \textbf{7.} Verwenden Sie Methode~\eqref{pro:solveT} und stellen Sie die Stromdichteverteilung im Punkt (3,2,2) in Abhängigkeit von der Zeit grafisch dar. Implementieren Sie diese Auswertung in \lstinline{versuch5.m}. Was erwarten Sie für grobe Diskretisierungen in der Zeit beim impliziten \textsc{Euler}-Verfahren als Vorteil gegenüber dem explizitem \textsc{Euler}-Verfahren?\label{exer:currDensityTimeDependent}
 \end{framed}
-Die Stromdichteverteilung im Punkt (3,2,2) in Abhängigkeit der Zeit ist in Abbildung \ref{fig:Stromdichte_punkt} zu sehen. Für grobe Diskretisierungen wird das implizite \textsc{Euler}-Verfahren bessere Ergebnisse liefern, als das Explizite, da das Explizite beii zu großen Zeitschritten schnell instabil werden kann.
+\noindent
+Die Stromdichteverteilung im Punkt (3,2,2) in Abhängigkeit der Zeit ist in Abbildung \ref{fig:Stromdichte_punkt} zu sehen. Für grobe Diskretisierungen wird das implizite \textsc{Euler}-Verfahren bessere Ergebnisse liefern, als das Explizite, da das Explizite bei zu großen Zeitschritten schnell instabil werden kann.
 \begin{figure}[h]
 	\centering
 	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{Stromdichte_punkt.pdf}

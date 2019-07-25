@@ -258,7 +258,10 @@ Beim dualen Gitter im dreidimensionalen entspricht die Anzahl der dualen Punkte 
                     Für spätere Routinen muss in \lstinline{msh} auch die Gitterpunkteanzahl in
                     jede Raumrichtung, d.\,h. \lstinline{nx}, \lstinline{ny} und \lstinline{nz}, abgespeichert werden.\label{exer:cartMesh}
 \end{framed}
-
+\noindent
+Die Methode \lstinline{cartMesh} ist in Listing 2.1 zu sehen.
+\lstinputlisting[caption=Methode zur Abspeicherung dreidimensionaler
+kartesischer Gitter in einem \lstinline{struct}, firstline=31, lastline=54]{versuch2/cartmesh.m}
 
 
 % --> Aufgabe
@@ -270,9 +273,8 @@ Beim dualen Gitter im dreidimensionalen entspricht die Anzahl der dualen Punkte 
                     welche ein übergebenes kartesisches Gitter \lstinline{msh} visualisiert. Verwenden
                     Sie hierzu den \lstinline{line}-Befehl und eine 3-fach Schleife über die Indizes $i,j,k$.\label{exer:plotMesh}
 \end{framed}
-
-
-
+\noindent
+Die Methode verbindet alle Kanten in $x$-Richtung aufsteigenden miteinander. Dabei muss jedoch darauf geachtet werden, dass dies nicht am Rand des Gitter geschieht. Analog macht das die Methode auch mit den Kanten in $y$- und $z$-Richtung.
 % --> Aufgabe
         \begin{framed}
 	\noindent \textbf{3.} Nutzen Sie \lstinline{cartMesh} zur Erzeugung eines nicht äquidistanten Gitters mit \{3,4,5\} Punkten in \{$x$,$y$,$z$\}-Richtung und visualisieren Sie es mit \lstinline{plotMesh}. Nutzen Sie hierfür die bereits gegebene Datei \lstinline{exampleMesh.m}.\label{exer:createVisualizeMesh}
@@ -368,8 +370,8 @@ einander entsprechen.
                     \ \\
                     {\textbf{Hinweis:}} Benötigt wird in diesem Versuch nur der zweidimensionale Fall \lstinline{nz=1}, jedoch ist es für spätere Versuche hilfreich auch den dreidimensionalen Fall zu implementieren. Zusätzlich ist es sinnvoll, Erfahrungen mit Vektoroperationen zu sammeln, da diese in \matlab in der Regel schneller sind als Schleifen. Das \lstinline{logical}-Format (in anderen Programmiersprachen auch als \lstinline{boolean} bekannt) hat den Vorteil, dass nur $1$ Byte (im Vergleich zu $8$ Bytes für \lstinline{double}) pro Eintrag benötigt wird.\label{exer:boundEdg}
 \end{framed}
-
-
+\noindent
+Die Methode \lstinline{boundEdg} iteriert über die Flächen, die Geisterkanten enthalten, und setzt diese auf \lstinline{false}.
 % --> Aufgabe
         \begin{framed}
 	\noindent \textbf{8.} Zählen Sie mit \lstinline{boundEdg} die unbelegten Kanten und vergleichen Sie Ihr Ergebnis mit
@@ -403,8 +405,8 @@ einander entsprechen.
         Werten Sie für die notwendige Integration über eine Kante das gegebene Feld an den Kantenmittelpunkten aus und multiplizieren Sie den Wert mit
         der Kantenlänge anstatt das Feld tatsächlich zu integrieren.\label{exer:impField}
 \end{framed}
-
-
+\noindent
+Die Methode \lstinline{impField} verwendet eine Mittlung des elektrischen Feldes zwischen zwei primären Punkten, da $\efit$ an den Kantenmittelpunkten definiert ist.
 % --> Aufgabe
 
         \begin{framed}
@@ -415,7 +417,7 @@ einander entsprechen.
         \end{enumerate}
         wobei die Einheiten hier vernachlässigt werden. Mit Hilfe der vorgegebenen Routine \lstinline{plotEdgeVoltage} sollen Sie Ihre Implementation optisch verifizieren. Fassen Sie diese Aufgabe in einem Skript \lstinline{plotImpField} zusammen.\label{exer:plotImpField}
 \end{framed}
-	
+	\noindent
 	Die vorgegebenen Feldverteilungen sind in den Abbildungen \ref{Abb:10_1} und \ref{Abb:10_2} dargestellt.
 
 \section{Fragen zur Ausarbeitung}

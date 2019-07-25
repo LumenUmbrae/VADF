@@ -27,14 +27,14 @@
 	\label{eq:rueckDif}
 	f^{(1)}(x_i) = \frac{f(x_{i})-f(x_{i-1})}{\Delta x_{i-1}} + \mathcal{O}(\Delta x)
 	\end{equation}
-	
+	\noindent
 	Im folgenden wird die Herleitung des Zentralen Differenzenquotienten bei homogenen Abständen $\Delta x$ dargestellt.\\
 	Durch Subtraktion der Taylor Entwicklung zweiter Ordnung zu \ref{eq:rueckDif} von der Entwicklung zu \ref{eq:vorDif} ergibt sich 
 	\begin{align}
 		\label{eq:taylor}
-		f(x_{i+1})-f(x_{i-1})& = &f(x_i)+\Delta x_i \cdot f'(x_i) + \Delta x_i \mathcal{O} (\Delta x_i) 
-		- (f(x_i) - \Delta x_{i-1}\cdot f'(x_i) + \Delta x_{i-1} \mathcal{O} (\Delta x_{i-1})) \nonumber \\	
-		& = & (\Delta x_i + \Delta x_{i-1}) f'(x_i) + \mathcal{O} (\Delta x_i  \Delta x_{i-1})
+		f(x_{i+1})-f(x_{i-1})& = f(x_i)+\Delta x_i \cdot f'(x_i) + \Delta x_i \mathcal{O} (\Delta x_i) 
+		- (f(x_i) - \Delta x_{i-1}\cdot f'(x_i) + \Delta x_{i-1} \mathcal{O} (\Delta x_{i-1}))& \nonumber \\	
+		& = (\Delta x_i + \Delta x_{i-1}) f'(x_i) + \mathcal{O} (\Delta x_i  \Delta x_{i-1})&
 	\end{align}
 	Hieraus ergibt sich durch Umstellen nach $f'(x_i)$ der Zentrale Differenzenquotient \ref{eq:zentDif}. \\
 	Der Fehler liegt zwischen $\mathcal{O}(\Delta x)$ und $\mathcal{O} (\Delta x^2)$ Abhängig vom Verhältnis der Abstände. Für äquidistante Abstände ist der Fehler $\mathcal{O} (\Delta x^2)$.
@@ -65,7 +65,7 @@
 	\label{eq:LGS2}
 	f(x_{i+2}) - f(x_{i-1})=3hf'(\tilde{x_i}) + \frac{27}{24}h^3f'''(\tilde{x_i}) + \mathcal{O}(h^4)
 	\end{equation}
-	
+	\noindent
 	Damit nun die 3.Ableitungen wegfallen wird ein Koeffizientenvergleich von $a$ und $c$ durchgeführt.
 	Mit 
 	\begin{align*}
@@ -379,7 +379,7 @@ $	\begin{pmatrix}
 		\lstinline{ord}\\ (\lstinline{2} = zweite und \lstinline{4} = vierte Ordnung) und der für beide Ränder identischen Art der Randbedingung \lstinline{bc} (\lstinline{0=}fehlende, \lstinline{1=}elektrische und  \lstinline{2=}magnetische) erstellt.
 		Rückgabewert ist die $\tilde{\textbf{C}}\textbf{C}$-Matrix \lstinline{cc}. Nutzen Sie hierfür das vorgefertigte Template \lstinline{createCC.m}.\label{exer:createCC}
 	\end{framed}
-	
+	Die $\tilde{\textbf{C}}\textbf{C}$-Matrix wird je nach Ordnung in der Methode \lstinline{solveCC} zunächst ohne Randbedingungen , wie in \ref{exer:matrixCC}.1.3, initialisiert. Danach werden die Randbedingungen, wie in \ref{exer:matrixCC}.1.3, eingepflegt.
 	%\lstinputlisting {createCC.m}
 	
 	% --> Aufgabe
@@ -393,8 +393,8 @@ $	\begin{pmatrix}
 		Reihenfolge sollen auch die Eigenvektoren in der Matrix \lstinline{modes} zurückgegeben werden.
 		Das Eigenwertproblem lässt sich durch die \matlab-Funktion \lstinline{eig} lösen, das Sortieren kann mit \lstinline{sort} erfolgen.\label{exer:solveCC}
 	\end{framed}
-	
-	%\lstinputlisting {solveCC.m}
+	Die Methode \lstinline{solveCC} bestimmt die Eigenvektoren der $\tilde{\textbf{C}}\textbf{C}$-Matrix und sortiert diese nach der Größe. Sie ist in Listing 1.1 zu sehen.
+	\lstinputlisting[caption=Bestimmung und Sortierung der Eigenvektoren der $\tilde{\textbf{C}}\textbf{C}$-Matrix, firstline=13, lastline=35]{versuch1/solveCC.m}
 	
 	% --> Aufgabe
 	\begin{framed}
@@ -403,7 +403,7 @@ $	\begin{pmatrix}
 		
 		{\textbf{Hinweis:}} Wenn Sie die Eigenvektoren geschickt miteinander multiplizieren, erhalten Sie eine Matrix, in der jeder Eintrag einem Produkt zweier Eigenvektoren entspricht. Diese sich ergebene Matrix lässt sich dann bequem mit dem Befehl \verb\imagesc\ (siehe Abschnitt~1.1.3) darstellen.\label{exer:check_orth}
 	\end{framed}
-	
+	\noindent
 	%\lstinputlisting {check_orth.m}
 	Mit der Routine \texttt{check\_orth} und den gegebenen Parametern konnten 6 Eigenmoden bestimmt werden. 
 	
@@ -412,14 +412,9 @@ $	\begin{pmatrix}
 		\noindent \textbf{4.} Stellen Sie die zwei niedrigsten Moden in einem Skript \lstinline{plotModes} grafisch dar.
 		Verwenden Sie \lstinline{n=100}, \lstinline{bc=1} und \lstinline{ord=4} sowie die Länge des eindimensionalen Gebietes L=\SI{5}{m}.\label{exer:plotModes}
 	\end{framed}
-	
+	\noindent
+	Die zwei niedrigsten Moden sind in der Abbildung \ref{fig:modes} dargestellt.
 	%\lstinputlisting {plotModes.m}
-	\begin{figure}[h]
-		\centering
-		\includegraphics[trim = 20mm 15mm 20mm 15mm, clip, width=0.7\textwidth]{modes.pdf}
-		\caption{Plot der zwei Moden mit der geringsten Frequenz.}
-		
-	\end{figure}
 	
 	% --> Aufgabe
 	\begin{framed}
@@ -434,20 +429,6 @@ $	\begin{pmatrix}
 	\end{framed}
 	\noindent
 	In Abbildung \ref{Abb:plotCov} wird eine Approximation der Wellenzahl an Abhängigkeit der Stützstellenanzahl des Gitters mit verschiedenen Verfahren dargestellt. In Abbildung \ref{Abb:plotCovloglog} wird der Wellenzahlfehler in Abhängigkeit der Gitterschrittweite gezeigt. Das Konvergenzverhalten wird durch die nicht gegebenen Randbedingungen schlechter. Dies ist auch logisch, da durch die vorgegebenen Werte an den Rändern nicht mehr so viele Möglichkeiten für Lösungen existieren. Dadurch konvergiert ein Verfahren mit Randbedingungen schneller als ohne. 
-	\begin{figure}[h]
-		\centering
-		\includegraphics[trim = 25mm 10mm 25mm 15mm, clip, width=0.7\textwidth]{plotConv.pdf}
-		\caption{Approximation der Wellenzahl in Abhängigkeit der Stützstellenanzahl des Gitters.}
-		\label{Abb:plotCov}
-	\end{figure}
-	\noindent
-	\begin{figure}[h]
-		\centering
-		\includegraphics[trim = 25mm 10mm 25mm 15mm, clip, width=0.7\textwidth]{plotConvloglog.pdf}
-		\caption{Wellenzahlfehler in Abhängigkeit der Gitterschrittweite.}
-		\label{Abb:plotCovloglog}
-	\end{figure}
-	
 	
 	%\lstinputlisting {plotConv.m}
 	
@@ -462,12 +443,7 @@ $	\begin{pmatrix}
 	\end{framed}
 	\noindent
 	Zur Lösung dieser Aufgabe wurde der Pseudocode aus Aufgabe 7 umgesetzt und die dabei gewählten Verfahren implementiert. Der Zylinder ist in Abbildung \ref{Abb:plotCyl} zu sehen.
-	\begin{figure}[h]
-		\centering
-		\includegraphics[trim = 25mm 10mm 25mm 25mm, clip, width=0.7\textwidth]{plotCyl.pdf}
-		\caption{Nach den Vorgaben geplotteter Zylinder.}
-		\label{Abb:plotCyl}
-	\end{figure}
+	
 	
 	%\lstinputlisting {plotCyl.m}
 	
@@ -482,12 +458,7 @@ $	\begin{pmatrix}
 	\noindent
 	%\lstinputlisting {plotVisErr.m}
 	In Abbildung \ref{Abb:plotVisErr} ist der relative Oberflächen- und Volumenfehler in Abhängigkeit der Dreiecke auf der Deckelfläche dargestellt. Um ein Fehler kleiner von $10^{-5}$ zu garantieren, benötigt man 812 Dreiecke.
-	\begin{figure}[h]
-		\centering
-		\includegraphics[trim = 25mm 10mm 25mm 15mm, clip, width=0.7\textwidth]{plotVisErrloglog.pdf}
-		\caption{Relativer Oberflächen- und Volumenfehler in Abhängigkeit der Dreiecke auf der Deckelfläche.}
-		\label{Abb:plotVisErr}
-	\end{figure}
+	
 	
 	% --> Aufgabe
 	\begin{framed}
@@ -501,5 +472,37 @@ $	\begin{pmatrix}
 	
 	\section{Fazit}
 	Wie man in den Aufgaben sehen konnte, kann man durch die Bildung von Matrizen (Diskretisierungen) für die Ableitungsoperatoren die gegebenen Gleichungen einfach numerisch lösen. Auch bei der Diskretisierung von Oberklächen wurde erkannt, dass Matrizen hier ein einfach zu handhabendes Speichermedium bilden. Die Diskretisierung kann man schnell, aber auch relativ genau bestimmen.
+	
+	\section{Abbildungen}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 20mm 15mm 20mm 15mm, clip, width=0.7\textwidth]{modes.pdf}
+		\caption{Plot der zwei Moden mit der geringsten Frequenz.}
+		\label{fig:modes}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 25mm 10mm 25mm 15mm, clip, width=0.7\textwidth]{plotConv.pdf}
+		\caption{Approximation der Wellenzahl in Abhängigkeit der Stützstellenanzahl des Gitters.}
+		\label{Abb:plotCov}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 25mm 10mm 25mm 15mm, clip, width=0.7\textwidth]{plotConvloglog.pdf}
+		\caption{Wellenzahlfehler in Abhängigkeit der Gitterschrittweite.}
+		\label{Abb:plotCovloglog}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 25mm 10mm 25mm 25mm, clip, width=0.7\textwidth]{plotCyl.pdf}
+		\caption{Nach den Vorgaben geplotteter Zylinder.}
+		\label{Abb:plotCyl}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[trim = 25mm 10mm 25mm 15mm, clip, width=0.7\textwidth]{plotVisErrloglog.pdf}
+		\caption{Relativer Oberflächen- und Volumenfehler in Abhängigkeit der Dreiecke auf der Deckelfläche.}
+		\label{Abb:plotVisErr}
+	\end{figure}
 	
 \end{document}

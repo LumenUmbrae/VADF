@@ -179,10 +179,8 @@ Die Materialverteilung auf dem Gitter \lstinline{msh} soll inhomogen und isotrop
 \textbf{Hinweis:} Für das Invertieren von $\DS$ ist die Methode
 \lstinline{nullInv} vorgegeben.\label{exer:createDeps_Meps}
 \end{framed}
-
-In der Methode createDeps sollte man sehr vorsichtig mit Randbedingungen und Materialverteilung sein. Wenn Methode createDeps richtig implementiert würde, könnte man einfach createMeps mit bekannte Formel $\Meps=\DAd\Deps\DS^{-1}$  realisieren.
-
-
+\noindent
+In der Methode \lstinline{createDeps} sollte man sehr vorsichtig mit Randbedingungen und Materialverteilung sein. Bei der Implementierung ist besonders auf die Mittlung an den Rändern zu achten, indem man \lstinline{if}-Bedingungen für die Ränder implementiert. Wenn die Methode \lstinline{createDeps} richtig implementiert wurde, kann man einfach \lstinline{createMeps} mit der bekannten Formel $\Meps=\DAd\Deps\DS^{-1}$ realisieren.
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{3.} Die Funktion~\eqref{pro:createMeps} soll nun mit den Parametern
@@ -204,10 +202,10 @@ Durch Ausführen des Skripts \lstinline{exampleMeps.m} erhält man die zwei Diag
 \end{align}	
 die die Komponenten von $\efit$ als $\vec{E}$-Feld auf die primären Punkte interpoliert.\label{exer:fitInt}
 \end{framed}
-
+\noindent
 Zur Verbesserung der Laufzeit werden die Interpolationen als Matrixoperationen und nicht als Schleifen ausgeführt. Hierzu werden Verschiebungsmatritzen erstellt um damit durch Multiplikation 
 \begin{equation*}
-	e(P(n)) =\frac{e_x (n - M_x )\Delta x(n) + e_x (n)\Delta x(n - M_x)}  {\Delta x(n - M_x ) + \Delta x(n)}
+	e_x(P(n)) =\frac{e_x (n - M_x )\Delta x(n) + e_x (n)\Delta x(n - M_x)}  {\Delta x(n - M_x ) + \Delta x(n)}
 \end{equation*} 
  zu berechnen.
 
@@ -225,8 +223,9 @@ $x$-$y$-Ebene mit Index \lstinline{indz} grafisch darstellt. Verwenden Sie hierf
 \textbf{Hinweis:} Nutzen Sie auch für das Invertieren von $\Meps$ die vorgegebene Methode
 \lstinline{nullInv}.\label{exer:plotEBow}
 \end{framed}
-
-
+\noindent
+Die Methode \lstinline{plotEBow} lässt sich mit wenigen Operationen implementieren.
+Zunächst wird der Vektor \lstinline{eBow} in die Anteile in $x$-, $y$- und $z$-Richtung zerlegt. Danach wird mit diesen Angaben der Betrag des Feldes an jeder Stelle Berechnet. Durch nun einfaches Auswählen des gewünschten Bereiches mit \lstinline{indz} kann nun das elektrische Feld grafisch dargestellt werden.
 
 
 % --> Aufgabe

@@ -306,7 +306,8 @@ welche einem allgemeinen Elektrostatik-Solver entspricht. \lstinline{msh} ist hi
 {\textbf{Hinweis:}} Für die Implementierung werden Ihnen einige Routinen vorgegeben
 (zum Teil handelt es sich um optimierte Funktionen aus vergangenen Versuchen), welche auf den nächsten Seiten beschrieben sind. Verwenden Sie diese so oft wie möglich.\label{exer:solveES}
 \end{framed}
-
+\noindent
+Um einen Elektrostatik-Solver zu implementieren benötigt man allein die Matrizen $\divdfit$ und $\Meps$, da die zu lösende Gleichung $\divdfit\Meps\divdfit^\top\Phi=\mathbf{q}$ ist. Die Gleichung wird nun gelöst, indem man $\mathbf{A}=\divdfit\Meps\divdfit^\top$ definiert, die Modifikation für die Quellen einarbeitet und nun die entstandene Gleichung $\mathbf{A}\Phi=\mathbf{q}$ mit einem Solver (z. B. PCG) lösen lässt. Daraus erhält man nun $\Phi$, woraus man nun auch das elektrische Feld mit $\efit=\divdfit^\top\Phi$ berechnen kann.
 
 % --> Aufgabe
 \begin{framed}
@@ -317,7 +318,8 @@ welche einem allgemeinen Elektrostatik-Solver entspricht. \lstinline{msh} ist hi
 die die Kapazität \lstinline{cap} berechnet und zurück gibt. Verwenden Sie hierzu die vorgegebenen Methoden \lstinline{intEdge} und
 \lstinline{intSurf}.\label{exer:calcCap}
 \end{framed}
-
+\noindent
+Die Methode \lstinline{calcCap} verwendet die Gleichung $C=\frac{Q}{U}$, um die Kapazität zu berechnen. Um die Spannung $U$ zu erhalten wird $\efit$ von einer zur anderen Platte \glqq integriert\grqq\ (\lstinline{intEdge}). Für die Ladung $Q$ wird $\dfit$ auf einer Platte \glqq aufintegriert\grqq\ (\lstinline{intSurf}).
 
 % --> Aufgabe
 \begin{framed}
@@ -392,7 +394,8 @@ wobei \lstinline{mu} hier die Permeabilität, \lstinline{jbow} der Gitterstromfl
 {\textbf{Hinweis:}} Verwenden Sie wieder die vorgegebenen Routinen sowie die \matlab-Datei \lstinline{solveMS}. Benutzen Sie
 dafür u.\,A. die Routine \lstinline{createMeps} und beachten Sie die vertauschte Allokation der Felder in der skalaren Magnetostatik.\label{exer:solveMS}
 \end{framed}
-
+\noindent
+Die Methode \lstinline{solveMS} wird  ähnlich zu  \lstinline{solveES} aufgebaut. Jedoch muss hier die Einarbeitung  des Hilfsfeldes $\hfit_{\text{i}}$ beachtet werden. Dazu wird zunächst wieder eine Systemmatrix $\mathbf{A}=\divdfit\Mmu\divdfit^\top$ definiert. Danach berechnet man das Hilfsfeld $\hfit_{\text{i}}$ mit der Methode  \lstinline{calcHi}. Damit kann nun die rechte Seite der zu lösenden Gleichung angegeben werden. Die magnetischen Ladungen ergeben sich dann zu $\mathbf{q}_{\text{m}}=\divdfit\Mmu\hfit_{\text{i}}$. Nun lassen sich die magnetishen Potentiale $\Phi_\text{m}$ wieder mit einem Solver (z. B. PCG) bestimmen. $\hfit$ berechnet sich dann aus $\hfit=\divdfit^\top\Phi_\text{m}+\hfit_{\text{i}}$.
 
 
 % --> Aufgabe

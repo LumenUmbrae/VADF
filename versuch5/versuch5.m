@@ -79,6 +79,10 @@ if solve_statik
     toplot=reshape(bbow_ms_z,nx,ny);
     figure(2)
     surf(X,Y,toplot');
+    title('z-Komponente des B-Feldes')
+    xlabel('x')
+    ylabel('y')
+    zlabel('Amplitude des B-Feldes')
 end
 
 % Verschiebt diese Zeile zur nächsten Aufgabe, wenn Aufgabe 3 abgeschlossen ist
