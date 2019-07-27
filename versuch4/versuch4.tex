@@ -13,7 +13,7 @@ Spannungen $\efit$, die Potentiale $\varphi$, die Ladungen $q$ und die
 dielektrischen Flüsse $\dfit$ in der Elektrostatik allokiert?\label{exer:allocateElectrical}
 \end{framed}
 \noindent
-Die elektrischen Spannungen $\efit$ sind auf den primären Kanten definiert. Die elektrische Flussdichte $\dfit$ ist dagegen auf den dualen Flächen allokiert. Passend zu den elektrischen Spannungen, sind die Potentiale $\varphi$ auf den primären Knoten definiert. Die Ladungen $q$ sind in den dualen Volumen allokiert.
+Die elektrischen Spannungen $\efit$ sind auf den primären Kanten definiert. Die elektrische Flussdichte $\dfit$ ist dagegen auf den dualen Flächen allokiert. Passend zu den elektrischen Spannungen, sind die Potentiale $\varphi$ auf den primären Knoten definiert. Die Ladungen $\mathbf{q}$ sind in den dualen Volumen allokiert.
 
 
 
@@ -208,6 +208,7 @@ $\eps_{\text{r}2}=2$, $\eps_{\text{r}3}=3$ und $\eps_{\text{r}4}=4$ (Reihenschal
 \end{enumerate}
 \label{exer:calcCapsAnalytical}
 \end{framed}
+\noindent
 Um die Kapazität eines Platenkondensators auszurechnen, verwendet man diese Formel:
 $$C=\varepsilon_r\varepsilon_0\frac{A}{l}.$$
 $A$ bezeichnet Fläche beider Platten und $\text{l}$ die Abstand zwischen ihnen.
@@ -233,7 +234,7 @@ $A$ bezeichnet Fläche beider Platten und $\text{l}$ die Abstand zwischen ihnen.
 $\jfit$ allokiert werden (bei gegebenem Ansatz des magnetischen Skalarpotentials)?\label{exer:allocateCurrent}
 \end{framed}
 \noindent
-Da die diskrete magnetische Feldstärke $\hfit$ auf den primären Kanten definiert ist, ist die diskrete Stromdichte $\jfit$ als über die Divergenzmatrix $\mathbf{S}$ mit $\mathbf{S}\hfit = \jfit$, verbundene Größe auf den primären Flächen definiert. 
+Da die diskrete magnetische Feldstärke $\hfit$ auf den dualen Kanten definiert ist, ist die diskrete Stromdichte $\jfit$ als über die Rotationsmatrix $\curldfit$ mit $\curldfit\hfit = \jfit$, verbundene Größe auf den dualen Flächen definiert. 
 
 
 % --> Aufgabe
@@ -307,7 +308,7 @@ welche einem allgemeinen Elektrostatik-Solver entspricht. \lstinline{msh} ist hi
 (zum Teil handelt es sich um optimierte Funktionen aus vergangenen Versuchen), welche auf den nächsten Seiten beschrieben sind. Verwenden Sie diese so oft wie möglich.\label{exer:solveES}
 \end{framed}
 \noindent
-Um einen Elektrostatik-Solver zu implementieren benötigt man allein die Matrizen $\divdfit$ und $\Meps$, da die zu lösende Gleichung $\divdfit\Meps\divdfit^\top\Phi=\mathbf{q}$ ist. Die Gleichung wird nun gelöst, indem man $\mathbf{A}=\divdfit\Meps\divdfit^\top$ definiert, die Modifikation für die Quellen einarbeitet und nun die entstandene Gleichung $\mathbf{A}\Phi=\mathbf{q}$ mit einem Solver (z. B. PCG) lösen lässt. Daraus erhält man nun $\Phi$, woraus man nun auch das elektrische Feld mit $\efit=\divdfit^\top\Phi$ berechnen kann.
+Um einen Elektrostatik-Solver zu implementieren benötigt man allein die Matrizen $\divdfit$ und $\Meps$, sowie die Ladungsverteilung $\mathbf{q}$, da die zu lösende Gleichung $\divdfit\Meps\divdfit^\top\Phi=\mathbf{q}$ ist. Die Gleichung wird nun gelöst, indem man $\mathbf{A}=\divdfit\Meps\divdfit^\top$ definiert, die Modifikation für die Quellen einarbeitet und nun die entstandene Gleichung $\mathbf{A}\Phi=\mathbf{q}$ mit einem Solver (z. B. PCG) lösen lässt. Daraus erhält man nun $\Phi$, woraus man nun auch das elektrische Feld mit $\efit=\divdfit^\top\Phi$ berechnen kann.
 
 % --> Aufgabe
 \begin{framed}
@@ -352,11 +353,8 @@ den Verlauf des relativen Residuums als Funktion des Iteratonsschritts $n_\text{
 {\textbf{Hinweis:}} Entsprechend Vorgabe ist das relative Residuum für jeden Iterationsschritt in \lstinline{relRes} enthalten.\label{exer:plotCapConvSolver}
 \end{framed}
 \noindent
-Wie in Abb. \ref{fig:residiumiIterationen} zu erkennen, nimmt das relative Residuum exponentiell mit der Anzahl der Iterationen ab. Dies ist darin begründet, dass der Iterative Solver in jedem Schritt versucht den Fehler in Form des Residuums zu Minimieren und sich so immer dichter an die exakte Lösung herankommt. 
+Wie in Abb. \ref{fig:residiumiIterationen} zu erkennen, nimmt das relative Residuum exponentiell mit der Anzahl der Iterationen ab. Dies ist darin begründet, dass der iterative Solver in jedem Schritt versucht den Fehler in Form des Residuums zu minimieren und so immer dichter an die exakte Lösung herankommt. 
 Beim relativen Residuum handelt es sich um die Differenz zwischen der $i$-ten und $(i-1)$-ten Iteration. 
-
-
-
 
 
 % --> Aufgabe
@@ -367,7 +365,7 @@ angibt. Stellen Sie auch diese Lösung wieder grafisch dar.\\
 Welcher Unterschied besteht zwischen der Konvergenz des iterativen Solvers und der Verbesserung der Lösungsgenauigkeit durch zunehmende Gitterzellenanzahl, der sogenannten Verfahrenskonvergenz?\label{exer:plotCapConvMesh}
 \end{framed}
 \noindent
-Durch eine Verfeinerung des Gitters kann, wie in Abb. \ref{fig:kapazitaetueberanzstuetzstellen} zu erkennen, eine Annäherung in Form einer Kehrwertfunktion $\frac{1}{n_p}$ erreicht werden. Dies ergibt sich daraus, das bei konstantem relativen Fehler pro Rechenzelle das Rechengebiet in immer mehr Teile zerlegt wird und somit auch die Absoluten Fehler kleiner werden und sich gegenseitig aufheben. \\
+Durch eine Verfeinerung des Gitters kann, wie in Abb. \ref{fig:kapazitaetueberanzstuetzstellen} zu erkennen, eine Annäherung in Form einer Kehrwertfunktion $\frac{1}{n_p}$ erreicht werden. Dies ergibt sich daraus, das bei konstantem relativen Fehler pro Rechenzelle das Rechengebiet in immer mehr Teile zerlegt wird und somit auch die absoluten Fehler kleiner werden.\\
 Verglichen mit der exponentiellen Annäherung durch die Anzahl der Iterationsschritte, ist dies zwar deutlich langsamer, da aber die Iterationsschritte sich immer nur an die, durch die Anzahl der Stützstellen begrenzte, Genauigkeit annähern können, ist in der praktischen Anwendung eine Kombination aus beidem notwendig. 
 
 %

@@ -133,7 +133,7 @@ diesen in Versuch 7 gestellt wurden.\label{exer:UandVfreqDomain}
 \end{framed}
 \noindent
 Wie in Abb. \ref{fig:einausspanstromfrequenz} zu sehen nehmen Ein- und Ausgangsspannung sowie Strom mit zunehmender Frequenz ab. \\
-Der Grußimpuls erfüllt im Frequenzbereich die Anforderung ein Begrenztes Signal zu haben, da er mit zunehmender Frequenz zu Null hin abfällt. 
+Der Gaußimpuls erfüllt im Frequenzbereich die Anforderung ein begrenztes Signal zu haben, da er mit zunehmender Frequenz zu Null hin abfällt. 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\linewidth]{EinAusSpanStromFrequenz}
@@ -186,7 +186,7 @@ Die Streuparameter beschreiben verschiedene Reflexions und Transmissionseigensch
 	\noindent \textbf{7.} Überprüfen Sie die Energiebilanz nach~(8.8).\label{exer:checkEnergyBal4TLine}
 \end{framed}
 \noindent
-Bei unserer Untersuchung der Energiebilanz kommen wir auf eine Energiebilanz von 5 was auf einen Fehler in der Implementierung oder Rechenvorschrift hindeutet, den wir aber nicht zu finden in der Lage waren. Diese Annahme ist vor allem dadurch begründet, das die anderen Ergebnisse der Berechnungen sich im erwarteten Ergebnisbereich befinden, was bei dieser Energiebilanz so nicht sein könnte. 
+Die Energiebilanz wird erfüllt, wie in Abbildung \ref{fig:sparameterenergie} zu sehen.
 
 % --> Aufgabe
 \begin{framed}
@@ -195,11 +195,11 @@ Bei unserer Untersuchung der Energiebilanz kommen wir auf eine Energiebilanz von
 \noindent
 Aus \ref{fig:inhomo_1} ist zu erkennen, dass im inhomogenen Fall Reflexionen auftreten. Diese sind sowohl am Eingang, aber auch am Ausgang messbar. Die Reflexionen entstehen durch die Inhomogenität der Leitung und den damit verbundenen Reflexions- und Transmissionsparametern.\\
 \\
-In Abbildung \ref{fig:inhomo_2} ist nun ein anderes Frequenzsprektrum, als im homogenen Fall. Dies liegt an den gerade beschriebenen Reflexionen, die andere Frequenzanteile enthalten, als der Ausgangspuls. Die Anforderung eines begrenzten Signals im Frequenzbereich ist aber weiterhin erfüllt.\\
+In Abbildung \ref{fig:inhomo_2} ist nun ein anderes Frequenzsprektrum, als im homogenen Fall, zu sehen. Dies liegt an den gerade beschriebenen Reflexionen, die andere Frequenzanteile enthalten, als der Ausgangspuls. Die Anforderung eines begrenzten Signals im Frequenzbereich ist aber weiterhin erfüllt.\\
 \\
 Bei der Eingangsimpedanz, die in Abbildung \ref{fig:inhomo_3} dargestellt ist, ist nun eine deutlich höhere Frequenzabhängigkeit erkennbar, als im homogenen Fall. Die Ausgangsimpedanz aus Abbildung \ref{fig:inhomo_4} liegt weiterhin bei den festgesetzten $50\,$Ohm.\\
 \\
-Auch die Streuparameter aus Abbildung \ref{fig:inhomo_5} zeigen nun eine deutlich höhere Frequenzabhängigkeit als vorher. Dies bedeutet, dass sowohl die Reflexion, als auch die Transmission am Eingang stärker von der Frequenz abhängig sind, als im homogenen Fall. Die Energiebilanz bei konstant bei 1.
+Auch die Streuparameter aus Abbildung \ref{fig:inhomo_5} zeigen nun eine deutlich höhere Frequenzabhängigkeit als vorher. Dies bedeutet, dass sowohl die Reflexion, als auch die Transmission am Eingang stärker von der Frequenz abhängig sind, als im homogenen Fall. Die Energiebilanz liegt konstant bei 1.
 
 \begin{figure}
 	\centering
@@ -231,23 +231,6 @@ Auch die Streuparameter aus Abbildung \ref{fig:inhomo_5} zeigen nun eine deutlic
 	\caption{Spektren der Streuparameter $S_{11}$ und $S_{21}$ sowie die Energiebilanz $|S_{11}|^2 + |S_{21}|^2$ im inhomogenen Fall}
 	\label{fig:inhomo_5}
 \end{figure}
-
-{\subsection{Lösung im Frequenzbereich}}
-
-% --> Aufgabe
-\begin{framed}
-	\noindent \textbf{9.} Berechnen Sie das System für einen Frequenzpunkt im
-Frequenzbereich, wie in Versuch 5 beschrieben. Die zugehörige
-Gleichung für den verlustlosen Fall mit konzentrierten
-Elementen lautet
-\begin{equation}
-	\underbrace{(\curldfit \Mmui \curlfit -
-	\omega^2 \Meps + j \omega {\textbf{R}}^{-1} )}_{\Amat} \ul \efit = - j \omega \ul \jfit_{\text{e}}.
-\end{equation}
-Vergleichen Sie die Rechenzeit dieses einen Punktes mit einem
-kompletten Leapfrog-Durchlauf.\label{exer:cmpFreqSolWithLeapfrog}
-\end{framed}
-
 
 \section{Fazit}
 Durch die durchgeführten Simulationen ist es nun möglich das Frequenzspektrum eines Signals zu analysieren, sowie Ein- und Ausgangsimpedanz abhängig von der Frequenz zu bestimmen.

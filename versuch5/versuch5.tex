@@ -263,6 +263,7 @@ Zur Implementierung eines Solvers für magnetoquasistatische Probleme im Frequen
 \end{framed}
 \noindent
 Die Stromdichteverteilungen aus dem Frequenzbereichssolver sind in den Abbildungen \ref{fig:Stromdichte_real} (Realteil) und \ref{fig:Stromdichte_ima} (Imaginärteil) zu sehen.
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{Stromdichte_real.pdf}
@@ -276,8 +277,6 @@ Die Stromdichteverteilungen aus dem Frequenzbereichssolver sind in den Abbildung
 	\caption{Imaginärteil der Stromdichte in der $x$-$y$-Ebene bei $k=2$}
 	\label{fig:Stromdichte_ima}
 \end{figure}
-
-
 
 Des Weiteren soll dasselbe Problem im Zeitbereich mit dem impliziten
     \textsc{Euler}-Verfahren berechnet werden. Dazu muss ein
@@ -319,7 +318,7 @@ Die Stromdichteverteilung im Punkt (3,2,2) in Abhängigkeit der Zeit ist in Abbi
 Die Zeitbereichslösung wird hier mit $\bbow{\mathbf{j}}_\text{mqs,t}$ und die in den Zeitbereich transformierte Frequenzbereichslösung mit $\bbow{\mathbf{j}}_\text{mqs,f,t}$ bezeichnet. Implementieren Sie diese Auswertung in \lstinline{versuch5.m}.\label{exer:compareFreqVStimeInTime}
 \end{framed}
 \noindent
-Die Zeit- und Frequenzbereichslösung im Zeitbereich sind in Abbildung \ref{fig:Zeit_Freq_Vergl} zu sehen. Es ist deutlich zu sehen, dass beide Lösungen identisch sind.
+Die Zeit- und Frequenzbereichslösung im Zeitbereich sind in Abbildung \ref{fig:Zeit_Freq_Vergl} zu sehen. Es ist deutlich zu sehen, dass beide Lösungen nahezu identisch sind.
 \begin{figure}[h]
 	\centering
 	\includegraphics[trim = 15mm 65mm 15mm 65mm, clip,width=0.7\linewidth]{Zeit_Freq_Vergl.pdf}

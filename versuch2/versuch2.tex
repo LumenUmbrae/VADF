@@ -279,6 +279,7 @@ Die Methode verbindet alle Kanten in $x$-Richtung aufsteigenden miteinander. Dab
         \begin{framed}
 	\noindent \textbf{3.} Nutzen Sie \lstinline{cartMesh} zur Erzeugung eines nicht äquidistanten Gitters mit \{3,4,5\} Punkten in \{$x$,$y$,$z$\}-Richtung und visualisieren Sie es mit \lstinline{plotMesh}. Nutzen Sie hierfür die bereits gegebene Datei \lstinline{exampleMesh.m}.\label{exer:createVisualizeMesh}
 \end{framed}
+\noindent
 Das geforderte Gitter wurde mit \lstinline{plotMesh} erzeugt und ist in Abbildung \ref{abb:example} dargestellt.
 
 
@@ -308,7 +309,7 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     sind. Mehr zu diesem Thema ist in der \matlab-Dokumentation zu finden.\label{exer:geoMats}
 \end{framed}
 \noindent
-Die Rückgabe der dualen Rotationsmatrix $\curldfit$ ist nicht sinnvoll, da diese durch $\curldfit = \curlfit^{\top}$ und die Rückgabe von $\curlfit$ bereits einfach erzeugt werden kann. Selbiges gilt für die primäre Gradientenmatrix $\mathbf{G}$ die aus $\divfit^{\top}$ durch $\mathbf{G} = -\divfit^{\top}$ erzeugt werden kann. 
+In der Methode \lstinline{geoMats} werden zunächst die ${\mathbf{P_\xi}}$-Matrizen als \lstinline{sparse}-Matrizen erzeugt. Danach können über einfache Zusammenhänge die Matrizen $\curlfit$, $\divfit$ und $\divdfit$ erzeugt werden. Die Rückgabe der dualen Rotationsmatrix $\curldfit$ ist nicht sinnvoll, da diese durch $\curldfit = \curlfit^{\top}$ und die Rückgabe von $\curlfit$ bereits einfach erzeugt werden kann. Selbiges gilt für die primäre Gradientenmatrix $\mathbf{G}$ die aus $\divfit^{\top}$ durch $\mathbf{G} = -\divfit^{\top}$ erzeugt werden kann. 
 
 % --> Aufgabe
         \begin{framed}

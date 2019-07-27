@@ -22,18 +22,13 @@ np = msh.np;
 % geschickt verwenden können. Achten Sie auch auf die Geisterkanten
 
 % Gitterabstände/Schrittweiten entlang der x-Achse
-%dx = [   ,   ];
 dx=[diff(msh.xmesh),0];
 
 % Gitterabstände/Schrittweiten entlang der y-Achse
-%dy = [   ,   ];
 dy=[diff(msh.ymesh),0];
 
 % Gitterabstände/Schrittweiten entlang der z-Achse
-%dz = [   ,   ];
 dz=[diff(msh.zmesh),0];
-
-
 
 % Diagonalvektor erstellen (erst alle x-Kante, dann alle y-Kanten und dann alle z-Kanten)
 % Ist aufgrund der schwierigen Implementation schon gegeben. 
@@ -50,20 +45,15 @@ DS=spdiags(DSdiag', 0, length(DSdiag),length(DSdiag));
 %% Das Gleiche nochmal für die Matrix DSt
 
 % Gitterabstände/Schrittweiten entlang der x-Achse
-%dxt =
 dxt = diff(msh.xmesh);
 	dxt = [dxt, dxt(nx-1)/2]; 
 	dxt(1) = dxt(1)/2;
 
-% Gitterabstände/Schrittweiten entlang der y-Achse
-%dyt = 
+% Gitterabstände/Schrittweiten entlang der y-Achse 
 dyt = diff(msh.ymesh);
 	dyt = [dyt, dyt(ny-1)/2];
 	dyt(1) = dyt(1)/2;
 % Gitterabstände/Schrittweiten entlang der z-Achse
-%dzt =
-
-
 dzt = diff(msh.zmesh);
   if nz>1 
     dzt = [dzt, dzt(nz-1)/2];
@@ -73,10 +63,6 @@ dzt = diff(msh.zmesh);
    if nz <=1
      dzt = [0];   
    endif
-
-
-
-
 
 % Diagonalvektor erstellen (erst alle x-Kante, dann alle y-Kanten und dann alle z-Kanten)
 DStdiag = [repmat(dxt, 1, ny*nz), ...

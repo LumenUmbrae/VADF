@@ -36,11 +36,11 @@ endfor
 	\noindent \textbf{2.} Wie sehen für ein äquidistantes, kartesisches Gitter die Geometriematrizen $\DS$, $\DSd$, $\DA$ und $\DAd$ aus? Was ist bei den Rändern zu beachten? Welche Dimensionen besitzen die Matrizen?\label{exer:geoMatsStructure}
 \end{framed}
 \noindent
-Für eine äquidistantes, kartesisches Gitter bildet die Matrix $DS$ eine Diagonalmatrizen mit dem Abstand $\Delta x$ auf der Diagonalen. Die duale Matrix $\DSd$ unterscheidet sich hiervon nur dadurch, das die Randelemente mit ½ multipliziert werden. \\
-Für die Flächenzentrierten $\DA$ gilt simultan das sie Diagonalmatrizen mit den Flächeninhalt $\Delta x^2$ sind. Bei der Dualen Flächenmatrix $\DAd$ muss nun bei den Randelementen allerdings unterschieden werden zwischen denen die an einer Kante liegen und mit ½ multipliziert werden und denen an einer Ecke die mit ¼ multipliziert werden. \\
+Für ein äquidistantes, kartesisches Gitter bildet die Matrix $\DS$ eine Diagonalmatrix mit dem Abstand $\Delta x$ auf der Diagonalen. Die duale Matrix $\DSd$ unterscheidet sich hiervon nur dadurch, dass die Randelemente mit ½ multipliziert werden. \\
+Für die primären Flächen $\DA$ gilt gleichzeitig, dass sie Diagonalmatrizen mit dem Flächeninhalt $\Delta x^2$ sind. Bei der dualen Flächenmatrix $\DAd$ muss nun bei den Randelementen allerdings zwischen, denen, die an einer Randfläche des Rechengebietes liegen und mit ½ multipliziert werden und denen, die an einer Ecke des Rechengebietes die mit ¼ multipliziert werden, unterschieden werden. \\
 Falls hier bereits Geisterkanten entfernt worden sind, sind bei den primären Matrizen $\DS$ und $\DA$ die Geisterelemente jeweils Null. \\
 \noindent
-Die Matrizen besitzen immer die Dimension  $(np,\ 3np)$ mit $np$ als Anzahl der Gitterpunkte.
+Die Matrizen besitzen immer die Dimension  $(3np,\ 3np)$ mit $np$ als Anzahl der Gitterpunkte.
 
 % --> Aufgabe
 \begin{framed}
@@ -85,10 +85,10 @@ $$\Mmui=\DSd\Dmui\DA^{-1}=
 \end{bmatrix}^{-1}$$
 \noindent
 %Wenn man elektrische Randbedingung hat, muss man die tangentiale Komponente der Permitivität und normale Komponente der Permeabilität am Rand auf Null setzen. Bei magnetischer Randbedingung ist die tangentiale Komponente der magnetischen Feldstärke und normale Komponente des elektrischen Feldes gleich Null. Bei den Materialmatrizen gibt es keine Veränderungen. Die normale Komponente auf dem primären Gitter ist eine Geisterkante und für die Geisterkante ist keine Kante auf dem dualen Gitter definiert. Der Code dazu ist in Listing \ref{lst:mgn_RB} zu sehen.
-
+\noindent
 Bei elektrischen Randbedienungen sind die tangentialen Anteile der Permitivität, sowie die normalen Anteile der Permeabilität Null.\\
 Bei magnetischen Randbedingungen sind die normalen Anteile des elektrischen Feldes und der tangentiale Anteil des magnetischen Feldes Null. 
-Die Materialmatrizen sind hiervon nicht betroffen. \\
+Die Materialmatrizen sind hiervon nur indirekt betroffen, da magnetische Randbedingungen automatisch eingepflegt sind. \\
 Die normale Komponente auf dem primären Gitter ist eine Geisterkante und für diese ist auf dem dualen Gitter keine Kante definiert. Der Code dazu ist in Listing \ref{lst:mgn_RB} zu sehen.
 \begin{lstlisting}[caption={Einsetzen der elektrischen Randbedigungen},label={lst:mgn_RB}]
 %% Randbedingungen
@@ -158,8 +158,9 @@ Möchte man nun $\dfitloc(n)$ berechnen muss man einfach $\vec{D}$ am Mittelpunk
 \end{align}
 Wie kann mit der zweiten Funktion auch $\DAd$ bestimmt werden?\label{exer:createDS_DA}
 \end{framed}
-
-Analog zu $\DA$ kann man zweite Funktion verwenden um $\DAd$ bestimmen. Man soll nur als Eingabe Parameter $\DSd$ setzen.
+\noindent
+In der Methode \lstinline{createDS} werden die Kantenlängen des Gitters berechnet und als Matrix ausgegeben. Dies geschieht sowohl für das primäre, als auch für das duale Gitter. Dazu kommt die Funktion \lstinline{diff} zum Einsatz. Beim primären Gitter müssen die Geisterkanten zu Null gesetzt werden. Beim dualen Gitter werden die Kanten an den Rändern jeweils halbiert, damit diese nicht herausragen. In der Methode \lstinline{createDA}, in der die Flächen des Gitters berechnet werden können, müssen nun nur noch die richtigen Kantenlängen multipliziert werden.\\
+Analog zu $\DA$ kann man die zweite Funktion verwenden, um $\DAd$ zu bestimmen. Dazu muss man nur als Eingabeparameter $\DSd$ setzen.
 \begin{align*}
 	\lstinline{[DS, DSt]} &= \lstinline{createDS(msh)} \\
 	\lstinline{[DAt]} &= \lstinline{createDA(DSt)} 
@@ -225,7 +226,7 @@ $x$-$y$-Ebene mit Index \lstinline{indz} grafisch darstellt. Verwenden Sie hierf
 \end{framed}
 \noindent
 Die Methode \lstinline{plotEBow} lässt sich mit wenigen Operationen implementieren.
-Zunächst wird der Vektor \lstinline{eBow} in die Anteile in $x$-, $y$- und $z$-Richtung zerlegt. Danach wird mit diesen Angaben der Betrag des Feldes an jeder Stelle Berechnet. Durch nun einfaches Auswählen des gewünschten Bereiches mit \lstinline{indz} kann nun das elektrische Feld grafisch dargestellt werden.
+Zunächst wird der Vektor \lstinline{eBow} in die Anteile in $x$-, $y$- und $z$-Richtung zerlegt. Danach wird mit diesen Angaben der Betrag des Feldes an jeder Stelle berechnet. Durch nun einfaches Auswählen des gewünschten Bereiches mit \lstinline{indz} kann nun das elektrische Feld grafisch dargestellt werden.
 
 
 % --> Aufgabe

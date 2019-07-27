@@ -30,7 +30,7 @@ ergibt sich (6.6) zu
 \begin{framed}
 	\noindent \textbf{2.} Leiten Sie die Update-Gleichungen~(6.10) und~(6.11) des Leapfrog-Algorithmus ebenfalls für ${\Mkap \neq 0}$ her und erklären Sie, welche Schwierigkeiten hier auftreten.\label{exer:updateSchemeWithConductor}
 \end{framed}
-
+\noindent
 Um Update-Gleichungen erzeugen zu können nimmt man
 \begin{eqnarray}
 	\frac{\text{d}\hfit}{\text{d}t}\big |^{(m+\frac{1}{2})}&\approx&	\frac{\hfit^{(m+1)}-\hfit^{(m)}}{\Delta t}\\
@@ -41,7 +41,7 @@ an. Setzt man diese Annahme in die Gleichungen für $\hfit^{(n+1)}$ und $\efit^{
 	\hfit^{(m+1)}&=&\hfit^{(m-1)}-2\Delta t\Mmui\curlfit\efit^{(m+\frac{1}{2})}\\
 	\efit^{(m+\frac{3}{2})}&=&\efit^{(m+\frac{1}{2})}-2\Delta t(\Meps^{-1}\Mkap\efit^{(m+1)}+\Meps^{-1}(\curldfit\hfit^{(m+1)}-\jfit^{(m+1)})).
 \end{eqnarray*}
-
+Schwierigkeiten treten bei ${\Mkap \neq 0}$ auf, da $\efit^{(m+1)}$ nicht definiert ist und zunächst interpoliert werden muss. 
 % --> Aufgabe
 \begin{framed}
 	\noindent \textbf{3.} Fertigen Sie eine Skizze mit zwei gleichen, zur Illustration aber zeichnerisch getrennten Zeitachsen an. Auf eine der Zeitachsen soll die elektrische Gitterspannung \efit, auf die andere Zeitachse die magnetische Gitterspannung \hfit\ zu den nach dem Leapfrog-Verfahren jeweils definierten Zeitpunkten aufgetragen werden. Veranschaulichen Sie anschließend das Leapfrog-Verfahren mithilfe von Pfeile, indem Sie eintragen, welche Größen an welchen Zeitschritten in die jeweils zeitlich folgenden Größen eingehen.\label{exer:LeapfrogOnTimeAxes}

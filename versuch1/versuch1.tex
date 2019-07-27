@@ -16,7 +16,7 @@
 	\label{eq:zentDif}
 	f^{(1)}(x_i) = \frac{f(x_{i+1})-f(x_{i-1})}{\Delta x_{i-1}+\Delta x_i} + \mathcal{O}(\Delta x^{1\cdots2})
 	\end{equation}
-	
+	\noindent
 	setzt sich zusammen aus dem Vorwärts-Differenzenquotienten
 	\begin{equation}
 	\label{eq:vorDif}
@@ -25,7 +25,7 @@
 	und dem Rückwärts-Differenzenquotienten
 	\begin{equation}
 	\label{eq:rueckDif}
-	f^{(1)}(x_i) = \frac{f(x_{i})-f(x_{i-1})}{\Delta x_{i-1}} + \mathcal{O}(\Delta x)
+	f^{(1)}(x_i) = \frac{f(x_{i})-f(x_{i-1})}{\Delta x_{i-1}} + \mathcal{O}(\Delta x).
 	\end{equation}
 	\noindent
 	Im folgenden wird die Herleitung des Zentralen Differenzenquotienten bei homogenen Abständen $\Delta x$ dargestellt.\\
@@ -255,7 +255,7 @@ $	\begin{pmatrix}
 		r\text{sin}(i\Delta\varphi)\\
 		h
 	\end{pmatrix}$.
-	Dabei beschreibt $\Delta\varphi$ den Winkel wischen 2 Dreiecksseiten. Dieser ergibt sich aus $\Delta\varphi=\frac{2\pi}{n_D}$. Das $i$ beschreibt den Laufindex für die for-Schleife. Hat das Dreieck als Koordinaten von 2 Punkten 
+	Dabei beschreibt $\Delta\varphi$ den Winkel zwischen 2 Dreiecksseiten. Dieser ergibt sich aus $\Delta\varphi=\frac{2\pi}{n_D}$. Das $i$ beschreibt den Laufindex für die for-Schleife. Hat das Dreieck als Koordinaten von 2 Punkten 
 	$\begin{pmatrix}
 		0\\
 		0\\
@@ -393,6 +393,7 @@ $	\begin{pmatrix}
 		Reihenfolge sollen auch die Eigenvektoren in der Matrix \lstinline{modes} zurückgegeben werden.
 		Das Eigenwertproblem lässt sich durch die \matlab-Funktion \lstinline{eig} lösen, das Sortieren kann mit \lstinline{sort} erfolgen.\label{exer:solveCC}
 	\end{framed}
+	\noindent
 	Die Methode \lstinline{solveCC} bestimmt die Eigenvektoren der $\tilde{\textbf{C}}\textbf{C}$-Matrix und sortiert diese nach der Größe. Sie ist in Listing 1.1 zu sehen.
 	\lstinputlisting[caption=Bestimmung und Sortierung der Eigenvektoren der $\tilde{\textbf{C}}\textbf{C}$-Matrix, firstline=13, lastline=35]{versuch1/solveCC.m}
 	
