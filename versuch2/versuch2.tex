@@ -309,7 +309,10 @@ ${\mathbf{P_\xi}}$-Matrizen erzeugt.
                     sind. Mehr zu diesem Thema ist in der \matlab-Dokumentation zu finden.\label{exer:geoMats}
 \end{framed}
 \noindent
-In der Methode \lstinline{geoMats} werden zunächst die ${\mathbf{P_\xi}}$-Matrizen als \lstinline{sparse}-Matrizen erzeugt. Danach können über einfache Zusammenhänge die Matrizen $\curlfit$, $\divfit$ und $\divdfit$ erzeugt werden. Die Rückgabe der dualen Rotationsmatrix $\curldfit$ ist nicht sinnvoll, da diese durch $\curldfit = \curlfit^{\top}$ und die Rückgabe von $\curlfit$ bereits einfach erzeugt werden kann. Selbiges gilt für die primäre Gradientenmatrix $\mathbf{G}$ die aus $\divfit^{\top}$ durch $\mathbf{G} = -\divfit^{\top}$ erzeugt werden kann. 
+In der Methode \lstinline{geoMats} werden zunächst die ${\mathbf{P_\xi}}$-Matrizen als \lstinline{sparse}-Matrizen erzeugt. Danach können über einfache Zusammenhänge die Matrizen $\curlfit$, $\divfit$ und $\divdfit$ erzeugt werden. Der Code ist in Listing 2.2 zu sehen.
+Die Rückgabe der dualen Rotationsmatrix $\curldfit$ ist nicht sinnvoll, da diese durch $\curldfit = \curlfit^{\top}$ und die Rückgabe von $\curlfit$ bereits einfach erzeugt werden kann. Selbiges gilt für die primäre Gradientenmatrix $\mathbf{G}$ die aus $\divfit^{\top}$ durch $\mathbf{G} = -\divfit^{\top}$ erzeugt werden kann.
+
+\lstinputlisting[firstline=13, lastline=47, caption=Erzeugung der Divergenz- und Rotationsmatrizen]{versuch2/geoMats.m} 
 
 % --> Aufgabe
         \begin{framed}
