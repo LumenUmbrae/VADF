@@ -86,10 +86,10 @@ $$\Mmui=\DSd\Dmui\DA^{-1}=
 \noindent
 %Wenn man elektrische Randbedingung hat, muss man die tangentiale Komponente der Permitivität und normale Komponente der Permeabilität am Rand auf Null setzen. Bei magnetischer Randbedingung ist die tangentiale Komponente der magnetischen Feldstärke und normale Komponente des elektrischen Feldes gleich Null. Bei den Materialmatrizen gibt es keine Veränderungen. Die normale Komponente auf dem primären Gitter ist eine Geisterkante und für die Geisterkante ist keine Kante auf dem dualen Gitter definiert. Der Code dazu ist in Listing \ref{lst:mgn_RB} zu sehen.
 \noindent
-Bei elektrischen Randbedienungen sind die tangentialen Anteile der Permitivität, sowie die normalen Anteile der Permeabilität Null.\\
+Bei elektrischen Randbedienungen sind die tangentialen Anteile der Permitivität, sowie die normalen Anteile der Permeabilität Null. Dies wird direkt in die Materialmatrizen eingepflegt.\\
 Bei magnetischen Randbedingungen sind die normalen Anteile des elektrischen Feldes und der tangentiale Anteil des magnetischen Feldes Null. 
 Die Materialmatrizen sind hiervon nur indirekt betroffen, da magnetische Randbedingungen automatisch eingepflegt sind. \\
-Die normale Komponente auf dem primären Gitter ist eine Geisterkante und für diese ist auf dem dualen Gitter keine Kante definiert. Der Code dazu ist in Listing \ref{lst:mgn_RB} zu sehen.
+Der Code dazu ist in Listing \ref{lst:mgn_RB} zu sehen.
 \begin{lstlisting}[caption={Einsetzen der elektrischen Randbedigungen},label={lst:mgn_RB}]
 %% Randbedingungen
 
